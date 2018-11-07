@@ -4,9 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <RuntimeIdentifiers>win7-x64;linux-x64</RuntimeIdentifiers>
-    <!--<RuntimeIdentifier>linux-x64</RuntimeIdentifier> -->
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
-    <!-- <RuntimeFrameworkVersion>2.1.403</RuntimeFrameworkVersion> -->
     <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
     <RootNamespace>river_flow_processor</RootNamespace>
   </PropertyGroup>
@@ -16,11 +14,5 @@
     <PackageReference Include="RabbitMQ.Client" Version="5.1.0" />
     <PackageReference Include="Steeltoe.CloudFoundry.ConnectorCore" Version="2.1.1" />
   </ItemGroup>
-
-<!--
-  <ItemGroup>
-    <PackageReference Update="Microsoft.NETCore.App" Version="2.1.4" />
-  </ItemGroup>
--->
 
 </Project>
