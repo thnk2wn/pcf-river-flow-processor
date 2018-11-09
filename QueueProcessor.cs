@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -8,19 +9,27 @@ namespace river_flow_processor
     public class QueueProcessor : IQueueProcessor
     {
         private readonly ConnectionFactory queueConnectionFactory;
+        private readonly ILogger<IQueueProcessor> logger;
 
-        public QueueProcessor(ConnectionFactory queueConnectionFactory) 
+        public QueueProcessor(
+            ConnectionFactory queueConnectionFactory,
+            ILogger<IQueueProcessor> logger)
         {
             this.queueConnectionFactory = queueConnectionFactory;
+            this.logger = logger;
         }
 
         public void StartListening() 
         {
             const string queueName = "river-flow";
 
+            this.logger.LogDebug("Initializing connection to {0}", this.queueConnectionFactory.HostName);
+
             using (var queueConn = this.queueConnectionFactory.CreateConnection())
             using (var queueChannel = queueConn.CreateModel())
             {
+                this.logger.LogDebug("Connected to {0}", queueConn.Endpoint.HostName);
+
                 queueChannel.QueueDeclare(
                     queue: queueName, 
                     durable: true, 
@@ -32,8 +41,10 @@ namespace river_flow_processor
                 queueConsumer.Received += (model, ea) =>
                 {
                     var json = Encoding.UTF8.GetString(ea.Body);
-                    Console.WriteLine($"Received river flow request:{Environment.NewLine}{json}");
+                    this.logger.LogInformation("Received river flow request:{0}{1}", Environment.NewLine, json);
                 };
+
+                this.logger.LogInformation("Monitoring queue {0} on {1}", queueName, queueConn.Endpoint.HostName);
 
                 queueChannel.BasicConsume(
                     queue: queueName, 

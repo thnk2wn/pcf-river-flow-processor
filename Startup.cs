@@ -29,7 +29,7 @@ namespace river_flow_processor
             services.AddRabbitMQConnection(configuration);
 
             services.AddLogging(configure => configure.AddConsole())
-                .Configure<LoggerFilterOptions>(options => options.MinLevel = LogLevel.Information);
+                .Configure<LoggerFilterOptions>(options => options.MinLevel = LogLevel.Debug);
 
             services.AddScoped<IQueueProcessor, QueueProcessor>();
         }
