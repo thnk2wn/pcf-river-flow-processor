@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using Steeltoe.CloudFoundry.Connector.RabbitMQ;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
@@ -20,18 +21,31 @@ namespace river_flow_processor
             var services = new ServiceCollection();
             ConfigureServices(services, configuration);
             this.ServiceProvider = services.BuildServiceProvider();
+
+            this.ConfigureLogging();
             
             return this;
         }
 
         private static void ConfigureServices(IServiceCollection services, IConfigurationRoot configuration) 
         {
+            services.AddLogging();
             services.AddRabbitMQConnection(configuration);
 
-            services.AddLogging(configure => configure.AddConsole())
-                .Configure<LoggerFilterOptions>(options => options.MinLevel = LogLevel.Debug);
-
             services.AddScoped<IQueueProcessor, QueueProcessor>();
+        }
+
+        private void ConfigureLogging() 
+        {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console(
+                    outputTemplate: "[{Level:u3}] {Message:lj}{NewLine}{Exception}"
+                )
+                .CreateLogger();
+
+            var loggerFactory = this.ServiceProvider.GetRequiredService<ILoggerFactory>();
+            loggerFactory.AddSerilog();
         }
     }
 }
