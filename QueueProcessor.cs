@@ -21,14 +21,17 @@ namespace river_flow_processor
 
         public void StartListening() 
         {
-            const string queueName = "river-flow";
+            var queueName = Environment.GetEnvironmentVariable("QUEUE_NAME");
+
+            if (string.IsNullOrEmpty(queueName))
+                throw new InvalidOperationException("QUEUE_NAME must be set in environment to listen");
 
             this.logger.LogDebug("Initializing connection to {0}", this.queueConnectionFactory.HostName);
 
             using (var queueConn = this.queueConnectionFactory.CreateConnection())
             using (var queueChannel = queueConn.CreateModel())
             {
-                this.logger.LogDebug("Connected to {0}", queueConn.Endpoint.HostName);
+                this.logger.LogDebug("Connected to {0}. Declaring queue {1}", queueConn.Endpoint.HostName, queueName);
 
                 queueChannel.QueueDeclare(
                     queue: queueName, 

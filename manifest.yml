@@ -11,3 +11,5 @@ applications:
   path: bin\Release\netcoreapp2.1\linux-x64\publish
   services:
   - queue-svc
+  env:
+    QUEUE_NAME: river-flow

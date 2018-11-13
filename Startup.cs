@@ -1,7 +1,9 @@
+using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using Serilog.Events;
 using Steeltoe.CloudFoundry.Connector.RabbitMQ;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
@@ -35,10 +37,12 @@ namespace river_flow_processor
             services.AddScoped<IQueueProcessor, QueueProcessor>();
         }
 
-        private void ConfigureLogging() 
+        private void ConfigureLogging()
         {
+            var logLevel = GetLogLevel();
+
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
+                .MinimumLevel.Is(logLevel)
                 .WriteTo.Console(
                     outputTemplate: "[{Level:u3}] {Message:lj}{NewLine}{Exception}"
                 )
@@ -46,6 +50,28 @@ namespace river_flow_processor
 
             var loggerFactory = this.ServiceProvider.GetRequiredService<ILoggerFactory>();
             loggerFactory.AddSerilog();
+        }
+
+        private LogEventLevel GetLogLevel() 
+        {
+            var rawLogLevel = Environment.GetEnvironmentVariable("LOG_LEVEL");
+
+            if (string.IsNullOrEmpty(rawLogLevel)) 
+            {
+                rawLogLevel = "Information";
+                Console.WriteLine($"LOG_LEVEL not set in environment, defaulting to {rawLogLevel}");
+            }
+
+            if (!Enum.TryParse(rawLogLevel, true, out LogEventLevel logLevel))
+            {
+                var validLevels = string.Join(',', Enum.GetNames(typeof(LogEventLevel)));
+                throw new InvalidOperationException(
+                    $"Invalid log level '{rawLogLevel}'. Expected one of: {validLevels}");
+            }
+
+            Console.WriteLine($"Log level is {logLevel}");
+
+            return logLevel;
         }
     }
 }
