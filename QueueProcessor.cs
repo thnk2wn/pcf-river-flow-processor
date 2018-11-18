@@ -1,22 +1,30 @@
 using System;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using RiverFlowProcessor.USGS;
 
-namespace river_flow_processor
+namespace RiverFlowProcessor
 {
     public class QueueProcessor : IQueueProcessor
     {
         private readonly ConnectionFactory queueConnectionFactory;
         private readonly ILogger<IQueueProcessor> logger;
+        private readonly IStreamFlowProcessor streamFlowProcessor;
 
         public QueueProcessor(
             ConnectionFactory queueConnectionFactory,
-            ILogger<IQueueProcessor> logger)
+            ILogger<IQueueProcessor> logger,
+            IStreamFlowProcessor streamFlowProcessor)
         {
             this.queueConnectionFactory = queueConnectionFactory;
+            this.queueConnectionFactory.DispatchConsumersAsync = true;
+
             this.logger = logger;
+            this.streamFlowProcessor = streamFlowProcessor;
         }
 
         public void StartListening() 
@@ -26,12 +34,12 @@ namespace river_flow_processor
             if (string.IsNullOrEmpty(queueName))
                 throw new InvalidOperationException("QUEUE_NAME must be set in environment to listen");
 
-            this.logger.LogDebug("Initializing connection to {0}", this.queueConnectionFactory.HostName);
+            this.logger.LogDebug("Initializing connection to {host}", this.queueConnectionFactory.HostName);
 
             using (var queueConn = this.queueConnectionFactory.CreateConnection())
             using (var queueChannel = queueConn.CreateModel())
             {
-                this.logger.LogDebug("Connected to {0}. Declaring queue {1}", queueConn.Endpoint.HostName, queueName);
+                this.logger.LogDebug("Connected to {host}. Declaring queue {queue}", queueConn.Endpoint.HostName, queueName);
 
                 queueChannel.QueueDeclare(
                     queue: queueName, 
@@ -40,14 +48,10 @@ namespace river_flow_processor
                     autoDelete: false, 
                     arguments: null);
 
-                var queueConsumer = new EventingBasicConsumer(queueChannel);
-                queueConsumer.Received += (model, ea) =>
-                {
-                    var json = Encoding.UTF8.GetString(ea.Body);
-                    this.logger.LogInformation("Received river flow request:{0}{1}", Environment.NewLine, json);
-                };
+                var queueConsumer = new AsyncEventingBasicConsumer(queueChannel);
+                queueConsumer.Received += AfterMessageReceived;
 
-                this.logger.LogInformation("Monitoring queue {0} on {1}", queueName, queueConn.Endpoint.HostName);
+                this.logger.LogInformation("Monitoring queue {queue} on {host}", queueName, queueConn.Endpoint.HostName);
 
                 queueChannel.BasicConsume(
                     queue: queueName, 
@@ -56,6 +60,15 @@ namespace river_flow_processor
 
                 Console.ReadLine();
             }
+        }
+
+        private async Task AfterMessageReceived(object sender, BasicDeliverEventArgs args)
+        {
+            var json = Encoding.UTF8.GetString(args.Body);
+            this.logger.LogInformation("Received river flow request:{0}{1}", Environment.NewLine, json);
+
+            var request = JsonConvert.DeserializeObject<RiverFlowRequest>(json);
+            await this.streamFlowProcessor.Process(request.UsgsGaugeId);
         }
     }
 

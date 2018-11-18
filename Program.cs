@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace river_flow_processor
+namespace RiverFlowProcessor
 {
     class Program
     {

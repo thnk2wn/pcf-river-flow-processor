@@ -2,12 +2,13 @@ using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using RiverFlowProcessor.USGS;
 using Serilog;
 using Serilog.Events;
 using Steeltoe.CloudFoundry.Connector.RabbitMQ;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
-namespace river_flow_processor
+namespace RiverFlowProcessor
 {
     public class Startup
     {
@@ -31,10 +32,14 @@ namespace river_flow_processor
 
         private static void ConfigureServices(IServiceCollection services, IConfigurationRoot configuration) 
         {
-            services.AddLogging();
-            services.AddRabbitMQConnection(configuration);
+            services.AddLogging()
+                .AddRabbitMQConnection(configuration)
+                .AddHttpClient()
+                .AddOptions()
+                .ConfigureCloudFoundryOptions(configuration);
 
             services.AddScoped<IQueueProcessor, QueueProcessor>();
+            services.AddScoped<IStreamFlowProcessor, StreamFlowProcessor>();
         }
 
         private void ConfigureLogging()
@@ -47,6 +52,8 @@ namespace river_flow_processor
                     outputTemplate: "[{Level:u3}] {Message:lj}{NewLine}{Exception}"
                 )
                 .CreateLogger();
+
+            Console.WriteLine("Log level: {0}, enabled: {1}", logLevel, Log.Logger.IsEnabled(logLevel));
 
             var loggerFactory = this.ServiceProvider.GetRequiredService<ILoggerFactory>();
             loggerFactory.AddSerilog();
