@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using RiverFlowProcessor.RiverFlow;
 using RiverFlowProcessor.USGS;
 
 namespace RiverFlowProcessor
@@ -13,18 +15,18 @@ namespace RiverFlowProcessor
     {
         private readonly ConnectionFactory queueConnectionFactory;
         private readonly ILogger<IQueueProcessor> logger;
-        private readonly IStreamFlowProcessor streamFlowProcessor;
+        private readonly IRiverFlowProcessor riverFlowProcessor;
 
         public QueueProcessor(
             ConnectionFactory queueConnectionFactory,
             ILogger<IQueueProcessor> logger,
-            IStreamFlowProcessor streamFlowProcessor)
+            IRiverFlowProcessor riverFlowProcessor)
         {
             this.queueConnectionFactory = queueConnectionFactory;
             this.queueConnectionFactory.DispatchConsumersAsync = true;
 
             this.logger = logger;
-            this.streamFlowProcessor = streamFlowProcessor;
+            this.riverFlowProcessor = riverFlowProcessor;
         }
 
         public void StartListening() 
@@ -41,34 +43,55 @@ namespace RiverFlowProcessor
             {
                 this.logger.LogDebug("Connected to {host}. Declaring queue {queue}", queueConn.Endpoint.HostName, queueName);
 
+                var args = new Dictionary<string, object>();
+
+                const int oneHourMs = 3600000;
+                args.Add("x-message-ttl", oneHourMs);
+
                 queueChannel.QueueDeclare(
                     queue: queueName, 
                     durable: true, 
                     exclusive: false, 
                     autoDelete: false, 
-                    arguments: null);
+                    arguments: args);
 
                 var queueConsumer = new AsyncEventingBasicConsumer(queueChannel);
-                queueConsumer.Received += AfterMessageReceived;
+                queueConsumer.Received += async (sender, e) => 
+                {
+                    await ProcessMessage(queueChannel, e);
+                };
 
                 this.logger.LogInformation("Monitoring queue {queue} on {host}", queueName, queueConn.Endpoint.HostName);
 
                 queueChannel.BasicConsume(
                     queue: queueName, 
-                    autoAck: true,
+                    autoAck: false,
                     consumer: queueConsumer);
 
                 Console.ReadLine();
             }
         }
 
-        private async Task AfterMessageReceived(object sender, BasicDeliverEventArgs args)
+        private async Task ProcessMessage(IModel channel, BasicDeliverEventArgs args)
         {
-            var json = Encoding.UTF8.GetString(args.Body);
-            this.logger.LogInformation("Received river flow request:{0}{1}", Environment.NewLine, json);
+            string gaugeId = null;
 
-            var request = JsonConvert.DeserializeObject<RiverFlowRequest>(json);
-            await this.streamFlowProcessor.Process(request.UsgsGaugeId);
+            try
+            {
+                var json = Encoding.UTF8.GetString(args.Body);
+                this.logger.LogInformation("Received river flow request:{0}{1}", Environment.NewLine, json);
+
+                var request = JsonConvert.DeserializeObject<RiverFlowRequest>(json);
+                gaugeId = request.UsgsGaugeId;
+                await this.riverFlowProcessor.Process(gaugeId);
+                
+                channel.BasicAck(args.DeliveryTag, false);
+            }
+            catch (Exception ex) 
+            {
+                this.logger.LogError(ex, "Error processing gauge {gauge}", gaugeId ?? "unknown");
+                throw;
+            }
         }
     }
 

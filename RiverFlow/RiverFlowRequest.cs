@@ -1,4 +1,4 @@
-namespace RiverFlowProcessor
+namespace RiverFlowProcessor.RiverFlow
 {
     public class RiverFlowRequest
     {

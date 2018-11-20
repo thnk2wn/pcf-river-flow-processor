@@ -2,6 +2,7 @@ using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using RiverFlowProcessor.RiverFlow;
 using RiverFlowProcessor.USGS;
 using Serilog;
 using Serilog.Events;
@@ -38,8 +39,10 @@ namespace RiverFlowProcessor
                 .AddOptions()
                 .ConfigureCloudFoundryOptions(configuration);
 
+            services.AddHttpClient<IUsgsIvClient, UsgsIvClient>();
+
             services.AddScoped<IQueueProcessor, QueueProcessor>();
-            services.AddScoped<IStreamFlowProcessor, StreamFlowProcessor>();
+            services.AddScoped<IRiverFlowProcessor, RiverFlowProcessor.RiverFlow.RiverFlowProcessor>();
         }
 
         private void ConfigureLogging()
@@ -49,7 +52,7 @@ namespace RiverFlowProcessor
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Is(logLevel)
                 .WriteTo.Console(
-                    outputTemplate: "[{Level:u3}] {Message:lj}{NewLine}{Exception}"
+                    outputTemplate: "{SourceContext}: [{Level:u3}] {Message:lj}{NewLine}{Exception}"
                 )
                 .CreateLogger();
 
