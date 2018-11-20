@@ -32,7 +32,8 @@ namespace RiverFlowProcessor
 
         private static void ConfigureServices(IServiceCollection services, IConfigurationRoot configuration) 
         {
-            services.AddLogging(builder => 
+            services
+                .AddLogging(builder => 
                 {
                     var logger = CreateLogger();
                     builder.AddSerilog(logger, dispose: true);

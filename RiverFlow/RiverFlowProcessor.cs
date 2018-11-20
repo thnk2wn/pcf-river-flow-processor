@@ -59,6 +59,8 @@ namespace RiverFlowProcessor.RiverFlow
             };
 
             this.logger.LogInformation("{snapshotSummary}", snapshot);
+
+            // TODO: get other data (weather etc.), call microservice to import/persist
         }
 
         private double? GetFlowValue(TimeSeriesValue timeSeriesValue) 
