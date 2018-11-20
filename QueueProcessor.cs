@@ -79,7 +79,7 @@ namespace RiverFlowProcessor
             try
             {
                 var json = Encoding.UTF8.GetString(args.Body);
-                this.logger.LogInformation("Received river flow request:{0}{1}", Environment.NewLine, json);
+                this.logger.LogTrace("Received river flow request:{0}{1}", Environment.NewLine, json);
 
                 var request = JsonConvert.DeserializeObject<RiverFlowRequest>(json);
                 gaugeId = request.UsgsGaugeId;

@@ -26,11 +26,10 @@ namespace RiverFlowProcessor.RiverFlow
 
         public async Task Process(string usgsGaugeId)
         {
-            this.logger.LogInformation("Fetching gauge data");
+            this.logger.LogInformation("Fetching gauge data for site {site}", usgsGaugeId);
             var streamFlow = await this.usgsIvClient.GetStreamFlow(new[] {usgsGaugeId});
-            this.logger.LogInformation("Fetched gauge data");
 
-            this.logger.LogInformation("Inspecting, mapping data for gauge {usgsGaugeId}", usgsGaugeId);
+            this.logger.LogDebug("Inspecting, mapping data for site {usgsGaugeId}", usgsGaugeId);
 
             var gaugeHeight = streamFlow.GetLastTimeSeriesValue(UsgsVariables.GaugeHeightFeet);
             var dischargeCfs = streamFlow.GetLastTimeSeriesValue(UsgsVariables.DischargeCFS);
@@ -59,7 +58,6 @@ namespace RiverFlowProcessor.RiverFlow
                  }
             };
 
-            this.logger.LogDebug("Data mapped for gauge {usgsGaugeId}", usgsGaugeId);
             this.logger.LogInformation("{snapshotSummary}", snapshot);
         }
 

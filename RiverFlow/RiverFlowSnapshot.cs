@@ -12,7 +12,8 @@ namespace RiverFlowProcessor.RiverFlow
 
         public override string ToString()
         {
-            return $"{Site?.Name}: {Flow?.GaugeHeightFeet} ft, {Flow?.DischargeCFS} cfs, {Flow?.WaterTemperature?.Fahrenheit} F";
+            return $"{Site?.Code} - {Site?.Name}: " +
+                $"{Flow?.GaugeHeightFeet} ft, {Flow?.DischargeCFS} cfs, {Flow?.WaterTemperature?.Fahrenheit} F";
         }
 
         public class SourceSite 

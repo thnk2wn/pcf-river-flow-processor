@@ -6,6 +6,7 @@ using RiverFlowProcessor.RiverFlow;
 using RiverFlowProcessor.USGS;
 using Serilog;
 using Serilog.Events;
+using Serilog.Extensions.Logging;
 using Steeltoe.CloudFoundry.Connector.RabbitMQ;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
@@ -25,15 +26,18 @@ namespace RiverFlowProcessor
             var services = new ServiceCollection();
             ConfigureServices(services, configuration);
             this.ServiceProvider = services.BuildServiceProvider();
-
-            this.ConfigureLogging();
             
             return this;
         }
 
         private static void ConfigureServices(IServiceCollection services, IConfigurationRoot configuration) 
         {
-            services.AddLogging()
+            services.AddLogging(builder => 
+                {
+                    var logger = CreateLogger();
+                    builder.AddSerilog(logger, dispose: true);
+                    Log.Logger = logger;
+                })
                 .AddRabbitMQConnection(configuration)
                 .AddHttpClient()
                 .AddOptions()
@@ -45,24 +49,22 @@ namespace RiverFlowProcessor
             services.AddScoped<IRiverFlowProcessor, RiverFlowProcessor.RiverFlow.RiverFlowProcessor>();
         }
 
-        private void ConfigureLogging()
+        private static Serilog.ILogger CreateLogger()
         {
             var logLevel = GetLogLevel();
 
-            Log.Logger = new LoggerConfiguration()
+            var logger = new LoggerConfiguration()
                 .MinimumLevel.Is(logLevel)
                 .WriteTo.Console(
-                    outputTemplate: "{SourceContext}: [{Level:u3}] {Message:lj}{NewLine}{Exception}"
+                    // Add {SourceContext} for logger class name (with namespace)
+                    outputTemplate: "[{Level:u3}] {Message:lj}{NewLine}{Exception}"
                 )
                 .CreateLogger();
 
-            Console.WriteLine("Log level: {0}, enabled: {1}", logLevel, Log.Logger.IsEnabled(logLevel));
-
-            var loggerFactory = this.ServiceProvider.GetRequiredService<ILoggerFactory>();
-            loggerFactory.AddSerilog();
+            return logger;
         }
 
-        private LogEventLevel GetLogLevel() 
+        private static LogEventLevel GetLogLevel() 
         {
             var rawLogLevel = Environment.GetEnvironmentVariable("LOG_LEVEL");
 
