@@ -35,6 +35,15 @@ namespace RiverFlowProcessor.RiverFlow
             var dischargeCfs = streamFlow.GetLastTimeSeriesValue(UsgsVariables.DischargeCFS);
             var waterTemp = streamFlow.GetLastTimeSeriesValue(UsgsVariables.WaterTempCelsius);
             var firstSetSeries = (gaugeHeight ?? dischargeCfs ?? waterTemp);
+
+            if (firstSetSeries == null) 
+            {
+                this.logger.LogWarning(
+                    "No timeseries sensor data returned for gauge {gauge}; skipping.", 
+                    usgsGaugeId);
+                return;
+            }
+
             var sourceSite = streamFlow.GetSource();
 
             var snapshot = new RiverFlowSnapshot 

@@ -2,6 +2,7 @@ using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using RiverFlowProcessor.Queuing;
 using RiverFlowProcessor.RiverFlow;
 using RiverFlowProcessor.USGS;
 using Serilog;
@@ -48,6 +49,7 @@ namespace RiverFlowProcessor
 
             services.AddScoped<IQueueProcessor, QueueProcessor>();
             services.AddScoped<IRiverFlowProcessor, RiverFlowProcessor.RiverFlow.RiverFlowProcessor>();
+            services.AddScoped<IQueuePublisher, QueuePublisher>();
         }
 
         private static Serilog.ILogger CreateLogger()

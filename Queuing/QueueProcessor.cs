@@ -9,7 +9,7 @@ using RabbitMQ.Client.Events;
 using RiverFlowProcessor.RiverFlow;
 using RiverFlowProcessor.USGS;
 
-namespace RiverFlowProcessor
+namespace RiverFlowProcessor.Queuing
 {
     public class QueueProcessor : IQueueProcessor
     {
@@ -31,29 +31,18 @@ namespace RiverFlowProcessor
 
         public void StartListening() 
         {
-            var queueName = Environment.GetEnvironmentVariable("QUEUE_NAME");
-
-            if (string.IsNullOrEmpty(queueName))
-                throw new InvalidOperationException("QUEUE_NAME must be set in environment to listen");
-
+            var queueProps = new QueueProperties();
             this.logger.LogDebug("Initializing connection to {host}", this.queueConnectionFactory.HostName);
 
             using (var queueConn = this.queueConnectionFactory.CreateConnection())
             using (var queueChannel = queueConn.CreateModel())
             {
-                this.logger.LogDebug("Connected to {host}. Declaring queue {queue}", queueConn.Endpoint.HostName, queueName);
+                this.logger.LogDebug(
+                    "Connected to {host}. Declaring queue {queue}", 
+                    queueConn.Endpoint.HostName, 
+                    queueProps.QueueName);
 
-                var args = new Dictionary<string, object>();
-
-                const int oneHourMs = 3600000;
-                args.Add("x-message-ttl", oneHourMs);
-
-                queueChannel.QueueDeclare(
-                    queue: queueName, 
-                    durable: true, 
-                    exclusive: false, 
-                    autoDelete: false, 
-                    arguments: args);
+                queueProps.DeclareQueue(queueChannel);
 
                 var queueConsumer = new AsyncEventingBasicConsumer(queueChannel);
                 queueConsumer.Received += async (sender, e) => 
@@ -61,10 +50,13 @@ namespace RiverFlowProcessor
                     await ProcessMessage(queueChannel, e);
                 };
 
-                this.logger.LogInformation("Monitoring queue {queue} on {host}", queueName, queueConn.Endpoint.HostName);
+                this.logger.LogInformation(
+                    "Monitoring queue {queue} on {host}", 
+                    queueProps.QueueName, 
+                    queueConn.Endpoint.HostName);
 
                 queueChannel.BasicConsume(
-                    queue: queueName, 
+                    queue: queueProps.QueueName, 
                     autoAck: false,
                     consumer: queueConsumer);
 
