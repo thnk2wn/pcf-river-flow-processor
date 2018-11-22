@@ -1,4 +1,7 @@
 using System;
+using App.Metrics;
+using App.Metrics.Filtering;
+using App.Metrics.Formatters.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -50,6 +53,23 @@ namespace RiverFlowProcessor
             services.AddScoped<IQueueProcessor, QueueProcessor>();
             services.AddScoped<IRiverFlowProcessor, RiverFlowProcessor.RiverFlow.RiverFlowProcessor>();
             services.AddScoped<IQueuePublisher, QueuePublisher>();
+
+            services.AddSingleton<IMetrics>(CreateMetrics());
+        }
+
+        private static IMetrics CreateMetrics()
+        {
+            var filter = new MetricsFilter().WhereType(MetricType.Timer);
+            var metrics = new MetricsBuilder()
+                .OutputMetrics.Using<TimerMetricsFormatter>()
+                .Report.ToConsole(
+                    options => {
+                        options.FlushInterval = TimeSpan.FromSeconds(30);
+                        options.Filter = filter;
+                        options.MetricsOutputFormatter = new TimerMetricsFormatter();
+                    })
+                .Build();
+            return metrics; 
         }
 
         private static Serilog.ILogger CreateLogger()
@@ -58,6 +78,8 @@ namespace RiverFlowProcessor
 
             var logger = new LoggerConfiguration()
                 .MinimumLevel.Is(logLevel)
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+                .MinimumLevel.Override("System", LogEventLevel.Warning)
                 .WriteTo.Console(
                     // Add {SourceContext} for logger class name (with namespace)
                     outputTemplate: "[{Level:u3}] {Message:lj}{NewLine}{Exception}"

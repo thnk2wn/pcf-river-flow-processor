@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using App.Metrics;
+using App.Metrics.Timer;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -15,16 +17,37 @@ namespace RiverFlowProcessor.RiverFlow
     {
         private readonly IUsgsIvClient usgsIvClient;
         private readonly ILogger<IRiverFlowProcessor> logger;
+        private readonly IMetrics metrics;
+        private TimerOptions requestTimer;
 
         public RiverFlowProcessor(
             IUsgsIvClient usgsIvClient,
-            ILogger<IRiverFlowProcessor> logger) 
+            ILogger<IRiverFlowProcessor> logger,
+            IMetrics metrics) 
         {
             this.usgsIvClient = usgsIvClient;
             this.logger = logger;
+            this.metrics = metrics;
+            this.requestTimer = new TimerOptions
+            {
+                Name = "River Flow Requests",
+                MeasurementUnit = App.Metrics.Unit.Requests,
+                DurationUnit = TimeUnit.Seconds,
+                RateUnit = TimeUnit.Seconds
+            };
         }
 
         public async Task Process(string usgsGaugeId)
+        {
+            using(metrics.Measure.Timer.Time(requestTimer))
+            {
+                await GetRiverFlowData(usgsGaugeId);
+            }
+
+            // TODO: get other data (weather etc.), call microservice to import/persist
+        }
+
+        private async Task GetRiverFlowData(string usgsGaugeId) 
         {
             this.logger.LogInformation("Fetching gauge data for site {site}", usgsGaugeId);
             var streamFlow = await this.usgsIvClient.GetStreamFlow(new[] {usgsGaugeId});
@@ -69,7 +92,7 @@ namespace RiverFlowProcessor.RiverFlow
 
             this.logger.LogInformation("{snapshotSummary}", snapshot);
 
-            // TODO: get other data (weather etc.), call microservice to import/persist
+            // TODO: call service to persist / import flow data
         }
 
         private double? GetFlowValue(TimeSeriesValue timeSeriesValue) 

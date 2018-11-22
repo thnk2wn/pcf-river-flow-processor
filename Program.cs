@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using App.Metrics;
 using CommandLine;
 using CommandLine.Text;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +18,10 @@ namespace RiverFlowProcessor
                 { "c", Consume },
                 { "p", Produce }
             };
+        
+        private static Timer timer;
+
+        private static IMetrics metrics;
 
         static void Main(string[] args)
         {
@@ -22,6 +29,14 @@ namespace RiverFlowProcessor
 
             var serviceProvider = new Startup().Configure().ServiceProvider;
             if (serviceProvider == null) throw new NullReferenceException("Service provider not set");
+
+            metrics = serviceProvider.GetService<IMetrics>();
+
+            timer = new Timer(
+                callback: new TimerCallback(TimerTaskAsync),
+                state: null,
+                dueTime: 30000,
+                period: 30000);
 
             try 
             {
@@ -73,6 +88,12 @@ namespace RiverFlowProcessor
 
             var publisher = serviceProvider.GetService<IQueuePublisher>();
             publisher.PublishAll();
+        }
+
+        private static async void TimerTaskAsync(object timerState) 
+        {
+            var metricsRoot = (IMetricsRoot)metrics;
+            await Task.WhenAll(metricsRoot.ReportRunner.RunAllAsync());
         }
     }
 }
