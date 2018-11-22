@@ -30,10 +30,10 @@ namespace RiverFlowProcessor.RiverFlow
             this.metrics = metrics;
             this.requestTimer = new TimerOptions
             {
-                Name = "River Flow Requests",
-                MeasurementUnit = App.Metrics.Unit.Requests,
+                Name = "River Flow Calls",
+                MeasurementUnit = App.Metrics.Unit.Calls,
                 DurationUnit = TimeUnit.Seconds,
-                RateUnit = TimeUnit.Seconds
+                RateUnit = TimeUnit.Minutes
             };
         }
 

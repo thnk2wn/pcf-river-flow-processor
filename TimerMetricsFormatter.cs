@@ -23,9 +23,9 @@ namespace RiverFlowProcessor
                 {
                     writer.WriteLineAsync(
                         $"{timer.Name} - " +
-                        $"{timer.Value.Rate.Count} total, " +
-                        $"{timer.Value.Rate.OneMinuteRate:0.000} / min, " +
-                        $"{timer.Value.Rate.MeanRate:0.000} mean.  #metric");
+                        $"{timer.Value.Rate.Count} total. Rates: " +
+                        $"{timer.Value.Rate.OneMinuteRate:0.0} 1-min, " +
+                        $"{timer.Value.Rate.FiveMinuteRate:0.0} 5-min. #metric");
                 }
                 
             }
