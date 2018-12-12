@@ -82,6 +82,7 @@ namespace RiverFlowProcessor.Queuing
             catch (Exception ex) 
             {
                 this.logger.LogError(ex, "Error processing gauge {gauge}", gaugeId ?? "unknown");
+                channel.BasicNack(args.DeliveryTag, multiple: false, requeue: true);
                 throw;
             }
         }

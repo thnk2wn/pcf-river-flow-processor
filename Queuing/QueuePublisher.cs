@@ -40,7 +40,7 @@ namespace RiverFlowProcessor.Queuing
                     queueConn.Endpoint.HostName, 
                     this.queueProps.QueueName);
 
-                this.queueProps.DeclareQueue(queueChannel);
+                this.queueProps.SetupQueue(queueChannel);
 
                 queueChannel.QueuePurge(this.queueProps.QueueName);
 
@@ -69,9 +69,7 @@ namespace RiverFlowProcessor.Queuing
             var json = JsonConvert.SerializeObject(request);
 
             byte[] messageBody = Encoding.UTF8.GetBytes(json);
-            IBasicProperties props = queueChannel.CreateBasicProperties();
-            props.ContentType = "application/json";
-            props.DeliveryMode = 2;
+            var props = CreateMessageProps(queueChannel);
 
             this.logger.LogInformation(
                 "Publishing #{publishCount} - gauge {gaugeId}", 
@@ -79,10 +77,20 @@ namespace RiverFlowProcessor.Queuing
                 usgsGaugeId);
 
             queueChannel.BasicPublish(
-                exchange: string.Empty,
-                routingKey: this.queueProps.QueueName,
+                exchange: QueueProperties.Exchange,
+                routingKey: QueueProperties.DefaultRoutingKey,
                 basicProperties: props,
                 body: messageBody);
+        }
+
+        private IBasicProperties CreateMessageProps(IModel queueChannel) 
+        {
+            IBasicProperties props = queueChannel.CreateBasicProperties();
+            props.ContentType = "application/json";
+            props.DeliveryMode = 2;
+            props.Persistent = true;
+            props.Expiration = QueueProperties.ExpirationMs.ToString();
+            return props;
         }
     }
 
