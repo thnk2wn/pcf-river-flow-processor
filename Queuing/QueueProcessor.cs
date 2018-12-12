@@ -55,6 +55,11 @@ namespace RiverFlowProcessor.Queuing
                     queueProps.QueueName, 
                     queueConn.Endpoint.HostName);
 
+                queueChannel.BasicQos(
+                    prefetchCount: QueueProperties.PrefetchCount, 
+                    prefetchSize: 0, 
+                    global: true);
+
                 queueChannel.BasicConsume(
                     queue: queueProps.QueueName, 
                     autoAck: false,

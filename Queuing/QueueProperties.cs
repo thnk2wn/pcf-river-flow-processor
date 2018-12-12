@@ -12,6 +12,8 @@ namespace RiverFlowProcessor.Queuing
 
         public const string DefaultRoutingKey = "FlowKey";
 
+        public const int PrefetchCount = 1;
+
         public string QueueName { get; }
 
         public QueueProperties()
