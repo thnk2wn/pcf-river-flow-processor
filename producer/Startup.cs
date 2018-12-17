@@ -7,7 +7,7 @@ using Steeltoe.CloudFoundry.Connector.RabbitMQ;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 using Serilog.Extensions.Logging;
 
-namespace RiverFlow.Producer
+namespace RiverFlowProducer
 {
     public class Startup
     {

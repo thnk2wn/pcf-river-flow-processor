@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace RiverFlow.Producer
+namespace RiverFlowProducer
 {
     class Program
     {

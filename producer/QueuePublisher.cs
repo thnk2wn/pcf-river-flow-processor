@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RiverFlow.Shared;
 
-namespace RiverFlow.Producer
+namespace RiverFlowProducer
 {
     public class QueuePublisher : IQueuePublisher
     {
@@ -44,8 +44,11 @@ namespace RiverFlow.Producer
 
                 queueChannel.QueuePurge(this.queueProps.QueueName);
 
-                const string resource = "RiverFlowProcessor.usgs-sitecodes-filtered.csv";
-                var assembly = typeof(QueuePublisher).GetTypeInfo().Assembly;
+                var type = typeof(QueuePublisher).GetTypeInfo();
+                var assembly = type.Assembly;
+                var resource = $"{type.Namespace}.usgs-sitecodes-filtered.csv";
+
+                this.logger.LogInformation("Reading {resource}", resource);
 
                 using (var resourceStream = assembly.GetManifestResourceStream(resource))
                 using (var streamReader = new StreamReader(resourceStream))

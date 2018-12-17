@@ -3,8 +3,8 @@ applications:
 - name: river-flow-processor
   no-route: true
   health-check-type: process
-  memory: 128M
-  disk_quota: 150M
+  memory: 64MB
+  disk_quota: 128MB
   stack: cflinuxfs2
   buildpacks: 
     - https://github.com/cloudfoundry/dotnet-core-buildpack.git
@@ -14,5 +14,20 @@ applications:
   - queue-svc
   - usgs-iv
   - autoscale-dev
+  env:
+    QUEUE_NAME: river-flow
+- name: river-flow-producer
+  instances: 0
+  no-route: true
+  health-check-type: process
+  memory: 64MB
+  disk_quota: 128MB
+  stack: cflinuxfs2
+  buildpacks: 
+    - https://github.com/cloudfoundry/dotnet-core-buildpack.git
+    #- dotnet_core_buildpack
+  path: producer\bin\Release\netcoreapp2.1\linux-x64\publish
+  services:
+  - queue-svc
   env:
     QUEUE_NAME: river-flow
