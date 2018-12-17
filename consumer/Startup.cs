@@ -52,7 +52,6 @@ namespace RiverFlowProcessor
 
             services.AddScoped<IQueueProcessor, QueueProcessor>();
             services.AddScoped<IRiverFlowProcessor, RiverFlowProcessor.RiverFlow.RiverFlowProcessor>();
-            services.AddScoped<IQueuePublisher, QueuePublisher>();
 
             services.AddSingleton<IMetrics>(CreateMetrics());
         }

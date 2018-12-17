@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using RabbitMQ.Client;
 
-namespace RiverFlowProcessor.Queuing
+namespace RiverFlow.Shared
 {
     public class QueueProperties
     {

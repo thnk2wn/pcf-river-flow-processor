@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using RiverFlow.Shared;
 using RiverFlowProcessor.RiverFlow;
 using RiverFlowProcessor.USGS;
 

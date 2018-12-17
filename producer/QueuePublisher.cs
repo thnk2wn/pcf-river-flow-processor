@@ -8,9 +8,9 @@ using CsvHelper;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
-using RiverFlowProcessor.RiverFlow;
+using RiverFlow.Shared;
 
-namespace RiverFlowProcessor.Queuing
+namespace RiverFlow.Producer
 {
     public class QueuePublisher : IQueuePublisher
     {
