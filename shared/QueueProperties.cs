@@ -36,18 +36,5 @@ namespace RiverFlow.Shared
                 autoDelete: false, 
                 arguments: args);
         }
-
-        public void SetupQueue(IModel channel) 
-        {
-            channel.ExchangeDeclare(Exchange, ExchangeType.Direct);
-
-            DeclareQueue(channel);
-
-            channel.QueueBind(
-                queue: this.QueueName,
-                exchange: Exchange,
-                routingKey: DefaultRoutingKey,
-                arguments: null);
-        }
     }
 }

@@ -40,17 +40,15 @@ namespace RiverFlowProducer
                     queueConn.Endpoint.HostName, 
                     this.queueProps.QueueName);
 
-                this.queueProps.SetupQueue(queueChannel);
+                SetupExchangeAndQueue(queueChannel);
 
                 queueChannel.QueuePurge(this.queueProps.QueueName);
 
                 var type = typeof(QueuePublisher).GetTypeInfo();
-                var assembly = type.Assembly;
                 var resource = $"{type.Namespace}.usgs-sitecodes-filtered.csv";
-
                 this.logger.LogInformation("Reading {resource}", resource);
 
-                using (var resourceStream = assembly.GetManifestResourceStream(resource))
+                using (var resourceStream = type.Assembly.GetManifestResourceStream(resource))
                 using (var streamReader = new StreamReader(resourceStream))
                 using (var csv = new CsvReader(streamReader)) 
                 {
@@ -64,6 +62,19 @@ namespace RiverFlowProducer
                     }
                 }
             }
+        }
+
+        private void SetupExchangeAndQueue(IModel channel) 
+        {
+            channel.ExchangeDeclare(QueueProperties.Exchange, ExchangeType.Direct);
+
+            this.queueProps.DeclareQueue(channel);
+
+            channel.QueueBind(
+                queue: this.queueProps.QueueName,
+                exchange: QueueProperties.Exchange,
+                routingKey: QueueProperties.DefaultRoutingKey,
+                arguments: null);
         }
 
         private void Publish(IModel queueChannel, string usgsGaugeId) 
