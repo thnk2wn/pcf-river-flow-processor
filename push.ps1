@@ -1,37 +1,49 @@
 Param(
-    [parameter(Mandatory=$true)]
+    [parameter(Mandatory=$false)]
     [ValidateSet("producer", "consumer", "all", "p", "c", "a")]
     [String]
-    $target
+    $target = "all",
+
+    [parameter(Mandatory=$false)]
+    [ValidateSet("Release", "Debug")]
+    [String]
+    $config = "Release",
+
+    [parameter(Mandatory=$false)]
+    [String]
+    $runtime = "linux-x64"
 )
 
-Set-Variable runtime -option Constant -value "linux-x64"
-Set-Variable config -option Constant -value "Release"
-
-function PublishAndPush ($project, $app)
+function PublishAndPush ($folder, $pushArgs)
 {
-    "Publishing $project with runtime $runtime, configuration $config"
-    dotnet publish $project -r $runtime -c $config
+    Push-Location $folder
+    $projectItem = @(Get-ChildItem "*.csproj")[0]
 
-    if (!$?) { return }
+    "Publishing $($projectItem.FullName) with runtime $runtime, configuration $config"
+    dotnet publish $projectItem.FullName -r $runtime -c $config
 
-    if ($target -like 'a*') 
+    if (!$?) 
     {
-        "Pushing consumer and producer" 
-        cf push 
+        Pop-Location
+        return
     }
-    else 
-    {
-        "Pushing $app"
-        cf push $app 
-    }
+
+    $projectName = $projectItem.Name.Replace(".csproj", "")
+
+    "Pushing app for project $projectName w/args '$pushArgs' using $($projectItem.Directory.FullName)\manifest.yaml"
+    cf push $pushArgs
+
+    Pop-Location
 }
+
+"Running push with target $target, config $config, runtime $runtime"
 
 if ($target -like 'c*' -or $target -like 'a*')
 {
-    PublishAndPush "consumer/river-flow-processor.csproj" "river-flow-processor"
+    PublishAndPush consumer
 }
-elseif ($target -like 'p*' -or $target -like 'a*')
+
+if ($target -like 'p*' -or $target -like 'a*')
 {
-    PublishAndPush "producer/river-flow-producer.csproj" "river-flow-producer"
+    PublishAndPush producer "--no-start"
 }

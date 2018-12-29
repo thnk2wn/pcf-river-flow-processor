@@ -1,0 +1,18 @@
+---
+applications:
+- name: river-flow-processor
+  no-route: true
+  health-check-type: process
+  memory: 64MB
+  disk_quota: 128MB
+  stack: cflinuxfs2
+  buildpacks: 
+    - https://github.com/cloudfoundry/dotnet-core-buildpack.git
+    #- dotnet_core_buildpack
+  path: bin\Release\netcoreapp2.1\linux-x64\publish
+  services:
+  - queue-svc
+  - usgs-iv
+  - autoscale-dev
+  env:
+    QUEUE_NAME: river-flow
