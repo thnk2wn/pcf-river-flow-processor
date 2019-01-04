@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "river-flow-producer", "prod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "river-flow-shared", "shared\river-flow-shared.csproj", "{4120DFC5-4D8B-4C52-B28F-4888FF8602A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "river-flow-api", "api\river-flow-api.csproj", "{6BE4B9DB-4C91-443F-BEEB-24916356548D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,5 +60,17 @@ Global
 		{4120DFC5-4D8B-4C52-B28F-4888FF8602A9}.Release|x64.Build.0 = Release|Any CPU
 		{4120DFC5-4D8B-4C52-B28F-4888FF8602A9}.Release|x86.ActiveCfg = Release|Any CPU
 		{4120DFC5-4D8B-4C52-B28F-4888FF8602A9}.Release|x86.Build.0 = Release|Any CPU
+		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Debug|x64.Build.0 = Debug|Any CPU
+		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Debug|x86.Build.0 = Debug|Any CPU
+		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Release|x64.ActiveCfg = Release|Any CPU
+		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Release|x64.Build.0 = Release|Any CPU
+		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Release|x86.ActiveCfg = Release|Any CPU
+		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

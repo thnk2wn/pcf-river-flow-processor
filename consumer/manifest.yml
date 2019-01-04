@@ -13,6 +13,6 @@ applications:
   services:
   - queue-svc
   - usgs-iv
-  - autoscale-dev
+  - autoscale-svc
   env:
     QUEUE_NAME: river-flow

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+     <RootNamespace>RiverFlowAPI</RootNamespace>
+     <RuntimeIdentifiers>linux-x64</RuntimeIdentifiers>
+     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.4" />
+    <PackageReference Include="steeltoe.cloudfoundry.connector.efcore" Version="2.1.1" />
+  </ItemGroup>
+
+</Project>
