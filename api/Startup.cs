@@ -52,6 +52,12 @@ namespace RiverFlowApi
                     name: "default",
                     template: "/riverflow");
             });
+
+            using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<RiverDbContext>();
+                context.Database.EnsureCreated();
+            }
         }
     }
 }
