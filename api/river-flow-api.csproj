@@ -2,20 +2,32 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-     <RootNamespace>RiverFlowAPI</RootNamespace>
+     <RootNamespace>RiverFlowApi</RootNamespace>
      <RuntimeIdentifiers>linux-x64</RuntimeIdentifiers>
      <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+   <DefineConstants>TRACE;DEBUG;</DefineConstants>
+ </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="12.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.4" />
     <PackageReference Include="steeltoe.cloudfoundry.connector.efcore" Version="2.1.1" />
+    <PackageReference Include="Steeltoe.Extensions.Configuration.CloudFoundryCore" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\ImportFiles\UsgsGauge.csv" />
+    <EmbeddedResource Include="Data\ImportFiles\UsgsRiverSection.csv" />
+    <EmbeddedResource Include="Data\ImportFiles\State.csv" />
   </ItemGroup>
 
 </Project>

@@ -12,6 +12,6 @@ namespace RiverFlowApi.Data
 
         public decimal Longitude { get; set; }
 
-        public decimal Altitude { get; set; }
+        public decimal? Altitude { get; set; }
     }
 }

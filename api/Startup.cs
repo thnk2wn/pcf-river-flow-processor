@@ -28,7 +28,6 @@ namespace RiverFlowApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<RiverDbContext>(options => options.UseMySql(Configuration));
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

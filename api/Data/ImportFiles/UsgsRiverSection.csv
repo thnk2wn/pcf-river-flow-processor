@@ -325,7 +325,6 @@ UsgsGaugeId,RiverName
 2317620,Alapahoochee (Grand Bay Canal)
 2304500,Hillsborough
 2315500,Suwannee
-2317620,Alapahoochee (Grand Bay Canal)
 2208050,Alcovy
 2208450,Alcovy
 3568933,Allen Creek
@@ -347,7 +346,6 @@ UsgsGaugeId,RiverName
 2334430,Chattahoochee
 2336000,Chattahoochee
 2336490,Chattahoochee
-2341460,Chattahoochee
 2177000,"Chattooga, West Fork"
 2176930,Chattooga
 2177000,Chattooga
@@ -562,7 +560,6 @@ UsgsGaugeId,RiverName
 3292470,Harrods Creek
 3281000,"Kentucky, Middle Fork"
 3281500,"Kentucky, South Fork"
-3294500,Ohio
 3282500,Red
 3410210,Roaring Paunch
 3410210,Rock Creek (Cumberland trib)
@@ -776,7 +773,6 @@ UsgsGaugeId,RiverName
 7061270,Little Rock Creek
 7035000,Little St. Francis
 7061270,Lower Rock Creek
-7010000,Mississippi
 6935965,Missouri
 7035000,Mud Creek
 7057500,North Fork (White River)
@@ -845,7 +841,6 @@ UsgsGaugeId,RiverName
 3460000,Cataloochee Creek
 2137727,Catawba
 2138520,Catawba
-2176930,Chattooga
 351706800,Cheoah
 208726005,Crabtree Creek (Umstead State Park)
 2068500,Dan
@@ -897,7 +892,6 @@ UsgsGaugeId,RiverName
 2094500,Reedy Fork Creek
 208062765,Roanoke
 2101726,Rocky (Cape Fear Trib)
-2101726,Rocky (Cape Fear trib)
 2126000,Rocky (Pee Dee trib)
 3446000,South Fork Mills River
 2118000,South Yadkin
@@ -969,7 +963,6 @@ UsgsGaugeId,RiverName
 1152500,Sugar
 1089100,Suncook
 1086000,Warner
-1054200,Wild
 1081000,Winnipesaukee
 1064801,Wonalancet
 1463500,Delaware
@@ -1004,12 +997,9 @@ UsgsGaugeId,RiverName
 8276300,Rio Pueblo de Taos
 8291000,Rio Santa Cruz
 9444000,San Francisco
-9444500,San Francisco
 9368000,San Juan
 13161500,"Bruneau, West Fork"
 10311000,Carson River
-10308200,"Carson, E. Fork"
-9421500,Colorado
 13162225,"Jarbidge, East Fork"
 13162225,"Jarbidge, West Fork"
 13175100,Owyhee
@@ -1222,7 +1212,6 @@ UsgsGaugeId,RiverName
 4199500,Vermilion
 3144000,Wakatomica Creek
 3238495,White Oak Creek
-3276500,Whitewater
 7164500,Arkansas
 7332500,Blue
 7196000,Flint Creek
@@ -1298,7 +1287,6 @@ UsgsGaugeId,RiverName
 14046500,John Day
 14048000,John Day
 14301500,Jordan Creek
-11510700,Klamath
 14307620,Lake Creek Slides
 14307620,Lake Creek
 14154500,Layng Creek
@@ -1321,7 +1309,6 @@ UsgsGaugeId,RiverName
 14301000,Nehalem
 14209500,Nohorn Creek
 14182500,Opal Creek (Opal Proper)
-13176400,Owyhee
 13181000,Owyhee
 14400000,Pistol
 14159500,Quartz Creek
@@ -1359,7 +1346,6 @@ UsgsGaugeId,RiverName
 1560000,Bobs Creek
 1480870,"Brandywine Creek, E. Branch"
 1481000,"Brandywine Creek, W. Branch"
-1481000,Brandywine Creek
 1440400,Brodhead Creek
 1601000,Brush Creek
 1480617,Buck Run
@@ -1401,14 +1387,12 @@ UsgsGaugeId,RiverName
 3034000,Mahoning Creek
 1639000,Marsh Creek
 3070500,Meadow Run
-1639000,Middle Creek (Toms Creek trib.)
 3020500,Mill Creek (Allegheny R. trib.)
 3024000,"Mill Creek (French Creek Trib, Venango County"
 3106300,Muddy Creek (Slippery Rock trib)
 1577500,Muddy Creek (Susquehanna trib)
 1538000,Nescopeck Creek
 3106500,Neshannock Creek
-1578475,Octoraro Creek
 1574500,Otter Creek
 3040000,Paint Creek
 1576787,Pequea Creek
@@ -1429,14 +1413,12 @@ UsgsGaugeId,RiverName
 1570500,Susquehanna River
 1459500,Tohickon Creek
 1532000,"Towanda Creek, S. Branch"
-1609000,Town Creek
 3040050,Trout Run
 1447680,Tunkhannock Creek
 4213152,Twelve Mile Creek
 4213152,Walnut Creek
 1538000,Wapwallopen Creek
 3079000,Whites Creek
-1601000,Wills Creek
 1560000,Yellow Creek
 3081500,Youghiogheny
 1545600,Young Womans Creek
@@ -1447,8 +1429,6 @@ UsgsGaugeId,RiverName
 2156500,Broad
 2161000,Broad
 2160381,Cedar Shoals Creek
-2176930,Chattooga
-2177000,Chattooga
 2177000,Chauga
 2169500,Congaree
 3439000,Eastatoe Creek -1
@@ -1473,7 +1453,6 @@ UsgsGaugeId,RiverName
 2162500,Saluda
 2163500,Saluda
 2168504,Saluda
-2197000,Savannah
 2196000,Stevens Creek
 2186000,Twelvemile Creek
 2157510,"Tyger, Middle"
@@ -1502,7 +1481,6 @@ UsgsGaugeId,RiverName
 3518500,Conasauga Creek
 3540500,Crab Orchard Creek
 3540500,Crooked Fork Creek
-3410210,"Cumberland, Big South Fork"
 3539600,Daddy's Creek
 3518500,Doublecamp Creek
 3596000,Duck River
@@ -1524,13 +1502,11 @@ UsgsGaugeId,RiverName
 3498500,Little
 3497300,Lynn Camp Prong
 3408500,New River
-3465500,Nolichucky
 3518500,North River
 3538830,Obed
 3540500,Obed
 3414500,"Obey, E. Fork"
 3415000,"Obey, West Fork"
-3460795,Pigeon
 3518500,Piney Creek
 3465500,Spivey Creek
 3497300,Spruce Flats Prong
@@ -1539,7 +1515,6 @@ UsgsGaugeId,RiverName
 3497300,Thunderhead Prong
 3518500,Turkey Creek
 3518500,Turtletown Creek
-3479000,Watauga
 3539778,White Creek (Morgan County)
 3409500,White Oak Creek
 3518500,Wildcat Creek (Tellico Tributary)
@@ -1606,7 +1581,6 @@ UsgsGaugeId,RiverName
 8103900,Rocky Creek (current beta needed)
 8061540,Rowlett Creek
 8198000,Sabinal (current beta needed)
-8025360,Sabine River
 8105095,Salado Creek (current beta needed)
 810464660,"San Gabriel, N. Fork"
 8104700,"San Gabriel, N. Fork"
@@ -1635,15 +1609,11 @@ UsgsGaugeId,RiverName
 9217900,"Blacks Fork, W. Fork"
 10113500,Blacksmith Fork
 10131000,Chalk Creek
-9163500,Colorado
 9180500,Colorado
 9333500,Dirty Devil
-9180000,Dolores
 10133800,East Canyon Creek
 9337500,Escalante
 9326500,"Ferron Creek, lower"
-9234500,Green
-9261000,Green
 9315000,Green
 10171000,Jordan
 10168000,Little Cottonwood Creek
@@ -1700,7 +1670,6 @@ UsgsGaugeId,RiverName
 3529500,Crab Orchard Branch
 2018000,Craig Creek
 1644280,Cub Run
-2068500,Dan
 1652500,Dead Run
 1646000,Difficult Run
 1652500,Donaldson Run
@@ -1733,13 +1702,10 @@ UsgsGaugeId,RiverName
 2032640,Lynch
 2021500,Maury
 2024000,Maury
-2070500,"Mayo, N. Fork"
-2069700,"Mayo, S. Fork"
 1632000,Middle
 1632000,Mill Creek (Shenandoah trib)
 2032250,"Moormans, South Fork"
 2032250,Moormans
-3164000,New
 3165500,New
 3168000,New
 3171000,New
@@ -1757,7 +1723,6 @@ UsgsGaugeId,RiverName
 1605500,"Potomac, Laurel Fork of North Fork of South Branch"
 1607500,"Potomac, S. Fk. of the S. Br."
 1605500,"Potomac, South Branch"
-1646500,Potomac
 2014000,Potts Creek
 3209000,Pound
 3529500,"Powell, South Fork"
@@ -1809,10 +1774,7 @@ UsgsGaugeId,RiverName
 1153000,Black
 4292500,Browns
 4296500,Clyde
-1144500,Connecticut
 4292000,Gihon
-1170100,Green
-1332500,Hoosic
 4292500,"Lamoille, North Branch"
 4292000,Lamoille
 4292500,Lamoille
@@ -1918,8 +1880,6 @@ UsgsGaugeId,RiverName
 5381000,Black (Jackson Co.)
 5394500,Black Creek
 4084911,Bower Creek
-4060993,Brule
-4063000,Brule
 4086500,Cedar Creek
 5356000,"Chippewa, E.Fk."
 5356000,Chippewa
@@ -1946,8 +1906,6 @@ UsgsGaugeId,RiverName
 4080000,Little Wolf
 4026561,Long Lake Branch
 4085427,Manitowoc
-4065106,Menominee
-4066003,Menominee
 4087030,Menomonee
 4087120,Menomonee
 4086600,Milwaukee
@@ -2064,7 +2022,6 @@ UsgsGaugeId,RiverName
 3179000,Mountain Creek
 3189100,Muddlety Creek
 3070500,Muddy Creek
-3176500,New
 3184500,New
 3185400,New
 3.81E+14,New
@@ -2079,18 +2036,12 @@ UsgsGaugeId,RiverName
 3185000,Piney Creek
 3179000,Pipestem Creek
 1607300,"Potomac, Brushy Fork of the S. Fk. of the S. Br."
-1605500,"Potomac, Laurel Fork of North Fork of South Branch"
-1595500,"Potomac, North Branch"
-1595800,"Potomac, North Branch"
-1598500,"Potomac, North Branch"
 1606000,"Potomac, North Fork of South Branch"
 1605500,"Potomac, S. Branch"
 1606500,"Potomac, S. Branch"
 1608500,"Potomac, S. Branch"
-1607500,"Potomac, S. Fk. of the S. Br."
 1607500,"Potomac, S.Fk. of the S.Br."
 1608000,"Potomac, S.Fk. of the S.Br."
-1613000,Potomac
 3070500,Pringle Run
 3066000,Red Creek
 3065000,Red Run
@@ -2101,10 +2052,8 @@ UsgsGaugeId,RiverName
 1606000,Seneca Creek
 1636500,Shenandoah
 1614000,Sleepy Creek
-10011500,Bear
 10016900,Bear
 6224000,Bull Lake Creek
-6207500,Clarks Fork Yellowstone
 6207500,Crandall Creek
 6632400,Douglas Creek
 6625000,Encampment
@@ -2119,11 +2068,9 @@ UsgsGaugeId,RiverName
 6632400,North Fork Little Laramie
 6632400,North French Creek
 6632400,North Mullens Creek
-6620000,North Platte
 6652000,North Platte
 6311400,"Powder, North Fork"
 6632400,Rock Creek
-6429905,Sand Creek
 6278500,Shell Creek
 6279940,"Shoshone, North Fork"
 6280300,"Shoshone, South Fork"
@@ -2136,4 +2083,3 @@ UsgsGaugeId,RiverName
 6298000,Tongue
 6220800,Wind
 6186500,Yellowstone
-6191500,Yellowstone
