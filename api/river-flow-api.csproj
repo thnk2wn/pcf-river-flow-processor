@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="12.1.1" />
+    <PackageReference Include="humanizer.core" Version="2.5.16" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.4" />

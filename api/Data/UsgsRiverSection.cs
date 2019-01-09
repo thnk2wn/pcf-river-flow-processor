@@ -5,5 +5,7 @@ namespace RiverFlowApi.Data
         public string UsgsGaugeId { get; set; }
 
         public string RiverName { get; set; }
+
+        public UsgsGauge Gauge { get; set; }
     }
 }

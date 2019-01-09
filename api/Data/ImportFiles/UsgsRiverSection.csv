@@ -245,7 +245,7 @@ UsgsGaugeId,RiverName
 9065100,Cross Creek
 9081600,"Crystal, South Fork"
 9081600,Crystal
-3.85E+14,Daisy Creek
+385106106571000,Daisy Creek
 9165000,Dolores
 9168730,Dolores
 9171100,Dolores
@@ -270,7 +270,7 @@ UsgsGaugeId,RiverName
 9124500,Lake Fork Gunnison
 9359010,Mineral Creek
 6620000,North Platte
-3.85E+14,Oh Be Joyful Creek
+385106106571000,Oh Be Joyful Creek
 9349800,Piedra
 9059500,Piney
 9105000,Plateau Creek
@@ -282,7 +282,7 @@ UsgsGaugeId,RiverName
 9172500,San Miguel
 9174600,San Miguel
 9177000,San Miguel
-3.85E+14,Slate
+385106106571000,Slate
 9047500,Snake River
 6700000,South Platte
 6710247,South Platte
@@ -2024,7 +2024,7 @@ UsgsGaugeId,RiverName
 3070500,Muddy Creek
 3184500,New
 3185400,New
-3.81E+14,New
+380649081083301,New
 1604500,North River
 3065000,Otter Creek
 3198350,Paint Creek

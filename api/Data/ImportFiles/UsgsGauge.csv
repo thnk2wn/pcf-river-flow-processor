@@ -1,4 +1,4 @@
-StateCode,Altitude,Latitude,Longitude,UsgsGaugeId,GaugeName
+StateCode,Altitude,Latitude,Longitude,UsgsGaugeId,Name
 ME,885,46.89388889,-69.7516667,1010070,"Big Black River near Depot Mtn, Maine"
 ME,604.6,47.0697222,-69.0794444,1011000,"Allagash River near Allagash, Maine"
 ME,550,47.20697926,-68.9564281,1011500,"St. Francis River near Connors, New Brunswick"

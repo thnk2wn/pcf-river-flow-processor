@@ -1,10 +1,6 @@
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using CsvHelper;
 using Microsoft.EntityFrameworkCore;
+using RiverFlowApi.Data.Import;
 
 namespace RiverFlowApi.Data
 {
@@ -31,24 +27,7 @@ namespace RiverFlowApi.Data
             }
             #endif
 
-            modelBuilder.Entity<UsgsGauge>(e =>
-            {
-                e.HasKey(g => g.UsgsGaugeId);
-                e.Property(g => g.UsgsGaugeId).HasMaxLength(15);
-                e.Property(g => g.GaugeName).HasMaxLength(50);
-                e.Property(g => g.StateCode).HasMaxLength(2);
-
-                e.HasData(GetRecords<UsgsGauge>());
-            });
-
-            modelBuilder.Entity<UsgsRiverSection>(e =>
-            {
-               e.HasKey(rs => new { rs.UsgsGaugeId, rs.RiverName });
-               e.Property(rs => rs.UsgsGaugeId).HasMaxLength(15);
-               e.Property(rs => rs.RiverName).HasMaxLength(50);
-
-               e.HasData(GetRecords<UsgsRiverSection>());
-            });
+            var dataReader = new RiverImportDataReader().ReadAll();
 
             modelBuilder.Entity<State>(e =>
             {
@@ -58,7 +37,34 @@ namespace RiverFlowApi.Data
                 e.Property(s => s.Region).HasMaxLength(20);
                 e.Property(s => s.Division).HasMaxLength(20);
 
-                e.HasData(GetRecords<State>());
+                e.HasData(dataReader.States);
+            });
+
+            modelBuilder.Entity<UsgsGauge>(e =>
+            {
+                e.HasKey(g => g.UsgsGaugeId);
+                e.Property(g => g.UsgsGaugeId).HasMaxLength(15);
+                e.Property(g => g.Name).HasMaxLength(50);
+                e.Property(g => g.StateCode).HasMaxLength(2);
+
+                e.HasOne(g => g.State)
+                 .WithMany()
+                 .HasForeignKey(g => g.StateCode);
+
+                e.HasData(dataReader.Gauges);
+            });
+
+            modelBuilder.Entity<UsgsRiverSection>(e =>
+            {
+               e.HasKey(rs => new { rs.UsgsGaugeId, rs.RiverName });
+               e.Property(rs => rs.UsgsGaugeId).HasMaxLength(15);
+               e.Property(rs => rs.RiverName).HasMaxLength(50);
+
+               e.HasOne(rs => rs.Gauge)
+                .WithMany()
+                .HasForeignKey(rs => rs.UsgsGaugeId);
+
+               e.HasData(dataReader.Sections);
             });
         }
 
@@ -67,20 +73,5 @@ namespace RiverFlowApi.Data
         public DbSet<UsgsGauge> Gauges { get; set; }
 
         public DbSet<UsgsRiverSection> RiverSections { get; set; }
-
-        private T[] GetRecords<T>()
-        {
-            var entity = typeof(T).Name;
-            var typeInfo = this.GetType().GetTypeInfo();
-            var resource = $"{typeInfo.Namespace}.ImportFiles.{entity}.csv";
-
-            using (var resourceStream = typeInfo.Assembly.GetManifestResourceStream(resource))
-            using (var streamReader = new StreamReader(resourceStream))
-            using (var csv = new CsvReader(streamReader))
-            {
-                var records = csv.GetRecords<T>().ToArray();
-                return records;
-            }
-        }
     }
 }
