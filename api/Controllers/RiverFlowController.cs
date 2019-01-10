@@ -23,7 +23,7 @@ namespace RiverFlowApi.Controllers
         [HttpGet]
         public async Task<string> Get()
         {
-            var gauges = await this.riverDbContext.Gauges.ToListAsync();
+            var gauges = await this.riverDbContext.UsgsGauge.ToListAsync();
             return $"Found {gauges.Count} gauges";
         }
 

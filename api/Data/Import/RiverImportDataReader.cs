@@ -12,7 +12,7 @@ namespace RiverFlowApi.Data.Import
         {
             this.States = this.GetRecords<State>();
             this.Gauges = this.GetRecords<UsgsGauge>();
-            this.Sections = this.GetRecords<UsgsRiverSection>();
+            this.Sections = this.GetRecords<UsgsGaugeRiverSection>();
 
              Console.WriteLine(
                  $"States: {this.States.Length}, " +
@@ -26,7 +26,7 @@ namespace RiverFlowApi.Data.Import
 
         public UsgsGauge[] Gauges { get; private set; }
 
-        public UsgsRiverSection[] Sections { get; private set; }
+        public UsgsGaugeRiverSection[] Sections { get; private set; }
 
         private T[] GetRecords<T>()
         {

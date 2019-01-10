@@ -1,10 +1,10 @@
 namespace RiverFlowApi.Data
 {
-    public class UsgsRiverSection
+    public class UsgsGaugeRiverSection
     {
         public string UsgsGaugeId { get; set; }
 
-        public string RiverName { get; set; }
+        public string RiverSection { get; set; }
 
         public UsgsGauge Gauge { get; set; }
     }

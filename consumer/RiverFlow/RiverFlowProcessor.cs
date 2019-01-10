@@ -23,7 +23,7 @@ namespace RiverFlowProcessor.RiverFlow
         public RiverFlowProcessor(
             IUsgsIvClient usgsIvClient,
             ILogger<IRiverFlowProcessor> logger,
-            IMetrics metrics) 
+            IMetrics metrics)
         {
             this.usgsIvClient = usgsIvClient;
             this.logger = logger;
@@ -47,7 +47,7 @@ namespace RiverFlowProcessor.RiverFlow
             // TODO: get other data (weather etc.), call microservice to import/persist
         }
 
-        private async Task GetRiverFlowData(string usgsGaugeId) 
+        private async Task GetRiverFlowData(string usgsGaugeId)
         {
             this.logger.LogInformation("Fetching gauge data for site {site}", usgsGaugeId);
             var streamFlow = await this.usgsIvClient.GetStreamFlow(new[] {usgsGaugeId});
@@ -59,21 +59,21 @@ namespace RiverFlowProcessor.RiverFlow
             var waterTemp = streamFlow.GetLastTimeSeriesValue(UsgsVariables.WaterTempCelsius);
             var firstSetSeries = (gaugeHeight ?? dischargeCfs ?? waterTemp);
 
-            if (firstSetSeries == null) 
+            if (firstSetSeries == null)
             {
                 this.logger.LogWarning(
-                    "No timeseries sensor data returned for gauge {gauge}; skipping.", 
+                    "No timeseries sensor data returned for gauge {gauge}; skipping.",
                     usgsGaugeId);
                 return;
             }
 
             var sourceSite = streamFlow.GetSource();
 
-            var snapshot = new RiverFlowSnapshot 
+            var snapshot = new RiverFlowSnapshot
             {
                  AsOf = DateTime.UtcNow,
 
-                 Flow = new RiverFlowSnapshot.FlowValues 
+                 Flow = new RiverFlowSnapshot.FlowValues
                  {
                      AsOf = (firstSetSeries).DateTime,
                      GaugeHeightFeet = GetFlowValue(gaugeHeight),
@@ -81,7 +81,7 @@ namespace RiverFlowProcessor.RiverFlow
                      WaterTemperature = GetTemp(waterTemp)
                  },
 
-                 Site = new RiverFlowSnapshot.SourceSite 
+                 Site = new RiverFlowSnapshot.SourceSite
                  {
                      Code = usgsGaugeId,
                      Name = sourceSite.SiteName,
@@ -95,9 +95,9 @@ namespace RiverFlowProcessor.RiverFlow
             // TODO: call service to persist / import flow data
         }
 
-        private double? GetFlowValue(TimeSeriesValue timeSeriesValue) 
+        private double? GetFlowValue(TimeSeriesValue timeSeriesValue)
         {
-            if (timeSeriesValue != null && double.TryParse(timeSeriesValue.Value, out double value)) 
+            if (timeSeriesValue != null && double.TryParse(timeSeriesValue.Value, out double value))
             {
                 return value;
             }
@@ -105,13 +105,13 @@ namespace RiverFlowProcessor.RiverFlow
             return null;
         }
 
-        private RiverFlowSnapshot.Temperature GetTemp(TimeSeriesValue timeSeriesValue) 
+        private RiverFlowSnapshot.Temperature GetTemp(TimeSeriesValue timeSeriesValue)
         {
             var value = GetFlowValue(timeSeriesValue);
 
-            return value == null ? null : new RiverFlowSnapshot.Temperature 
+            return value == null ? null : new RiverFlowSnapshot.Temperature
             {
-                Celsius = value.Value, 
+                Celsius = value.Value,
                 Fahrenheit = value.Value * 9 / 5 + 32
             };
         }

@@ -29,13 +29,15 @@ namespace RiverFlowApi.Data
 
             var dataReader = new RiverImportDataReader().ReadAll();
 
+            const int gaugeLength = 15;
+
             modelBuilder.Entity<State>(e =>
             {
                 e.HasKey(s => s.StateCode);
                 e.Property(s => s.StateCode).HasMaxLength(2);
-                e.Property(s => s.Name).HasMaxLength(20);
-                e.Property(s => s.Region).HasMaxLength(20);
-                e.Property(s => s.Division).HasMaxLength(20);
+                e.Property(s => s.Name).HasMaxLength(20).IsRequired();
+                e.Property(s => s.Region).HasMaxLength(20).IsRequired();
+                e.Property(s => s.Division).HasMaxLength(20).IsRequired();
 
                 e.HasData(dataReader.States);
             });
@@ -43,9 +45,9 @@ namespace RiverFlowApi.Data
             modelBuilder.Entity<UsgsGauge>(e =>
             {
                 e.HasKey(g => g.UsgsGaugeId);
-                e.Property(g => g.UsgsGaugeId).HasMaxLength(15);
-                e.Property(g => g.Name).HasMaxLength(50);
-                e.Property(g => g.StateCode).HasMaxLength(2);
+                e.Property(g => g.UsgsGaugeId).HasMaxLength(gaugeLength);
+                e.Property(g => g.Name).HasMaxLength(50).IsRequired();
+                e.Property(g => g.StateCode).HasMaxLength(2).IsRequired();
 
                 e.HasOne(g => g.State)
                  .WithMany()
@@ -54,24 +56,38 @@ namespace RiverFlowApi.Data
                 e.HasData(dataReader.Gauges);
             });
 
-            modelBuilder.Entity<UsgsRiverSection>(e =>
+            modelBuilder.Entity<UsgsGaugeRiverSection>(e =>
             {
-               e.HasKey(rs => new { rs.UsgsGaugeId, rs.RiverName });
-               e.Property(rs => rs.UsgsGaugeId).HasMaxLength(15);
-               e.Property(rs => rs.RiverName).HasMaxLength(50);
+               e.HasKey(rs => new { rs.UsgsGaugeId, rs.RiverSection });
+               e.Property(rs => rs.UsgsGaugeId).HasMaxLength(gaugeLength);
+               e.Property(rs => rs.RiverSection).HasMaxLength(50);
 
                e.HasOne(rs => rs.Gauge)
-                .WithMany()
+                .WithMany(g => g.RiverSections)
                 .HasForeignKey(rs => rs.UsgsGaugeId);
 
                e.HasData(dataReader.Sections);
             });
+
+            modelBuilder.Entity<UsgsGaugeFlow>(e =>
+            {
+                e.Property(f => f.FlowId).ValueGeneratedOnAdd();
+                e.HasKey(f => f.FlowId);
+
+                e.Property(f => f.UsgsGaugeId).HasMaxLength(gaugeLength).IsRequired();
+
+                e.HasOne(f => f.Gauge)
+                 .WithMany(g => g.Flows)
+                 .HasForeignKey(f => f.UsgsGaugeId);
+            });
         }
 
-        public DbSet<State> States { get; set; }
+        public DbSet<State> State { get; set; }
 
-        public DbSet<UsgsGauge> Gauges { get; set; }
+        public DbSet<UsgsGauge> UsgsGauge { get; set; }
 
-        public DbSet<UsgsRiverSection> RiverSections { get; set; }
+        public DbSet<UsgsGaugeRiverSection> UsgsGaugeRiverSection { get; set; }
+
+        public DbSet<UsgsGaugeFlow> UsgsGaugeFlow { get; set; }
     }
 }
