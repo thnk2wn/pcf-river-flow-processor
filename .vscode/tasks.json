@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/consumer/river-flow-processor.csproj"
+                "${workspaceFolder}/river-flow.sln"
             ],
             "problemMatcher": "$msCompile"
         }

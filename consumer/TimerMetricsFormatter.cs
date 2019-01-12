@@ -19,7 +19,7 @@ namespace RiverFlowProcessor
         {
             using (var writer = new StreamWriter(output))
             {
-                foreach (var timer in snapshot.Contexts.SelectMany(c => c.Timers)) 
+                foreach (var timer in snapshot.Contexts.SelectMany(c => c.Timers))
                 {
                     writer.WriteLineAsync(
                         $"{timer.Name} - " +
@@ -27,7 +27,6 @@ namespace RiverFlowProcessor
                         $"{timer.Value.Rate.OneMinuteRate:0.0} 1-min, " +
                         $"{timer.Value.Rate.FiveMinuteRate:0.0} 5-min. #metric");
                 }
-                
             }
 
             return Task.CompletedTask;

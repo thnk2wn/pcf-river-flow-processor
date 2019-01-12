@@ -30,7 +30,7 @@ namespace RiverFlowProcessor.Queuing
             this.riverFlowProcessor = riverFlowProcessor;
         }
 
-        public void StartListening() 
+        public void StartListening()
         {
             var queueProps = new QueueProperties();
             this.logger.LogDebug("Initializing connection to {host}", this.queueConnectionFactory.HostName);
@@ -39,30 +39,30 @@ namespace RiverFlowProcessor.Queuing
             using (var queueChannel = queueConn.CreateModel())
             {
                 this.logger.LogDebug(
-                    "Connected to {host}. Declaring queue {queue}", 
-                    queueConn.Endpoint.HostName, 
+                    "Connected to {host}. Declaring queue {queue}",
+                    queueConn.Endpoint.HostName,
                     queueProps.QueueName);
 
                 queueProps.DeclareQueue(queueChannel);
 
                 var queueConsumer = new AsyncEventingBasicConsumer(queueChannel);
-                queueConsumer.Received += async (sender, e) => 
+                queueConsumer.Received += async (sender, e) =>
                 {
                     await ProcessMessage(queueChannel, e);
                 };
 
                 this.logger.LogInformation(
-                    "Monitoring queue {queue} on {host}", 
-                    queueProps.QueueName, 
+                    "Monitoring queue {queue} on {host}",
+                    queueProps.QueueName,
                     queueConn.Endpoint.HostName);
 
                 queueChannel.BasicQos(
-                    prefetchCount: QueueProperties.PrefetchCount, 
-                    prefetchSize: 0, 
+                    prefetchCount: QueueProperties.PrefetchCount,
+                    prefetchSize: 0,
                     global: true);
 
                 queueChannel.BasicConsume(
-                    queue: queueProps.QueueName, 
+                    queue: queueProps.QueueName,
                     autoAck: false,
                     consumer: queueConsumer);
 
@@ -80,12 +80,12 @@ namespace RiverFlowProcessor.Queuing
                 this.logger.LogTrace("Received river flow request:{0}{1}", Environment.NewLine, json);
 
                 var request = JsonConvert.DeserializeObject<RiverFlowRequest>(json);
-                gaugeId = request.UsgsGaugeId;
+                gaugeId = Usgs.FormatGaugeId(request.UsgsGaugeId);
                 await this.riverFlowProcessor.Process(gaugeId);
-                
+
                 channel.BasicAck(args.DeliveryTag, false);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 this.logger.LogError(ex, "Error processing gauge {gauge}", gaugeId ?? "unknown");
                 channel.BasicNack(args.DeliveryTag, multiple: false, requeue: true);
@@ -94,7 +94,7 @@ namespace RiverFlowProcessor.Queuing
         }
     }
 
-    public interface IQueueProcessor 
+    public interface IQueueProcessor
     {
         void StartListening();
     }

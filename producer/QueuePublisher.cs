@@ -28,7 +28,7 @@ namespace RiverFlowProducer
             this.queueProps = new QueueProperties();
         }
 
-        public void PublishAll() 
+        public void PublishAll()
         {
             this.logger.LogDebug("Initializing connection to {host}", this.queueConnectionFactory.HostName);
 
@@ -36,8 +36,8 @@ namespace RiverFlowProducer
             using (var queueChannel = queueConn.CreateModel())
             {
                 this.logger.LogDebug(
-                    "Connected to {host}. Declaring queue {queue}", 
-                    queueConn.Endpoint.HostName, 
+                    "Connected to {host}. Declaring queue {queue}",
+                    queueConn.Endpoint.HostName,
                     this.queueProps.QueueName);
 
                 SetupExchangeAndQueue(queueChannel);
@@ -50,21 +50,21 @@ namespace RiverFlowProducer
 
                 using (var resourceStream = type.Assembly.GetManifestResourceStream(resource))
                 using (var streamReader = new StreamReader(resourceStream))
-                using (var csv = new CsvReader(streamReader)) 
+                using (var csv = new CsvReader(streamReader))
                 {
                     csv.Read();
                     csv.ReadHeader();
 
                     while (csv.Read())
                     {
-                        var usgsGaugeId = csv["UsgsGaugeId"];
+                        var usgsGaugeId = Usgs.FormatGaugeId(csv["UsgsGaugeId"]);
                         Publish(queueChannel, usgsGaugeId);
                     }
                 }
             }
         }
 
-        private void SetupExchangeAndQueue(IModel channel) 
+        private void SetupExchangeAndQueue(IModel channel)
         {
             channel.ExchangeDeclare(QueueProperties.Exchange, ExchangeType.Direct);
 
@@ -77,7 +77,7 @@ namespace RiverFlowProducer
                 arguments: null);
         }
 
-        private void Publish(IModel queueChannel, string usgsGaugeId) 
+        private void Publish(IModel queueChannel, string usgsGaugeId)
         {
             var request = new RiverFlowRequest { UsgsGaugeId = usgsGaugeId };
             var json = JsonConvert.SerializeObject(request);
@@ -86,8 +86,8 @@ namespace RiverFlowProducer
             var props = CreateMessageProps(queueChannel);
 
             this.logger.LogInformation(
-                "Publishing #{publishCount} - gauge {gaugeId}", 
-                ++this.publishCount, 
+                "Publishing #{publishCount} - gauge {gaugeId}",
+                ++this.publishCount,
                 usgsGaugeId);
 
             queueChannel.BasicPublish(
@@ -97,7 +97,7 @@ namespace RiverFlowProducer
                 body: messageBody);
         }
 
-        private IBasicProperties CreateMessageProps(IModel queueChannel) 
+        private IBasicProperties CreateMessageProps(IModel queueChannel)
         {
             IBasicProperties props = queueChannel.CreateBasicProperties();
             props.ContentType = "application/json";

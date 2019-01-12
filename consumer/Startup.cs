@@ -30,14 +30,14 @@ namespace RiverFlowProcessor
             var services = new ServiceCollection();
             ConfigureServices(services, configuration);
             this.ServiceProvider = services.BuildServiceProvider();
-            
+
             return this;
         }
 
-        private static void ConfigureServices(IServiceCollection services, IConfigurationRoot configuration) 
+        private static void ConfigureServices(IServiceCollection services, IConfigurationRoot configuration)
         {
             services
-                .AddLogging(builder => 
+                .AddLogging(builder =>
                 {
                     var logger = CreateLogger();
                     builder.AddSerilog(logger, dispose: true);
@@ -68,7 +68,7 @@ namespace RiverFlowProcessor
                         options.MetricsOutputFormatter = new TimerMetricsFormatter();
                     })
                 .Build();
-            return metrics; 
+            return metrics;
         }
 
         private static Serilog.ILogger CreateLogger()
@@ -88,11 +88,11 @@ namespace RiverFlowProcessor
             return logger;
         }
 
-        private static LogEventLevel GetLogLevel() 
+        private static LogEventLevel GetLogLevel()
         {
             var rawLogLevel = Environment.GetEnvironmentVariable("LOG_LEVEL");
 
-            if (string.IsNullOrEmpty(rawLogLevel)) 
+            if (string.IsNullOrEmpty(rawLogLevel))
             {
                 rawLogLevel = "Information";
                 Console.WriteLine($"LOG_LEVEL not set in environment, defaulting to {rawLogLevel}");

@@ -8,6 +8,7 @@ using App.Metrics.Timer;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using RiverFlow.Shared;
 using RiverFlowProcessor.USGS;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
@@ -39,6 +40,7 @@ namespace RiverFlowProcessor.RiverFlow
 
         public async Task Process(string usgsGaugeId)
         {
+            usgsGaugeId = Usgs.FormatGaugeId(usgsGaugeId);
             using(metrics.Measure.Timer.Time(requestTimer))
             {
                 await GetRiverFlowData(usgsGaugeId);

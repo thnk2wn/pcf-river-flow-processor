@@ -1,5 +1,5 @@
 // Initially auto-generated from https://quicktype.io/ with sample data from https://waterservices.usgs.gov/nwis/iv/?sites=03539600&format=json
-// 
+//
 // To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
 //    using RiverFlowProcessor.USGS;
@@ -41,23 +41,23 @@ namespace RiverFlowProcessor.USGS
 
         public TimeSery GetTimeSeries(string variableCode)
         {
-            if (this.Value == null || this.Value.TimeSeries == null) 
+            if (this.Value == null || this.Value.TimeSeries == null)
             {
                 return null;
             }
-            
+
             var timeSeries = this.Value?.TimeSeries?
-                .SingleOrDefault(ts => 
+                .SingleOrDefault(ts =>
                     ts.Variable.VariableCode.Any(
                         vc => vc.Value == variableCode));
             return timeSeries;
         }
 
-        public TimeSeriesValue GetLastTimeSeriesValue(string variableCode) 
+        public TimeSeriesValue GetLastTimeSeriesValue(string variableCode)
         {
             var timeSeries = GetTimeSeries(variableCode);
 
-            if (timeSeries == null || timeSeries.Values == null) 
+            if (timeSeries == null || timeSeries.Values == null)
             {
                 return null;
             }
@@ -66,7 +66,7 @@ namespace RiverFlowProcessor.USGS
             return timeSeriesValue;
         }
 
-        public SourceInfo GetSource() 
+        public SourceInfo GetSource()
         {
             var source = this.Value?.TimeSeries?.FirstOrDefault(ts => ts.SourceInfo != null)?.SourceInfo;
             return source;

@@ -16,7 +16,7 @@ namespace RiverFlowProcessor.RiverFlow
                 $"{Flow?.GaugeHeightFeet} ft, {Flow?.DischargeCFS} cfs, {Flow?.WaterTemperature?.Fahrenheit} F";
         }
 
-        public class SourceSite 
+        public class SourceSite
         {
             public string Code { get; set; }
 
@@ -38,7 +38,7 @@ namespace RiverFlowProcessor.RiverFlow
             public Temperature WaterTemperature { get; set; }
         }
 
-        public class Temperature 
+        public class Temperature
         {
             public double Celsius { get; set; }
 

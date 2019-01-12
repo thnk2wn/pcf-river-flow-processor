@@ -30,7 +30,7 @@ namespace RiverFlowProcessor.USGS
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
             httpClient.DefaultRequestHeaders.Add("User-Agent", "RiverFlowProcessor");
             this.client = httpClient;
-            
+
             this.logger.LogInformation("USGS IV Base Url: {usgsIvBaseUrl}", httpClient.BaseAddress);
         }
 
@@ -41,19 +41,19 @@ namespace RiverFlowProcessor.USGS
 
             // i.e. https://waterservices.usgs.gov/nwis/iv/?sites=03539600&format=json&variable=00060,00065,00010
             this.logger.LogInformation("Getting stream flow using: {usgsIvUrl}", usgsIvUrl);
-            
+
             var json = await this.client.GetStringAsync(relativeUrl);
             this.logger.LogTrace(json);
 
             this.logger.LogTrace(
-                "Parsing {length} bytes of json for sites {sites}", 
-                json.Length, 
+                "Parsing {length} bytes of json for sites {sites}",
+                json.Length,
                 string.Join(',', sites));
             var streamFlow = StreamFlow.FromJson(json);
 
             this.logger.LogInformation(
-                "{length} bytes of JSON returned and parsed for {usgsIvUrl}", 
-                json.Length, 
+                "{length} bytes of JSON returned and parsed for {usgsIvUrl}",
+                json.Length,
                 usgsIvUrl);
 
             return streamFlow;
@@ -64,13 +64,13 @@ namespace RiverFlowProcessor.USGS
             var querystring = new Dictionary<string, string>
             {
                 { "sites", string.Join(',', sites) },
-                { 
-                    "variable", 
+                {
+                    "variable",
                     string.Join(
-                        ',', 
+                        ',',
                         new[] {
-                            UsgsVariables.DischargeCFS, 
-                            UsgsVariables.GaugeHeightFeet, 
+                            UsgsVariables.DischargeCFS,
+                            UsgsVariables.GaugeHeightFeet,
                             UsgsVariables.WaterTempCelsius} )
                         },
                 { "format", "json" }

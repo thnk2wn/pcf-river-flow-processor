@@ -15,154 +15,154 @@ UsgsGaugeId,RiverSection
 15292700,Talkeetna
 15294005,Willow Creek
 15236900,Wolverine Creek
-2399200,Bear Creek (Dekalb Co.)
-2399200,Black
-2453000,Blackwater Creek
-2423380,Cahaba
-2341460,Chattahoochee
-2338523,Cheaha Creek
-2399200,Chinquapin Creek
-2404400,Choccolocco Creek
-2411600,Coosa
-2399200,Cotaco Creek
-2455000,Graves Creek
-2455980,Gurley Creek
-2408540,Hatchet Creek
-2399200,Hicks Creek
-2455000,Hog Creek
-2450250,Hubbard Creek
-2399200,Johnnies Creek
-2342500,Little Uchee
-2399200,"Little, E. Fork"
-2399200,"Little, W. Fork"
-2399200,Little
-2404400,Salt Creek
-2450250,Sipsey Fork
-2408540,Socapatoy Creek
-2418230,Sougahatchee Creek
-3572690,South Sauty Creek
-2406500,Talladega Creek
-2419500,Tallapoosa
-3574500,Turkey Creek
-2408540,Walnut Creek
-2455185,"Warrior, Blackburn Fork"
-2455000,"Warrior, Locust Fork"
-2399200,Wolf Creek (LRC Tributary)
-2399200,Wolf Creek (Weiss Lake Tributary)
-2399200,Yellow Creek
-7340300,Baker Creek
-7055875,Bear Creek (Big Piney trib)
-7263000,Bear Creek (South Fourche trib)
-7074000,Big Creek
-7055875,Big Devil's Fork
-7257006,Big Piney Creek
-7249800,Blackburn Creek
-7360200,Blaylock Creek
-7360200,Blocker Creek
-7055875,Bobtail Creek
-7055646,Boen Gulf Branch
-7055875,Boss Hollow
-7340300,Brushy Creek
-7055646,Buffalo
-7055660,Buffalo
-7055680,Buffalo
-7056000,Buffalo
-7056700,Buffalo
-7359610,Caddo
-7261000,"Cadron Creek, East Fork"
-7261000,"Cadron Creek, Middle Fork"
-7261000,Cadron Creek
-7251500,Cedar Creek (Crawford Co.)
-7251500,"Cedar Creek, E. Fork (Crawford Co.)"
-7251500,"Cedar Creek, W. Fork (Crawford Co.)"
-7055646,Clark Creek
-7251500,Clear Creek
-7340300,Cossatot
-7340500,Cossatot
-7261000,Cove Creek (Faulkner Co.)
-7360200,Crooked Creek (Montgomery Co.)
-7055875,Dry Creek (Richland)
-7249800,Fall Creek
-7055875,Falling Water Creek
-7055875,Falls Branch
-7356000,Fiddlers Creek
-7251500,Frog Bayou
-7257006,Graves Creek
-7340300,Harris Creek
-7249800,Hart Creek
-7261000,Hogan's Creek
-7252000,Hurricane Creek (Franklin County)
-7055875,Hurricane Creek (Newton & Pope Co.)
-7257500,"Illinois Bayou, E. Fork"
-7257500,"Illinois Bayou, Middle Fork"
-7257500,"Illinois Bayou, N. Fork"
-7257500,Illinois Bayou
-7195430,Illinois
-7257006,Indian Creek
-7260000,Jack Creek
-7050500,Kings
-7249800,Lee Creek
-7055875,Left Hand Prong
-7360200,Little Missouri
-7257200,Little Piney Creek
-7075300,"Little Red, Archey's Fork"
-7075000,"Little Red, Middle Fork"
-7075300,"Little Red, South Fork"
-7055875,Long Devil's Fork
-7075000,Meadow Creek
-7340300,Moore Creek
-7252000,Mulberry
-7060710,North Sylamore Creek
-7340300,Opossum Creek
-7356000,Ouachita
-7359002,Ouachita
-7055875,Richland Creek
-7263580,Rock Creek
-7075000,Salado Creek
-7341000,Saline (Howard County)
-7360200,Saline (Howard County)
-7362587,"Saline, Alum Fork"
-7363000,"Saline, North Fork"
-7263000,South Fourche LaFave
-7252000,Spirits Creek
-7069500,Spring
-7074000,Strawberry
-7260000,Sugar Creek
-7055875,Sulphur Creek
-7263000,Trace Creek
-7049000,War Eagle Creek
-7048600,"White, Middle Fork"
-7048550,"White, West Fork"
-7048600,White
-9426000,Bill Williams
-9489500,"Black, E. Fork"
-9444200,Blue
-9397500,Chevelon Creek
-9499000,Christopher Creek
-9404200,Colorado
-9421500,Colorado
-9447000,Eagle Creek
-9507980,East Verde
-9507980,Ellison Creek
-9507480,Fossil Creek
-9432000,Gila
-9474000,Gila
-9384000,Little Colorado
-9402000,Little Colorado
-9504420,Oak Creek
-9497980,Salome Creek
-9497500,Salt
-9502000,Salt
-9444500,San Francisco
-9510200,Sycamore Creek
-9499000,Tonto Creek
-9504000,Verde
-9506000,Verde
-9508500,Verde
-9510000,Verde
-9413500,Virgin
-9505200,Wet Beaver Creek
-9447800,"White River, East Fork"
+02399200,Bear Creek (Dekalb Co.)
+02399200,Black
+02453000,Blackwater Creek
+02423380,Cahaba
+02341460,Chattahoochee
+02338523,Cheaha Creek
+02399200,Chinquapin Creek
+02404400,Choccolocco Creek
+02411600,Coosa
+02399200,Cotaco Creek
+02455000,Graves Creek
+02455980,Gurley Creek
+02408540,Hatchet Creek
+02399200,Hicks Creek
+02455000,Hog Creek
+02450250,Hubbard Creek
+02399200,Johnnies Creek
+02342500,Little Uchee
+02399200,"Little, E. Fork"
+02399200,"Little, W. Fork"
+02399200,Little
+02404400,Salt Creek
+02450250,Sipsey Fork
+02408540,Socapatoy Creek
+02418230,Sougahatchee Creek
+03572690,South Sauty Creek
+02406500,Talladega Creek
+02419500,Tallapoosa
+03574500,Turkey Creek
+02408540,Walnut Creek
+02455185,"Warrior, Blackburn Fork"
+02455000,"Warrior, Locust Fork"
+02399200,Wolf Creek (LRC Tributary)
+02399200,Wolf Creek (Weiss Lake Tributary)
+02399200,Yellow Creek
+07340300,Baker Creek
+07055875,Bear Creek (Big Piney trib)
+07263000,Bear Creek (South Fourche trib)
+07074000,Big Creek
+07055875,Big Devil's Fork
+07257006,Big Piney Creek
+07249800,Blackburn Creek
+07360200,Blaylock Creek
+07360200,Blocker Creek
+07055875,Bobtail Creek
+07055646,Boen Gulf Branch
+07055875,Boss Hollow
+07340300,Brushy Creek
+07055646,Buffalo
+07055660,Buffalo
+07055680,Buffalo
+07056000,Buffalo
+07056700,Buffalo
+07359610,Caddo
+07261000,"Cadron Creek, East Fork"
+07261000,"Cadron Creek, Middle Fork"
+07261000,Cadron Creek
+07251500,Cedar Creek (Crawford Co.)
+07251500,"Cedar Creek, E. Fork (Crawford Co.)"
+07251500,"Cedar Creek, W. Fork (Crawford Co.)"
+07055646,Clark Creek
+07251500,Clear Creek
+07340300,Cossatot
+07340500,Cossatot
+07261000,Cove Creek (Faulkner Co.)
+07360200,Crooked Creek (Montgomery Co.)
+07055875,Dry Creek (Richland)
+07249800,Fall Creek
+07055875,Falling Water Creek
+07055875,Falls Branch
+07356000,Fiddlers Creek
+07251500,Frog Bayou
+07257006,Graves Creek
+07340300,Harris Creek
+07249800,Hart Creek
+07261000,Hogan's Creek
+07252000,Hurricane Creek (Franklin County)
+07055875,Hurricane Creek (Newton & Pope Co.)
+07257500,"Illinois Bayou, E. Fork"
+07257500,"Illinois Bayou, Middle Fork"
+07257500,"Illinois Bayou, N. Fork"
+07257500,Illinois Bayou
+07195430,Illinois
+07257006,Indian Creek
+07260000,Jack Creek
+07050500,Kings
+07249800,Lee Creek
+07055875,Left Hand Prong
+07360200,Little Missouri
+07257200,Little Piney Creek
+07075300,"Little Red, Archey's Fork"
+07075000,"Little Red, Middle Fork"
+07075300,"Little Red, South Fork"
+07055875,Long Devil's Fork
+07075000,Meadow Creek
+07340300,Moore Creek
+07252000,Mulberry
+07060710,North Sylamore Creek
+07340300,Opossum Creek
+07356000,Ouachita
+07359002,Ouachita
+07055875,Richland Creek
+07263580,Rock Creek
+07075000,Salado Creek
+07341000,Saline (Howard County)
+07360200,Saline (Howard County)
+07362587,"Saline, Alum Fork"
+07363000,"Saline, North Fork"
+07263000,South Fourche LaFave
+07252000,Spirits Creek
+07069500,Spring
+07074000,Strawberry
+07260000,Sugar Creek
+07055875,Sulphur Creek
+07263000,Trace Creek
+07049000,War Eagle Creek
+07048600,"White, Middle Fork"
+07048550,"White, West Fork"
+07048600,White
+09426000,Bill Williams
+09489500,"Black, E. Fork"
+09444200,Blue
+09397500,Chevelon Creek
+09499000,Christopher Creek
+09404200,Colorado
+09421500,Colorado
+09447000,Eagle Creek
+09507980,East Verde
+09507980,Ellison Creek
+09507480,Fossil Creek
+09432000,Gila
+09474000,Gila
+09384000,Little Colorado
+09402000,Little Colorado
+09504420,Oak Creek
+09497980,Salome Creek
+09497500,Salt
+09502000,Salt
+09444500,San Francisco
+09510200,Sycamore Creek
+09499000,Tonto Creek
+09504000,Verde
+09506000,Verde
+09508500,Verde
+09510000,Verde
+09413500,Virgin
+09505200,Wet Beaver Creek
+09447800,"White River, East Fork"
 11179000,Alameda Creek
 11427000,"American, N. Fork"
 11446500,American
@@ -218,221 +218,221 @@ UsgsGaugeId,RiverSection
 11481500,Redwood Creek
 11482500,Redwood Creek
 11463000,Russian
-9358000,Animas
-9359020,Animas
-9359500,Animas
-9361500,Animas
-7087050,Arkansas
-7091200,Arkansas
-7094500,Arkansas
-7099970,Arkansas
-9046490,Blue
-9050700,Blue
-9057500,Blue
-6751490,"Cache La Poudre, North Fork"
-9126000,Cimarron
-6716100,"Clear Creek, West Fork"
-6715000,Clear Creek
-6716500,Clear Creek
-6719505,Clear Creek
-9034250,Colorado
-9058000,Colorado
-9060799,Colorado
-9070500,Colorado
-9085100,Colorado
-9095500,Colorado
-9163500,Colorado
-9065100,Cross Creek
-9081600,"Crystal, South Fork"
-9081600,Crystal
+09358000,Animas
+09359020,Animas
+09359500,Animas
+09361500,Animas
+07087050,Arkansas
+07091200,Arkansas
+07094500,Arkansas
+07099970,Arkansas
+09046490,Blue
+09050700,Blue
+09057500,Blue
+06751490,"Cache La Poudre, North Fork"
+09126000,Cimarron
+06716100,"Clear Creek, West Fork"
+06715000,Clear Creek
+06716500,Clear Creek
+06719505,Clear Creek
+09034250,Colorado
+09058000,Colorado
+09060799,Colorado
+09070500,Colorado
+09085100,Colorado
+09095500,Colorado
+09163500,Colorado
+09065100,Cross Creek
+09081600,"Crystal, South Fork"
+09081600,Crystal
 385106106571000,Daisy Creek
-9165000,Dolores
-9168730,Dolores
-9171100,Dolores
-9180000,Dolores
-9063000,Eagle
-9064600,Eagle
-9070000,Eagle
-9112200,East
-9242500,Elk River
-9238900,Fish Creek
-9027100,Fraser
-9080400,Fryingpan
-9066325,Gore Creek
-9234500,Green
-9261000,Green
-9132500,"Gunnison, North Fork"
-9114500,Gunnison
-9128000,Gunnison
-9144250,Gunnison
-9064000,Homestake Creek
-6746110,Joe Wright Creek
-9124500,Lake Fork Gunnison
-9359010,Mineral Creek
-6620000,North Platte
+09165000,Dolores
+09168730,Dolores
+09171100,Dolores
+09180000,Dolores
+09063000,Eagle
+09064600,Eagle
+09070000,Eagle
+09112200,East
+09242500,Elk River
+09238900,Fish Creek
+09027100,Fraser
+09080400,Fryingpan
+09066325,Gore Creek
+09234500,Green
+09261000,Green
+09132500,"Gunnison, North Fork"
+09114500,Gunnison
+09128000,Gunnison
+09144250,Gunnison
+09064000,Homestake Creek
+06746110,Joe Wright Creek
+09124500,Lake Fork Gunnison
+09359010,Mineral Creek
+06620000,North Platte
 385106106571000,Oh Be Joyful Creek
-9349800,Piedra
-9059500,Piney
-9105000,Plateau Creek
-7126485,Purgatoire
-9073300,Roaring Fork
-9073400,Roaring Fork
-9085000,Roaring Fork
-9342500,San Juan
-9172500,San Miguel
-9174600,San Miguel
-9177000,San Miguel
+09349800,Piedra
+09059500,Piney
+09105000,Plateau Creek
+07126485,Purgatoire
+09073300,Roaring Fork
+09073400,Roaring Fork
+09085000,Roaring Fork
+09342500,San Juan
+09172500,San Miguel
+09174600,San Miguel
+09177000,San Miguel
 385106106571000,Slate
-9047500,Snake River
-6700000,South Platte
-6710247,South Platte
-6721000,South Platte
-9110000,Taylor River Canyon
-9050100,Tenmile Creek
-9146020,Uncompahgre River
-9146200,Uncompahgre River
-9147500,Uncompahgre River
-9352900,Vallecito Creek
-9306290,White
-9037500,Williams Fork
-6716100,Woods Creek
-9239500,Yampa
-9244490,Yampa
-9247600,Yampa
-9251000,Yampa
-9260050,Yampa
-1185500,Center Brook
-1208990,Far Mill River
-1186000,"Farmington, W. Branch"
-1186000,Farmington
-1188090,Farmington
-1189995,Farmington
-1199000,Housatonic
-1200500,Housatonic
-1120790,Natchaug
-1208500,Naugatuck
-1209700,Norwalk
-1125500,Quinebaug
-1193500,Roaring Brook
-1193500,Salmon
-1187300,Sandy Brook
-1202501,Shepaug
-1186500,Still
-1200000,Tenmile
-1119500,Willimantic River
-1481000,Brandywine Creek
-1479820,Red Clay Creek
-2317620,Alapahoochee (Grand Bay Canal)
-2304500,Hillsborough
-2315500,Suwannee
-2208050,Alcovy
-2208450,Alcovy
-3568933,Allen Creek
-2390000,Amicalola Creek
-2337000,Annewakee
-2219000,Apalachee
-2196485,Augusta Canal Overflow
-3568933,Bear Creek
-2335757,Big Creek
-2221525,Big Sandy Creek
-2333500,Blood Mountain Creek
-2333500,Boggs Creek
-2192000,"Broad, South Fork"
-2191300,Broad
-2379500,Cartecay
-2330450,Chattahoochee
-2331000,Chattahoochee
-2331600,Chattahoochee
-2334430,Chattahoochee
-2336000,Chattahoochee
-2336490,Chattahoochee
-2177000,"Chattooga, West Fork"
-2176930,Chattooga
-2177000,Chattooga
-2333500,Chestatee
-2381600,Clear Creek
-2178400,Coleman
-2385800,Conasauga
-2397000,Coosa
-2380500,Coosawattee
-2333500,Dicks Creek
-2337410,Dog
-2388975,Etowah
-2389150,Etowah
-2334620,Flat Creek
-2347500,Flint
-2333500,Frogtown Creek
-3568933,Gulf Creek
-2331600,Hazel Creek
-2385800,Holly Creek
-2217770,Hudson
-2337500,Hurricane Creek
-2344605,Line Creek
-2220900,Little 2 (Putnam County)
-2220900,Little 3 (Putnam County)
-2221525,Little Towaliga
-2334620,"Little, E.Fk."
-2392780,Little
-2335870,Marsh Creek
-2191300,Mill Shoal Creek
-2337000,Mobley Creek
-2178400,Moccasin Creek
-2331600,Mossy Creek
-2331600,Mud Creek
-2221525,Murder Creek
-2191300,Nancy Town
-2336635,Nickajack Creek
-2217770,North Oconee
-2210500,Ocmulgee
-2212735,Ocmulgee
-2213000,Ocmulgee
-2223000,Oconee
-2200120,Ogeechee
-2176930,Overflow Creek
-2346310,Potato Creek
-2335910,Rottenwood Creek
-2197000,Savannah
+09047500,Snake River
+06700000,South Platte
+06710247,South Platte
+06721000,South Platte
+09110000,Taylor River Canyon
+09050100,Tenmile Creek
+09146020,Uncompahgre River
+09146200,Uncompahgre River
+09147500,Uncompahgre River
+09352900,Vallecito Creek
+09306290,White
+09037500,Williams Fork
+06716100,Woods Creek
+09239500,Yampa
+09244490,Yampa
+09247600,Yampa
+09251000,Yampa
+09260050,Yampa
+01185500,Center Brook
+01208990,Far Mill River
+01186000,"Farmington, W. Branch"
+01186000,Farmington
+01188090,Farmington
+01189995,Farmington
+01199000,Housatonic
+01200500,Housatonic
+01120790,Natchaug
+01208500,Naugatuck
+01209700,Norwalk
+01125500,Quinebaug
+01193500,Roaring Brook
+01193500,Salmon
+01187300,Sandy Brook
+01202501,Shepaug
+01186500,Still
+01200000,Tenmile
+01119500,Willimantic River
+01481000,Brandywine Creek
+01479820,Red Clay Creek
+02317620,Alapahoochee (Grand Bay Canal)
+02304500,Hillsborough
+02315500,Suwannee
+02208050,Alcovy
+02208450,Alcovy
+03568933,Allen Creek
+02390000,Amicalola Creek
+02337000,Annewakee
+02219000,Apalachee
+02196485,Augusta Canal Overflow
+03568933,Bear Creek
+02335757,Big Creek
+02221525,Big Sandy Creek
+02333500,Blood Mountain Creek
+02333500,Boggs Creek
+02192000,"Broad, South Fork"
+02191300,Broad
+02379500,Cartecay
+02330450,Chattahoochee
+02331000,Chattahoochee
+02331600,Chattahoochee
+02334430,Chattahoochee
+02336000,Chattahoochee
+02336490,Chattahoochee
+02177000,"Chattooga, West Fork"
+02176930,Chattooga
+02177000,Chattooga
+02333500,Chestatee
+02381600,Clear Creek
+02178400,Coleman
+02385800,Conasauga
+02397000,Coosa
+02380500,Coosawattee
+02333500,Dicks Creek
+02337410,Dog
+02388975,Etowah
+02389150,Etowah
+02334620,Flat Creek
+02347500,Flint
+02333500,Frogtown Creek
+03568933,Gulf Creek
+02331600,Hazel Creek
+02385800,Holly Creek
+02217770,Hudson
+02337500,Hurricane Creek
+02344605,Line Creek
+02220900,Little 2 (Putnam County)
+02220900,Little 3 (Putnam County)
+02221525,Little Towaliga
+02334620,"Little, E.Fk."
+02392780,Little
+02335870,Marsh Creek
+02191300,Mill Shoal Creek
+02337000,Mobley Creek
+02178400,Moccasin Creek
+02331600,Mossy Creek
+02331600,Mud Creek
+02221525,Murder Creek
+02191300,Nancy Town
+02336635,Nickajack Creek
+02217770,North Oconee
+02210500,Ocmulgee
+02212735,Ocmulgee
+02213000,Ocmulgee
+02223000,Oconee
+02200120,Ogeechee
+02176930,Overflow Creek
+02346310,Potato Creek
+02335910,Rottenwood Creek
+02197000,Savannah
 23358685,Sewell Mill Creek
-2191300,Skull Shoal Creek
-2337500,Snake
-2335870,Sope Creek
-2204070,South
-2177000,Stekoa Creek
-2337000,Sweetwater Creek
-2382200,Talking Rock Creek
-2178400,Tallulah
-2181580,Tallulah
-2337000,Tanyard Branch
-2333500,Tesnatee Creek
-2178400,Tiger Creek
-2177000,Warwoman Creek
-2337500,Whooping Creek
-2178400,Wildcat Creek
-2337500,Wolf Creek
-2333500,Yahoola Creek
-2207120,Yellow
-2207335,Yellow
+02191300,Skull Shoal Creek
+02337500,Snake
+02335870,Sope Creek
+02204070,South
+02177000,Stekoa Creek
+02337000,Sweetwater Creek
+02382200,Talking Rock Creek
+02178400,Tallulah
+02181580,Tallulah
+02337000,Tanyard Branch
+02333500,Tesnatee Creek
+02178400,Tiger Creek
+02177000,Warwoman Creek
+02337500,Whooping Creek
+02178400,Wildcat Creek
+02337500,Wolf Creek
+02333500,Yahoola Creek
+02207120,Yellow
+02207335,Yellow
 16103000,Hanalei
 16019000,Koaie Stream
 16501200,Ohe'o Gulch
 16717000,Wailuku River (Hilo Run)
 16108000,Waimea
-5481000,Boone
-5457700,Cedar
-5464000,Cedar
-5464500,Cedar
-5480500,Des Moines
-5480500,"Lizard Creek, S.Br."
-5416900,Maquoketa
-5470500,Onion Creek
-5482500,Raccoon
-5484650,Raccoon
-5470000,South Skunk
-5411600,Turkey
-5412020,Turkey
-5484800,Walnut Creek
-5487980,White Breast Creek
-5459500,Winnebago
+05481000,Boone
+05457700,Cedar
+05464000,Cedar
+05464500,Cedar
+05480500,Des Moines
+05480500,"Lizard Creek, S.Br."
+05416900,Maquoketa
+05470500,Onion Creek
+05482500,Raccoon
+05484650,Raccoon
+05470000,South Skunk
+05411600,Turkey
+05412020,Turkey
+05484800,Walnut Creek
+05487980,White Breast Creek
+05459500,Winnebago
 10092700,Bear
 13341570,Big Bear
 12414500,Big Creek (Tributary of St. Joe River)
@@ -496,508 +496,508 @@ UsgsGaugeId,RiverSection
 12414900,St. Maries
 13052200,Teton
 13266000,Weiser
-5555300,Bailey Creek
-3384450,Bear Branch
-5495500,Bear Creek
-5551700,Blackberry Creek
-5495500,Cedar Creek (Adams Co.)
-5555300,Covel Creek
-5529000,Des Plaines
-5532500,Des Plaines
-5540500,DuPage
-5551200,Ferson Creek
-5551540,Fox (Illinois R. trib.)
-5551580,Fox (Illinois R. trib.)
-5539000,Hickory Creek
-5438030,"Kent Creek, S.Fk."
-5556500,Little Vermilion
-3384450,Lusk Creek
-7010000,Mississippi
-5435500,Pecatonica
-5576500,Sangamon
-5551330,Somonauk Creek
-5556500,Spring Creek
-5550300,Tyler Creek
-5555300,Vermilion
-5551330,Waubonsie Creek
+05555300,Bailey Creek
+03384450,Bear Branch
+05495500,Bear Creek
+05551700,Blackberry Creek
+05495500,Cedar Creek (Adams Co.)
+05555300,Covel Creek
+05529000,Des Plaines
+05532500,Des Plaines
+05540500,DuPage
+05551200,Ferson Creek
+05551540,Fox (Illinois R. trib.)
+05551580,Fox (Illinois R. trib.)
+05539000,Hickory Creek
+05438030,"Kent Creek, S.Fk."
+05556500,Little Vermilion
+03384450,Lusk Creek
+07010000,Mississippi
+05435500,Pecatonica
+05576500,Sangamon
+05551330,Somonauk Creek
+05556500,Spring Creek
+05550300,Tyler Creek
+05555300,Vermilion
+05551330,Waubonsie Creek
 33356848,Big Pine Creek
-3303000,Blue
-3363500,Flatrock
-3340800,Indian Creek
-3358000,Mill Creek
+03303000,Blue
+03363500,Flatrock
+03340800,Indian Creek
+03358000,Mill Creek
 33356848,Mud Pine Creek
-3294500,Ohio
-3333450,Pipe Creek
-3340800,Rattlesnake Creek
-3339500,Sugar Creek
-3323500,Wabash
-3353800,White Lick Creek
-3373500,"White, East Fork"
-3275600,"Whitewater, E.Fk."
-3276000,"Whitewater, E.Fk."
-3276500,Whitewater
-7169800,Elk
-6892350,Kansas River
-3254550,Banklick Creek
-3314500,Barren River
-3301000,Beech Fork
-3406500,Buck Creek
-3404900,Cane Creek
-3298250,Cane Run Creek
-3298250,Cedar Creek (Floyds Fork trib.)
-3400500,Cloverlick Creek
-3410210,"Cumberland, Big South Fork"
-3401000,"Cumberland, Clover Fork"
-3401000,"Cumberland, Martins Fork"
-3400500,"Cumberland, Poor Fork"
-3404000,Cumberland
-3289500,Elkhorn Creek
-3297900,Floyds Fork of the Salt River
-3298000,Floyds Fork of the Salt River
-3400500,Fugitt Creek
-3289500,Glenn's Creek
-3277075,Gunpowder Creek
-3292470,Harrods Creek
-3281000,"Kentucky, Middle Fork"
-3281500,"Kentucky, South Fork"
-3282500,Red
-3410210,Roaring Paunch
-3410210,Rock Creek (Cumberland trib)
-3406500,Rockcastle
-3298500,Salt
-3406500,Sinking Creek
-8025360,Sabine River
-8025500,Toro Bayou
-1097000,Assabet
-1103500,Charles
-1104500,Charles
-1099500,Concord
-1170500,Connecticut
-1171500,Dead Branch of the Westfield River
-1168500,Deerfield
-1170000,Deerfield
-1185500,"Farmington, W. Branch"
-1170100,Green
-1332500,Hoosic
-1187300,Hubbard
-1096000,Locke Brook
-1163500,Millers
-1166500,Millers
-1105583,Monatiquot
-1169000,North
-1095375,Quinapoxet
-1173500,Ware
-1180500,"Westfield, Middle Branch"
-1179500,"Westfield, N. Branch"
-1181000,"Westfield, W. Branch"
-1650500,"Anacostia, Northwest Branch"
-1619500,Antietam Creek
-3076600,Bear Creek
-1619500,Beaver Creek
-1643500,Bennett Creek
-1495000,Big Elk Creek
-1580000,Broad Creek
-1648000,Cabin John Creek
-3078000,"Casselman, N. Branch"
-3078000,Casselman
-1637500,Catoctin Creek
-1578475,Conowingo Creek
-1596500,Crabtree Creek
-1580000,Deer Creek
-1609000,Evitts Creek
-1610155,Fifteen Mile Creek
-1609000,Flintstone Creek
-1599000,Georges Creek
-1581920,Gunpowder Falls
-1581960,Gunpowder Falls
-1589300,Gwynns Falls
-1585230,Herring Run
-1637500,Hunting Creek
-1601000,Jennings Run
-1595500,Laurel Run
-1582000,Little Falls
-1581700,Little Gunpowder Falls
-1594000,Little Patuxent
-1645000,Little Seneca Creek
-1584050,Long Green Creek
-1639000,Middle Creek (Toms Creek trib.)
-1594000,Middle Patuxent
-1637500,Middle creek
-3075905,Mill Run
-3075905,Muddy Creek
-1495000,Northeast Creek
-1578475,Octoraro Creek
-1637500,Owens Creek
-1589000,"Patapsco, S. Branch"
-1589000,Patapsco
-1586210,Piney Run
-1595500,"Potomac, North Branch"
-1595800,"Potomac, North Branch"
-1598500,"Potomac, North Branch"
-1613000,Potomac
-1646500,Potomac
-1648000,Rock Creek
-1596500,Savage
-1597500,Savage
-1645000,Seneca Creek
-1610155,Sideling Hill Creek
-1609000,Town Creek
-1601000,Wills Creek
-1581700,Winters Run
-3075500,Youghiogheny
-3075905,Youghiogheny
-3076500,Youghiogheny
-1011000,Allagash
-1059000,Androscoggin
-1017000,Aroostook
-1010070,Big Black
-1054200,Bull Branch (of the Sunday River)
-1047000,Carrabasset
-1049500,Cobbosseecontee Stream
-1043500,Dead
-1037380,Ducktrap
-1054200,Goose Eye Brook
-1019000,Grand Lake Stream
-1037000,Kenduskeag Stream
-1042500,Kennebec
-1031450,Kingsbury Stream
-1057000,Little Androscoggin
-1047200,Long Pond Stream
-2142900,Machias
-1030500,Mattawamkeag
-1069500,Mousam
-1022500,Narraguagus
-1021480,Old Stream
-1066000,Ossipee
-1029500,"Penobscot, E. Branch"
-1031300,Piscataquis River
-1031300,"Piscataquis, E. Branch"
-1034000,Piscataquis
-1064118,Presumpscot
-1066000,Saco
-1047000,Sandy Stream
-1047200,Sandy
-1048000,Sandy
-1029200,Seboeis
-1038000,Sheepscot
-1044550,Spencer Stream
-1018500,St. Croix
-1011500,St. Francis
-1014000,St. John
-1034500,Stillwater
-1055000,Swift
-1054200,Wild
-4044724,Au Train
-4127800,Bear
-4031000,Black
-4126970,Boardman
-4060993,Brule
-4063000,Brule
-4057800,Carp (Marquette)
-4154000,Chippewa
-4044599,Chocolay
-4161000,Clinton
-4044003,Dead
-4043050,Eagle
-4057800,"Escanaba, E.Br."
-4058100,"Escanaba, M.Br."
-4059000,Escanaba
-4043097,Falls
-4059500,Ford
-4119000,Grand
-4040260,Gratiot
-4174500,Huron (Washtenaw)
-4060500,Iron
-4031000,Little Carp (Porkies)
-4065106,Menominee
-4066003,Menominee
-4058100,Michigamme
-4173500,Mill Creek
-4037500,"Ontonagon, Cisco Br."
-4033000,"Ontonagon, M.Br."
-4036000,"Ontonagon, W.Br."
-4040000,Ontonagon
-4040500,"Otter, W.Br."
-4161540,Paint Creek
-4062000,Paint
-4043016,Pilgrim
-4125460,Pine
-4127917,Pine
-4031000,Presque Isle
-4032000,Presque Isle
-4112500,Red Cedar
-4040500,Rock
-4118500,Rogue
-4043238,Salmon Trout
-4031000,Sand Island Creek
-4043150,Silver
-4043150,Slate
-4040500,Sturgeon (Baraga)
-4127997,Sturgeon (Cheboygan)
-4065650,Sturgeon (Dickinson)
-4040500,"Sturgeon, W.Br. (Houghton)"
-4045500,Tahquamenon
-4040500,Tioga
-5316500,Beaver Creek
-5132000,Big Fork
-4015330,Big Sucker Creek
-5355200,Cannon
-5313500,Hawk Creek
-5336700,Kettle
-4015330,Knife
-4015330,Lester
-5131500,Little Fork
-5336700,Lower Tamarack
-5270700,Mississippi
-4010500,Pigeon
-5315000,Redwood
-5316500,Redwood
-5345000,Sand Creek
-5270500,Sauk
-5338500,Snake
-5333500,St. Croix
-5340500,St. Croix
-4015438,St. Louis
-4024000,St. Louis
-5129115,Vermilion
-5345000,Vermillion (Hastings)
-5063398,"Wild Rice, S.Br."
-5313500,Yellow Medicine
-7037300,Big Creek
-7061270,"Black, East Fork"
-6893080,Blue
-7035000,Castor
-7061270,Crane Pond Creek
-7071500,Eleven Point
-7052820,Flat Creek
-7061270,Little Rock Creek
-7035000,Little St. Francis
-7061270,Lower Rock Creek
-6935965,Missouri
-7035000,Mud Creek
-7057500,North Fork (White River)
-5501000,North
-7035000,Pickle Creek
-5500000,South Fabius
-7035000,Stouts Creek
-7061270,Stouts Creek
-7035000,Turkey Creek
-2475500,Chunky
-2472850,Okatoma Creek
-6016000,Beaverhead
-6026210,Big Hole
+03294500,Ohio
+03333450,Pipe Creek
+03340800,Rattlesnake Creek
+03339500,Sugar Creek
+03323500,Wabash
+03353800,White Lick Creek
+03373500,"White, East Fork"
+03275600,"Whitewater, E.Fk."
+03276000,"Whitewater, E.Fk."
+03276500,Whitewater
+07169800,Elk
+06892350,Kansas River
+03254550,Banklick Creek
+03314500,Barren River
+03301000,Beech Fork
+03406500,Buck Creek
+03404900,Cane Creek
+03298250,Cane Run Creek
+03298250,Cedar Creek (Floyds Fork trib.)
+03400500,Cloverlick Creek
+03410210,"Cumberland, Big South Fork"
+03401000,"Cumberland, Clover Fork"
+03401000,"Cumberland, Martins Fork"
+03400500,"Cumberland, Poor Fork"
+03404000,Cumberland
+03289500,Elkhorn Creek
+03297900,Floyds Fork of the Salt River
+03298000,Floyds Fork of the Salt River
+03400500,Fugitt Creek
+03289500,Glenn's Creek
+03277075,Gunpowder Creek
+03292470,Harrods Creek
+03281000,"Kentucky, Middle Fork"
+03281500,"Kentucky, South Fork"
+03282500,Red
+03410210,Roaring Paunch
+03410210,Rock Creek (Cumberland trib)
+03406500,Rockcastle
+03298500,Salt
+03406500,Sinking Creek
+08025360,Sabine River
+08025500,Toro Bayou
+01097000,Assabet
+01103500,Charles
+01104500,Charles
+01099500,Concord
+01170500,Connecticut
+01171500,Dead Branch of the Westfield River
+01168500,Deerfield
+01170000,Deerfield
+01185500,"Farmington, W. Branch"
+01170100,Green
+01332500,Hoosic
+01187300,Hubbard
+01096000,Locke Brook
+01163500,Millers
+01166500,Millers
+01105583,Monatiquot
+01169000,North
+01095375,Quinapoxet
+01173500,Ware
+01180500,"Westfield, Middle Branch"
+01179500,"Westfield, N. Branch"
+01181000,"Westfield, W. Branch"
+01650500,"Anacostia, Northwest Branch"
+01619500,Antietam Creek
+03076600,Bear Creek
+01619500,Beaver Creek
+01643500,Bennett Creek
+01495000,Big Elk Creek
+01580000,Broad Creek
+01648000,Cabin John Creek
+03078000,"Casselman, N. Branch"
+03078000,Casselman
+01637500,Catoctin Creek
+01578475,Conowingo Creek
+01596500,Crabtree Creek
+01580000,Deer Creek
+01609000,Evitts Creek
+01610155,Fifteen Mile Creek
+01609000,Flintstone Creek
+01599000,Georges Creek
+01581920,Gunpowder Falls
+01581960,Gunpowder Falls
+01589300,Gwynns Falls
+01585230,Herring Run
+01637500,Hunting Creek
+01601000,Jennings Run
+01595500,Laurel Run
+01582000,Little Falls
+01581700,Little Gunpowder Falls
+01594000,Little Patuxent
+01645000,Little Seneca Creek
+01584050,Long Green Creek
+01639000,Middle Creek (Toms Creek trib.)
+01594000,Middle Patuxent
+01637500,Middle creek
+03075905,Mill Run
+03075905,Muddy Creek
+01495000,Northeast Creek
+01578475,Octoraro Creek
+01637500,Owens Creek
+01589000,"Patapsco, S. Branch"
+01589000,Patapsco
+01586210,Piney Run
+01595500,"Potomac, North Branch"
+01595800,"Potomac, North Branch"
+01598500,"Potomac, North Branch"
+01613000,Potomac
+01646500,Potomac
+01648000,Rock Creek
+01596500,Savage
+01597500,Savage
+01645000,Seneca Creek
+01610155,Sideling Hill Creek
+01609000,Town Creek
+01601000,Wills Creek
+01581700,Winters Run
+03075500,Youghiogheny
+03075905,Youghiogheny
+03076500,Youghiogheny
+01011000,Allagash
+01059000,Androscoggin
+01017000,Aroostook
+01010070,Big Black
+01054200,Bull Branch (of the Sunday River)
+01047000,Carrabasset
+01049500,Cobbosseecontee Stream
+01043500,Dead
+01037380,Ducktrap
+01054200,Goose Eye Brook
+01019000,Grand Lake Stream
+01037000,Kenduskeag Stream
+01042500,Kennebec
+01031450,Kingsbury Stream
+01057000,Little Androscoggin
+01047200,Long Pond Stream
+02142900,Machias
+01030500,Mattawamkeag
+01069500,Mousam
+01022500,Narraguagus
+01021480,Old Stream
+01066000,Ossipee
+01029500,"Penobscot, E. Branch"
+01031300,Piscataquis River
+01031300,"Piscataquis, E. Branch"
+01034000,Piscataquis
+01064118,Presumpscot
+01066000,Saco
+01047000,Sandy Stream
+01047200,Sandy
+01048000,Sandy
+01029200,Seboeis
+01038000,Sheepscot
+01044550,Spencer Stream
+01018500,St. Croix
+01011500,St. Francis
+01014000,St. John
+01034500,Stillwater
+01055000,Swift
+01054200,Wild
+04044724,Au Train
+04127800,Bear
+04031000,Black
+04126970,Boardman
+04060993,Brule
+04063000,Brule
+04057800,Carp (Marquette)
+04154000,Chippewa
+04044599,Chocolay
+04161000,Clinton
+04044003,Dead
+04043050,Eagle
+04057800,"Escanaba, E.Br."
+04058100,"Escanaba, M.Br."
+04059000,Escanaba
+04043097,Falls
+04059500,Ford
+04119000,Grand
+04040260,Gratiot
+04174500,Huron (Washtenaw)
+04060500,Iron
+04031000,Little Carp (Porkies)
+04065106,Menominee
+04066003,Menominee
+04058100,Michigamme
+04173500,Mill Creek
+04037500,"Ontonagon, Cisco Br."
+04033000,"Ontonagon, M.Br."
+04036000,"Ontonagon, W.Br."
+04040000,Ontonagon
+04040500,"Otter, W.Br."
+04161540,Paint Creek
+04062000,Paint
+04043016,Pilgrim
+04125460,Pine
+04127917,Pine
+04031000,Presque Isle
+04032000,Presque Isle
+04112500,Red Cedar
+04040500,Rock
+04118500,Rogue
+04043238,Salmon Trout
+04031000,Sand Island Creek
+04043150,Silver
+04043150,Slate
+04040500,Sturgeon (Baraga)
+04127997,Sturgeon (Cheboygan)
+04065650,Sturgeon (Dickinson)
+04040500,"Sturgeon, W.Br. (Houghton)"
+04045500,Tahquamenon
+04040500,Tioga
+05316500,Beaver Creek
+05132000,Big Fork
+04015330,Big Sucker Creek
+05355200,Cannon
+05313500,Hawk Creek
+05336700,Kettle
+04015330,Knife
+04015330,Lester
+05131500,Little Fork
+05336700,Lower Tamarack
+05270700,Mississippi
+04010500,Pigeon
+05315000,Redwood
+05316500,Redwood
+05345000,Sand Creek
+05270500,Sauk
+05338500,Snake
+05333500,St. Croix
+05340500,St. Croix
+04015438,St. Louis
+04024000,St. Louis
+05129115,Vermilion
+05345000,Vermillion (Hastings)
+05063398,"Wild Rice, S.Br."
+05313500,Yellow Medicine
+07037300,Big Creek
+07061270,"Black, East Fork"
+06893080,Blue
+07035000,Castor
+07061270,Crane Pond Creek
+07071500,Eleven Point
+07052820,Flat Creek
+07061270,Little Rock Creek
+07035000,Little St. Francis
+07061270,Lower Rock Creek
+06935965,Missouri
+07035000,Mud Creek
+07057500,North Fork (White River)
+05501000,North
+07035000,Pickle Creek
+05500000,South Fabius
+07035000,Stouts Creek
+07061270,Stouts Creek
+07035000,Turkey Creek
+02475500,Chunky
+02472850,Okatoma Creek
+06016000,Beaverhead
+06026210,Big Hole
 12335100,Blackfoot
 12340000,Blackfoot
-6033000,Boulder (Jefferson R. tributary)
-6200000,"Boulder, West"
-6200000,Boulder
+06033000,Boulder (Jefferson R. tributary)
+06200000,"Boulder, West"
+06200000,Boulder
 12353000,Clark Fork
 12354500,Clark Fork
-6207500,Clarks Fork Yellowstone
-6073500,Dearborn
+06207500,Clarks Fork Yellowstone
+06073500,Dearborn
 12377150,Elk Creek (Swan Trib)
-6073500,Falls Creek (Dearborn Trib)
+06073500,Falls Creek (Dearborn Trib)
 12390700,Fish Creek
 12358500,"Flathead, Middle Fork"
 12355500,"Flathead, North Fork"
 12359800,"Flathead, South Fork"
 12330000,Flint Creek
-6043500,Gallatin
-6114700,Judith
+06043500,Gallatin
+06114700,Judith
 12344000,Kootenai Creek
 12301933,Kootenai
-6038500,Madison
-6041000,Madison
+06038500,Madison
+06041000,Madison
 12390700,Prospect Creek
-6209500,Rock Creek (Carbon County)
+06209500,Rock Creek (Carbon County)
 12334510,Rock Creek (Missoula County)
-6204070,"Rosebud Creek, West"
-6077200,Smith
-6205000,Stillwater
+06204070,"Rosebud Creek, West"
+06077200,Smith
+06205000,Stillwater
 12377150,Swan River
 12370000,Swan
-6102500,Teton River (North Fork)
-6102500,"Teton River, North Fork"
+06102500,Teton River (North Fork)
+06102500,"Teton River, North Fork"
 12389500,Thompson River
 12390700,Trout Creek
-6091700,"Two Medicine, South Fork"
-6091700,Two Medicine
+06091700,"Two Medicine, South Fork"
+06091700,Two Medicine
 12304500,Yaak
-6191500,Yellowstone
-6214500,Yellowstone
-3550000,Alarka Creek
-2113850,Ararat
-2068500,Big Creek (Stokes Co.)
-3512000,Big Creek
-3453000,Big Laurel Creek
-3479000,Boone Fork
-2151500,Broad
-3453000,Brush Creek
-2102192,Buckhorn Creek
+06191500,Yellowstone
+06214500,Yellowstone
+03550000,Alarka Creek
+02113850,Ararat
+02068500,Big Creek (Stokes Co.)
+03512000,Big Creek
+03453000,Big Laurel Creek
+03479000,Boone Fork
+02151500,Broad
+03453000,Brush Creek
+02102192,Buckhorn Creek
 209553650,Buffalo Creek (Guilford Co.)
-2111180,Buffalo Creek
-2102500,Cape Fear
-3500240,Cartoogechaye
-3460000,Cataloochee Creek
-2137727,Catawba
-2138520,Catawba
+02111180,Buffalo Creek
+02102500,Cape Fear
+03500240,Cartoogechaye
+03460000,Cataloochee Creek
+02137727,Catawba
+02138520,Catawba
 351706800,Cheoah
 208726005,Crabtree Creek (Umstead State Park)
-2068500,Dan
-2071000,Dan
-3441000,Davidson
-2100500,Deep
-2102000,Deep
-2111180,Elk Creek
-3479000,Elk
-2085000,Eno
-2085070,Eno
-3504000,Fires Creek
-2152100,First Broad
-2085500,Flat
-3439000,"French Broad, North Fork"
-3439000,"French Broad, West Fork"
-3451500,French Broad
-3453500,French Broad
-2096960,Haw
-3455500,Hominy Creek
-2140991,Johns
-3460000,Jonathans Creek
-2138500,Linville
-2102908,Little (Cape Fear trib)
+02068500,Dan
+02071000,Dan
+03441000,Davidson
+02100500,Deep
+02102000,Deep
+02111180,Elk Creek
+03479000,Elk
+02085000,Eno
+02085070,Eno
+03504000,Fires Creek
+02152100,First Broad
+02085500,Flat
+03439000,"French Broad, North Fork"
+03439000,"French Broad, West Fork"
+03451500,French Broad
+03453500,French Broad
+02096960,Haw
+03455500,Hominy Creek
+02140991,Johns
+03460000,Jonathans Creek
+02138500,Linville
+02102908,Little (Cape Fear trib)
 208521324,Little (Eno trib)
-3441000,Little (Fr.Broad trib)
-2081500,Little Fishing Creek
-3503000,Little Tennessee
-3441000,Looking Glass Creek
-2070500,"Mayo, N. Fork"
-2069700,"Mayo, S. Fork"
-3504000,Nantahala
-3505550,Nantahala
-2087183,Neuse
-2096846,New Hope Creek
-3161000,"New, S. Fork"
-3164000,New
-3465500,Nolichucky
-3441000,North Pacolet
-3463300,North Toe
-3512000,Oconaluftee
-3456500,"Pigeon, Big East Fork"
-3456500,"Pigeon, East Fork"
-3455500,"Pigeon, West Fork"
-3459500,Pigeon
-3460795,Pigeon
-3512000,Raven Fork
-2111500,Reddies
-2094500,Reedy Fork Creek
+03441000,Little (Fr.Broad trib)
+02081500,Little Fishing Creek
+03503000,Little Tennessee
+03441000,Looking Glass Creek
+02070500,"Mayo, N. Fork"
+02069700,"Mayo, S. Fork"
+03504000,Nantahala
+03505550,Nantahala
+02087183,Neuse
+02096846,New Hope Creek
+03161000,"New, S. Fork"
+03164000,New
+03465500,Nolichucky
+03441000,North Pacolet
+03463300,North Toe
+03512000,Oconaluftee
+03456500,"Pigeon, Big East Fork"
+03456500,"Pigeon, East Fork"
+03455500,"Pigeon, West Fork"
+03459500,Pigeon
+03460795,Pigeon
+03512000,Raven Fork
+02111500,Reddies
+02094500,Reedy Fork Creek
 208062765,Roanoke
-2101726,Rocky (Cape Fear Trib)
-2126000,Rocky (Pee Dee trib)
-3446000,South Fork Mills River
-2118000,South Yadkin
-3453000,Spring Creek
-3512000,Straight Fork
-3451000,Swannanoa
-3439000,Tanasee Creek
-2081500,Tar
-2082585,Tar
-3463300,"Toe, South"
-3465500,Toe
-3510577,Tuckasegee
-3513000,Tuckasegee
-3479000,Watauga
-2140991,Wilson Creek
-2111000,Yadkin
-2112000,Yadkin
-2112250,Yadkin
-2116500,Yadkin
+02101726,Rocky (Cape Fear Trib)
+02126000,Rocky (Pee Dee trib)
+03446000,South Fork Mills River
+02118000,South Yadkin
+03453000,Spring Creek
+03512000,Straight Fork
+03451000,Swannanoa
+03439000,Tanasee Creek
+02081500,Tar
+02082585,Tar
+03463300,"Toe, South"
+03465500,Toe
+03510577,Tuckasegee
+03513000,Tuckasegee
+03479000,Watauga
+02140991,Wilson Creek
+02111000,Yadkin
+02112000,Yadkin
+02112250,Yadkin
+02116500,Yadkin
 351706800,Yellow Creek
-5099400,Little South Pembina
-5099600,Pembina
-5054000,Red River of the North
-6775900,Dismal
-6461500,Niobrara
-1137500,Ammonoosuc
-1053500,Androscoggin
-1157000,Ashuelot
-1161000,Ashuelot
-1076000,"Baker, S. Branch"
-1076000,Baker
-1064801,Bearcamp
-1087000,Blackwater
-1161000,Broad Brook
-1075000,Cascade Brook
-1072800,Cocheco
-1129200,Connecticut
-1144500,Connecticut
-1085000,"Contoocook, N. Branch"
-1082000,Contoocook
-1085000,Contoocook
-1152500,Croyden Brook
-1052500,Diamond River
-1075000,Dry
-1078000,Fowler
-1077400,Halls Brook
-1072870,Isinglass
-1073500,Lamprey
-1081500,Merrimack
-1092000,Merrimack
-1096500,Nashua
-1158600,Otter Brook
-1074520,"Pemigewasset, East Branch"
-1074520,"Pemigewasset, Hancock Branch"
-1075000,"Pemigewasset, North Fork."
-1075000,Pemigewasset
-1076500,Pemigewasset
-1090800,"Piscataquog, North Branch"
-1091500,Piscataquog
-1076000,Pond Brook
+05099400,Little South Pembina
+05099600,Pembina
+05054000,Red River of the North
+06775900,Dismal
+06461500,Niobrara
+01137500,Ammonoosuc
+01053500,Androscoggin
+01157000,Ashuelot
+01161000,Ashuelot
+01076000,"Baker, S. Branch"
+01076000,Baker
+01064801,Bearcamp
+01087000,Blackwater
+01161000,Broad Brook
+01075000,Cascade Brook
+01072800,Cocheco
+01129200,Connecticut
+01144500,Connecticut
+01085000,"Contoocook, N. Branch"
+01082000,Contoocook
+01085000,Contoocook
+01152500,Croyden Brook
+01052500,Diamond River
+01075000,Dry
+01078000,Fowler
+01077400,Halls Brook
+01072870,Isinglass
+01073500,Lamprey
+01081500,Merrimack
+01092000,Merrimack
+01096500,Nashua
+01158600,Otter Brook
+01074520,"Pemigewasset, East Branch"
+01074520,"Pemigewasset, Hancock Branch"
+01075000,"Pemigewasset, North Fork."
+01075000,Pemigewasset
+01076500,Pemigewasset
+01090800,"Piscataquog, North Branch"
+01091500,Piscataquog
+01076000,Pond Brook
 10642505,Saco
-1064500,Saco
+01064500,Saco
 10642505,Sawyer
-1078000,Smith
-1089100,Soucook
-1093852,Souhegan
-1094000,Souhegan
-1093852,Stony Brook
-1152500,Sugar
-1089100,Suncook
-1086000,Warner
-1081000,Winnipesaukee
-1064801,Wonalancet
-1463500,Delaware
-1399500,Lamington
-1455500,Musconetcong
-1443500,Paulins Kill
-1382500,Pequannock
-1445500,Pequest
-1386000,Posts Creek
-1398500,"Raritan, N. Branch"
-1396500,"Raritan, S. Branch"
-1399670,Rockaway Creek
-1380450,Rockaway
-1383500,Wanaque
-1386000,West Brook
-9364500,Animas
-7211500,Canadian
-7207000,Cimarron
-9431500,Gila
-8324000,Jemez
-7216500,Mora
-8379500,Pecos
-8265000,Red River
-8284100,Rio Chama
-8286500,Rio Chama
-8287000,Rio Chama
-8263500,Rio Grande
-8276500,Rio Grande
-8313000,Rio Grande
-8324000,Rio Guadalupe
-8289000,Rio Ojo Caliente
-8276300,Rio Pueblo de Taos
-8291000,Rio Santa Cruz
-9444000,San Francisco
-9368000,San Juan
+01078000,Smith
+01089100,Soucook
+01093852,Souhegan
+01094000,Souhegan
+01093852,Stony Brook
+01152500,Sugar
+01089100,Suncook
+01086000,Warner
+01081000,Winnipesaukee
+01064801,Wonalancet
+01463500,Delaware
+01399500,Lamington
+01455500,Musconetcong
+01443500,Paulins Kill
+01382500,Pequannock
+01445500,Pequest
+01386000,Posts Creek
+01398500,"Raritan, N. Branch"
+01396500,"Raritan, S. Branch"
+01399670,Rockaway Creek
+01380450,Rockaway
+01383500,Wanaque
+01386000,West Brook
+09364500,Animas
+07211500,Canadian
+07207000,Cimarron
+09431500,Gila
+08324000,Jemez
+07216500,Mora
+08379500,Pecos
+08265000,Red River
+08284100,Rio Chama
+08286500,Rio Chama
+08287000,Rio Chama
+08263500,Rio Grande
+08276500,Rio Grande
+08313000,Rio Grande
+08324000,Rio Guadalupe
+08289000,Rio Ojo Caliente
+08276300,Rio Pueblo de Taos
+08291000,Rio Santa Cruz
+09444000,San Francisco
+09368000,San Juan
 13161500,"Bruneau, West Fork"
 10311000,Carson River
 13162225,"Jarbidge, East Fork"
@@ -1006,223 +1006,223 @@ UsgsGaugeId,RiverSection
 10347460,Truckee
 10348000,Truckee
 10351700,Truckee
-1330000,Anthony Kill
-4275000,"Ausable, E. Branch"
-4275500,"Ausable, W. Branch"
-4275500,Ausable
-1315500,Balm of Gilead Brook
-1197000,Bash Bish Brook
-1349950,Basic Creek
-1413500,Batavia Kill (Delaware tributary)
-1349950,Batavia Kill (Schoharie Cr. Tributary)
-1329490,Batten Kill
-1350080,Bear Kill
-1420500,Beaver Kill (Delaware tributary)
-1362500,Beaver Kill (Hudson tributary)
-4213500,Beaver Meadow Creek
-1321000,Beecher Creek
-1367500,"Beer Kill, W. Branch"
-1367500,Beer Kill
-4275500,Black Brook
-4252500,"Black, S. Branch"
-4252500,Black
-4260500,Black
-4262500,Bog
-4262500,Boland Creek
-4275000,"Boquet, N. Branch"
-4275000,"Boquet, S. Branch"
-4275000,Boquet
-1315500,Boreas
-1362500,Bowery Creek
-1507000,Bowman Creek
-1315500,"Branch, The (Boquet trib.)"
-1317000,"Branch, The (Schroon trib.)"
-1413398,Bush Kill
-4244000,Butternut Creek
-1427500,"Callicoon Creek, E. Branch"
-1427500,"Callicoon Creek, N. Branch"
-4213500,Canadaway Creek
-1349150,Canajoharie Creek
-4235000,Canandaigua Outlet
-4224775,Canaseraga Creek
-1525500,Canisteo
-1321000,Caroga Creek
-4233286,Cascadilla Creek
-1350080,Catskill Creek
-1362500,Catskill Creek
-4213500,"Cattaraugus Creek, S. Branch"
-4213500,Cattaraugus Creek
-4233255,Cayuta Creek
-4215500,"Cazenovia Creek, W. Branch"
-4215500,"Cazenovia Creek, W.Branch"
-1315500,Cedar
-4271500,Chateaugay
-4213075,Chautauqua Creek
-4244000,Chittenango Creek
-4256000,Cincinnati Creek
-1361000,Claverack Creek
-4213500,"Clear Creek, N. Br."
-1351500,Cobleskill Creek
-1315500,Cold
-4228500,Conesus Creek
-1321000,County Line Brook
-1367500,Coxing Kill
-1375000,Croton
-4256000,Crystal Creek
-4242500,Deer (Black trib.)
-4268800,Deer (St. Lawrence trib.)
-1315500,Deer Creek (Hudson Trib.)
-1413500,"Delaware, E. Branch"
-1422500,"Delaware, Little Delaware"
-1421900,"Delaware, W. Branch"
-1428500,Delaware
-1321000,Doig Creek
-1413408,Dry Brook
-1321000,Dunning Creek
-1321000,East Canada Creek
-1349700,East Kill (Schoharie Creek trib)
-1315500,East Stony Creek
-4215500,"Eighteenmile Creek, S. Br."
-4215500,Eighteenmile Creek
-1321000,Elbow Creek
-4218518,Ellicott Creek
-4262500,Elm Creek
-1362200,Esopus Creek
-1362500,Esopus Creek
-1364500,Esopus Creek
-4234000,Fall Creek
-4242500,"Fish Creek, E. Branch"
-1372500,Fishkill Creek
-4235250,Flint Creek
-1350080,Fox Creek
-4223000,Genesee
-1321000,Georgia Brook
-1315500,Glen Creek
-4262500,"Grass, Lower S. Branch"
-4262500,"Grass, Middle Branch"
-4262500,"Grass, N. Branch"
-4262500,"Grass, Upper South Branch"
-4262500,Grass
-4271500,"Great Chazy, North Branch"
-4271500,Great Chazy
+01330000,Anthony Kill
+04275000,"Ausable, E. Branch"
+04275500,"Ausable, W. Branch"
+04275500,Ausable
+01315500,Balm of Gilead Brook
+01197000,Bash Bish Brook
+01349950,Basic Creek
+01413500,Batavia Kill (Delaware tributary)
+01349950,Batavia Kill (Schoharie Cr. Tributary)
+01329490,Batten Kill
+01350080,Bear Kill
+01420500,Beaver Kill (Delaware tributary)
+01362500,Beaver Kill (Hudson tributary)
+04213500,Beaver Meadow Creek
+01321000,Beecher Creek
+01367500,"Beer Kill, W. Branch"
+01367500,Beer Kill
+04275500,Black Brook
+04252500,"Black, S. Branch"
+04252500,Black
+04260500,Black
+04262500,Bog
+04262500,Boland Creek
+04275000,"Boquet, N. Branch"
+04275000,"Boquet, S. Branch"
+04275000,Boquet
+01315500,Boreas
+01362500,Bowery Creek
+01507000,Bowman Creek
+01315500,"Branch, The (Boquet trib.)"
+01317000,"Branch, The (Schroon trib.)"
+01413398,Bush Kill
+04244000,Butternut Creek
+01427500,"Callicoon Creek, E. Branch"
+01427500,"Callicoon Creek, N. Branch"
+04213500,Canadaway Creek
+01349150,Canajoharie Creek
+04235000,Canandaigua Outlet
+04224775,Canaseraga Creek
+01525500,Canisteo
+01321000,Caroga Creek
+04233286,Cascadilla Creek
+01350080,Catskill Creek
+01362500,Catskill Creek
+04213500,"Cattaraugus Creek, S. Branch"
+04213500,Cattaraugus Creek
+04233255,Cayuta Creek
+04215500,"Cazenovia Creek, W. Branch"
+04215500,"Cazenovia Creek, W.Branch"
+01315500,Cedar
+04271500,Chateaugay
+04213075,Chautauqua Creek
+04244000,Chittenango Creek
+04256000,Cincinnati Creek
+01361000,Claverack Creek
+04213500,"Clear Creek, N. Br."
+01351500,Cobleskill Creek
+01315500,Cold
+04228500,Conesus Creek
+01321000,County Line Brook
+01367500,Coxing Kill
+01375000,Croton
+04256000,Crystal Creek
+04242500,Deer (Black trib.)
+04268800,Deer (St. Lawrence trib.)
+01315500,Deer Creek (Hudson Trib.)
+01413500,"Delaware, E. Branch"
+01422500,"Delaware, Little Delaware"
+01421900,"Delaware, W. Branch"
+01428500,Delaware
+01321000,Doig Creek
+01413408,Dry Brook
+01321000,Dunning Creek
+01321000,East Canada Creek
+01349700,East Kill (Schoharie Creek trib)
+01315500,East Stony Creek
+04215500,"Eighteenmile Creek, S. Br."
+04215500,Eighteenmile Creek
+01321000,Elbow Creek
+04218518,Ellicott Creek
+04262500,Elm Creek
+01362200,Esopus Creek
+01362500,Esopus Creek
+01364500,Esopus Creek
+04234000,Fall Creek
+04242500,"Fish Creek, E. Branch"
+01372500,Fishkill Creek
+04235250,Flint Creek
+01350080,Fox Creek
+04223000,Genesee
+01321000,Georgia Brook
+01315500,Glen Creek
+04262500,"Grass, Lower S. Branch"
+04262500,"Grass, Middle Branch"
+04262500,"Grass, N. Branch"
+04262500,"Grass, Upper South Branch"
+04262500,Grass
+04271500,"Great Chazy, North Branch"
+04271500,Great Chazy
 423401815,Great Gully Creek
-1317000,Hague Brook
-1359528,Hannacrois Creek
-1321000,Holmes Lake Outlet
-4229500,Honeoye Creek
-1334500,Hoosic
-1312000,Hudson
-1315500,Hudson
-1327750,Hudson
-4256000,Independence River
-4256000,Independence
-1315000,Indian (Hudson trib.)
-4254500,Indian (S.Br. Moose trib.)
-4262500,Island Branch
-4262500,Jenny Creek
-1321000,Jimmy Creek
-4275000,John's Brook
-4268800,Jordan
-1362500,Kaaterskill Creek
-4224775,Keshequa Creek
-4232482,Keuka Outlet
-1361000,Kinderhook Creek
-1349700,Kiskatom Creek
-1361000,Kline Kill
-1421900,Kortright Creek
-4268800,Lake Ozonia Outlet
-4244000,Limestone Creek
-4275000,Little Black Brook
-4252500,Little Black Creek
-4213075,Little Chautauqua Creek
-4268800,Little Trout
-4252500,Little Woodhull Creek
-4262500,Little
-4242500,Mad River
-4271500,Marble
-4268800,Meacham Lake Outlet
-4280450,Mettawee
-1414500,Mill Brook
-1317000,Mill Creek (Essex County)
-1315500,Mill Creek (Hudson trib.)
-4256000,Mill Creek (Lewis County)
-1357500,Mohawk
-4242500,Mohawk
-1367500,Mombaccus Creek
-1433500,Mongaup
-1387500,Moodna Creek
-4254500,"Moose, Middle Branch"
-4254500,"Moose, S. Branch"
-4254500,Moose
-4218000,Murder Creek
-4256000,Negro Brook
-1435000,"Neversink, E. Branch"
-1434498,"Neversink, W. Branch"
-1436690,Neversink
-1437500,Neversink
-4242500,Ninemile Creek
-1334500,Normans Kill
-1359528,Normans Kill
-1349150,North Chuctanunda Creek
-1315500,North Creek
-1349150,Nowadaga Creek
-4220045,Oak Orchard Creek
-4230500,Oatka Creek
-1338000,Oriskany Creek
-4262500,"Oswegatchie, E. Branch"
-4262500,"Oswegatchie, Middle Branch"
-4213000,Ashtabula
-3242350,Caesar Creek
-4209000,Chagrin
-4213000,Conneaut Creek
-4206000,Cuyahoga
-4208000,Cuyahoga
-3272700,Four Mile Creek
-4212100,Grand
-3274000,Great Miami
-3264000,Greenville Creek
-3271300,Holes Creek
-3136500,Kokosing
-3147500,Licking
-3109500,Little Beaver Creek
-3246500,"Little Miami River, East Fork"
-3242050,Little Miami
-3245500,Little Miami
-3264000,Ludlow Creek
-3270000,Mad River
-3270000,Mad
-3241500,Massie's Creek
-4193500,Maumee
-3244936,O'Bannon Creek
-3225500,Olentangy
-3232470,Paint Creek
-3264000,Painter Creek
-4195820,Portage
-3232300,Rattlesnake Creek
-3232500,Rocky Fork Creek
-4201500,"Rocky, N. Br. of the W. Br."
-4201500,"Rocky, W. Br."
-4201500,"Rocky, W.Br."
-4207200,Sagamore Creek
-4198000,Sandusky
-3247500,Stonelick Creek
-3244936,Sycamore Creek
-4207200,Tinker's Creek
-3245500,Todd Fork
-4199500,Vermilion
-3144000,Wakatomica Creek
-3238495,White Oak Creek
-7164500,Arkansas
-7332500,Blue
-7196000,Flint Creek
-7337900,Glover
-7329780,Honey Creek
-7196500,Illinois River
-7335700,Kiamichi
-7338750,Mountain Fork
-7339000,Mountain Fork
-7331300,Pennington Creek
-7337900,Rocky Creek
+01317000,Hague Brook
+01359528,Hannacrois Creek
+01321000,Holmes Lake Outlet
+04229500,Honeoye Creek
+01334500,Hoosic
+01312000,Hudson
+01315500,Hudson
+01327750,Hudson
+04256000,Independence River
+04256000,Independence
+01315000,Indian (Hudson trib.)
+04254500,Indian (S.Br. Moose trib.)
+04262500,Island Branch
+04262500,Jenny Creek
+01321000,Jimmy Creek
+04275000,John's Brook
+04268800,Jordan
+01362500,Kaaterskill Creek
+04224775,Keshequa Creek
+04232482,Keuka Outlet
+01361000,Kinderhook Creek
+01349700,Kiskatom Creek
+01361000,Kline Kill
+01421900,Kortright Creek
+04268800,Lake Ozonia Outlet
+04244000,Limestone Creek
+04275000,Little Black Brook
+04252500,Little Black Creek
+04213075,Little Chautauqua Creek
+04268800,Little Trout
+04252500,Little Woodhull Creek
+04262500,Little
+04242500,Mad River
+04271500,Marble
+04268800,Meacham Lake Outlet
+04280450,Mettawee
+01414500,Mill Brook
+01317000,Mill Creek (Essex County)
+01315500,Mill Creek (Hudson trib.)
+04256000,Mill Creek (Lewis County)
+01357500,Mohawk
+04242500,Mohawk
+01367500,Mombaccus Creek
+01433500,Mongaup
+01387500,Moodna Creek
+04254500,"Moose, Middle Branch"
+04254500,"Moose, S. Branch"
+04254500,Moose
+04218000,Murder Creek
+04256000,Negro Brook
+01435000,"Neversink, E. Branch"
+01434498,"Neversink, W. Branch"
+01436690,Neversink
+01437500,Neversink
+04242500,Ninemile Creek
+01334500,Normans Kill
+01359528,Normans Kill
+01349150,North Chuctanunda Creek
+01315500,North Creek
+01349150,Nowadaga Creek
+04220045,Oak Orchard Creek
+04230500,Oatka Creek
+01338000,Oriskany Creek
+04262500,"Oswegatchie, E. Branch"
+04262500,"Oswegatchie, Middle Branch"
+04213000,Ashtabula
+03242350,Caesar Creek
+04209000,Chagrin
+04213000,Conneaut Creek
+04206000,Cuyahoga
+04208000,Cuyahoga
+03272700,Four Mile Creek
+04212100,Grand
+03274000,Great Miami
+03264000,Greenville Creek
+03271300,Holes Creek
+03136500,Kokosing
+03147500,Licking
+03109500,Little Beaver Creek
+03246500,"Little Miami River, East Fork"
+03242050,Little Miami
+03245500,Little Miami
+03264000,Ludlow Creek
+03270000,Mad River
+03270000,Mad
+03241500,Massie's Creek
+04193500,Maumee
+03244936,O'Bannon Creek
+03225500,Olentangy
+03232470,Paint Creek
+03264000,Painter Creek
+04195820,Portage
+03232300,Rattlesnake Creek
+03232500,Rocky Fork Creek
+04201500,"Rocky, N. Br. of the W. Br."
+04201500,"Rocky, W. Br."
+04201500,"Rocky, W.Br."
+04207200,Sagamore Creek
+04198000,Sandusky
+03247500,Stonelick Creek
+03244936,Sycamore Creek
+04207200,Tinker's Creek
+03245500,Todd Fork
+04199500,Vermilion
+03144000,Wakatomica Creek
+03238495,White Oak Creek
+07164500,Arkansas
+07332500,Blue
+07196000,Flint Creek
+07337900,Glover
+07329780,Honey Creek
+07196500,Illinois River
+07335700,Kiamichi
+07338750,Mountain Fork
+07339000,Mountain Fork
+07331300,Pennington Creek
+07337900,Rocky Creek
 14201500,Abiqua Creek
 14306500,"Alsea, N. Fork"
 14306500,Alsea
@@ -1332,468 +1332,468 @@ UsgsGaugeId,RiverSection
 14182500,"Santiam, Little North (Opal Gorge)"
 14182500,"Santiam, Little North (Upper Opal)"
 14182500,"Santiam, Little North"
-1543500,Anderson Creek
-1619000,"Antietam Creek, E. Branch"
-1548500,Babb Creek
-3106500,Bear Creek (Allegheny River trib.)
-1447800,Bear Creek
-1571500,Bermudian Creek
-1613050,Big Cove Creek
-3106300,Big Run
-1447800,Black Creek (and Quakake Creek)
-3042000,"Blacklick Creek, S. Branch"
-3042000,Blacklick Creek
-1560000,Bobs Creek
-1480870,"Brandywine Creek, E. Branch"
-1481000,"Brandywine Creek, W. Branch"
-1440400,Brodhead Creek
-1601000,Brush Creek
-1480617,Buck Run
-3079000,Casselman
-3029500,Clarion River
-3040000,Clear Shade Creek
-1541500,Clearfield Creek
-1575500,Codorus Creek
-3041500,Conemaugh
-1573710,Conewago Creek (East)
-1573825,Conewago Creek (West)
-3106000,Connoquenessing Creek
-3040000,Dark Shade Creek
-1542810,Deer Creek
-3081000,Drake Run
-3029500,East Branch Millstone Creek
-3020500,East Sandy Creek
-4213152,Elk Creek
-3021350,"French Creek, S. Branch"
-1472157,French Creek
-1564500,Great Trough Creek
-1439500,Hornbeck's Creek
-3080000,Indian Creek
-1565000,Kishacoquillas Creek
-1534300,Lackawanna
-1534500,Lackawanna
-4213075,Lamson Run
-3080000,Laurel Hill Creek
-1447800,Lehigh
-1449000,Lehigh
-1453000,Lehigh
-3041000,Little Conemaugh (North)
-3041000,Little Conemaugh (South)
-3041000,Little Conemaugh
-4213075,Little Elk Creek
-1601000,Little Wills Creek
-3045000,Loyalhanna Creek
-1552000,Loyalsock Creek
-3034000,Mahoning Creek
-1639000,Marsh Creek
-3070500,Meadow Run
-3020500,Mill Creek (Allegheny R. trib.)
-3024000,"Mill Creek (French Creek Trib, Venango County"
-3106300,Muddy Creek (Slippery Rock trib)
-1577500,Muddy Creek (Susquehanna trib)
-1538000,Nescopeck Creek
-3106500,Neshannock Creek
-1574500,Otter Creek
-3040000,Paint Creek
-1576787,Pequea Creek
-1548500,Pine Creek
-3022540,Pithole Creek
-3040000,Quemahoning Creek
-1439500,Raymondskill Creek
-3040000,Roaring Fork
-1532000,Schrader Creek
-1474500,Schuylkill
-3040000,Shade Creek
-1439500,Shohola Creek
-1548500,Slate Run
-3106500,Slippery Rock Creek
-1560000,South Poplar Run
-1547100,Spring Creek
-3040000,Stonycreek River
-1570500,Susquehanna River
-1459500,Tohickon Creek
-1532000,"Towanda Creek, S. Branch"
-3040050,Trout Run
-1447680,Tunkhannock Creek
-4213152,Twelve Mile Creek
-4213152,Walnut Creek
-1538000,Wapwallopen Creek
-3079000,Whites Creek
-1560000,Yellow Creek
-3081500,Youghiogheny
-1545600,Young Womans Creek
-1112500,Blackstone
-2160381,Beaverdam Creek
-2187910,Broad Mouth Creek
-2153200,Broad
-2156500,Broad
-2161000,Broad
-2160381,Cedar Shoals Creek
-2177000,Chauga
-2169500,Congaree
-3439000,Eastatoe Creek -1
-2160326,Enoree
-2160390,Enoree
-2177000,Flat Shoal River
-2160105,Jimmies Creek
-2156300,Lawsons Fork Creek
-2187910,Little River
-2177000,"Little, North Fork"
-3439000,Matthews Creek
-3439000,Oilcamp creek
+01543500,Anderson Creek
+01619000,"Antietam Creek, E. Branch"
+01548500,Babb Creek
+03106500,Bear Creek (Allegheny River trib.)
+01447800,Bear Creek
+01571500,Bermudian Creek
+01613050,Big Cove Creek
+03106300,Big Run
+01447800,Black Creek (and Quakake Creek)
+03042000,"Blacklick Creek, S. Branch"
+03042000,Blacklick Creek
+01560000,Bobs Creek
+01480870,"Brandywine Creek, E. Branch"
+01481000,"Brandywine Creek, W. Branch"
+01440400,Brodhead Creek
+01601000,Brush Creek
+01480617,Buck Run
+03079000,Casselman
+03029500,Clarion River
+03040000,Clear Shade Creek
+01541500,Clearfield Creek
+01575500,Codorus Creek
+03041500,Conemaugh
+01573710,Conewago Creek (East)
+01573825,Conewago Creek (West)
+03106000,Connoquenessing Creek
+03040000,Dark Shade Creek
+01542810,Deer Creek
+03081000,Drake Run
+03029500,East Branch Millstone Creek
+03020500,East Sandy Creek
+04213152,Elk Creek
+03021350,"French Creek, S. Branch"
+01472157,French Creek
+01564500,Great Trough Creek
+01439500,Hornbeck's Creek
+03080000,Indian Creek
+01565000,Kishacoquillas Creek
+01534300,Lackawanna
+01534500,Lackawanna
+04213075,Lamson Run
+03080000,Laurel Hill Creek
+01447800,Lehigh
+01449000,Lehigh
+01453000,Lehigh
+03041000,Little Conemaugh (North)
+03041000,Little Conemaugh (South)
+03041000,Little Conemaugh
+04213075,Little Elk Creek
+01601000,Little Wills Creek
+03045000,Loyalhanna Creek
+01552000,Loyalsock Creek
+03034000,Mahoning Creek
+01639000,Marsh Creek
+03070500,Meadow Run
+03020500,Mill Creek (Allegheny R. trib.)
+03024000,"Mill Creek (French Creek Trib, Venango County"
+03106300,Muddy Creek (Slippery Rock trib)
+01577500,Muddy Creek (Susquehanna trib)
+01538000,Nescopeck Creek
+03106500,Neshannock Creek
+01574500,Otter Creek
+03040000,Paint Creek
+01576787,Pequea Creek
+01548500,Pine Creek
+03022540,Pithole Creek
+03040000,Quemahoning Creek
+01439500,Raymondskill Creek
+03040000,Roaring Fork
+01532000,Schrader Creek
+01474500,Schuylkill
+03040000,Shade Creek
+01439500,Shohola Creek
+01548500,Slate Run
+03106500,Slippery Rock Creek
+01560000,South Poplar Run
+01547100,Spring Creek
+03040000,Stonycreek River
+01570500,Susquehanna River
+01459500,Tohickon Creek
+01532000,"Towanda Creek, S. Branch"
+03040050,Trout Run
+01447680,Tunkhannock Creek
+04213152,Twelve Mile Creek
+04213152,Walnut Creek
+01538000,Wapwallopen Creek
+03079000,Whites Creek
+01560000,Yellow Creek
+03081500,Youghiogheny
+01545600,Young Womans Creek
+01112500,Blackstone
+02160381,Beaverdam Creek
+02187910,Broad Mouth Creek
+02153200,Broad
+02156500,Broad
+02161000,Broad
+02160381,Cedar Shoals Creek
+02177000,Chauga
+02169500,Congaree
+03439000,Eastatoe Creek -1
+02160326,Enoree
+02160390,Enoree
+02177000,Flat Shoal River
+02160105,Jimmies Creek
+02156300,Lawsons Fork Creek
+02187910,Little River
+02177000,"Little, North Fork"
+03439000,Matthews Creek
+03439000,Oilcamp creek
 21556525,Pacolet
-3439000,Reedy Cove Creek
-2164000,Reedy River
-2164110,Reedy River
-2164110,Reedy
-2187910,Rocky River
-2162350,"Saluda, Middle"
+03439000,Reedy Cove Creek
+02164000,Reedy River
+02164110,Reedy River
+02164110,Reedy
+02187910,Rocky River
+02162350,"Saluda, Middle"
 21623975,"Saluda, North"
-2162290,"Saluda, South"
-2162500,Saluda
-2163500,Saluda
-2168504,Saluda
-2196000,Stevens Creek
-2186000,Twelvemile Creek
-2157510,"Tyger, Middle"
-2160105,"Tyger, North"
-2160105,"Tyger, South"
-2160105,Tyger
-2160390,Warrior Creek
-2177000,Whetstone Creek
-2187910,Wilson Creek
-6404000,Battle Creek
-6482020,Big Sioux
-6411500,Rapid Creek
-6412500,Rapid Creek
-6433000,Redwater
-6429905,Sand Creek
-6431500,Spearfish Creek
-6436180,Whitewood Creek
-3497300,Abrams Creek
-3518500,Bald River
-3535400,Beaver Creek
-3518500,Citico Creek
-3539778,Clear Creek
-3403910,Clear Fork (of the Cumberland)
-3409500,Clear Fork
-3518500,Coker Creek
-3518500,Conasauga Creek
-3540500,Crab Orchard Creek
-3540500,Crooked Fork Creek
-3539600,Daddy's Creek
-3518500,Doublecamp Creek
-3596000,Duck River
-3539800,Emory
-3540500,Emory
-3540500,"Flat Fork, North Prong"
-3518500,Gee Creek
-3566000,Hiwassee
-3414500,Hurricane Creek
-3539778,Little Clear Creek
-3540500,"Little Emory, Middle Fork"
-3414500,Little Hurricane Creek
-3518500,Little Loss Creek
-3497300,"Little Pigeon, Middle Prong (The Greenbrier)"
-3497300,"Little, Middle Prong (Tremont)"
-3497300,"Little, Middle Prong"
-3497300,"Little, West Prong"
-3497300,Little
-3498500,Little
-3497300,Lynn Camp Prong
-3408500,New River
-3518500,North River
-3538830,Obed
-3540500,Obed
-3414500,"Obey, E. Fork"
-3415000,"Obey, West Fork"
-3518500,Piney Creek
-3465500,Spivey Creek
-3497300,Spruce Flats Prong
-3428200,"Stones, W.Fk."
-3518500,Tellico
-3497300,Thunderhead Prong
-3518500,Turkey Creek
-3518500,Turtletown Creek
-3539778,White Creek (Morgan County)
-3409500,White Oak Creek
-3518500,Wildcat Creek (Tellico Tributary)
-3539600,Yellow Creek (Cumberland Co.)
-8155200,Barton Creek
-8155300,Barton Creek
-8104700,Bear Creek (Williamson Co.) (no known descents)
-8150800,Beaver Creek (current beta needed)
-8101000,Bee House Creek (current beta needed)
-8105095,Berry Creek (current beta needed)
-8171000,Blanco
-8171300,Blanco
-8084000,"Brazos, Clear Fork (no known descents)"
-8080500,"Brazos, Double Mtn Fk (no known descents)"
-8079600,"Brazos, Double Mtn Fk, N Fk (no known descents)"
-8082000,"Brazos, Salt Fork (no known descents)"
-8108700,Brazos
-8105888,Brushy Creek
-8154700,Bull Creek
-7227500,Canadian River
-8095400,Childress Creek
-8185000,Cibolo Creek (current beta needed)
-8147000,Colorado
-8158000,Colorado
-8169000,Comal
-8136000,Concho (no known descents)
-8101000,Cowhouse Creek (current beta needed)
-8055000,Denton Creek
-8196000,Dry Frio (current beta needed)
-8061540,Duck Creek
-8195000,Frio
-8167000,Guadalupe (current beta needed)
-8167000,Guadalupe
-8167800,Guadalupe
-8168500,Guadalupe
-8190000,Hackberry Creek--Nueces River (no known descents)
-8095400,Hog Creek (current beta needed)
-8200720,Hondo Creek (no known descents)
-8447020,Independence Creek (no known descents)
-8103800,Lampasas (current beta needed)
-8171000,Little Blanco (current beta needed)
-8158380,Little Walnut Creek (current beta needed)
-8150000,Llano (current beta needed)
-8150700,Llano (current beta needed)
-8151500,Llano River
-8150000,"Llano, Johnson Fork (current beta needed)"
-8151500,Llano
-8178880,Medina
-8095000,Meridian Creek (current beta needed)
-8095300,Middle Bosque
-8032000,Neches
-8095000,Neils Creek (current beta needed)
-8092000,Nolan (current beta needed)
-8094800,North Bosque (current beta needed)
-8153500,North Grape Creek (current beta needed)
-8190000,Nueces (current beta needed)
-8158700,Onion Creek
-8159000,Onion Creek
-8091500,Paluxy
-8446500,Pecos
-8153500,Pedernales
-8374550,Rio Grande
-8375300,Rio Grande
-8103900,Rocky Creek (current beta needed)
-8061540,Rowlett Creek
-8198000,Sabinal (current beta needed)
-8105095,Salado Creek (current beta needed)
+02162290,"Saluda, South"
+02162500,Saluda
+02163500,Saluda
+02168504,Saluda
+02196000,Stevens Creek
+02186000,Twelvemile Creek
+02157510,"Tyger, Middle"
+02160105,"Tyger, North"
+02160105,"Tyger, South"
+02160105,Tyger
+02160390,Warrior Creek
+02177000,Whetstone Creek
+02187910,Wilson Creek
+06404000,Battle Creek
+06482020,Big Sioux
+06411500,Rapid Creek
+06412500,Rapid Creek
+06433000,Redwater
+06429905,Sand Creek
+06431500,Spearfish Creek
+06436180,Whitewood Creek
+03497300,Abrams Creek
+03518500,Bald River
+03535400,Beaver Creek
+03518500,Citico Creek
+03539778,Clear Creek
+03403910,Clear Fork (of the Cumberland)
+03409500,Clear Fork
+03518500,Coker Creek
+03518500,Conasauga Creek
+03540500,Crab Orchard Creek
+03540500,Crooked Fork Creek
+03539600,Daddy's Creek
+03518500,Doublecamp Creek
+03596000,Duck River
+03539800,Emory
+03540500,Emory
+03540500,"Flat Fork, North Prong"
+03518500,Gee Creek
+03566000,Hiwassee
+03414500,Hurricane Creek
+03539778,Little Clear Creek
+03540500,"Little Emory, Middle Fork"
+03414500,Little Hurricane Creek
+03518500,Little Loss Creek
+03497300,"Little Pigeon, Middle Prong (The Greenbrier)"
+03497300,"Little, Middle Prong (Tremont)"
+03497300,"Little, Middle Prong"
+03497300,"Little, West Prong"
+03497300,Little
+03498500,Little
+03497300,Lynn Camp Prong
+03408500,New River
+03518500,North River
+03538830,Obed
+03540500,Obed
+03414500,"Obey, E. Fork"
+03415000,"Obey, West Fork"
+03518500,Piney Creek
+03465500,Spivey Creek
+03497300,Spruce Flats Prong
+03428200,"Stones, W.Fk."
+03518500,Tellico
+03497300,Thunderhead Prong
+03518500,Turkey Creek
+03518500,Turtletown Creek
+03539778,White Creek (Morgan County)
+03409500,White Oak Creek
+03518500,Wildcat Creek (Tellico Tributary)
+03539600,Yellow Creek (Cumberland Co.)
+08155200,Barton Creek
+08155300,Barton Creek
+08104700,Bear Creek (Williamson Co.) (no known descents)
+08150800,Beaver Creek (current beta needed)
+08101000,Bee House Creek (current beta needed)
+08105095,Berry Creek (current beta needed)
+08171000,Blanco
+08171300,Blanco
+08084000,"Brazos, Clear Fork (no known descents)"
+08080500,"Brazos, Double Mtn Fk (no known descents)"
+08079600,"Brazos, Double Mtn Fk, N Fk (no known descents)"
+08082000,"Brazos, Salt Fork (no known descents)"
+08108700,Brazos
+08105888,Brushy Creek
+08154700,Bull Creek
+07227500,Canadian River
+08095400,Childress Creek
+08185000,Cibolo Creek (current beta needed)
+08147000,Colorado
+08158000,Colorado
+08169000,Comal
+08136000,Concho (no known descents)
+08101000,Cowhouse Creek (current beta needed)
+08055000,Denton Creek
+08196000,Dry Frio (current beta needed)
+08061540,Duck Creek
+08195000,Frio
+08167000,Guadalupe (current beta needed)
+08167000,Guadalupe
+08167800,Guadalupe
+08168500,Guadalupe
+08190000,Hackberry Creek--Nueces River (no known descents)
+08095400,Hog Creek (current beta needed)
+08200720,Hondo Creek (no known descents)
+08447020,Independence Creek (no known descents)
+08103800,Lampasas (current beta needed)
+08171000,Little Blanco (current beta needed)
+08158380,Little Walnut Creek (current beta needed)
+08150000,Llano (current beta needed)
+08150700,Llano (current beta needed)
+08151500,Llano River
+08150000,"Llano, Johnson Fork (current beta needed)"
+08151500,Llano
+08178880,Medina
+08095000,Meridian Creek (current beta needed)
+08095300,Middle Bosque
+08032000,Neches
+08095000,Neils Creek (current beta needed)
+08092000,Nolan (current beta needed)
+08094800,North Bosque (current beta needed)
+08153500,North Grape Creek (current beta needed)
+08190000,Nueces (current beta needed)
+08158700,Onion Creek
+08159000,Onion Creek
+08091500,Paluxy
+08446500,Pecos
+08153500,Pedernales
+08374550,Rio Grande
+08375300,Rio Grande
+08103900,Rocky Creek (current beta needed)
+08061540,Rowlett Creek
+08198000,Sabinal (current beta needed)
+08105095,Salado Creek (current beta needed)
 810464660,"San Gabriel, N. Fork"
-8104700,"San Gabriel, N. Fork"
-8104900,"San Gabriel, S. Fork (current beta needed)"
-8181400,San Geronimo Creek (current beta needed)
-8170500,San Marcos
-8171400,San Marcos
-8146000,San Saba (current beta needed)
-8376300,Sanderson Creek (no known descents)
-8152000,Sandy Creek (current beta needed)
-8201500,Seco Creek (current beta needed)
-8156800,Shoal Creek (current beta needed)
-8061540,Spring Creek (current beta needed)
-8091500,Steele Creek (current beta needed)
-8095300,Tonkawa Creek
-8047500,"Trinity, Clear Fork"
-8048000,"Trinity, West Fork (current beta needed)"
-8057000,Trinity
-8200000,Verde Creek (current beta needed)
-8158200,Walnut Creek
-8063800,"Waxahachie Creek, South Prong"
-8057200,Whiterock Creek
+08104700,"San Gabriel, N. Fork"
+08104900,"San Gabriel, S. Fork (current beta needed)"
+08181400,San Geronimo Creek (current beta needed)
+08170500,San Marcos
+08171400,San Marcos
+08146000,San Saba (current beta needed)
+08376300,Sanderson Creek (no known descents)
+08152000,Sandy Creek (current beta needed)
+08201500,Seco Creek (current beta needed)
+08156800,Shoal Creek (current beta needed)
+08061540,Spring Creek (current beta needed)
+08091500,Steele Creek (current beta needed)
+08095300,Tonkawa Creek
+08047500,"Trinity, Clear Fork"
+08048000,"Trinity, West Fork (current beta needed)"
+08057000,Trinity
+08200000,Verde Creek (current beta needed)
+08158200,Walnut Creek
+08063800,"Waxahachie Creek, South Prong"
+08057200,Whiterock Creek
 10164500,American Fork
 10011500,Bear
-9217900,"Blacks Fork, E. Fork"
-9217900,"Blacks Fork, W. Fork"
+09217900,"Blacks Fork, E. Fork"
+09217900,"Blacks Fork, W. Fork"
 10113500,Blacksmith Fork
 10131000,Chalk Creek
-9180500,Colorado
-9333500,Dirty Devil
+09180500,Colorado
+09333500,Dirty Devil
 10133800,East Canyon Creek
-9337500,Escalante
-9326500,"Ferron Creek, lower"
-9315000,Green
+09337500,Escalante
+09326500,"Ferron Creek, lower"
+09315000,Green
 10171000,Jordan
 10168000,Little Cottonwood Creek
 10109000,Logan
-9330500,Muddy Creek
+09330500,Muddy Creek
 10137500,"Ogden, South Fork"
 10140100,Ogden
 10140700,Ogden
-9314500,Price
+09314500,Price
 10154200,Provo
 10163000,Provo
-9279000,Rock Creek
-9379500,San Juan
-9328500,San Rafael
+09279000,Rock Creek
+09379500,San Juan
+09328500,San Rafael
 10149000,Sixth Water Creek
 10150500,Spanish Fork
-9288180,Strawberry
-9296800,Uinta
-9405500,"Virgin, N. Fork"
-9405500,Virgin
-9406000,Virgin
-9408150,Virgin
+09288180,Strawberry
+09296800,Uinta
+09405500,"Virgin, N. Fork"
+09405500,Virgin
+09406000,Virgin
+09408150,Virgin
 10128500,Weber
 10130500,Weber
 10132000,Weber
 10136500,Weber
-9304800,White
-9292500,Yellowstone
-1654000,Accotink Creek
-2041650,Appomattox
-1660400,Aquia Creek
-2011500,Back Creek (Jackson trib)
-1613900,Back Creek (Potomac trib)
-1614000,Back Creek (Potomac trib)
-2056650,Back Creek (Roanoke R. trib)
-1627500,Back Creek (South R. trib)
-3473000,Beaverdam Creek
-3524000,Big Cedar Creek
-3524000,Big Moccasin Creek
-3527000,Big Stony Creek
-3527000,"Big Stony, Mountain Fork"
-1620500,Briery Branch
-2032250,Buck Mountain Creek
-2015700,Bullpasture
-2024000,Calfpasture
-1638350,Catoctin Creek
-1635090,Cedar Creek
-3165000,Chestnut Creek
-3524000,Clinch
-1667500,Conway
-3527000,Cove Creek
-1662800,Covington
-2016000,Cowpasture
-3529500,Crab Orchard Branch
-2018000,Craig Creek
-1644280,Cub Run
-1652500,Dead Run
-1646000,Difficult Run
-1652500,Donaldson Run
-1620500,Dry
-2013000,Dunlap Creek
-3165000,Elk Creek
-1652500,Four Mile Run
-1644000,Goose Creek
-3473000,Green Cove Creek
-3524500,Guest
-2030000,"Hardware, N. Fork"
-2030000,"Hardware, S. Fork"
-2030000,Hardware
-3473000,"Holston, South Fork"
-1664000,Hughes and Hazel
-2011500,Jackson
-2011800,Jackson
-2016500,James
-2019500,James
-2025500,James
-2037500,James
-3527000,Jasper Creek
-1620500,Jennings Branch
-2017500,Johns Creek
-3524000,Little (Clinch R. trib)
-1620500,Little (North R. trib)
-3170000,Little River (New R. trib)
-1671100,Little River (North Anna trib)
-3529500,Little Stony Creek
-2032640,Lynch
-2021500,Maury
-2024000,Maury
-1632000,Middle
-1632000,Mill Creek (Shenandoah trib)
-2032250,"Moormans, South Fork"
-2032250,Moormans
-3165500,New
-3168000,New
-3171000,New
-3176500,New
-1671100,Newfound
-1670400,North Anna
-1620500,North
-2044500,Nottoway
-1635500,Passage Creek
-2024915,Pedlar
-1652500,Pimmit Run
-2027500,Piney River
-2027500,"Piney, North Fork"
-1654000,Pohick Creek
-1605500,"Potomac, Laurel Fork of North Fork of South Branch"
-1607500,"Potomac, S. Fk. of the S. Br."
-1605500,"Potomac, South Branch"
-2014000,Potts Creek
-3209000,Pound
-3529500,"Powell, South Fork"
-3529500,Powell
-1658500,"Quantico Creek, S. Branch"
-1667500,Quantico Creek
-1667500,Rapidan
-1664000,Rappahannock
-1668000,Rappahannock
-3167000,Reed Creek
-2032640,"Rivanna, North Fork"
-2034000,Rivanna
-2032640,Roach
-2053800,"Roanoke, South Fork"
-2054530,Roanoke
-2056000,Roanoke
-1666500,Robinson
-1666500,Rose
-1662800,Rush
-2027000,Saint Mary's
-1646000,Scott Run
-1632000,"Shenandoah, N. Fork"
-1631000,"Shenandoah, S. Fork"
-1631000,Shenandoah
-2072000,Smith
-2072500,Smith
-2073000,Smith
-1665500,South (Rapidan trib)
-1626000,South (Shenandoah tributary)
-1672500,South Anna
-1652500,Spout Run
-2024915,Staton's Creek
-2062500,Staunton
-3527000,Stock Creek
-2028500,Stoney Creek
-1632000,Stony Creek (NF Shenandoah trib)
-3473000,Tennessee Laurel Creek
-1664000,Thornton
-3488000,Tumbling Creek
-2027000,"Tye, North Fork"
-2027000,"Tye, South Fork"
-2027000,"Tye, Upper North Fork"
-2027000,Tye
-3173000,Walker Creek
-1667500,White Oak Run
-3473000,Whitetop Laurel Creek
-1652500,Windy Run
-3175500,Wolf Creek
-1153000,Black
-4292500,Browns
-4296500,Clyde
-4292000,Gihon
-4292500,"Lamoille, North Branch"
-4292000,Lamoille
-4292500,Lamoille
-4289000,Little
-4288000,Mad
-4294000,Missisquoi
-1134500,Moose
-4282525,New Haven
-1151500,Ottauquechee
-4282500,Otter Creek
-1133000,Passumpsic E Br
-4280000,Poultney
-4288230,Sterling Brook
-1139000,Wells
-1155500,West
-1155910,West
-1142500,White
-1144000,White
-4290500,Winooski
+09304800,White
+09292500,Yellowstone
+01654000,Accotink Creek
+02041650,Appomattox
+01660400,Aquia Creek
+02011500,Back Creek (Jackson trib)
+01613900,Back Creek (Potomac trib)
+01614000,Back Creek (Potomac trib)
+02056650,Back Creek (Roanoke R. trib)
+01627500,Back Creek (South R. trib)
+03473000,Beaverdam Creek
+03524000,Big Cedar Creek
+03524000,Big Moccasin Creek
+03527000,Big Stony Creek
+03527000,"Big Stony, Mountain Fork"
+01620500,Briery Branch
+02032250,Buck Mountain Creek
+02015700,Bullpasture
+02024000,Calfpasture
+01638350,Catoctin Creek
+01635090,Cedar Creek
+03165000,Chestnut Creek
+03524000,Clinch
+01667500,Conway
+03527000,Cove Creek
+01662800,Covington
+02016000,Cowpasture
+03529500,Crab Orchard Branch
+02018000,Craig Creek
+01644280,Cub Run
+01652500,Dead Run
+01646000,Difficult Run
+01652500,Donaldson Run
+01620500,Dry
+02013000,Dunlap Creek
+03165000,Elk Creek
+01652500,Four Mile Run
+01644000,Goose Creek
+03473000,Green Cove Creek
+03524500,Guest
+02030000,"Hardware, N. Fork"
+02030000,"Hardware, S. Fork"
+02030000,Hardware
+03473000,"Holston, South Fork"
+01664000,Hughes and Hazel
+02011500,Jackson
+02011800,Jackson
+02016500,James
+02019500,James
+02025500,James
+02037500,James
+03527000,Jasper Creek
+01620500,Jennings Branch
+02017500,Johns Creek
+03524000,Little (Clinch R. trib)
+01620500,Little (North R. trib)
+03170000,Little River (New R. trib)
+01671100,Little River (North Anna trib)
+03529500,Little Stony Creek
+02032640,Lynch
+02021500,Maury
+02024000,Maury
+01632000,Middle
+01632000,Mill Creek (Shenandoah trib)
+02032250,"Moormans, South Fork"
+02032250,Moormans
+03165500,New
+03168000,New
+03171000,New
+03176500,New
+01671100,Newfound
+01670400,North Anna
+01620500,North
+02044500,Nottoway
+01635500,Passage Creek
+02024915,Pedlar
+01652500,Pimmit Run
+02027500,Piney River
+02027500,"Piney, North Fork"
+01654000,Pohick Creek
+01605500,"Potomac, Laurel Fork of North Fork of South Branch"
+01607500,"Potomac, S. Fk. of the S. Br."
+01605500,"Potomac, South Branch"
+02014000,Potts Creek
+03209000,Pound
+03529500,"Powell, South Fork"
+03529500,Powell
+01658500,"Quantico Creek, S. Branch"
+01667500,Quantico Creek
+01667500,Rapidan
+01664000,Rappahannock
+01668000,Rappahannock
+03167000,Reed Creek
+02032640,"Rivanna, North Fork"
+02034000,Rivanna
+02032640,Roach
+02053800,"Roanoke, South Fork"
+02054530,Roanoke
+02056000,Roanoke
+01666500,Robinson
+01666500,Rose
+01662800,Rush
+02027000,Saint Mary's
+01646000,Scott Run
+01632000,"Shenandoah, N. Fork"
+01631000,"Shenandoah, S. Fork"
+01631000,Shenandoah
+02072000,Smith
+02072500,Smith
+02073000,Smith
+01665500,South (Rapidan trib)
+01626000,South (Shenandoah tributary)
+01672500,South Anna
+01652500,Spout Run
+02024915,Staton's Creek
+02062500,Staunton
+03527000,Stock Creek
+02028500,Stoney Creek
+01632000,Stony Creek (NF Shenandoah trib)
+03473000,Tennessee Laurel Creek
+01664000,Thornton
+03488000,Tumbling Creek
+02027000,"Tye, North Fork"
+02027000,"Tye, South Fork"
+02027000,"Tye, Upper North Fork"
+02027000,Tye
+03173000,Walker Creek
+01667500,White Oak Run
+03473000,Whitetop Laurel Creek
+01652500,Windy Run
+03175500,Wolf Creek
+01153000,Black
+04292500,Browns
+04296500,Clyde
+04292000,Gihon
+04292500,"Lamoille, North Branch"
+04292000,Lamoille
+04292500,Lamoille
+04289000,Little
+04288000,Mad
+04294000,Missisquoi
+01134500,Moose
+04282525,New Haven
+01151500,Ottauquechee
+04282500,Otter Creek
+01133000,Passumpsic E Br
+04280000,Poultney
+04288230,Sterling Brook
+01139000,Wells
+01155500,West
+01155910,West
+01142500,White
+01144000,White
+04290500,Winooski
 12488500,American
 12179900,Bacon Creek
 12035000,Baker Creek
@@ -1868,218 +1868,218 @@ UsgsGaugeId,RiverSection
 12186000,Sauk
 12189500,Sauk
 12442500,Similkameen
-4024430,Amnicon
-4026450,Bad
-4027000,Bad
-5430150,Badfish
-4084911,Baird Creek
-5405000,Baraboo
-5425912,Beaver Dam
-5396000,Big Rib
-5381000,Black (Clark Co.)
-5381000,Black (Jackson Co.)
-5394500,Black Creek
-4084911,Bower Creek
-4086500,Cedar Creek
-5356000,"Chippewa, E.Fk."
-5356000,Chippewa
-5365550,Chippewa
-5394500,Copper
-4081000,Crystal
-4085108,Devils
-5397500,Eau Claire (Wisconsin R. trib)
-4078500,Embarrass
-5543830,Fox (Illinois R. trib.)
-5545750,Fox (Illinois R. trib.)
-4084445,Fox
-4085108,Greenleaf Creek
-5381000,Halls (Stockwell) Creek
-4087119,Honey Creek
-5362000,"Jump, S.Fk."
-5362000,Jump
-4087159,Kinnickinnic (Milwaukee trib)
-5342000,"Kinnickinnic (St.Croix trib), S.Fk."
-5342000,Kinnickinnic (St.Croix trib)
-5399500,Little Eau Pleine
-5414000,Little Platte
-4072076,Little Suamico
-4080000,Little Wolf
-4026561,Long Lake Branch
-4085427,Manitowoc
-4087030,Menomonee
-4087120,Menomonee
-4086600,Milwaukee
-4087000,Milwaukee
-4026561,"Montreal, W.Fk."
-5381000,Morrison Creek
+04024430,Amnicon
+04026450,Bad
+04027000,Bad
+05430150,Badfish
+04084911,Baird Creek
+05405000,Baraboo
+05425912,Beaver Dam
+05396000,Big Rib
+05381000,Black (Clark Co.)
+05381000,Black (Jackson Co.)
+05394500,Black Creek
+04084911,Bower Creek
+04086500,Cedar Creek
+05356000,"Chippewa, E.Fk."
+05356000,Chippewa
+05365550,Chippewa
+05394500,Copper
+04081000,Crystal
+04085108,Devils
+05397500,Eau Claire (Wisconsin R. trib)
+04078500,Embarrass
+05543830,Fox (Illinois R. trib.)
+05545750,Fox (Illinois R. trib.)
+04084445,Fox
+04085108,Greenleaf Creek
+05381000,Halls (Stockwell) Creek
+04087119,Honey Creek
+05362000,"Jump, S.Fk."
+05362000,Jump
+04087159,Kinnickinnic (Milwaukee trib)
+05342000,"Kinnickinnic (St.Croix trib), S.Fk."
+05342000,Kinnickinnic (St.Croix trib)
+05399500,Little Eau Pleine
+05414000,Little Platte
+04072076,Little Suamico
+04080000,Little Wolf
+04026561,Long Lake Branch
+04085427,Manitowoc
+04087030,Menomonee
+04087120,Menomonee
+04086600,Milwaukee
+04087000,Milwaukee
+04026561,"Montreal, W.Fk."
+05381000,Morrison Creek
 40857005,Mullet
-5331833,Namekagon
-5394500,New Wood
-4026561,North Fish Creek
-4087204,Oak Creek
-4066500,"Pemebonwon, N.Br."
-4066500,"Pemebonwon, S.Br."
-4067958,Peshtigo
-4087030,Pigeon Creek
-4087257,Pike (Kenosha Co.)
-4066500,Pike
-5395063,Pine (Lincoln Co.)
-4064500,Pine
-4063700,"Popple, Little"
-4063700,Popple
-5394500,Prairie
-5369000,Red Cedar
-4077630,"Red, W.Br."
-3066000,Beaver Creek
-3070500,Beaver Creek
-3189100,Big Beaver Creek
-3198350,"Big Coal River, Clear Fork"
-3198500,"Big Coal River, Marsh Fork"
-3198500,Big Coal River
-3184000,Big Creek
-1606000,Big Run
-3070500,Big Sandy Creek
-3212750,"Big Sandy River, Tug Fork"
-3194700,Birch
-3066000,"Blackwater, North Fork"
-3066000,Blackwater
-3179000,Bluestone
-3179000,Brush Creek
-3189100,Brushy Meadow Creek
-3052500,"Buckhannon, Left Fork of the Right Fork"
-3052500,"Buckhannon, Left Fork"
-3052500,"Buckhannon, Right Fork"
-3052450,Buckhannon
-3056250,Buffalo Creek (Cheat trib)
-3194700,Buffalo Creek (Elk trib)
-3070500,Bull Run
-1608000,Cacapon
-3179000,Camp Creek
-3069500,"Cheat, Black Fork"
-3065000,"Cheat, Dry Fork"
-3067510,"Cheat, Glady Fork"
-3065000,"Cheat, Laurel Fork"
-3067510,"Cheat, Shavers Fork"
-3068800,"Cheat, Shavers Fork"
-3069500,Cheat
-3070260,Cheat
-3189100,"Cherry, N. Fork"
-3189100,"Cherry, S. Fork"
-3189100,Cherry
-3187500,Cranberry
-3070500,Daugherty Run
-3062500,Deckers Creek
-3182500,Deer Creek
-3061000,Elk Creek
-3194700,"Elk River, Back Fork"
-3194700,"Elk River, Old Field Fork"
-3194700,Elk River
-3184000,Fall Branch
-3056250,Fields Creek
-3065000,Gandy Creek
-3189100,Gauley
-3192000,Gauley
-3194700,Grassy Creek
-1595000,Green's Run
-3182500,"Greenbrier River, East Fork"
-3182500,"Greenbrier River, West Fork"
-3182500,Greenbrier River
-3183500,Greenbrier River
-3184000,Greenbrier River
-3202400,Guyandotte River
-3194700,"Holly River, Laurel Fork of Left Fork"
-3194700,"Holly River, Left Fork"
-3194700,"Holly River, Right Fork"
-3066000,Horseshoe Run
-1606000,Jordan Run
-3193000,Kanawha River
-3188900,Laurel Creek (Cherry trib)
-3194700,Laurel Creek (Elk River tributary)
-3185000,Laurel Creek (New River tributary)
-3062500,Laurel Run
-3070500,Laurel Run
-3194700,Leatherwood Creek (Clay County)
-3194700,Leatherwood Creek (Webster County)
-3185000,Lick Creek
-3194700,Little Birch River
-3179000,Little Bluestone River & Tributaries
-3200500,"Little Coal River, Pond Fork"
-3200500,Little Coal River. Pond Fork
-3151400,"Little Kanawha River, Right Fork"
-3151400,Little Kanawha River
-3189100,Little Laurel Creek
-3182500,Little River
-3070500,Little Sandy Creek
-3184000,Little Wolf Creek
-1607500,Lost
-1604500,"Lunice Creek, North Fork"
-1604500,Lunice Creek
-3185000,Madams Creek
-3185000,Meadow Creek
-3190000,Meadow
-3052000,Middle Fork
-3065000,Moore Run
-3179000,Mountain Creek
-3189100,Muddlety Creek
-3070500,Muddy Creek
-3184500,New
-3185400,New
+05331833,Namekagon
+05394500,New Wood
+04026561,North Fish Creek
+04087204,Oak Creek
+04066500,"Pemebonwon, N.Br."
+04066500,"Pemebonwon, S.Br."
+04067958,Peshtigo
+04087030,Pigeon Creek
+04087257,Pike (Kenosha Co.)
+04066500,Pike
+05395063,Pine (Lincoln Co.)
+04064500,Pine
+04063700,"Popple, Little"
+04063700,Popple
+05394500,Prairie
+05369000,Red Cedar
+04077630,"Red, W.Br."
+03066000,Beaver Creek
+03070500,Beaver Creek
+03189100,Big Beaver Creek
+03198350,"Big Coal River, Clear Fork"
+03198500,"Big Coal River, Marsh Fork"
+03198500,Big Coal River
+03184000,Big Creek
+01606000,Big Run
+03070500,Big Sandy Creek
+03212750,"Big Sandy River, Tug Fork"
+03194700,Birch
+03066000,"Blackwater, North Fork"
+03066000,Blackwater
+03179000,Bluestone
+03179000,Brush Creek
+03189100,Brushy Meadow Creek
+03052500,"Buckhannon, Left Fork of the Right Fork"
+03052500,"Buckhannon, Left Fork"
+03052500,"Buckhannon, Right Fork"
+03052450,Buckhannon
+03056250,Buffalo Creek (Cheat trib)
+03194700,Buffalo Creek (Elk trib)
+03070500,Bull Run
+01608000,Cacapon
+03179000,Camp Creek
+03069500,"Cheat, Black Fork"
+03065000,"Cheat, Dry Fork"
+03067510,"Cheat, Glady Fork"
+03065000,"Cheat, Laurel Fork"
+03067510,"Cheat, Shavers Fork"
+03068800,"Cheat, Shavers Fork"
+03069500,Cheat
+03070260,Cheat
+03189100,"Cherry, N. Fork"
+03189100,"Cherry, S. Fork"
+03189100,Cherry
+03187500,Cranberry
+03070500,Daugherty Run
+03062500,Deckers Creek
+03182500,Deer Creek
+03061000,Elk Creek
+03194700,"Elk River, Back Fork"
+03194700,"Elk River, Old Field Fork"
+03194700,Elk River
+03184000,Fall Branch
+03056250,Fields Creek
+03065000,Gandy Creek
+03189100,Gauley
+03192000,Gauley
+03194700,Grassy Creek
+01595000,Green's Run
+03182500,"Greenbrier River, East Fork"
+03182500,"Greenbrier River, West Fork"
+03182500,Greenbrier River
+03183500,Greenbrier River
+03184000,Greenbrier River
+03202400,Guyandotte River
+03194700,"Holly River, Laurel Fork of Left Fork"
+03194700,"Holly River, Left Fork"
+03194700,"Holly River, Right Fork"
+03066000,Horseshoe Run
+01606000,Jordan Run
+03193000,Kanawha River
+03188900,Laurel Creek (Cherry trib)
+03194700,Laurel Creek (Elk River tributary)
+03185000,Laurel Creek (New River tributary)
+03062500,Laurel Run
+03070500,Laurel Run
+03194700,Leatherwood Creek (Clay County)
+03194700,Leatherwood Creek (Webster County)
+03185000,Lick Creek
+03194700,Little Birch River
+03179000,Little Bluestone River & Tributaries
+03200500,"Little Coal River, Pond Fork"
+03200500,Little Coal River. Pond Fork
+03151400,"Little Kanawha River, Right Fork"
+03151400,Little Kanawha River
+03189100,Little Laurel Creek
+03182500,Little River
+03070500,Little Sandy Creek
+03184000,Little Wolf Creek
+01607500,Lost
+01604500,"Lunice Creek, North Fork"
+01604500,Lunice Creek
+03185000,Madams Creek
+03185000,Meadow Creek
+03190000,Meadow
+03052000,Middle Fork
+03065000,Moore Run
+03179000,Mountain Creek
+03189100,Muddlety Creek
+03070500,Muddy Creek
+03184500,New
+03185400,New
 380649081083301,New
-1604500,North River
-3065000,Otter Creek
-3198350,Paint Creek
-3189100,Panther Creek
-1604500,"Patterson Creek, North Fork"
-3198500,Peachtree Creek
-3191500,Peters Creek
-3185000,Pinch Creek
-3185000,Piney Creek
-3179000,Pipestem Creek
-1607300,"Potomac, Brushy Fork of the S. Fk. of the S. Br."
-1606000,"Potomac, North Fork of South Branch"
-1605500,"Potomac, S. Branch"
-1606500,"Potomac, S. Branch"
-1608500,"Potomac, S. Branch"
-1607500,"Potomac, S.Fk. of the S.Br."
-1608000,"Potomac, S.Fk. of the S.Br."
-3070500,Pringle Run
-3066000,Red Creek
-3065000,Red Run
-3070500,Roaring Creek
-1595000,Saltlick Creek
-3052500,Sand Run
-3198500,Sandlick Creek
-1606000,Seneca Creek
-1636500,Shenandoah
-1614000,Sleepy Creek
+01604500,North River
+03065000,Otter Creek
+03198350,Paint Creek
+03189100,Panther Creek
+01604500,"Patterson Creek, North Fork"
+03198500,Peachtree Creek
+03191500,Peters Creek
+03185000,Pinch Creek
+03185000,Piney Creek
+03179000,Pipestem Creek
+01607300,"Potomac, Brushy Fork of the S. Fk. of the S. Br."
+01606000,"Potomac, North Fork of South Branch"
+01605500,"Potomac, S. Branch"
+01606500,"Potomac, S. Branch"
+01608500,"Potomac, S. Branch"
+01607500,"Potomac, S.Fk. of the S.Br."
+01608000,"Potomac, S.Fk. of the S.Br."
+03070500,Pringle Run
+03066000,Red Creek
+03065000,Red Run
+03070500,Roaring Creek
+01595000,Saltlick Creek
+03052500,Sand Run
+03198500,Sandlick Creek
+01606000,Seneca Creek
+01636500,Shenandoah
+01614000,Sleepy Creek
 10016900,Bear
-6224000,Bull Lake Creek
-6207500,Crandall Creek
-6632400,Douglas Creek
-6625000,Encampment
-9188500,Green
+06224000,Bull Lake Creek
+06207500,Crandall Creek
+06632400,Douglas Creek
+06625000,Encampment
+09188500,Green
 13023000,Greys
 13014500,Gros Ventre
-6632400,Libby Creek
-6632400,Medicine Bow River
-6632400,Middle Fork Little Laramie
-6233000,Middle Popo Agie
-6623800,North Fork Encampment
-6632400,North Fork Little Laramie
-6632400,North French Creek
-6632400,North Mullens Creek
-6652000,North Platte
-6311400,"Powder, North Fork"
-6632400,Rock Creek
-6278500,Shell Creek
-6279940,"Shoshone, North Fork"
-6280300,"Shoshone, South Fork"
+06632400,Libby Creek
+06632400,Medicine Bow River
+06632400,Middle Fork Little Laramie
+06233000,Middle Popo Agie
+06623800,North Fork Encampment
+06632400,North Fork Little Laramie
+06632400,North French Creek
+06632400,North Mullens Creek
+06652000,North Platte
+06311400,"Powder, North Fork"
+06632400,Rock Creek
+06278500,Shell Creek
+06279940,"Shoshone, North Fork"
+06280300,"Shoshone, South Fork"
 13010065,Snake
 13011000,Snake
 13013650,Snake
 13022500,Snake
-6639000,Sweetwater
-6278300,Tensleep Creek
-6298000,Tongue
-6220800,Wind
-6186500,Yellowstone
+06639000,Sweetwater
+06278300,Tensleep Creek
+06298000,Tongue
+06220800,Wind
+06186500,Yellowstone
