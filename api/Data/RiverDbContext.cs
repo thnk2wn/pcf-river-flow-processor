@@ -42,6 +42,19 @@ namespace RiverFlowApi.Data
                 e.HasData(dataReader.States);
             });
 
+            modelBuilder.Entity<River>(e =>
+            {
+                e.HasKey(r => r.RiverId);
+                e.Property(r => r.RiverSection).HasMaxLength(50);
+                e.Property(g => g.StateCode).HasMaxLength(2).IsRequired();
+
+                e.HasOne(g => g.State)
+                 .WithMany()
+                 .HasForeignKey(g => g.StateCode);
+
+                e.HasData(dataReader.Rivers);
+            });
+
             modelBuilder.Entity<UsgsGauge>(e =>
             {
                 e.HasKey(g => g.UsgsGaugeId);
@@ -83,6 +96,8 @@ namespace RiverFlowApi.Data
         }
 
         public DbSet<State> State { get; set; }
+
+        public DbSet<River> River { get; set; }
 
         public DbSet<UsgsGauge> UsgsGauge { get; set; }
 

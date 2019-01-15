@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RiverFlowApi.Data;
 using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace RiverFlowApi
 {
@@ -29,6 +30,11 @@ namespace RiverFlowApi
         {
             services.AddDbContext<RiverDbContext>(options => options.UseMySql(Configuration));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "RiverFlow API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +50,12 @@ namespace RiverFlowApi
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "RiverFlow API V1");
+            });
 
             app.UseMvc(routes =>
             {

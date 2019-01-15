@@ -1,48 +1,36 @@
 using System;
+using System.Collections.Generic;
 
 namespace RiverFlowProcessor.RiverFlow
 {
     public class RiverFlowSnapshot
     {
-        public DateTimeOffset AsOf { get; set; }
-
-        public FlowValues Flow { get; set; }
-
-        public SourceSite Site { get; set; }
-
-        public override string ToString()
+        public RiverFlowSnapshot()
         {
-            return $"{Site?.Code} - {Site?.Name}: " +
-                $"{Flow?.GaugeHeightFeet} ft, {Flow?.DischargeCFS} cfs, {Flow?.WaterTemperature?.Fahrenheit} F";
+            this.Values = new List<DataValue>();
         }
 
-        public class SourceSite
-        {
-            public string Code { get; set; }
+        public DateTimeOffset AsOfUTC { get; set; }
 
-            public string Name { get; set; }
+        public string AsOfZone { get; set; }
 
-            public double Latitude { get; set; }
+        public List<DataValue> Values { get; set; }
 
-            public double Longitude { get; set; }
-        }
+        public string UsgsGaugeId { get; set; }
 
-        public class FlowValues
+        public class DataValue
         {
             public DateTimeOffset AsOf { get; set; }
 
-            public double? DischargeCFS { get; set; }
+            public string Name { get; set; }
 
-            public double? GaugeHeightFeet { get; set; }
+            public string Code { get; set; }
 
-            public Temperature WaterTemperature { get; set; }
-        }
+            public string Decription { get; set; }
 
-        public class Temperature
-        {
-            public double Celsius { get; set; }
+            public string Unit { get; set; }
 
-            public double Fahrenheit { get; set; }
+            public double Value { get; set; }
         }
     }
 }

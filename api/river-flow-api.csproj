@@ -23,12 +23,14 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.4" />
     <PackageReference Include="steeltoe.cloudfoundry.connector.efcore" Version="2.1.1" />
     <PackageReference Include="Steeltoe.Extensions.Configuration.CloudFoundryCore" Version="2.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Data\ImportFiles\River.csv" />
+    <EmbeddedResource Include="Data\ImportFiles\State.csv" />
     <EmbeddedResource Include="Data\ImportFiles\UsgsGauge.csv" />
     <EmbeddedResource Include="Data\ImportFiles\UsgsGaugeRiverSection.csv" />
-    <EmbeddedResource Include="Data\ImportFiles\State.csv" />
   </ItemGroup>
 
 </Project>

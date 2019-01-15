@@ -15,10 +15,10 @@
            "stopAtEntry": false,
            "launchBrowser": {
                "enabled": true,
-               "args": "${auto-detect-url}",
+               "args": "${auto-detect-url}/swagger",
                "windows": {
                    "command": "cmd.exe",
-                   "args": "/C start ${auto-detect-url}"
+                   "args": "/C start ${auto-detect-url}/swagger"
                },
                "osx": {
                    "command": "open"
@@ -43,7 +43,6 @@
             "program": "${workspaceFolder}/consumer/bin/Debug/netcoreapp2.1/river-flow-processor.dll",
             "args": [],
             "cwd": "${workspaceFolder}/consumer",
-            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
             "console": "internalConsole",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart"

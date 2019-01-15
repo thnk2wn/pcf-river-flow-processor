@@ -39,7 +39,7 @@ namespace RiverFlowProcessor.USGS
         [JsonProperty("typeSubstituted")]
         public bool TypeSubstituted { get; set; }
 
-        public TimeSery GetTimeSeries(string variableCode)
+        public TimeSery GetTimeSeries(string usgsGaugeId, string variableCode)
         {
             if (this.Value == null || this.Value.TimeSeries == null)
             {
@@ -48,14 +48,15 @@ namespace RiverFlowProcessor.USGS
 
             var timeSeries = this.Value?.TimeSeries?
                 .SingleOrDefault(ts =>
+                    ts.SourceInfo.SiteCode.Any(sc => sc.Value == usgsGaugeId) &&
                     ts.Variable.VariableCode.Any(
                         vc => vc.Value == variableCode));
             return timeSeries;
         }
 
-        public TimeSeriesValue GetLastTimeSeriesValue(string variableCode)
+        public TimeSeriesValue GetTimeSeriesValues(string usgsGaugeId, string variableCode)
         {
-            var timeSeries = GetTimeSeries(variableCode);
+            var timeSeries = GetTimeSeries(usgsGaugeId, variableCode);
 
             if (timeSeries == null || timeSeries.Values == null)
             {
@@ -80,6 +81,14 @@ namespace RiverFlowProcessor.USGS
 
         [JsonProperty("timeSeries")]
         public TimeSery[] TimeSeries { get; set; }
+
+        public TimeSery[] GetTimeSeriesForSite(string usgsGaugeId)
+        {
+            var series = this.TimeSeries
+                .Where(ts => ts.SourceInfo.SiteCode.Any(sc => sc.Value == usgsGaugeId))
+                .ToArray();
+            return series;
+        }
     }
 
     public partial class QueryInfo

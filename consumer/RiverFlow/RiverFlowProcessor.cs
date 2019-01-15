@@ -56,12 +56,42 @@ namespace RiverFlowProcessor.RiverFlow
 
             this.logger.LogDebug("Inspecting, mapping data for site {usgsGaugeId}", usgsGaugeId);
 
-            var gaugeHeight = streamFlow.GetLastTimeSeriesValue(UsgsVariables.GaugeHeightFeet);
-            var dischargeCfs = streamFlow.GetLastTimeSeriesValue(UsgsVariables.DischargeCFS);
-            var waterTemp = streamFlow.GetLastTimeSeriesValue(UsgsVariables.WaterTempCelsius);
-            var firstSetSeries = (gaugeHeight ?? dischargeCfs ?? waterTemp);
+            // Current assumptions for simplicity
+            // 1) One site at a time though API supports multiple
+            // 2) One parameter value at a time (most recent) though API supports time period
 
-            if (firstSetSeries == null)
+            var timeSeries = streamFlow.Value.GetTimeSeriesForSite(usgsGaugeId);
+
+            var snapshot = new RiverFlowSnapshot
+            {
+                AsOfUTC = DateTime.UtcNow,
+                AsOfZone = System.TimeZoneInfo.Local.StandardName,
+                UsgsGaugeId = usgsGaugeId
+            };
+
+            foreach (var ts in timeSeries.Where(ts => ts.Values?.Length == 1 && ts.Values[0].Value?.Length == 1))
+            {
+                var tsValue = ts.Values[0].Value[0];
+                var parsed = double.TryParse(tsValue.Value, out double value);
+
+                if (parsed && ts.Variable.NoDataValue != (long)value)
+                {
+                    // System.TimeZoneInfo.GetSystemTimeZones()[0].BaseUtcOffset
+                    // System.TimeZoneInfo.ConvertTimeToUtc(tsValue.DateTime, TimeZoneInfo.)
+                    var dataValue = new RiverFlowSnapshot.DataValue
+                    {
+                        AsOf = tsValue.DateTime,
+                        Code = ts.Variable.VariableCode[0].Value,
+                        Decription = ts.Variable.VariableDescription,
+                        Name = System.Net.WebUtility.HtmlDecode(ts.Variable.VariableName),
+                        Unit = ts.Variable.Unit.UnitCode,
+                        Value = value
+                    };
+                    snapshot.Values.Add(dataValue);
+                }
+            }
+
+            if (!snapshot.Values.Any())
             {
                 this.logger.LogWarning(
                     "No timeseries sensor data returned for gauge {gauge}; skipping.",
@@ -69,53 +99,9 @@ namespace RiverFlowProcessor.RiverFlow
                 return;
             }
 
-            var sourceSite = streamFlow.GetSource();
-
-            var snapshot = new RiverFlowSnapshot
-            {
-                 AsOf = DateTime.UtcNow,
-
-                 Flow = new RiverFlowSnapshot.FlowValues
-                 {
-                     AsOf = (firstSetSeries).DateTime,
-                     GaugeHeightFeet = GetFlowValue(gaugeHeight),
-                     DischargeCFS = GetFlowValue(dischargeCfs),
-                     WaterTemperature = GetTemp(waterTemp)
-                 },
-
-                 Site = new RiverFlowSnapshot.SourceSite
-                 {
-                     Code = usgsGaugeId,
-                     Name = sourceSite.SiteName,
-                     Latitude = sourceSite.GeoLocation.GeogLocation.Latitude,
-                     Longitude = sourceSite.GeoLocation.GeogLocation.Longitude
-                 }
-            };
-
             this.logger.LogInformation("{snapshotSummary}", snapshot);
 
             // TODO: call service to persist / import flow data
-        }
-
-        private double? GetFlowValue(TimeSeriesValue timeSeriesValue)
-        {
-            if (timeSeriesValue != null && double.TryParse(timeSeriesValue.Value, out double value))
-            {
-                return value;
-            }
-
-            return null;
-        }
-
-        private RiverFlowSnapshot.Temperature GetTemp(TimeSeriesValue timeSeriesValue)
-        {
-            var value = GetFlowValue(timeSeriesValue);
-
-            return value == null ? null : new RiverFlowSnapshot.Temperature
-            {
-                Celsius = value.Value,
-                Fahrenheit = value.Value * 9 / 5 + 32
-            };
         }
     }
 

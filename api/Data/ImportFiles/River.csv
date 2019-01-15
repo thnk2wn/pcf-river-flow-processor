@@ -1,0 +1,1849 @@
+RiverId,RiverSection,StateCode
+1,Archangel Creek,AK
+2,Canyon Creek,AK
+3,Gulkana,AK
+4,Kenai,AK
+5,Little Susitna,AK
+6,Matanuska,AK
+7,Mendenhall,AK
+8,Moose Creek,AK
+9,Reeds Creek,AK
+10,Ship Creek,AK
+11,Sixmile (& E. Fork Sixmile),AK
+12,Stikine,AK
+13,Susitna,AK
+14,Talkeetna,AK
+15,Willow Creek,AK
+16,Wolverine Creek,AK
+17,Bear Creek (Dekalb Co.),AL
+18,Black,AL
+19,Blackwater Creek,AL
+20,Cahaba,AL
+21,Chattahoochee,AL
+22,Cheaha Creek,AL
+23,Chinquapin Creek,AL
+24,Choccolocco Creek,AL
+25,Coosa,AL
+26,Cotaco Creek,AL
+27,Graves Creek,AL
+28,Gurley Creek,AL
+29,Hatchet Creek,AL
+30,Hicks Creek,AL
+31,Hog Creek,AL
+32,Hubbard Creek,AL
+33,Johnnies Creek,AL
+34,Little,AL
+35,Little Uchee,AL
+36,"Little, E. Fork",AL
+37,"Little, W. Fork",AL
+38,Salt Creek,AL
+39,Sipsey Fork,AL
+40,Socapatoy Creek,AL
+41,Sougahatchee Creek,AL
+42,South Sauty Creek,AL
+43,Talladega Creek,AL
+44,Tallapoosa,AL
+45,Turkey Creek,AL
+46,Walnut Creek,AL
+47,"Warrior, Blackburn Fork",AL
+48,"Warrior, Locust Fork",AL
+49,Wolf Creek (LRC Tributary),AL
+50,Wolf Creek (Weiss Lake Tributary),AL
+51,Yellow Creek,AL
+52,Baker Creek,AR
+53,Bear Creek (Big Piney trib),AR
+54,Bear Creek (South Fourche trib),AR
+55,Big Creek,AR
+56,Big Devil's Fork,AR
+57,Big Piney Creek,AR
+58,Blackburn Creek,AR
+59,Blaylock Creek,AR
+60,Blocker Creek,AR
+61,Bobtail Creek,AR
+62,Boen Gulf Branch,AR
+63,Boss Hollow,AR
+64,Brushy Creek,AR
+65,Buffalo,AR
+66,Caddo,AR
+67,Cadron Creek,AR
+68,"Cadron Creek, East Fork",AR
+69,"Cadron Creek, Middle Fork",AR
+70,Cedar Creek (Crawford Co.),AR
+71,"Cedar Creek, E. Fork (Crawford Co.)",AR
+72,"Cedar Creek, W. Fork (Crawford Co.)",AR
+73,Clark Creek,AR
+74,Clear Creek,AR
+75,Cossatot,AR
+76,Cove Creek (Faulkner Co.),AR
+77,Crooked Creek (Montgomery Co.),AR
+78,Dry Creek (Richland),AR
+79,Fall Creek,AR
+80,Falling Water Creek,AR
+81,Falls Branch,AR
+82,Fiddlers Creek,AR
+83,Frog Bayou,AR
+84,Graves Creek,AR
+85,Harris Creek,AR
+86,Hart Creek,AR
+87,Hogan's Creek,AR
+88,Hurricane Creek (Franklin County),AR
+89,Hurricane Creek (Newton & Pope Co.),AR
+90,Illinois,AR
+91,Illinois Bayou,AR
+92,"Illinois Bayou, E. Fork",AR
+93,"Illinois Bayou, Middle Fork",AR
+94,"Illinois Bayou, N. Fork",AR
+95,Indian Creek,AR
+96,Jack Creek,AR
+97,Kings,AR
+98,Lee Creek,AR
+99,Left Hand Prong,AR
+100,Little Missouri,AR
+101,Little Piney Creek,AR
+102,"Little Red, Archey's Fork",AR
+103,"Little Red, Middle Fork",AR
+104,"Little Red, South Fork",AR
+105,Long Devil's Fork,AR
+106,Meadow Creek,AR
+107,Moore Creek,AR
+108,Mulberry,AR
+109,North Sylamore Creek,AR
+110,Opossum Creek,AR
+111,Ouachita,AR
+112,Richland Creek,AR
+113,Rock Creek,AR
+114,Salado Creek,AR
+115,Saline (Howard County),AR
+116,"Saline, Alum Fork",AR
+117,"Saline, North Fork",AR
+118,South Fourche LaFave,AR
+119,Spirits Creek,AR
+120,Spring,AR
+121,Strawberry,AR
+122,Sugar Creek,AR
+123,Sulphur Creek,AR
+124,Trace Creek,AR
+125,War Eagle Creek,AR
+126,White,AR
+127,"White, Middle Fork",AR
+128,"White, West Fork",AR
+129,Bill Williams,AZ
+130,"Black, E. Fork",AZ
+131,Blue,AZ
+132,Chevelon Creek,AZ
+133,Christopher Creek,AZ
+134,Colorado,AZ
+135,Eagle Creek,AZ
+136,East Verde,AZ
+137,Ellison Creek,AZ
+138,Fossil Creek,AZ
+139,Gila,AZ
+140,Little Colorado,AZ
+141,Oak Creek,AZ
+142,Salome Creek,AZ
+143,Salt,AZ
+144,San Francisco,AZ
+145,Sycamore Creek,AZ
+146,Tonto Creek,AZ
+147,Verde,AZ
+148,Virgin,AZ
+149,Wet Beaver Creek,AZ
+150,"White River, East Fork",AZ
+151,Alameda Creek,CA
+152,American,CA
+153,"American, N. Fork",CA
+154,Antelope Creek,CA
+155,Arroyo Hondo,CA
+156,Arroyo Mocho,CA
+157,Arroyo Seco,CA
+158,Arroyo Valle,CA
+159,Battle Creek,CA
+160,Bear Creek,CA
+161,Big Sulphur Creek,CA
+162,Big Sur,CA
+163,Brush Creek,CA
+164,Butte Creek,CA
+165,Cache Creek,CA
+166,Carmel,CA
+167,"Carson, E. Fork",CA
+168,Cherry Creek,CA
+169,Clear Creek (Sacramento trib.),CA
+170,Cosumnes,CA
+171,Crapo Creek,CA
+172,Cuyama,CA
+173,Deer Creek,CA
+174,Dry Meadow Creek,CA
+175,Eel,CA
+176,"Eel, Middle Fork",CA
+177,"Eel, S. Fork",CA
+178,Elder Creek,CA
+179,Goose Creek,CA
+180,Indian Creek (Klamath trib),CA
+181,"Kern, S. Fork",CA
+182,Klamath,CA
+183,Little Sulphur Creek,CA
+184,Los Penasquitos Creek,CA
+185,Mattole,CA
+186,Merced,CA
+187,Napa,CA
+188,Navarro,CA
+189,New,CA
+190,Noyo,CA
+191,Piru Creek,CA
+192,Pit,CA
+193,Putah Creek,CA
+194,Redwood Creek,CA
+195,Russian,CA
+196,Animas,CO
+197,Arkansas,CO
+198,Blue,CO
+199,"Cache La Poudre, North Fork",CO
+200,Cimarron,CO
+201,Clear Creek,CO
+202,"Clear Creek, West Fork",CO
+203,Colorado,CO
+204,Cross Creek,CO
+205,Crystal,CO
+206,"Crystal, South Fork",CO
+207,Daisy Creek,CO
+208,Dolores,CO
+209,Eagle,CO
+210,East,CO
+211,Elk River,CO
+212,Fish Creek,CO
+213,Fraser,CO
+214,Fryingpan,CO
+215,Gore Creek,CO
+216,Green,CO
+217,Gunnison,CO
+218,"Gunnison, North Fork",CO
+219,Homestake Creek,CO
+220,Joe Wright Creek,CO
+221,Lake Fork Gunnison,CO
+222,Mineral Creek,CO
+223,North Platte,CO
+224,Oh Be Joyful Creek,CO
+225,Piedra,CO
+226,Piney,CO
+227,Plateau Creek,CO
+228,Purgatoire,CO
+229,Roaring Fork,CO
+230,San Juan,CO
+231,San Miguel,CO
+232,Slate,CO
+233,Snake River,CO
+234,South Platte,CO
+235,Taylor River Canyon,CO
+236,Tenmile Creek,CO
+237,Uncompahgre River,CO
+238,Vallecito Creek,CO
+239,White,CO
+240,Williams Fork,CO
+241,Woods Creek,CO
+242,Yampa,CO
+243,Center Brook,CT
+244,Far Mill River,CT
+245,Farmington,CT
+246,"Farmington, W. Branch",CT
+247,Housatonic,CT
+248,Hubbard,CT
+249,Natchaug,CT
+250,Naugatuck,CT
+251,Norwalk,CT
+252,Quinebaug,CT
+253,Roaring Brook,CT
+254,Salmon,CT
+255,Sandy Brook,CT
+256,Shepaug,CT
+257,Still,CT
+258,Tenmile,CT
+259,Willimantic River,CT
+260,Brandywine Creek,DE
+261,"Brandywine Creek, W. Branch",DE
+262,Red Clay Creek,DE
+263,Alapahoochee (Grand Bay Canal),FL
+264,Hillsborough,FL
+265,Suwannee,FL
+266,Alcovy,GA
+267,Allen Creek,GA
+268,Amicalola Creek,GA
+269,Annewakee,GA
+270,Apalachee,GA
+271,Augusta Canal Overflow,GA
+272,Bear Creek,GA
+273,Big Creek,GA
+274,Big Sandy Creek,GA
+275,Blood Mountain Creek,GA
+276,Boggs Creek,GA
+277,Broad,GA
+278,"Broad, South Fork",GA
+279,Cartecay,GA
+280,Chattahoochee,GA
+281,Chattooga,GA
+282,"Chattooga, West Fork",GA
+283,Chauga,GA
+284,Chestatee,GA
+285,Clear Creek,GA
+286,Coleman,GA
+287,Conasauga,GA
+288,Coosa,GA
+289,Coosawattee,GA
+290,Dicks Creek,GA
+291,Dog,GA
+292,Etowah,GA
+293,Flat Creek,GA
+294,Flat Shoal River,GA
+295,Flint,GA
+296,Frogtown Creek,GA
+297,Gulf Creek,GA
+298,Hazel Creek,GA
+299,Holly Creek,GA
+300,Hudson,GA
+301,Hurricane Creek,GA
+302,Line Creek,GA
+303,Little,GA
+304,Little 2 (Putnam County),GA
+305,Little 3 (Putnam County),GA
+306,Little Towaliga,GA
+307,"Little, E.Fk.",GA
+308,"Little, North Fork",GA
+309,Marsh Creek,GA
+310,Mill Shoal Creek,GA
+311,Mobley Creek,GA
+312,Moccasin Creek,GA
+313,Mossy Creek,GA
+314,Mud Creek,GA
+315,Murder Creek,GA
+316,Nancy Town,GA
+317,Nickajack Creek,GA
+318,North Oconee,GA
+319,Ocmulgee,GA
+320,Oconee,GA
+321,Ogeechee,GA
+322,Overflow Creek,GA
+323,Potato Creek,GA
+324,Rottenwood Creek,GA
+325,Savannah,GA
+326,Sewell Mill Creek,GA
+327,Skull Shoal Creek,GA
+328,Snake,GA
+329,Sope Creek,GA
+330,South,GA
+331,Stekoa Creek,GA
+332,Sweetwater Creek,GA
+333,Talking Rock Creek,GA
+334,Tallulah,GA
+335,Tanyard Branch,GA
+336,Tesnatee Creek,GA
+337,Tiger Creek,GA
+338,Warwoman Creek,GA
+339,Whetstone Creek,GA
+340,Whooping Creek,GA
+341,Wildcat Creek,GA
+342,Wolf Creek,GA
+343,Yahoola Creek,GA
+344,Yellow,GA
+345,Hanalei,HI
+346,Koaie Stream,HI
+347,Ohe'o Gulch,HI
+348,Wailuku River (Hilo Run),HI
+349,Waimea,HI
+350,Boone,IA
+351,Cedar,IA
+352,Des Moines,IA
+353,"Lizard Creek, S.Br.",IA
+354,Maquoketa,IA
+355,Onion Creek,IA
+356,Raccoon,IA
+357,South Skunk,IA
+358,Turkey,IA
+359,Walnut Creek,IA
+360,White Breast Creek,IA
+361,Winnebago,IA
+362,Bear,ID
+363,Big Bear,ID
+364,Big Creek (Tributary of St. Joe River),ID
+365,Bitch Creek,ID
+366,Boise,ID
+367,"Boise, N. Fork",ID
+368,"Boise, S. Fork",ID
+369,Boulder Creek,ID
+370,Boundary Creek,ID
+371,Bruneau,ID
+372,"Bruneau, W. Fork",ID
+373,"Clearwater, N. Fork",ID
+374,"Clearwater, S. Fork",ID
+375,Coeur d'Alene,ID
+376,"Coeur d'Alene, Big North Fork",ID
+377,"Coeur d'Alene, Little North Fork",ID
+378,"Coeur d'Alene, North Fork",ID
+379,"Coeur d'Alene, South Fork",ID
+380,Deadwood,ID
+381,Falls,ID
+382,Fish Creek,ID
+383,Henrys Fork,ID
+384,Jarbidge,ID
+385,Johnson Creek,ID
+386,Lion Creek,ID
+387,Little Potlatch River,ID
+388,Little Salmon,ID
+389,Lochsa,ID
+390,Lolo Creek,ID
+391,Malad (aka Big Wood),ID
+392,Mores Creek,ID
+393,Moyie,ID
+394,Owyhee,ID
+395,Pack,ID
+396,Payette,ID
+397,"Payette, Middle Fork",ID
+398,"Payette, N. Fork",ID
+399,"Payette, S. Fork",ID
+400,Portneuf,ID
+401,Potlatch,ID
+402,Priest,ID
+403,Salmon,ID
+404,"Salmon, E. Fork of S. Fork",ID
+405,"Salmon, Middle Fork",ID
+406,"Salmon, S. Fork",ID
+407,"Salmon, Yankee Fork",ID
+408,Secesh,ID
+409,Selway,ID
+410,Smith Creek,ID
+411,Snake,ID
+412,Spokane,ID
+413,St. Joe,ID
+414,St. Maries,ID
+415,Teton,ID
+416,Weiser,ID
+417,Yaak,ID
+418,Bailey Creek,IL
+419,Bear Branch,IL
+420,Bear Creek,IL
+421,Blackberry Creek,IL
+422,Cedar Creek (Adams Co.),IL
+423,Covel Creek,IL
+424,Des Plaines,IL
+425,DuPage,IL
+426,Ferson Creek,IL
+427,Fox (Illinois R. trib.),IL
+428,Hickory Creek,IL
+429,"Kent Creek, S.Fk.",IL
+430,Little Vermilion,IL
+431,Lusk Creek,IL
+432,Mississippi,IL
+433,Pecatonica,IL
+434,Sangamon,IL
+435,Somonauk Creek,IL
+436,Spring Creek,IL
+437,Tyler Creek,IL
+438,Vermilion,IL
+439,Waubonsie Creek,IL
+440,Big Pine Creek,IN
+441,Blue,IN
+442,Flatrock,IN
+443,Indian Creek,IN
+444,Mill Creek,IN
+445,Mud Pine Creek,IN
+446,Ohio,IN
+447,Pipe Creek,IN
+448,Rattlesnake Creek,IN
+449,Sugar Creek,IN
+450,Wabash,IN
+451,White Lick Creek,IN
+452,"White, East Fork",IN
+453,Whitewater,IN
+454,"Whitewater, E.Fk.",IN
+455,Elk,KS
+456,Kansas River,KS
+457,Banklick Creek,KY
+458,Barren River,KY
+459,Beech Fork,KY
+460,Buck Creek,KY
+461,Cane Creek,KY
+462,Cane Run Creek,KY
+463,Cedar Creek (Floyds Fork trib.),KY
+464,Cloverlick Creek,KY
+465,Cumberland,KY
+466,"Cumberland, Big South Fork",KY
+467,"Cumberland, Clover Fork",KY
+468,"Cumberland, Martins Fork",KY
+469,"Cumberland, Poor Fork",KY
+470,Elkhorn Creek,KY
+471,Floyds Fork of the Salt River,KY
+472,Fugitt Creek,KY
+473,Glenn's Creek,KY
+474,Gunpowder Creek,KY
+475,Harrods Creek,KY
+476,"Kentucky, Middle Fork",KY
+477,"Kentucky, South Fork",KY
+478,Red,KY
+479,Roaring Paunch,KY
+480,Rock Creek (Cumberland trib),KY
+481,Rockcastle,KY
+482,Salt,KY
+483,Sinking Creek,KY
+484,Sabine River,LA
+485,Toro Bayou,LA
+486,Assabet,MA
+487,Charles,MA
+488,Concord,MA
+489,Connecticut,MA
+490,Dead Branch of the Westfield River,MA
+491,Deerfield,MA
+492,Green,MA
+493,Hoosic,MA
+494,Locke Brook,MA
+495,Millers,MA
+496,Monatiquot,MA
+497,North,MA
+498,Quinapoxet,MA
+499,Ware,MA
+500,"Westfield, Middle Branch",MA
+501,"Westfield, N. Branch",MA
+502,"Westfield, W. Branch",MA
+503,"Anacostia, Northwest Branch",MD
+504,Antietam Creek,MD
+505,Bear Creek,MD
+506,Beaver Creek,MD
+507,Bennett Creek,MD
+508,Big Elk Creek,MD
+509,Broad Creek,MD
+510,Brush Creek,MD
+511,Cabin John Creek,MD
+512,Casselman,MD
+513,"Casselman, N. Branch",MD
+514,Catoctin Creek,MD
+515,Conowingo Creek,MD
+516,Crabtree Creek,MD
+517,Deer Creek,MD
+518,Evitts Creek,MD
+519,Fifteen Mile Creek,MD
+520,Flintstone Creek,MD
+521,Georges Creek,MD
+522,Gunpowder Falls,MD
+523,Gwynns Falls,MD
+524,Herring Run,MD
+525,Hunting Creek,MD
+526,Jennings Run,MD
+527,Laurel Run,MD
+528,Little Falls,MD
+529,Little Gunpowder Falls,MD
+530,Little Patuxent,MD
+531,Little Seneca Creek,MD
+532,Little Wills Creek,MD
+533,Long Green Creek,MD
+534,Marsh Creek,MD
+535,Middle creek,MD
+536,Middle Creek (Toms Creek trib.),MD
+537,Middle Patuxent,MD
+538,Mill Run,MD
+539,Muddy Creek,MD
+540,Northeast Creek,MD
+541,Octoraro Creek,MD
+542,Owens Creek,MD
+543,Patapsco,MD
+544,"Patapsco, S. Branch",MD
+545,Piney Run,MD
+546,Potomac,MD
+547,"Potomac, North Branch",MD
+548,Rock Creek,MD
+549,Savage,MD
+550,Seneca Creek,MD
+551,Sideling Hill Creek,MD
+552,Town Creek,MD
+553,Wills Creek,MD
+554,Winters Run,MD
+555,Youghiogheny,MD
+556,Allagash,ME
+557,Androscoggin,ME
+558,Aroostook,ME
+559,Big Black,ME
+560,Bull Branch (of the Sunday River),ME
+561,Carrabasset,ME
+562,Cobbosseecontee Stream,ME
+563,Dead,ME
+564,Ducktrap,ME
+565,Goose Eye Brook,ME
+566,Grand Lake Stream,ME
+567,Kenduskeag Stream,ME
+568,Kennebec,ME
+569,Kingsbury Stream,ME
+570,Little Androscoggin,ME
+571,Long Pond Stream,ME
+572,Machias,ME
+573,Mattawamkeag,ME
+574,Mousam,ME
+575,Narraguagus,ME
+576,Old Stream,ME
+577,Ossipee,ME
+578,"Penobscot, E. Branch",ME
+579,Piscataquis,ME
+580,Piscataquis River,ME
+581,"Piscataquis, E. Branch",ME
+582,Presumpscot,ME
+583,Saco,ME
+584,Sandy,ME
+585,Sandy Stream,ME
+586,Seboeis,ME
+587,Sheepscot,ME
+588,Spencer Stream,ME
+589,St. Croix,ME
+590,St. Francis,ME
+591,St. John,ME
+592,Stillwater,ME
+593,Swift,ME
+594,Wild,ME
+595,Au Train,MI
+596,Bear,MI
+597,Black,MI
+598,Boardman,MI
+599,Brule,MI
+600,Carp (Marquette),MI
+601,Chippewa,MI
+602,Chocolay,MI
+603,Clinton,MI
+604,Dead,MI
+605,Eagle,MI
+606,Escanaba,MI
+607,"Escanaba, E.Br.",MI
+608,"Escanaba, M.Br.",MI
+609,Falls,MI
+610,Ford,MI
+611,Grand,MI
+612,Gratiot,MI
+613,Huron (Washtenaw),MI
+614,Iron,MI
+615,Little Carp (Porkies),MI
+616,Menominee,MI
+617,Michigamme,MI
+618,Mill Creek,MI
+619,Ontonagon,MI
+620,"Ontonagon, Cisco Br.",MI
+621,"Ontonagon, M.Br.",MI
+622,"Ontonagon, W.Br.",MI
+623,"Otter, W.Br.",MI
+624,Paint,MI
+625,Paint Creek,MI
+626,Pilgrim,MI
+627,Pine,MI
+628,Presque Isle,MI
+629,Red Cedar,MI
+630,Rock,MI
+631,Rogue,MI
+632,Salmon Trout,MI
+633,Sand Island Creek,MI
+634,Silver,MI
+635,Slate,MI
+636,Sturgeon (Baraga),MI
+637,Sturgeon (Cheboygan),MI
+638,Sturgeon (Dickinson),MI
+639,"Sturgeon, W.Br. (Houghton)",MI
+640,Tahquamenon,MI
+641,Tioga,MI
+642,Beaver Creek,MN
+643,Big Fork,MN
+644,Big Sucker Creek,MN
+645,Cannon,MN
+646,Hawk Creek,MN
+647,Kettle,MN
+648,Knife,MN
+649,Lester,MN
+650,Little Fork,MN
+651,Lower Tamarack,MN
+652,Mississippi,MN
+653,Pigeon,MN
+654,Redwood,MN
+655,Sand Creek,MN
+656,Sauk,MN
+657,Snake,MN
+658,St. Croix,MN
+659,St. Louis,MN
+660,Vermilion,MN
+661,Vermillion (Hastings),MN
+662,"Wild Rice, S.Br.",MN
+663,Yellow Medicine,MN
+664,Big Creek,MO
+665,"Black, East Fork",MO
+666,Blue,MO
+667,Castor,MO
+668,Crane Pond Creek,MO
+669,Eleven Point,MO
+670,Flat Creek,MO
+671,Little Rock Creek,MO
+672,Little St. Francis,MO
+673,Lower Rock Creek,MO
+674,Missouri,MO
+675,Mud Creek,MO
+676,North,MO
+677,North Fork (White River),MO
+678,Pickle Creek,MO
+679,South Fabius,MO
+680,Stouts Creek,MO
+681,Turkey Creek,MO
+682,Chunky,MS
+683,Okatoma Creek,MS
+684,Beaverhead,MT
+685,Big Hole,MT
+686,Blackfoot,MT
+687,Boulder,MT
+688,Boulder (Jefferson R. tributary),MT
+689,"Boulder, West",MT
+690,Clark Fork,MT
+691,Clarks Fork Yellowstone,MT
+692,Crandall Creek,MT
+693,Dearborn,MT
+694,Elk Creek (Swan Trib),MT
+695,Falls Creek (Dearborn Trib),MT
+696,Fish Creek,MT
+697,"Flathead, Middle Fork",MT
+698,"Flathead, North Fork",MT
+699,"Flathead, South Fork",MT
+700,Flint Creek,MT
+701,Gallatin,MT
+702,Judith,MT
+703,Kootenai,MT
+704,Kootenai Creek,MT
+705,Madison,MT
+706,Prospect Creek,MT
+707,Rock Creek (Carbon County),MT
+708,Rock Creek (Missoula County),MT
+709,"Rosebud Creek, West",MT
+710,Smith,MT
+711,Stillwater,MT
+712,Swan,MT
+713,Swan River,MT
+714,Teton River (North Fork),MT
+715,"Teton River, North Fork",MT
+716,Thompson River,MT
+717,Trout Creek,MT
+718,Two Medicine,MT
+719,"Two Medicine, South Fork",MT
+720,Yellowstone,MT
+721,Alarka Creek,NC
+722,Ararat,NC
+723,Big Creek,NC
+724,Big Creek (Stokes Co.),NC
+725,Big Laurel Creek,NC
+726,Boone Fork,NC
+727,Broad,NC
+728,Brush Creek,NC
+729,Buckhorn Creek,NC
+730,Buffalo Creek,NC
+731,Buffalo Creek (Guilford Co.),NC
+732,Cape Fear,NC
+733,Cartoogechaye,NC
+734,Cataloochee Creek,NC
+735,Catawba,NC
+736,Cheoah,NC
+737,Crabtree Creek (Umstead State Park),NC
+738,Dan,NC
+739,Davidson,NC
+740,Deep,NC
+741,Eastatoe Creek -1,NC
+742,Elk,NC
+743,Elk Creek,NC
+744,Eno,NC
+745,Fires Creek,NC
+746,First Broad,NC
+747,Flat,NC
+748,French Broad,NC
+749,"French Broad, North Fork",NC
+750,"French Broad, West Fork",NC
+751,Haw,NC
+752,Hominy Creek,NC
+753,Johns,NC
+754,Jonathans Creek,NC
+755,Linville,NC
+756,Little (Cape Fear trib),NC
+757,Little (Eno trib),NC
+758,Little (Fr.Broad trib),NC
+759,Little Fishing Creek,NC
+760,Little Tennessee,NC
+761,Looking Glass Creek,NC
+762,Matthews Creek,NC
+763,"Mayo, N. Fork",NC
+764,"Mayo, S. Fork",NC
+765,Nantahala,NC
+766,Neuse,NC
+767,New,NC
+768,New Hope Creek,NC
+769,"New, S. Fork",NC
+770,Nolichucky,NC
+771,North Pacolet,NC
+772,North Toe,NC
+773,Oconaluftee,NC
+774,Oilcamp creek,NC
+775,Pigeon,NC
+776,"Pigeon, Big East Fork",NC
+777,"Pigeon, East Fork",NC
+778,"Pigeon, West Fork",NC
+779,Raven Fork,NC
+780,Reddies,NC
+781,Reedy Cove Creek,NC
+782,Reedy Fork Creek,NC
+783,Roanoke,NC
+784,Rocky (Cape Fear Trib),NC
+785,Rocky (Pee Dee trib),NC
+786,South Fork Mills River,NC
+787,South Yadkin,NC
+788,Spivey Creek,NC
+789,Spring Creek,NC
+790,Straight Fork,NC
+791,Swannanoa,NC
+792,Tanasee Creek,NC
+793,Tar,NC
+794,Toe,NC
+795,"Toe, South",NC
+796,Tuckasegee,NC
+797,Watauga,NC
+798,Wilson Creek,NC
+799,Yadkin,NC
+800,Yellow Creek,NC
+801,Little South Pembina,ND
+802,Pembina,ND
+803,Red River of the North,ND
+804,Dismal,NE
+805,Niobrara,NE
+806,Ammonoosuc,NH
+807,Androscoggin,NH
+808,Ashuelot,NH
+809,Baker,NH
+810,"Baker, S. Branch",NH
+811,Bearcamp,NH
+812,Blackwater,NH
+813,Broad Brook,NH
+814,Cascade Brook,NH
+815,Cocheco,NH
+816,Connecticut,NH
+817,Contoocook,NH
+818,"Contoocook, N. Branch",NH
+819,Croyden Brook,NH
+820,Diamond River,NH
+821,Dry,NH
+822,Fowler,NH
+823,Halls Brook,NH
+824,Isinglass,NH
+825,Lamprey,NH
+826,Merrimack,NH
+827,Nashua,NH
+828,Otter Brook,NH
+829,Pemigewasset,NH
+830,"Pemigewasset, East Branch",NH
+831,"Pemigewasset, Hancock Branch",NH
+832,"Pemigewasset, North Fork.",NH
+833,Piscataquog,NH
+834,"Piscataquog, North Branch",NH
+835,Pond Brook,NH
+836,Saco,NH
+837,Sawyer,NH
+838,Smith,NH
+839,Soucook,NH
+840,Souhegan,NH
+841,Stony Brook,NH
+842,Sugar,NH
+843,Suncook,NH
+844,Warner,NH
+845,Winnipesaukee,NH
+846,Wonalancet,NH
+847,Delaware,NJ
+848,Lamington,NJ
+849,Musconetcong,NJ
+850,Paulins Kill,NJ
+851,Pequannock,NJ
+852,Pequest,NJ
+853,Posts Creek,NJ
+854,"Raritan, N. Branch",NJ
+855,"Raritan, S. Branch",NJ
+856,Rockaway,NJ
+857,Rockaway Creek,NJ
+858,Wanaque,NJ
+859,West Brook,NJ
+860,Animas,NM
+861,Canadian,NM
+862,Cimarron,NM
+863,Gila,NM
+864,Jemez,NM
+865,Mora,NM
+866,Pecos,NM
+867,Red River,NM
+868,Rio Chama,NM
+869,Rio Grande,NM
+870,Rio Guadalupe,NM
+871,Rio Ojo Caliente,NM
+872,Rio Pueblo de Taos,NM
+873,Rio Santa Cruz,NM
+874,San Francisco,NM
+875,San Juan,NM
+876,"Bruneau, West Fork",NV
+877,Carson River,NV
+878,"Jarbidge, East Fork",NV
+879,"Jarbidge, West Fork",NV
+880,Owyhee,NV
+881,Truckee,NV
+882,Anthony Kill,NY
+883,Ausable,NY
+884,"Ausable, E. Branch",NY
+885,"Ausable, W. Branch",NY
+886,Balm of Gilead Brook,NY
+887,Bash Bish Brook,NY
+888,Basic Creek,NY
+889,Batavia Kill (Delaware tributary),NY
+890,Batavia Kill (Schoharie Cr. Tributary),NY
+891,Batten Kill,NY
+892,Bear Kill,NY
+893,Beaver Kill (Delaware tributary),NY
+894,Beaver Kill (Hudson tributary),NY
+895,Beaver Meadow Creek,NY
+896,Beecher Creek,NY
+897,Beer Kill,NY
+898,"Beer Kill, W. Branch",NY
+899,Black,NY
+900,Black Brook,NY
+901,"Black, S. Branch",NY
+902,Bog,NY
+903,Boland Creek,NY
+904,Boquet,NY
+905,"Boquet, N. Branch",NY
+906,"Boquet, S. Branch",NY
+907,Boreas,NY
+908,Bowery Creek,NY
+909,Bowman Creek,NY
+910,"Branch, The (Boquet trib.)",NY
+911,"Branch, The (Schroon trib.)",NY
+912,Bush Kill,NY
+913,Butternut Creek,NY
+914,"Callicoon Creek, E. Branch",NY
+915,"Callicoon Creek, N. Branch",NY
+916,Canadaway Creek,NY
+917,Canajoharie Creek,NY
+918,Canandaigua Outlet,NY
+919,Canaseraga Creek,NY
+920,Canisteo,NY
+921,Caroga Creek,NY
+922,Cascadilla Creek,NY
+923,Catskill Creek,NY
+924,Cattaraugus Creek,NY
+925,"Cattaraugus Creek, S. Branch",NY
+926,Cayuta Creek,NY
+927,"Cazenovia Creek, W. Branch",NY
+928,"Cazenovia Creek, W.Branch",NY
+929,Cedar,NY
+930,Chateaugay,NY
+931,Chautauqua Creek,NY
+932,Chittenango Creek,NY
+933,Cincinnati Creek,NY
+934,Claverack Creek,NY
+935,"Clear Creek, N. Br.",NY
+936,Cobleskill Creek,NY
+937,Cold,NY
+938,Conesus Creek,NY
+939,County Line Brook,NY
+940,Coxing Kill,NY
+941,Croton,NY
+942,Crystal Creek,NY
+943,Deer (Black trib.),NY
+944,Deer (St. Lawrence trib.),NY
+945,Deer Creek (Hudson Trib.),NY
+946,Delaware,NY
+947,"Delaware, E. Branch",NY
+948,"Delaware, Little Delaware",NY
+949,"Delaware, W. Branch",NY
+950,Doig Creek,NY
+951,Dry Brook,NY
+952,Dunning Creek,NY
+953,East Canada Creek,NY
+954,East Kill (Schoharie Creek trib),NY
+955,East Stony Creek,NY
+956,Eighteenmile Creek,NY
+957,"Eighteenmile Creek, S. Br.",NY
+958,Elbow Creek,NY
+959,Ellicott Creek,NY
+960,Elm Creek,NY
+961,Esopus Creek,NY
+962,Fall Creek,NY
+963,"Fish Creek, E. Branch",NY
+964,Fishkill Creek,NY
+965,Flint Creek,NY
+966,Fox Creek,NY
+967,Genesee,NY
+968,Georgia Brook,NY
+969,Glen Creek,NY
+970,Grass,NY
+971,"Grass, Lower S. Branch",NY
+972,"Grass, Middle Branch",NY
+973,"Grass, N. Branch",NY
+974,"Grass, Upper South Branch",NY
+975,Great Chazy,NY
+976,"Great Chazy, North Branch",NY
+977,Great Gully Creek,NY
+978,Hague Brook,NY
+979,Hannacrois Creek,NY
+980,Holmes Lake Outlet,NY
+981,Honeoye Creek,NY
+982,Hoosic,NY
+983,Hudson,NY
+984,Independence,NY
+985,Independence River,NY
+986,Indian (Hudson trib.),NY
+987,Indian (S.Br. Moose trib.),NY
+988,Island Branch,NY
+989,Jenny Creek,NY
+990,Jimmy Creek,NY
+991,John's Brook,NY
+992,Jordan,NY
+993,Kaaterskill Creek,NY
+994,Keshequa Creek,NY
+995,Keuka Outlet,NY
+996,Kinderhook Creek,NY
+997,Kiskatom Creek,NY
+998,Kline Kill,NY
+999,Kortright Creek,NY
+1000,Lake Ozonia Outlet,NY
+1001,Lamson Run,NY
+1002,Limestone Creek,NY
+1003,Little,NY
+1004,Little Black Brook,NY
+1005,Little Black Creek,NY
+1006,Little Chautauqua Creek,NY
+1007,Little Elk Creek,NY
+1008,Little Trout,NY
+1009,Little Woodhull Creek,NY
+1010,Mad River,NY
+1011,Marble,NY
+1012,Meacham Lake Outlet,NY
+1013,Mettawee,NY
+1014,Mill Brook,NY
+1015,Mill Creek (Essex County),NY
+1016,Mill Creek (Hudson trib.),NY
+1017,Mill Creek (Lewis County),NY
+1018,Mohawk,NY
+1019,Mombaccus Creek,NY
+1020,Mongaup,NY
+1021,Moodna Creek,NY
+1022,Moose,NY
+1023,"Moose, Middle Branch",NY
+1024,"Moose, S. Branch",NY
+1025,Murder Creek,NY
+1026,Negro Brook,NY
+1027,Neversink,NY
+1028,"Neversink, E. Branch",NY
+1029,"Neversink, W. Branch",NY
+1030,Ninemile Creek,NY
+1031,Normans Kill,NY
+1032,North Chuctanunda Creek,NY
+1033,North Creek,NY
+1034,Nowadaga Creek,NY
+1035,Oak Orchard Creek,NY
+1036,Oatka Creek,NY
+1037,Oriskany Creek,NY
+1038,"Oswegatchie, E. Branch",NY
+1039,"Oswegatchie, Middle Branch",NY
+1040,Ashtabula,OH
+1041,Caesar Creek,OH
+1042,Chagrin,OH
+1043,Conneaut Creek,OH
+1044,Cuyahoga,OH
+1045,Four Mile Creek,OH
+1046,Grand,OH
+1047,Great Miami,OH
+1048,Greenville Creek,OH
+1049,Holes Creek,OH
+1050,Kokosing,OH
+1051,Licking,OH
+1052,Little Beaver Creek,OH
+1053,Little Miami,OH
+1054,"Little Miami River, East Fork",OH
+1055,Ludlow Creek,OH
+1056,Mad,OH
+1057,Mad River,OH
+1058,Massie's Creek,OH
+1059,Maumee,OH
+1060,O'Bannon Creek,OH
+1061,Olentangy,OH
+1062,Paint Creek,OH
+1063,Painter Creek,OH
+1064,Portage,OH
+1065,Rattlesnake Creek,OH
+1066,Rocky Fork Creek,OH
+1067,"Rocky, N. Br. of the W. Br.",OH
+1068,"Rocky, W. Br.",OH
+1069,"Rocky, W.Br.",OH
+1070,Sagamore Creek,OH
+1071,Sandusky,OH
+1072,Stonelick Creek,OH
+1073,Sycamore Creek,OH
+1074,Tinker's Creek,OH
+1075,Todd Fork,OH
+1076,Vermilion,OH
+1077,Wakatomica Creek,OH
+1078,White Oak Creek,OH
+1079,Arkansas,OK
+1080,Blue,OK
+1081,Flint Creek,OK
+1082,Glover,OK
+1083,Honey Creek,OK
+1084,Illinois River,OK
+1085,Kiamichi,OK
+1086,Mountain Fork,OK
+1087,Pennington Creek,OK
+1088,Rocky Creek,OK
+1089,Abiqua Creek,OR
+1090,Alsea,OR
+1091,"Alsea, N. Fork",OR
+1092,Battle Axe Creek,OR
+1093,Beaver Creek,OR
+1094,Big Butte Creek,OR
+1095,Boulder Creek,OR
+1096,Breitenbush,OR
+1097,Brice Creek,OR
+1098,Briggs Creek,OR
+1099,Bull Run,OR
+1100,Butte Creek,OR
+1101,Calf Creek,OR
+1102,Canal Creek,OR
+1103,Canton Creek,OR
+1104,Canyon Creek,OR
+1105,Cedar Creek,OR
+1106,Chetco,OR
+1107,"Chetco, South Fork",OR
+1108,Christy Creek,OR
+1109,Clackamas,OR
+1110,"Clackamas, Oak Grove Fork",OR
+1111,"Clackamas, South Fork",OR
+1112,Collawash,OR
+1113,Copeland Creek,OR
+1114,"Coquille, MF",OR
+1115,"Coquille, S. Fork",OR
+1116,Crabtree Creek,OR
+1117,Crooked,OR
+1118,"Deep Creek, NF",OR
+1119,Deschutes,OR
+1120,Donner and Blitzen,OR
+1121,Eagle Creek,OR
+1122,Elk Creek (Rogue),OR
+1123,Elk Creek (Santiam),OR
+1124,Elk Lake Creek,OR
+1125,Elkhorn Creek,OR
+1126,Emile Creek,OR
+1127,Euchre Creek,OR
+1128,Fall Creek,OR
+1129,Fish Creek,OR
+1130,French Creek,OR
+1131,Gold Creek,OR
+1132,Grande Ronde,OR
+1133,Grave Creek,OR
+1134,Graves,OR
+1135,Henline,OR
+1136,Hood,OR
+1137,"Hood, E. Fork",OR
+1138,"Hood, Lake Branch",OR
+1139,"Hood, Middle Fork",OR
+1140,"Hood, West Fork",OR
+1141,Illinois,OR
+1142,Jackson Creek,OR
+1143,John Day,OR
+1144,"John Day, N. Fork",OR
+1145,Jordan Creek,OR
+1146,Lake Creek,OR
+1147,Lake Creek Slides,OR
+1148,Layng Creek,OR
+1149,Limpy Creek,OR
+1150,Little Nestucca,OR
+1151,Little River,OR
+1152,Little Sandy,OR
+1153,Long Tom Hole,OR
+1154,Luckiamute,OR
+1155,McKenzie,OR
+1156,"McKenzie, EF of the SF",OR
+1157,"McKenzie, S. Fork",OR
+1158,Metolius,OR
+1159,Molalla,OR
+1160,"Molalla, North Fork",OR
+1161,"Molalla, Table Rock Fork",OR
+1162,Nehalem,OR
+1163,Nohorn Creek,OR
+1164,Opal Creek (Opal Proper),OR
+1165,Owyhee,OR
+1166,Pistol,OR
+1167,Quartz Creek,OR
+1168,Quartzville Creek,OR
+1169,Rickreall,OR
+1170,Rickreall Creek,OR
+1171,Roaring River,OR
+1172,Rock Creek (Nehalem),OR
+1173,Rogue,OR
+1174,"Rogue, North Fork",OR
+1175,Row,OR
+1176,Salmon,OR
+1177,Salmonberry,OR
+1178,"Salmonberry, North Fork",OR
+1179,Sandy,OR
+1180,"Santiam, Little North",OR
+1181,"Santiam, Little North (Classic Opal)",OR
+1182,"Santiam, Little North (Opal Gorge)",OR
+1183,"Santiam, Little North (Upper Opal)",OR
+1184,Anderson Creek,PA
+1185,"Antietam Creek, E. Branch",PA
+1186,Babb Creek,PA
+1187,Bear Creek,PA
+1188,Bear Creek (Allegheny River trib.),PA
+1189,Beaver Creek,PA
+1190,Bermudian Creek,PA
+1191,Big Cove Creek,PA
+1192,Big Run,PA
+1193,Big Sandy Creek,PA
+1194,Black Creek (and Quakake Creek),PA
+1195,Blacklick Creek,PA
+1196,"Blacklick Creek, S. Branch",PA
+1197,Bobs Creek,PA
+1198,"Brandywine Creek, E. Branch",PA
+1199,Brodhead Creek,PA
+1200,Buck Run,PA
+1201,Bull Run,PA
+1202,Casselman,PA
+1203,Clarion River,PA
+1204,Clear Shade Creek,PA
+1205,Clearfield Creek,PA
+1206,Codorus Creek,PA
+1207,Conemaugh,PA
+1208,Conewago Creek (East),PA
+1209,Conewago Creek (West),PA
+1210,Connoquenessing Creek,PA
+1211,Dark Shade Creek,PA
+1212,Daugherty Run,PA
+1213,Deer Creek,PA
+1214,Drake Run,PA
+1215,East Branch Millstone Creek,PA
+1216,East Sandy Creek,PA
+1217,Elk Creek,PA
+1218,French Creek,PA
+1219,"French Creek, S. Branch",PA
+1220,Great Trough Creek,PA
+1221,Hornbeck's Creek,PA
+1222,Indian Creek,PA
+1223,Kishacoquillas Creek,PA
+1224,Lackawanna,PA
+1225,Laurel Hill Creek,PA
+1226,Laurel Run,PA
+1227,Lehigh,PA
+1228,Little Conemaugh,PA
+1229,Little Conemaugh (North),PA
+1230,Little Conemaugh (South),PA
+1231,Little Sandy Creek,PA
+1232,Loyalhanna Creek,PA
+1233,Loyalsock Creek,PA
+1234,Mahoning Creek,PA
+1235,Meadow Run,PA
+1236,Mill Creek (Allegheny R. trib.),PA
+1237,"Mill Creek (French Creek Trib, Venango County",PA
+1238,Muddy Creek,PA
+1239,Muddy Creek (Slippery Rock trib),PA
+1240,Muddy Creek (Susquehanna trib),PA
+1241,Nescopeck Creek,PA
+1242,Neshannock Creek,PA
+1243,Otter Creek,PA
+1244,Paint Creek,PA
+1245,Pequea Creek,PA
+1246,Pine Creek,PA
+1247,Pithole Creek,PA
+1248,Pringle Run,PA
+1249,Quemahoning Creek,PA
+1250,Raymondskill Creek,PA
+1251,Roaring Creek,PA
+1252,Roaring Fork,PA
+1253,Schrader Creek,PA
+1254,Schuylkill,PA
+1255,Shade Creek,PA
+1256,Shohola Creek,PA
+1257,Slate Run,PA
+1258,Slippery Rock Creek,PA
+1259,South Poplar Run,PA
+1260,Spring Creek,PA
+1261,Stonycreek River,PA
+1262,Susquehanna River,PA
+1263,Tohickon Creek,PA
+1264,"Towanda Creek, S. Branch",PA
+1265,Trout Run,PA
+1266,Tunkhannock Creek,PA
+1267,Twelve Mile Creek,PA
+1268,Walnut Creek,PA
+1269,Wapwallopen Creek,PA
+1270,Whites Creek,PA
+1271,Yellow Creek,PA
+1272,Youghiogheny,PA
+1273,Young Womans Creek,PA
+1274,Blackstone,RI
+1275,Beaverdam Creek,SC
+1276,Broad,SC
+1277,Broad Mouth Creek,SC
+1278,Cedar Shoals Creek,SC
+1279,Congaree,SC
+1280,Enoree,SC
+1281,Jimmies Creek,SC
+1282,Lawsons Fork Creek,SC
+1283,Little River,SC
+1284,Pacolet,SC
+1285,Reedy,SC
+1286,Reedy River,SC
+1287,Rocky River,SC
+1288,Saluda,SC
+1289,"Saluda, Middle",SC
+1290,"Saluda, North",SC
+1291,"Saluda, South",SC
+1292,Stevens Creek,SC
+1293,Twelvemile Creek,SC
+1294,Tyger,SC
+1295,"Tyger, Middle",SC
+1296,"Tyger, North",SC
+1297,"Tyger, South",SC
+1298,Warrior Creek,SC
+1299,Wilson Creek,SC
+1300,Battle Creek,SD
+1301,Big Sioux,SD
+1302,Rapid Creek,SD
+1303,Redwater,SD
+1304,Sand Creek,SD
+1305,Spearfish Creek,SD
+1306,Whitewood Creek,SD
+1307,Abrams Creek,TN
+1308,Bald River,TN
+1309,Beaver Creek,TN
+1310,Citico Creek,TN
+1311,Clear Creek,TN
+1312,Clear Fork,TN
+1313,Clear Fork (of the Cumberland),TN
+1314,Coker Creek,TN
+1315,Conasauga Creek,TN
+1316,Crab Orchard Creek,TN
+1317,Crooked Fork Creek,TN
+1318,Daddy's Creek,TN
+1319,Doublecamp Creek,TN
+1320,Duck River,TN
+1321,Emory,TN
+1322,"Flat Fork, North Prong",TN
+1323,Gee Creek,TN
+1324,Hiwassee,TN
+1325,Hurricane Creek,TN
+1326,Little,TN
+1327,Little Clear Creek,TN
+1328,"Little Emory, Middle Fork",TN
+1329,Little Hurricane Creek,TN
+1330,Little Loss Creek,TN
+1331,"Little Pigeon, Middle Prong (The Greenbrier)",TN
+1332,"Little, Middle Prong",TN
+1333,"Little, Middle Prong (Tremont)",TN
+1334,"Little, West Prong",TN
+1335,Lynn Camp Prong,TN
+1336,New River,TN
+1337,North River,TN
+1338,Obed,TN
+1339,"Obey, E. Fork",TN
+1340,"Obey, West Fork",TN
+1341,Piney Creek,TN
+1342,Spruce Flats Prong,TN
+1343,"Stones, W.Fk.",TN
+1344,Tellico,TN
+1345,Thunderhead Prong,TN
+1346,Turkey Creek,TN
+1347,Turtletown Creek,TN
+1348,White Creek (Morgan County),TN
+1349,White Oak Creek,TN
+1350,Wildcat Creek (Tellico Tributary),TN
+1351,Yellow Creek (Cumberland Co.),TN
+1352,Barton Creek,TX
+1353,Bear Creek (Williamson Co.),TX
+1354,Beaver Creek,TX
+1355,Bee House Creek,TX
+1356,Berry Creek,TX
+1357,Blanco,TX
+1358,Brazos,TX
+1359,"Brazos, Clear Fork",TX
+1360,"Brazos, Double Mtn Fk",TX
+1361,"Brazos, Double Mtn Fk, N Fk",TX
+1362,"Brazos, Salt Fork",TX
+1363,Brushy Creek,TX
+1364,Bull Creek,TX
+1365,Canadian River,TX
+1366,Childress Creek,TX
+1367,Cibolo Creek,TX
+1368,Colorado,TX
+1369,Comal,TX
+1370,Concho,TX
+1371,Cowhouse Creek,TX
+1372,Denton Creek,TX
+1373,Dry Frio,TX
+1374,Duck Creek,TX
+1375,Frio,TX
+1376,Guadalupe,TX
+1377,Hackberry Creek--Nueces River,TX
+1378,Hog Creek,TX
+1379,Hondo Creek,TX
+1380,Independence Creek,TX
+1381,Lampasas,TX
+1382,Little Blanco,TX
+1383,Little Walnut Creek,TX
+1384,Llano,TX
+1385,Llano River,TX
+1386,"Llano, Johnson Fork",TX
+1387,Medina,TX
+1388,Meridian Creek,TX
+1389,Middle Bosque,TX
+1390,Neches,TX
+1391,Neils Creek,TX
+1392,Nolan,TX
+1393,North Bosque,TX
+1394,North Grape Creek,TX
+1395,Nueces,TX
+1396,Onion Creek,TX
+1397,Paluxy,TX
+1398,Pecos,TX
+1399,Pedernales,TX
+1400,Rio Grande,TX
+1401,Rocky Creek,TX
+1402,Rowlett Creek,TX
+1403,Sabinal,TX
+1404,Salado Creek,TX
+1405,"San Gabriel, N. Fork",TX
+1406,"San Gabriel, S. Fork",TX
+1407,San Geronimo Creek,TX
+1408,San Marcos,TX
+1409,San Saba,TX
+1410,Sanderson Creek,TX
+1411,Sandy Creek,TX
+1412,Seco Creek,TX
+1413,Shoal Creek,TX
+1414,Spring Creek,TX
+1415,Steele Creek,TX
+1416,Tonkawa Creek,TX
+1417,Trinity,TX
+1418,"Trinity, Clear Fork",TX
+1419,"Trinity, West Fork",TX
+1420,Verde Creek,TX
+1421,Walnut Creek,TX
+1422,"Waxahachie Creek, South Prong",TX
+1423,Whiterock Creek,TX
+1424,American Fork,UT
+1425,Bear,UT
+1426,"Blacks Fork, E. Fork",UT
+1427,"Blacks Fork, W. Fork",UT
+1428,Blacksmith Fork,UT
+1429,Chalk Creek,UT
+1430,Colorado,UT
+1431,Dirty Devil,UT
+1432,East Canyon Creek,UT
+1433,Escalante,UT
+1434,"Ferron Creek, lower",UT
+1435,Green,UT
+1436,Jordan,UT
+1437,Little Cottonwood Creek,UT
+1438,Logan,UT
+1439,Muddy Creek,UT
+1440,Ogden,UT
+1441,"Ogden, South Fork",UT
+1442,Price,UT
+1443,Provo,UT
+1444,Rock Creek,UT
+1445,San Juan,UT
+1446,San Rafael,UT
+1447,Sixth Water Creek,UT
+1448,Spanish Fork,UT
+1449,Strawberry,UT
+1450,Uinta,UT
+1451,Virgin,UT
+1452,"Virgin, N. Fork",UT
+1453,Weber,UT
+1454,White,UT
+1455,Yellowstone,UT
+1456,Accotink Creek,VA
+1457,Appomattox,VA
+1458,Aquia Creek,VA
+1459,Back Creek (Jackson trib),VA
+1460,Back Creek (Potomac trib),VA
+1461,Back Creek (Roanoke R. trib),VA
+1462,Back Creek (South R. trib),VA
+1463,Beaverdam Creek,VA
+1464,Big Cedar Creek,VA
+1465,Big Moccasin Creek,VA
+1466,Big Stony Creek,VA
+1467,"Big Stony, Mountain Fork",VA
+1468,Briery Branch,VA
+1469,Buck Mountain Creek,VA
+1470,Bullpasture,VA
+1471,Calfpasture,VA
+1472,Catoctin Creek,VA
+1473,Cedar Creek,VA
+1474,Chestnut Creek,VA
+1475,Clinch,VA
+1476,Conway,VA
+1477,Cove Creek,VA
+1478,Covington,VA
+1479,Cowpasture,VA
+1480,Crab Orchard Branch,VA
+1481,Craig Creek,VA
+1482,Cub Run,VA
+1483,Dead Run,VA
+1484,Difficult Run,VA
+1485,Donaldson Run,VA
+1486,Dry,VA
+1487,Dunlap Creek,VA
+1488,Elk Creek,VA
+1489,Four Mile Run,VA
+1490,Goose Creek,VA
+1491,Green Cove Creek,VA
+1492,Guest,VA
+1493,Hardware,VA
+1494,"Hardware, N. Fork",VA
+1495,"Hardware, S. Fork",VA
+1496,"Holston, South Fork",VA
+1497,Hughes and Hazel,VA
+1498,Jackson,VA
+1499,James,VA
+1500,Jasper Creek,VA
+1501,Jennings Branch,VA
+1502,Johns Creek,VA
+1503,Little (Clinch R. trib),VA
+1504,Little (North R. trib),VA
+1505,Little River (New R. trib),VA
+1506,Little River (North Anna trib),VA
+1507,Little Stony Creek,VA
+1508,Lost,VA
+1509,Lynch,VA
+1510,Maury,VA
+1511,Middle,VA
+1512,Mill Creek (Shenandoah trib),VA
+1513,Moormans,VA
+1514,"Moormans, South Fork",VA
+1515,New,VA
+1516,Newfound,VA
+1517,North,VA
+1518,North Anna,VA
+1519,Nottoway,VA
+1520,Passage Creek,VA
+1521,Pedlar,VA
+1522,Pimmit Run,VA
+1523,Piney River,VA
+1524,"Piney, North Fork",VA
+1525,Pohick Creek,VA
+1526,"Potomac, Laurel Fork of North Fork of South Branch",VA
+1527,"Potomac, S. Branch",VA
+1528,"Potomac, S. Fk. of the S. Br.",VA
+1529,"Potomac, S.Fk. of the S.Br.",VA
+1530,"Potomac, South Branch",VA
+1531,Potts Creek,VA
+1532,Pound,VA
+1533,Powell,VA
+1534,"Powell, South Fork",VA
+1535,Quantico Creek,VA
+1536,"Quantico Creek, S. Branch",VA
+1537,Rapidan,VA
+1538,Rappahannock,VA
+1539,Reed Creek,VA
+1540,Rivanna,VA
+1541,"Rivanna, North Fork",VA
+1542,Roach,VA
+1543,Roanoke,VA
+1544,"Roanoke, South Fork",VA
+1545,Robinson,VA
+1546,Rose,VA
+1547,Rush,VA
+1548,Saint Mary's,VA
+1549,Scott Run,VA
+1550,Shenandoah,VA
+1551,"Shenandoah, N. Fork",VA
+1552,"Shenandoah, S. Fork",VA
+1553,Sleepy Creek,VA
+1554,Smith,VA
+1555,South (Rapidan trib),VA
+1556,South (Shenandoah tributary),VA
+1557,South Anna,VA
+1558,Spout Run,VA
+1559,Staton's Creek,VA
+1560,Staunton,VA
+1561,Stock Creek,VA
+1562,Stoney Creek,VA
+1563,Stony Creek (NF Shenandoah trib),VA
+1564,Tennessee Laurel Creek,VA
+1565,Thornton,VA
+1566,Tumbling Creek,VA
+1567,Tye,VA
+1568,"Tye, North Fork",VA
+1569,"Tye, South Fork",VA
+1570,"Tye, Upper North Fork",VA
+1571,Walker Creek,VA
+1572,White Oak Run,VA
+1573,Whitetop Laurel Creek,VA
+1574,Windy Run,VA
+1575,Wolf Creek,VA
+1576,Black,VT
+1577,Browns,VT
+1578,Clyde,VT
+1579,Gihon,VT
+1580,Lamoille,VT
+1581,"Lamoille, North Branch",VT
+1582,Little,VT
+1583,Mad,VT
+1584,Missisquoi,VT
+1585,Moose,VT
+1586,New Haven,VT
+1587,Ottauquechee,VT
+1588,Otter Creek,VT
+1589,Passumpsic E Br,VT
+1590,Poultney,VT
+1591,Sterling Brook,VT
+1592,Wells,VT
+1593,West,VT
+1594,White,VT
+1595,Winooski,VT
+1596,American,WA
+1597,Bacon Creek,WA
+1598,Baker Creek,WA
+1599,Baker River,WA
+1600,Big Quilcene,WA
+1601,Bogachiel,WA
+1602,Bridge Creek (Stehekin River),WA
+1603,Bumping,WA
+1604,Calawah,WA
+1605,"Calawah, S. Fork",WA
+1606,Canyon Creek (Lewis River trib.),WA
+1607,Canyon Creek (S.F. Still. trib),WA
+1608,Carbon,WA
+1609,Cascade,WA
+1610,Cedar River,WA
+1611,Chehalis,WA
+1612,"Chehalis, W. Fork",WA
+1613,Chewuch,WA
+1614,Chiwawa,WA
+1615,Cispus,WA
+1616,Clearwater (MF Nooksack trib.),WA
+1617,Copper Creek,WA
+1618,Cowlitz,WA
+1619,"Cowlitz, Clear Fork",WA
+1620,Deer Creek,WA
+1621,Deschutes,WA
+1622,Dosewallips,WA
+1623,Duckabush,WA
+1624,Dungeness,WA
+1625,Duwamish,WA
+1626,Elwha,WA
+1627,Entiat,WA
+1628,Granite Creek,WA
+1629,Grays River,WA
+1630,Green,WA
+1631,Greenwater,WA
+1632,Hangman (Latah) Creek,WA
+1633,Hoh,WA
+1634,Hoko,WA
+1635,"Humptulips, E. Fork",WA
+1636,"Humptulips, W. Fork",WA
+1637,Jefferson Creek,WA
+1638,Kettle,WA
+1639,Klickitat,WA
+1640,"Lewis, E. Fork",WA
+1641,"Lewis, N. Fork",WA
+1642,Little Klickitat,WA
+1643,Little Wenatchee,WA
+1644,Mad,WA
+1645,Mashel,WA
+1646,Matheny Creek,WA
+1647,McCoy Creek,WA
+1648,Methow,WA
+1649,Muddy,WA
+1650,Nisqually,WA
+1651,"Nooksack, Middle Fork",WA
+1652,"Nooksack, N. Fork",WA
+1653,Ohanapecosh,WA
+1654,Palouse River,WA
+1655,Pilchuck River,WA
+1656,Puyallup,WA
+1657,Queets,WA
+1658,Quinault,WA
+1659,Raging,WA
+1660,"Satsop, Middle Fork",WA
+1661,Sauk,WA
+1662,"Sauk, N. Fork",WA
+1663,Similkameen,WA
+1664,Amnicon,WI
+1665,Bad,WI
+1666,Badfish,WI
+1667,Baird Creek,WI
+1668,Baraboo,WI
+1669,Beaver Dam,WI
+1670,Big Rib,WI
+1671,Black (Clark Co.),WI
+1672,Black (Jackson Co.),WI
+1673,Black Creek,WI
+1674,Bower Creek,WI
+1675,Cedar Creek,WI
+1676,Chippewa,WI
+1677,"Chippewa, E.Fk.",WI
+1678,Copper,WI
+1679,Crystal,WI
+1680,Devils,WI
+1681,Eau Claire (Wisconsin R. trib),WI
+1682,Embarrass,WI
+1683,Fox,WI
+1684,Fox (Illinois R. trib.),WI
+1685,Greenleaf Creek,WI
+1686,Halls (Stockwell) Creek,WI
+1687,Honey Creek,WI
+1688,Jump,WI
+1689,"Jump, S.Fk.",WI
+1690,Kinnickinnic (Milwaukee trib),WI
+1691,Kinnickinnic (St.Croix trib),WI
+1692,"Kinnickinnic (St.Croix trib), S.Fk.",WI
+1693,Little Eau Pleine,WI
+1694,Little Platte,WI
+1695,Little Suamico,WI
+1696,Little Wolf,WI
+1697,Long Lake Branch,WI
+1698,Manitowoc,WI
+1699,Menomonee,WI
+1700,Milwaukee,WI
+1701,"Montreal, W.Fk.",WI
+1702,Morrison Creek,WI
+1703,Mullet,WI
+1704,Namekagon,WI
+1705,New Wood,WI
+1706,North Fish Creek,WI
+1707,Oak Creek,WI
+1708,"Pemebonwon, N.Br.",WI
+1709,"Pemebonwon, S.Br.",WI
+1710,Peshtigo,WI
+1711,Pigeon Creek,WI
+1712,Pike,WI
+1713,Pike (Kenosha Co.),WI
+1714,Pine,WI
+1715,Pine (Lincoln Co.),WI
+1716,Popple,WI
+1717,"Popple, Little",WI
+1718,Prairie,WI
+1719,Red Cedar,WI
+1720,"Red, W.Br.",WI
+1721,Beaver Creek,WV
+1722,Big Beaver Creek,WV
+1723,Big Coal River,WV
+1724,"Big Coal River, Clear Fork",WV
+1725,"Big Coal River, Marsh Fork",WV
+1726,Big Creek,WV
+1727,Big Run,WV
+1728,"Big Sandy River, Tug Fork",WV
+1729,Birch,WV
+1730,Blackwater,WV
+1731,"Blackwater, North Fork",WV
+1732,Bluestone,WV
+1733,Brush Creek,WV
+1734,Brushy Meadow Creek,WV
+1735,Buckhannon,WV
+1736,"Buckhannon, Left Fork",WV
+1737,"Buckhannon, Left Fork of the Right Fork",WV
+1738,"Buckhannon, Right Fork",WV
+1739,Buffalo Creek (Cheat trib),WV
+1740,Buffalo Creek (Elk trib),WV
+1741,Cacapon,WV
+1742,Camp Creek,WV
+1743,Cheat,WV
+1744,"Cheat, Black Fork",WV
+1745,"Cheat, Dry Fork",WV
+1746,"Cheat, Glady Fork",WV
+1747,"Cheat, Laurel Fork",WV
+1748,"Cheat, Shavers Fork",WV
+1749,Cherry,WV
+1750,"Cherry, N. Fork",WV
+1751,"Cherry, S. Fork",WV
+1752,Cranberry,WV
+1753,Deckers Creek,WV
+1754,Deer Creek,WV
+1755,Elk Creek,WV
+1756,Elk River,WV
+1757,"Elk River, Back Fork",WV
+1758,"Elk River, Old Field Fork",WV
+1759,Fall Branch,WV
+1760,Fields Creek,WV
+1761,Gandy Creek,WV
+1762,Gauley,WV
+1763,Grassy Creek,WV
+1764,Green's Run,WV
+1765,Greenbrier River,WV
+1766,"Greenbrier River, East Fork",WV
+1767,"Greenbrier River, West Fork",WV
+1768,Guyandotte River,WV
+1769,"Holly River, Laurel Fork of Left Fork",WV
+1770,"Holly River, Left Fork",WV
+1771,"Holly River, Right Fork",WV
+1772,Horseshoe Run,WV
+1773,Jordan Run,WV
+1774,Kanawha River,WV
+1775,Laurel Creek (Cherry trib),WV
+1776,Laurel Creek (Elk River tributary),WV
+1777,Laurel Creek (New River tributary),WV
+1778,Laurel Run,WV
+1779,Leatherwood Creek (Clay County),WV
+1780,Leatherwood Creek (Webster County),WV
+1781,Lick Creek,WV
+1782,Little Birch River,WV
+1783,Little Bluestone River & Tributaries,WV
+1784,"Little Coal River, Pond Fork",WV
+1785,Little Coal River. Pond Fork,WV
+1786,Little Kanawha River,WV
+1787,"Little Kanawha River, Right Fork",WV
+1788,Little Laurel Creek,WV
+1789,Little River,WV
+1790,Little Wolf Creek,WV
+1791,Lunice Creek,WV
+1792,"Lunice Creek, North Fork",WV
+1793,Madams Creek,WV
+1794,Meadow,WV
+1795,Meadow Creek,WV
+1796,Middle Fork,WV
+1797,Moore Run,WV
+1798,Mountain Creek,WV
+1799,Muddlety Creek,WV
+1800,New,WV
+1801,North River,WV
+1802,Otter Creek,WV
+1803,Paint Creek,WV
+1804,Panther Creek,WV
+1805,"Patterson Creek, North Fork",WV
+1806,Peachtree Creek,WV
+1807,Peters Creek,WV
+1808,Pinch Creek,WV
+1809,Piney Creek,WV
+1810,Pipestem Creek,WV
+1811,"Potomac, Brushy Fork of the S. Fk. of the S. Br.",WV
+1812,"Potomac, North Fork of South Branch",WV
+1813,"Potomac, S. Branch",WV
+1814,"Potomac, S.Fk. of the S.Br.",WV
+1815,Red Creek,WV
+1816,Red Run,WV
+1817,Saltlick Creek,WV
+1818,Sand Run,WV
+1819,Sandlick Creek,WV
+1820,Seneca Creek,WV
+1821,Shenandoah,WV
+1822,Bear,WY
+1823,Bull Lake Creek,WY
+1824,Douglas Creek,WY
+1825,Encampment,WY
+1826,Green,WY
+1827,Greys,WY
+1828,Gros Ventre,WY
+1829,Libby Creek,WY
+1830,Medicine Bow River,WY
+1831,Middle Fork Little Laramie,WY
+1832,Middle Popo Agie,WY
+1833,North Fork Encampment,WY
+1834,North Fork Little Laramie,WY
+1835,North French Creek,WY
+1836,North Mullens Creek,WY
+1837,North Platte,WY
+1838,"Powder, North Fork",WY
+1839,Rock Creek,WY
+1840,Shell Creek,WY
+1841,"Shoshone, North Fork",WY
+1842,"Shoshone, South Fork",WY
+1843,Snake,WY
+1844,Sweetwater,WY
+1845,Tensleep Creek,WY
+1846,Tongue,WY
+1847,Wind,WY
+1848,Yellowstone,WY

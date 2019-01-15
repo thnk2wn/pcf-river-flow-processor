@@ -1,0 +1,13 @@
+namespace RiverFlowApi.Data
+{
+    public class River
+    {
+        public int RiverId { get; set; }
+
+        public string RiverSection { get; set; }
+
+        public string StateCode { get; set; }
+
+        public State State { get; set; }
+    }
+}
