@@ -2,7 +2,7 @@ namespace RiverFlowApi.Data
 {
     using System;
 
-    public class UsgsGaugeFlow
+    public class GaugeFlow
     {
         public int FlowId { get; set; }
 
@@ -20,6 +20,6 @@ namespace RiverFlowApi.Data
 
         public double? WaterTempC { get; set; }
 
-        public UsgsGauge Gauge { get; set; }
+        public Gauge Gauge { get; set; }
     }
 }

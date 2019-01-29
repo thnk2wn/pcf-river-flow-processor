@@ -29,8 +29,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Data\ImportFiles\River.csv" />
     <EmbeddedResource Include="Data\ImportFiles\State.csv" />
-    <EmbeddedResource Include="Data\ImportFiles\UsgsGauge.csv" />
-    <EmbeddedResource Include="Data\ImportFiles\UsgsGaugeRiverSection.csv" />
+    <EmbeddedResource Include="Data\ImportFiles\Gauge.csv" />
+    <EmbeddedResource Include="Data\ImportFiles\RiverGauge.csv" />
   </ItemGroup>
 
 </Project>

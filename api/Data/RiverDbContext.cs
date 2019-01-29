@@ -45,6 +45,7 @@ namespace RiverFlowApi.Data
             modelBuilder.Entity<River>(e =>
             {
                 e.HasKey(r => r.RiverId);
+
                 e.Property(r => r.RiverSection).HasMaxLength(50);
                 e.Property(g => g.StateCode).HasMaxLength(2).IsRequired();
 
@@ -55,7 +56,7 @@ namespace RiverFlowApi.Data
                 e.HasData(dataReader.Rivers);
             });
 
-            modelBuilder.Entity<UsgsGauge>(e =>
+            modelBuilder.Entity<Gauge>(e =>
             {
                 e.HasKey(g => g.UsgsGaugeId);
                 e.Property(g => g.UsgsGaugeId).HasMaxLength(gaugeLength);
@@ -69,20 +70,15 @@ namespace RiverFlowApi.Data
                 e.HasData(dataReader.Gauges);
             });
 
-            modelBuilder.Entity<UsgsGaugeRiverSection>(e =>
+            modelBuilder.Entity<RiverGauge>(e =>
             {
-               e.HasKey(rs => new { rs.UsgsGaugeId, rs.RiverSection });
-               e.Property(rs => rs.UsgsGaugeId).HasMaxLength(gaugeLength);
-               e.Property(rs => rs.RiverSection).HasMaxLength(50);
+               e.HasKey(rg => new { rg.RiverId, rg.UsgsGaugeId});
+               e.Property(rg => rg.UsgsGaugeId).HasMaxLength(gaugeLength);
 
-               e.HasOne(rs => rs.Gauge)
-                .WithMany(g => g.RiverSections)
-                .HasForeignKey(rs => rs.UsgsGaugeId);
-
-               e.HasData(dataReader.Sections);
+               e.HasData(dataReader.RiverGauges);
             });
 
-            modelBuilder.Entity<UsgsGaugeFlow>(e =>
+            modelBuilder.Entity<GaugeFlow>(e =>
             {
                 e.Property(f => f.FlowId).ValueGeneratedOnAdd();
                 e.HasKey(f => f.FlowId);
@@ -99,10 +95,10 @@ namespace RiverFlowApi.Data
 
         public DbSet<River> River { get; set; }
 
-        public DbSet<UsgsGauge> UsgsGauge { get; set; }
+        public DbSet<Gauge> Gauge { get; set; }
 
-        public DbSet<UsgsGaugeRiverSection> UsgsGaugeRiverSection { get; set; }
+        public DbSet<RiverGauge> RiverGauge { get; set; }
 
-        public DbSet<UsgsGaugeFlow> UsgsGaugeFlow { get; set; }
+        public DbSet<GaugeFlow> GaugeFlow { get; set; }
     }
 }

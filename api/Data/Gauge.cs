@@ -2,12 +2,11 @@ using System.Collections.Generic;
 
 namespace RiverFlowApi.Data
 {
-    public class UsgsGauge
+    public class Gauge
     {
-        public UsgsGauge()
+        public Gauge()
         {
-            this.RiverSections = new List<UsgsGaugeRiverSection>();
-            this.Flows = new List<UsgsGaugeFlow>();
+            this.Flows = new List<GaugeFlow>();
         }
 
         public string UsgsGaugeId { get; set; }
@@ -24,8 +23,6 @@ namespace RiverFlowApi.Data
 
         public State State { get; set; }
 
-        public virtual ICollection<UsgsGaugeRiverSection> RiverSections { get; set; }
-
-        public virtual ICollection<UsgsGaugeFlow> Flows { get; set; }
+        public virtual ICollection<GaugeFlow> Flows { get; set; }
     }
 }
