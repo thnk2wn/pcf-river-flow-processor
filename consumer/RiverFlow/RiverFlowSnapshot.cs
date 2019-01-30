@@ -12,11 +12,9 @@ namespace RiverFlowProcessor.RiverFlow
 
         public DateTimeOffset AsOfUTC { get; set; }
 
-        public string AsOfZone { get; set; }
-
         public List<DataValue> Values { get; set; }
 
-        public string UsgsGaugeId { get; set; }
+        public SiteInfo Site { get; set; }
 
         public class DataValue
         {
@@ -31,6 +29,24 @@ namespace RiverFlowProcessor.RiverFlow
             public string Unit { get; set; }
 
             public double Value { get; set; }
+        }
+
+        public partial class SiteInfo
+        {
+            public string UsgsGaugeId { get; set; }
+
+            public SiteTimeZone DefaultTimeZone { get; set; }
+
+            public SiteTimeZone DaylightSavingsTimeZone { get; set; }
+
+            public bool UsesDaylightSavingsTime { get; set; }
+        }
+
+        public partial class SiteTimeZone
+        {
+            public string ZoneOffset { get; set; }
+
+            public string ZoneAbbreviation { get; set; }
         }
     }
 }
