@@ -6,7 +6,7 @@ namespace RiverFlowApi.Data
     {
         public Gauge()
         {
-            this.Flows = new List<GaugeFlow>();
+            this.Values = new List<GaugeValue>();
         }
 
         public string UsgsGaugeId { get; set; }
@@ -23,6 +23,6 @@ namespace RiverFlowApi.Data
 
         public State State { get; set; }
 
-        public virtual ICollection<GaugeFlow> Flows { get; set; }
+        public virtual ICollection<GaugeValue> Values { get; set; }
     }
 }

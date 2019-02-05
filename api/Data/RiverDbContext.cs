@@ -47,11 +47,11 @@ namespace RiverFlowApi.Data
                 e.HasKey(r => r.RiverId);
 
                 e.Property(r => r.RiverSection).HasMaxLength(50);
-                e.Property(g => g.StateCode).HasMaxLength(2).IsRequired();
+                e.Property(r => r.StateCode).HasMaxLength(2).IsRequired();
 
-                e.HasOne(g => g.State)
+                e.HasOne(r => r.State)
                  .WithMany()
-                 .HasForeignKey(g => g.StateCode);
+                 .HasForeignKey(r => r.StateCode);
 
                 e.HasData(dataReader.Rivers);
             });
@@ -72,22 +72,36 @@ namespace RiverFlowApi.Data
 
             modelBuilder.Entity<RiverGauge>(e =>
             {
-               e.HasKey(rg => new { rg.RiverId, rg.UsgsGaugeId});
+               e.HasKey(rg => new { rg.RiverId, rg.UsgsGaugeId });
                e.Property(rg => rg.UsgsGaugeId).HasMaxLength(gaugeLength);
 
                e.HasData(dataReader.RiverGauges);
             });
 
-            modelBuilder.Entity<GaugeFlow>(e =>
+            modelBuilder.Entity<GaugeValue>(e =>
             {
-                e.Property(f => f.FlowId).ValueGeneratedOnAdd();
-                e.HasKey(f => f.FlowId);
+                e.HasKey(gv => new { gv.AsOfUTC, gv.UsgsGaugeId, gv.Code });
 
-                e.Property(f => f.UsgsGaugeId).HasMaxLength(gaugeLength).IsRequired();
+                e.Property(gv => gv.UsgsGaugeId).HasMaxLength(gaugeLength).IsRequired();
+                e.Property(gv => gv.Code).HasMaxLength(5);
 
-                e.HasOne(f => f.Gauge)
-                 .WithMany(g => g.Flows)
-                 .HasForeignKey(f => f.UsgsGaugeId);
+                e.HasOne(gv => gv.Gauge)
+                 .WithMany(g => g.Values)
+                 .HasForeignKey(gv => gv.UsgsGaugeId);
+
+                e.HasOne(gv => gv.Variable)
+                 .WithMany()
+                 .HasForeignKey(gv => gv.Code);
+            });
+
+            modelBuilder.Entity<Variable>(e =>
+            {
+                e.HasKey(v => v.Code);
+                e.Property(v => v.Code).HasMaxLength(5).IsRequired();
+
+                e.Property(v => v.Name).HasMaxLength(50).IsRequired();
+                e.Property(v => v.Description).HasMaxLength(50).IsRequired();
+                e.Property(v => v.Unit).HasMaxLength(10).IsRequired();
             });
         }
 
@@ -99,6 +113,8 @@ namespace RiverFlowApi.Data
 
         public DbSet<RiverGauge> RiverGauge { get; set; }
 
-        public DbSet<GaugeFlow> GaugeFlow { get; set; }
+        public DbSet<GaugeValue> GaugeValue { get; set; }
+
+        public DbSet<Variable> Variable { get; set; }
     }
 }
