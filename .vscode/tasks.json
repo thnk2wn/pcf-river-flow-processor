@@ -11,6 +11,20 @@
                 "--no-incremental"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "mysql-start",
+            "command": "${workspaceFolder}/api/Scripts/docker-mysql-start.ps1",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/api/Scripts"
+            },
+            "args": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
         }
     ]
 }
