@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
-using RiverFlowApi.Data.Import;
+using RiverFlowApi.Data.Seeding;
 
-namespace RiverFlowApi.Data
+namespace RiverFlowApi.Data.Entities
 {
     public class RiverDbContext : DbContext
     {
@@ -27,7 +27,7 @@ namespace RiverFlowApi.Data
             }
             #endif
 
-            var dataReader = new RiverImportDataReader().ReadAll();
+            var dataReader = new RiverLookupData().ReadAll();
 
             const int gaugeLength = 15;
 

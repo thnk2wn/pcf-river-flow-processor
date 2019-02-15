@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace RiverFlowApi.Data
+namespace RiverFlowApi.Data.Entities
 {
     public class Gauge
     {

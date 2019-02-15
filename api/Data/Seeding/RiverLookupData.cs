@@ -3,12 +3,13 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using CsvHelper;
+using RiverFlowApi.Data.Entities;
 
-namespace RiverFlowApi.Data.Import
+namespace RiverFlowApi.Data.Seeding
 {
-    public class RiverImportDataReader
+    public class RiverLookupData
     {
-        public RiverImportDataReader ReadAll()
+        public RiverLookupData ReadAll()
         {
             this.States = this.GetRecords<State>();
             this.Rivers = this.GetRecords<River>();
@@ -32,21 +33,21 @@ namespace RiverFlowApi.Data.Import
 
         public RiverGauge[] RiverGauges { get; private set; }
 
-        private T[] GetRecords<T>()
+        private TEntity[] GetRecords<TEntity>()
         {
-            var entity = typeof(T).Name;
-            var typeInfo = typeof(T).GetTypeInfo();
-            var resource = $"{typeInfo.Namespace}.ImportFiles.{entity}.csv";
+            var entity = typeof(TEntity).Name;
+            var entityTypeInfo = typeof(TEntity).GetTypeInfo();
+            var resource = $"{this.GetType().Namespace}.{entity}.csv";
 
             try
             {
-                using (var resourceStream = typeInfo.Assembly.GetManifestResourceStream(resource))
+                using (var resourceStream = entityTypeInfo.Assembly.GetManifestResourceStream(resource))
                 using (var streamReader = new StreamReader(resourceStream))
                 using (var csv = new CsvReader(streamReader))
                 {
                     // navigation properties will cause issues, ignore any reference types
                     csv.Configuration.IgnoreReferences = true;
-                    var records = csv.GetRecords<T>().ToArray();
+                    var records = csv.GetRecords<TEntity>().ToArray();
                     return records;
                 }
             }

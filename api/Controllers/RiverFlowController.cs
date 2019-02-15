@@ -1,55 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RiverFlowApi.Data;
+using RiverFlowApi.Data.Entities;
+using RiverFlowApi.Data.Models;
+using RiverFlowApi.Data.Services;
 
 namespace RiverFlowApi.Controllers
 {
-    [Route("[controller]")]
+    [Route("flow")]
     [ApiController]
     public class RiverFlowController : ControllerBase
     {
         private readonly RiverDbContext riverDbContext;
+        private readonly IFlowRecordingService flowRecordingService;
 
-        public RiverFlowController(RiverDbContext riverDbContext)
+        public RiverFlowController(
+            RiverDbContext riverDbContext,
+            IFlowRecordingService flowRecordingService)
         {
+            this.flowRecordingService = flowRecordingService;
             this.riverDbContext = riverDbContext;
         }
 
-        // GET /riverflow
-        [HttpGet]
-        public async Task<string> Get()
+        [HttpGet("{state}")]
+        public async Task<string> Get(string state)
         {
-            var gauges = await this.riverDbContext.Gauge.ToListAsync();
-            return $"Found {gauges.Count} gauges";
+            var values = await this.riverDbContext
+                .GaugeValue
+                .Where(gv => gv.Gauge.StateCode == state)
+                .ToListAsync();
+
+            return $"Found {values.Count} gauge values";
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task Post(RiverFlowSnapshotModel model)
         {
-        }
+            if (model == null)
+            {
+                throw new ArgumentNullException(nameof(model));
+            }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            await this.flowRecordingService.Record(model);
         }
     }
 }

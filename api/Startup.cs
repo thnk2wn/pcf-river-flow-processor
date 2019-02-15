@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RiverFlowApi.Data;
+using RiverFlowApi.Data.Entities;
+using RiverFlowApi.Data.Services;
 using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -31,6 +33,8 @@ namespace RiverFlowApi
         {
             services.AddDbContext<RiverDbContext>(options => options.UseMySql(Configuration));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddScoped<IFlowRecordingService, FlowRecordingService>();
 
             services.AddSwaggerGen(c =>
             {

@@ -27,10 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Data\ImportFiles\River.csv" />
-    <EmbeddedResource Include="Data\ImportFiles\State.csv" />
-    <EmbeddedResource Include="Data\ImportFiles\Gauge.csv" />
-    <EmbeddedResource Include="Data\ImportFiles\RiverGauge.csv" />
+    <EmbeddedResource Include="Data\Seeding\River.csv" />
+    <EmbeddedResource Include="Data\Seeding\State.csv" />
+    <EmbeddedResource Include="Data\Seeding\Gauge.csv" />
+    <EmbeddedResource Include="Data\Seeding\RiverGauge.csv" />
   </ItemGroup>
 
 </Project>

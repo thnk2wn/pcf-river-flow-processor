@@ -1,6 +1,6 @@
 using System;
 
-namespace RiverFlowApi.Data
+namespace RiverFlowApi.Data.Entities
 {
     public class GaugeValue
     {
