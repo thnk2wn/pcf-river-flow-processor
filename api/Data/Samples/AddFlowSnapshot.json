@@ -1,0 +1,41 @@
+{
+  "AsOfUTC": "2019-02-18T05:06:40.4193848+00:00",
+  "Values": [
+    {
+      "AsOf": "2019-02-17T18:06:40.4212064-08:00",
+      "Name": "Temperature, water, °C",
+      "Code": "00010",
+      "Decription": "Temperature, water, degrees Celsius",
+      "Unit": "deg C",
+      "Value": 8.7
+    },
+    {
+      "AsOf": "2019-02-17T18:06:40.4219004-08:00",
+      "Name": "Streamflow, ft³/s",
+      "Code": "00060",
+      "Decription": "Discharge, cubic feet per second",
+      "Unit": "ft3/s",
+      "Value": 2250
+    },
+    {
+      "AsOf": "2019-02-17T18:06:40.4219085-08:00",
+      "Name": "Gage height, ft",
+      "Code": "00065",
+      "Decription": "Gage height, feet",
+      "Unit": "ft",
+      "Value": 5.56
+    }
+  ],
+  "Site": {
+    "UsgsGaugeId": "03539600",
+    "DefaultTimeZone": {
+      "ZoneOffset": "-06:00",
+      "ZoneAbbreviation": "CST"
+    },
+    "DaylightSavingsTimeZone": {
+      "ZoneOffset": "-05:00",
+      "ZoneAbbreviation": "CDT"
+    },
+    "UsesDaylightSavingsTime": true
+  }
+}

@@ -47,6 +47,9 @@ namespace RiverFlowApi.Data.Seeding
                 {
                     // navigation properties will cause issues, ignore any reference types
                     csv.Configuration.IgnoreReferences = true;
+                    csv.Configuration.HeaderValidated = (isValid, headerNames, headerNameIndex, context) => {};
+                    csv.Configuration.MissingFieldFound = (headerNames, index, context) => {};
+
                     var records = csv.GetRecords<TEntity>().ToArray();
                     return records;
                 }
