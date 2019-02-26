@@ -1,8 +1,5 @@
-﻿using System;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
 namespace RiverFlowApi
@@ -17,14 +14,9 @@ namespace RiverFlowApi
         public static IWebHostBuilder CreateWebHostBuilder(string[] args)
         {
             return WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
-                /*
-                .ConfigureAppConfiguration((builderContext, configBuilder) =>
-                {
-                    configBuilder.AddEnvironmentVariables();
-                    configBuilder.AddCloudFoundry();
-                });
-                */
+                .UseStartup<Startup>()
+                .UseCloudFoundryHosting()
+                .AddCloudFoundry();
         }
     }
 }

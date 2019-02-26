@@ -1,12 +1,12 @@
 ---
 applications:
 - name: river-flow-api
-  routes:
-  - route: riverflowapi
   memory: 64MB
   disk_quota: 128MB
-  stack: cflinuxfs3
+  stack: cflinuxfs2
   buildpacks:
     - https://github.com/cloudfoundry/dotnet-core-buildpack.git
     #- dotnet_core_buildpack
   path: bin\Release\netcoreapp2.2\linux-x64\publish
+  services:
+  - river-db

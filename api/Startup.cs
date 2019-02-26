@@ -64,6 +64,7 @@ namespace RiverFlowApi
             using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<RiverDbContext>();
+                // context.Database.GetDbConnection().ConnectionString
                 context.Database.SetCommandTimeout(90);
                 context.Database.EnsureCreated();
             }

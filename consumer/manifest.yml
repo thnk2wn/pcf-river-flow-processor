@@ -5,8 +5,8 @@ applications:
   health-check-type: process
   memory: 64MB
   disk_quota: 128MB
-  stack: cflinuxfs3
-  buildpacks: 
+  stack: cflinuxfs2
+  buildpacks:
     - https://github.com/cloudfoundry/dotnet-core-buildpack.git
     #- dotnet_core_buildpack
   path: bin\Release\netcoreapp2.2\linux-x64\publish

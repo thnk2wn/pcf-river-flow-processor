@@ -1,6 +1,6 @@
 Param(
     [parameter(Mandatory=$false)]
-    [ValidateSet("producer", "consumer", "all", "p", "c", "a")]
+    [ValidateSet("producer", "consumer", "api", "all")]
     [String]
     $target = "all",
 
@@ -22,7 +22,7 @@ function PublishAndPush ($folder, $pushArgs)
     "Publishing $($projectItem.FullName) with runtime $runtime, configuration $config"
     dotnet publish $projectItem.FullName -r $runtime -c $config
 
-    if (!$?) 
+    if (!$?)
     {
         Pop-Location
         return
@@ -38,12 +38,17 @@ function PublishAndPush ($folder, $pushArgs)
 
 "Running push with target $target, config $config, runtime $runtime"
 
-if ($target -like 'c*' -or $target -like 'a*')
+if ($target -eq 'api' -or $target -eq 'all')
+{
+    PublishAndPush api
+}
+
+if ($target -eq 'consumer' -or $target -eq 'all')
 {
     PublishAndPush consumer
 }
 
-if ($target -like 'p*' -or $target -like 'a*')
+if ($target -eq 'producer' -or $target -eq 'all')
 {
     PublishAndPush producer "--no-start"
 }
