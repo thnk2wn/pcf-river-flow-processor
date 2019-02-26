@@ -9,7 +9,7 @@
            "type": "coreclr",
            "request": "launch",
            "preLaunchTask": "build",
-           "program": "${workspaceFolder}/api/bin/Debug/netcoreapp2.1/river-flow-api.dll",
+           "program": "${workspaceFolder}/api/bin/Debug/netcoreapp2.2/river-flow-api.dll",
            "args": [],
            "cwd": "${workspaceFolder}/api",
            "stopAtEntry": false,
@@ -40,7 +40,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/consumer/bin/Debug/netcoreapp2.1/river-flow-processor.dll",
+            "program": "${workspaceFolder}/consumer/bin/Debug/netcoreapp2.2/river-flow-processor.dll",
             "args": [],
             "cwd": "${workspaceFolder}/consumer",
             "console": "internalConsole",

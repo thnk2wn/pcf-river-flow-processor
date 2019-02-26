@@ -9,7 +9,7 @@ applications:
   buildpacks: 
     - https://github.com/cloudfoundry/dotnet-core-buildpack.git
     #- dotnet_core_buildpack
-  path: bin\Release\netcoreapp2.1\linux-x64\publish
+  path: bin\Release\netcoreapp2.2\linux-x64\publish
   services:
   - queue-svc
   env:

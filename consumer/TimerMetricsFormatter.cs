@@ -13,6 +13,8 @@ namespace RiverFlowProcessor
         public MetricsMediaTypeValue MediaType => new MetricsMediaTypeValue(
             "text", "vnd.custom.metrics", "v1", "plain");
 
+        public MetricFields MetricFields { get; set; }
+
         public Task WriteAsync(Stream output,
             MetricsDataValueSource snapshot,
             CancellationToken cancellationToken = default(CancellationToken))
