@@ -11,7 +11,11 @@ Param(
 
     [parameter(Mandatory=$false)]
     [String]
-    $runtime = "linux-x64"
+    $runtime = "linux-x64",
+
+    [parameter(Mandatory=$false)]
+    [String]
+    $framework = "netcoreapp2.2"
 )
 
 function PublishAndPush ($folder, $pushArgs)
@@ -27,6 +31,12 @@ function PublishAndPush ($folder, $pushArgs)
         Pop-Location
         return
     }
+
+    # stage files in common known publish dir for manifest regardless of config, framework etc.
+    $publishTempDir = "bin\$config\$framework\$runtime\publish"
+    $publishStageDir = "bin\publish"
+    Copy-Item $publishTempDir $publishStageDir -Recurse
+    Get-ChildItem $publishStageDir
 
     $projectName = $projectItem.Name.Replace(".csproj", "")
 
