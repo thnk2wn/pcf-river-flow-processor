@@ -21,6 +21,11 @@ Param(
 function PublishAndPush ($folder, $pushArgs)
 {
     Push-Location $folder
+
+    # cleanup
+    $publishStageDir = "bin\publish"
+    Get-ChildItem -Path $publishStageDir -Include *.* -File -Recurse | ForEach-Object { $_.Delete()}
+
     $projectItem = @(Get-ChildItem "*.csproj")[0]
 
     "Publishing $($projectItem.FullName) with runtime $runtime, configuration $config"
@@ -34,8 +39,7 @@ function PublishAndPush ($folder, $pushArgs)
 
     # stage files in common known publish dir for manifest regardless of config, framework etc.
     $publishTempDir = "bin\$config\$framework\$runtime\publish"
-    $publishStageDir = "bin\publish"
-    Copy-Item $publishTempDir $publishStageDir -Recurse
+    Copy-Item $publishTempDir "$publishStageDir\..\" -Recurse -Force
     Get-ChildItem $publishStageDir
 
     $projectName = $projectItem.Name.Replace(".csproj", "")
