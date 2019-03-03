@@ -26,5 +26,9 @@
   <ItemGroup>
     <ProjectReference Include="..\shared\river-flow-shared.csproj" />
   </ItemGroup>
-  
+
+  <ItemGroup>
+    <None Update=".cfignore" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>

@@ -27,8 +27,6 @@ namespace RiverFlowApi.Data.Entities
             }
             #endif
 
-            var dataReader = new RiverLookupData().ReadAll();
-
             const int gaugeLength = 15;
 
             modelBuilder.Entity<State>(e =>
@@ -39,7 +37,7 @@ namespace RiverFlowApi.Data.Entities
                 e.Property(s => s.Region).HasMaxLength(20).IsRequired();
                 e.Property(s => s.Division).HasMaxLength(20).IsRequired();
 
-                e.HasData(dataReader.States);
+                e.HasData(RiverLookupData.GetRecords<State>());
             });
 
             modelBuilder.Entity<River>(e =>
@@ -53,7 +51,7 @@ namespace RiverFlowApi.Data.Entities
                  .WithMany()
                  .HasForeignKey(r => r.StateCode);
 
-                e.HasData(dataReader.Rivers);
+                e.HasData(RiverLookupData.GetRecords<River>());
             });
 
             modelBuilder.Entity<Gauge>(e =>
@@ -71,7 +69,7 @@ namespace RiverFlowApi.Data.Entities
                  .WithMany()
                  .HasForeignKey(g => g.StateCode);
 
-                e.HasData(dataReader.Gauges);
+                e.HasData(RiverLookupData.GetRecords<Gauge>());
             });
 
             modelBuilder.Entity<RiverGauge>(e =>
@@ -79,7 +77,7 @@ namespace RiverFlowApi.Data.Entities
                e.HasKey(rg => new { rg.RiverId, rg.UsgsGaugeId });
                e.Property(rg => rg.UsgsGaugeId).HasMaxLength(gaugeLength);
 
-               e.HasData(dataReader.RiverGauges);
+               e.HasData(RiverLookupData.GetRecords<RiverGauge>());
             });
 
             modelBuilder.Entity<GaugeValue>(e =>

@@ -24,6 +24,7 @@ function PublishAndPush ($folder, $pushArgs)
 
     # cleanup
     $publishStageDir = "bin\publish"
+    New-Item -ItemType Directory -Force -Path $publishStageDir | Out-Null
     Get-ChildItem -Path $publishStageDir -Include *.* -File -Recurse | ForEach-Object { $_.Delete()}
 
     $projectItem = @(Get-ChildItem "*.csproj")[0]

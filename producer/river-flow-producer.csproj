@@ -27,4 +27,8 @@
     <EmbeddedResource Include="usgs-sitecodes-filtered.csv" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update=".cfignore" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>

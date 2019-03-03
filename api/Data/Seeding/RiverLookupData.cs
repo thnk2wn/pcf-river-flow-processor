@@ -7,37 +7,13 @@ using RiverFlowApi.Data.Entities;
 
 namespace RiverFlowApi.Data.Seeding
 {
-    public class RiverLookupData
+    public static class RiverLookupData
     {
-        public RiverLookupData ReadAll()
-        {
-            this.States = this.GetRecords<State>();
-            this.Rivers = this.GetRecords<River>();
-            this.Gauges = this.GetRecords<Gauge>();
-            this.RiverGauges = this.GetRecords<RiverGauge>();
-
-             Console.WriteLine(
-                 $"States: {this.States.Length}, " +
-                 $"Rivers: {this.Rivers.Length}, " +
-                 $"Gauges: {this.Gauges.Length}, " +
-                 $"River Gauges: {this.RiverGauges.Length}");
-
-            return this;
-        }
-
-        public State[] States { get; private set; }
-
-        public River[] Rivers { get; private set; }
-
-        public Gauge[] Gauges { get; private set; }
-
-        public RiverGauge[] RiverGauges { get; private set; }
-
-        private TEntity[] GetRecords<TEntity>()
+        public static TEntity[] GetRecords<TEntity>()
         {
             var entity = typeof(TEntity).Name;
             var entityTypeInfo = typeof(TEntity).GetTypeInfo();
-            var resource = $"{this.GetType().Namespace}.{entity}.csv";
+            var resource = $"{typeof(RiverLookupData).Namespace}.{entity}.csv";
 
             try
             {

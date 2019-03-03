@@ -1,7 +1,7 @@
 ---
 applications:
 - name: river-flow-api
-  memory: 256MB
+  memory: 128MB
   disk_quota: 128MB
   stack: cflinuxfs2
   buildpacks:
