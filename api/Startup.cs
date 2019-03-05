@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Pivotal.Discovery.Client;
 using RiverFlowApi.Data.Entities;
 using RiverFlowApi.Data.Services;
 using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
@@ -24,7 +25,11 @@ namespace RiverFlowApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<RiverDbContext>(options => options.UseMySql(Configuration));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            // Steeltoe service registry / discovery
+            services.AddDiscoveryClient(Configuration);
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddScoped<IFlowRecordingService, FlowRecordingService>();
 
@@ -60,6 +65,9 @@ namespace RiverFlowApi
                     name: "default",
                     template: "/riverflow");
             });
+
+            // Steeltoe service registry / discovery
+            app.UseDiscoveryClient();
 
             using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {

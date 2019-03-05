@@ -14,5 +14,6 @@ applications:
   - queue-svc
   - usgs-iv
   - autoscale-svc
+  - registry-svc
   env:
     QUEUE_NAME: river-flow

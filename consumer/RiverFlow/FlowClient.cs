@@ -21,7 +21,6 @@ namespace RiverFlowProcessor.RiverFlow
             this.logger = logger;
 
             // TODO: use service discovery?: https://steeltoe.io/docs/steeltoe-discovery/
-            httpClient.Setup(serviceOptions, serviceName: "<TODO>", uriCredKey: "uri");
             this.httpClient = httpClient;
 
             this.logger.LogInformation("Flow Base Url: {flowBaseUrl}", httpClient.BaseAddress);

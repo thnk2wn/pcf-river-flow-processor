@@ -5,6 +5,7 @@ using App.Metrics.Formatters.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Pivotal.Discovery.Client;
 using RiverFlowProcessor.Queuing;
 using RiverFlowProcessor.RiverFlow;
 using RiverFlowProcessor.USGS;
@@ -22,6 +23,7 @@ namespace RiverFlowProcessor
 
         public Startup Configure()
         {
+            // TODO: Can't use .UseDiscoveryClient(). See: SteeltoeSamples\Discovery\src\Console\Register\Program.cs
             var builder = new ConfigurationBuilder()
                 .AddEnvironmentVariables()
                 .AddCloudFoundry();
@@ -36,6 +38,8 @@ namespace RiverFlowProcessor
 
         private static void ConfigureServices(IServiceCollection services, IConfigurationRoot configuration)
         {
+            services.AddDiscoveryClient(configuration);
+
             services
                 .AddLogging(builder =>
                 {
