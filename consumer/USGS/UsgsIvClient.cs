@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using RiverFlowProcessor.Http;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
 namespace RiverFlowProcessor.USGS
@@ -22,13 +21,7 @@ namespace RiverFlowProcessor.USGS
         {
             this.logger = logger;
 
-            // doc examples seem wrong - from older 1.x version maybe and not correct for 2.x. Created issue:
-            // https://github.com/SteeltoeOSS/Configuration/issues/38
-            var usgsSvc = serviceOptions.Value.ServicesList.Single(s => s.Name == "usgs-iv");
-
-            httpClient.BaseAddress = new Uri(usgsSvc.Credentials["uri"].Value);
-            httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
-            httpClient.DefaultRequestHeaders.Add("User-Agent", "RiverFlowProcessor");
+            httpClient.Setup(serviceOptions, serviceName: "usgs-iv", uriCredKey: "uri");
             this.client = httpClient;
 
             this.logger.LogInformation("USGS IV Base Url: {usgsIvBaseUrl}", httpClient.BaseAddress);
@@ -37,9 +30,9 @@ namespace RiverFlowProcessor.USGS
         public async Task<StreamFlow> GetStreamFlow(params string[] sites)
         {
             var relativeUrl = GetRelativeUrl(sites);
+            // i.e. https://waterservices.usgs.gov/nwis/iv/?sites=03539600&format=json&variable=00060,00065,00010
             var usgsIvUrl = $"{this.client.BaseAddress}{relativeUrl}";
 
-            // i.e. https://waterservices.usgs.gov/nwis/iv/?sites=03539600&format=json&variable=00060,00065,00010
             this.logger.LogInformation("Getting stream flow using: {usgsIvUrl}", usgsIvUrl);
 
             var json = await this.client.GetStringAsync(relativeUrl);

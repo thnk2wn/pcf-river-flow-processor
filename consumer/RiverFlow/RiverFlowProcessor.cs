@@ -18,21 +18,34 @@ namespace RiverFlowProcessor.RiverFlow
     public class RiverFlowProcessor : IRiverFlowProcessor
     {
         private readonly IUsgsIvClient usgsIvClient;
+        private readonly IFlowClient flowClient;
         private readonly ILogger<IRiverFlowProcessor> logger;
         private readonly IMetrics metrics;
         private TimerOptions requestTimer;
+        private TimerOptions recordTimer;
 
         public RiverFlowProcessor(
             IUsgsIvClient usgsIvClient,
+            IFlowClient flowClient,
             ILogger<IRiverFlowProcessor> logger,
             IMetrics metrics)
         {
             this.usgsIvClient = usgsIvClient;
+            this.flowClient = flowClient;
             this.logger = logger;
             this.metrics = metrics;
+
             this.requestTimer = new TimerOptions
             {
-                Name = "River Flow Calls",
+                Name = "River Flow Queries",
+                MeasurementUnit = App.Metrics.Unit.Calls,
+                DurationUnit = TimeUnit.Seconds,
+                RateUnit = TimeUnit.Minutes
+            };
+
+            this.recordTimer = new TimerOptions
+            {
+                Name = "River Flow Recordings",
                 MeasurementUnit = App.Metrics.Unit.Calls,
                 DurationUnit = TimeUnit.Seconds,
                 RateUnit = TimeUnit.Minutes
@@ -42,15 +55,20 @@ namespace RiverFlowProcessor.RiverFlow
         public async Task Process(string usgsGaugeId)
         {
             usgsGaugeId = Usgs.FormatGaugeId(usgsGaugeId);
-            using(metrics.Measure.Timer.Time(requestTimer))
+            RiverFlowSnapshot flowData = null;
+
+            using(metrics.Measure.Timer.Time(this.requestTimer))
             {
-                await GetRiverFlowData(usgsGaugeId);
+                flowData = await this.GetRiverFlowData(usgsGaugeId);
             }
 
-            // TODO: get other data (weather etc.), call microservice to import/persist
+            using(metrics.Measure.Timer.Time(this.recordTimer))
+            {
+                await this.flowClient.RecordFlow(flowData);
+            }
         }
 
-        private async Task GetRiverFlowData(string usgsGaugeId)
+        private async Task<RiverFlowSnapshot> GetRiverFlowData(string usgsGaugeId)
         {
             this.logger.LogInformation("Fetching gauge data for site {site}", usgsGaugeId);
             var usgsStreamFlow = await this.usgsIvClient.GetStreamFlow(new[] {usgsGaugeId});
@@ -63,12 +81,11 @@ namespace RiverFlowProcessor.RiverFlow
                 this.logger.LogWarning(
                     "No timeseries sensor data returned for gauge {gauge}; skipping.",
                     usgsGaugeId);
-                return;
+                return null;
             }
 
             this.logger.LogInformation("{snapshotSummary}", riverFlowSnapshot);
-
-            // TODO: call service to persist / import flow data
+            return riverFlowSnapshot;
         }
     }
 

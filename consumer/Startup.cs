@@ -49,6 +49,7 @@ namespace RiverFlowProcessor
                 .ConfigureCloudFoundryOptions(configuration);
 
             services.AddHttpClient<IUsgsIvClient, UsgsIvClient>();
+            services.AddHttpClient<IFlowClient, FlowClient>();
 
             services.AddScoped<IQueueProcessor, QueueProcessor>();
             services.AddScoped<IRiverFlowProcessor, RiverFlowProcessor.RiverFlow.RiverFlowProcessor>();
