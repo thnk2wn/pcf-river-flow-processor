@@ -4,26 +4,24 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RiverFlowProcessor.Http;
+using Steeltoe.Common.Discovery;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
 namespace RiverFlowProcessor.RiverFlow
 {
     public class FlowClient : IFlowClient
     {
-        private readonly HttpClient httpClient;
         private readonly ILogger<IFlowClient> logger;
+        private readonly DiscoveryHttpClientHandler discoveryClientHandler;
+        private const string RecordFlowUrl = "http://river-flow-api/flow";
 
         public FlowClient(
-            HttpClient httpClient,
+            IDiscoveryClient discoveryClient,
             IOptions<CloudFoundryServicesOptions> serviceOptions,
             ILogger<IFlowClient> logger)
         {
+            this.discoveryClientHandler = new DiscoveryHttpClientHandler(discoveryClient, logger);
             this.logger = logger;
-
-            // TODO: use service discovery?: https://steeltoe.io/docs/steeltoe-discovery/
-            this.httpClient = httpClient;
-
-            this.logger.LogInformation("Flow Base Url: {flowBaseUrl}", httpClient.BaseAddress);
         }
 
         public async Task RecordFlow(RiverFlowSnapshot snapshot)
@@ -33,8 +31,14 @@ namespace RiverFlowProcessor.RiverFlow
             try
             {
                 gaugeId = snapshot.Site.UsgsGaugeId;
+                var client = CreateHttpClient();
+                this.logger.LogInformation(
+                    "Posting to '{recordFlowUrl}' with base address '{baseAddress}' for gauge '{gaugeId}'",
+                    RecordFlowUrl,
+                    client.BaseAddress,
+                    gaugeId);
+                var response = await client.PostAsync(RecordFlowUrl, new JsonContent(snapshot));
 
-                var response = await this.httpClient.PostAsync("/flow", new JsonContent(snapshot));
                 response.EnsureSuccessStatusCode();
             }
             catch (Exception ex)
@@ -42,6 +46,12 @@ namespace RiverFlowProcessor.RiverFlow
                 this.logger.LogWarning(ex, "Error posting flow values for gauge {gauge}", gaugeId);
                 throw;
             }
+        }
+
+        private HttpClient CreateHttpClient()
+        {
+            var client = new HttpClient(this.discoveryClientHandler, disposeHandler: false);
+            return client;
         }
     }
 

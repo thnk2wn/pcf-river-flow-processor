@@ -26,7 +26,6 @@ namespace RiverFlowApi
         {
             services.AddDbContext<RiverDbContext>(options => options.UseMySql(Configuration));
 
-            // Steeltoe service registry / discovery
             services.AddDiscoveryClient(Configuration);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -66,13 +65,11 @@ namespace RiverFlowApi
                     template: "/riverflow");
             });
 
-            // Steeltoe service registry / discovery
             app.UseDiscoveryClient();
 
             using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<RiverDbContext>();
-                // context.Database.GetDbConnection().ConnectionString
                 context.Database.SetCommandTimeout(90);
                 context.Database.EnsureCreated();
             }
