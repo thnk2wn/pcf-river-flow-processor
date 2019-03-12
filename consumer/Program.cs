@@ -20,7 +20,8 @@ namespace RiverFlowProcessor
         {
             Console.WriteLine("App starting up. Args: {0}", string.Join(",", args));
 
-            var serviceProvider = new Startup().Configure().ServiceProvider;
+            var startup = new Startup().Configure();
+            var serviceProvider = startup.ServiceProvider;
             if (serviceProvider == null) throw new NullReferenceException("Service provider not set");
 
             metrics = serviceProvider.GetService<IMetrics>();
@@ -35,15 +36,7 @@ namespace RiverFlowProcessor
             queueProcessor.StartListening();
         }
 
-        private static void Consume(ServiceProvider serviceProvider) 
-        {
-            Console.WriteLine("Consume queue");
-
-            var queueProcessor = serviceProvider.GetService<IQueueProcessor>();
-            queueProcessor.StartListening();
-        }
-
-        private static async void TimerTaskAsync(object timerState) 
+        private static async void TimerTaskAsync(object timerState)
         {
             var metricsRoot = (IMetricsRoot)metrics;
             await Task.WhenAll(metricsRoot.ReportRunner.RunAllAsync());

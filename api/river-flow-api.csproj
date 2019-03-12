@@ -20,9 +20,9 @@
     <PackageReference Include="humanizer.core" Version="2.5.16" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Pivotal.Discovery.ClientCore" Version="2.1.1" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
     <PackageReference Include="steeltoe.cloudfoundry.connector.efcore" Version="2.1.3" />
+    <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.1.1" />
     <PackageReference Include="Steeltoe.Extensions.Configuration.CloudFoundryCore" Version="2.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>

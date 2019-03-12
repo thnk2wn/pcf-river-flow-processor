@@ -17,7 +17,6 @@ namespace RiverFlowProcessor.RiverFlow
 
         public FlowClient(
             IDiscoveryClient discoveryClient,
-            IOptions<CloudFoundryServicesOptions> serviceOptions,
             ILogger<IFlowClient> logger)
         {
             this.discoveryClientHandler = new DiscoveryHttpClientHandler(discoveryClient, logger);

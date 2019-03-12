@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Pivotal.Discovery.Client;
 using RiverFlowApi.Data.Entities;
 using RiverFlowApi.Data.Services;
 using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
+using Steeltoe.Discovery.Client;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace RiverFlowApi

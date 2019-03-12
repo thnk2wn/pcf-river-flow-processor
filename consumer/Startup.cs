@@ -5,7 +5,6 @@ using App.Metrics.Formatters.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Pivotal.Discovery.Client;
 using RiverFlowProcessor.Queuing;
 using RiverFlowProcessor.RiverFlow;
 using RiverFlowProcessor.USGS;
@@ -14,6 +13,7 @@ using Serilog.Events;
 using Serilog.Extensions.Logging;
 using Steeltoe.CloudFoundry.Connector.RabbitMQ;
 using Steeltoe.Common.Discovery;
+using Steeltoe.Discovery.Client;
 using Steeltoe.Discovery.Eureka;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
@@ -22,6 +22,8 @@ namespace RiverFlowProcessor
     public class Startup
     {
         public ServiceProvider ServiceProvider { get; private set; }
+
+        public IDiscoveryClient DiscoveryClient { get; private set;}
 
         public Startup Configure()
         {
@@ -37,7 +39,7 @@ namespace RiverFlowProcessor
             ConfigureServices(services, configuration);
             this.ServiceProvider = services.BuildServiceProvider();
 
-            this.UseDiscoveryClient();
+            this.DiscoveryClient = this.UseDiscoveryClient();
 
             return this;
         }
@@ -58,7 +60,8 @@ namespace RiverFlowProcessor
                 .ConfigureCloudFoundryOptions(configuration);
 
             services.AddHttpClient<IUsgsIvClient, UsgsIvClient>();
-            services.AddHttpClient<IFlowClient, FlowClient>();
+
+            services.AddScoped<IFlowClient, FlowClient>();
 
             services.AddScoped<IQueueProcessor, QueueProcessor>();
             services.AddScoped<IRiverFlowProcessor, RiverFlowProcessor.RiverFlow.RiverFlowProcessor>();
@@ -66,14 +69,16 @@ namespace RiverFlowProcessor
             services.AddSingleton<IMetrics>(CreateMetrics());
         }
 
-        private void UseDiscoveryClient()
+        private IDiscoveryClient UseDiscoveryClient()
         {
             // this is what Steeltoe's IApplicationBuilder.UseDiscoveryClient does.
             // since not an asp.net app we're not using here but we are using DI/IOC
             var service = this.ServiceProvider.GetRequiredService<IDiscoveryClient>();
 
-            // make sure that the lifcycle object is created
-            var lifecycle = this.ServiceProvider.GetService<IDiscoveryLifecycle>();
+            // make sure that the lifcycle object is created (this is specific to asp.net)
+            // var lifecycle = this.ServiceProvider.GetService<IDiscoveryLifecycle>();
+
+            return service;
         }
 
         private static IMetrics CreateMetrics()
