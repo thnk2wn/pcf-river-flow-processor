@@ -1,39 +1,38 @@
 {
-   // Use IntelliSense to find out which attributes exist for C# debugging
-   // Use hover for the description of the existing attributes
-   // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
-   "version": "0.2.0",
-   "configurations": [
-       {
-           "name": "API",
-           "type": "coreclr",
-           "request": "launch",
-           "preLaunchTask": "build",
-           "program": "${workspaceFolder}/api/bin/Debug/netcoreapp2.2/river-flow-api.dll",
-           "args": [],
-           "cwd": "${workspaceFolder}/api",
-           "stopAtEntry": false,
-           "launchBrowser": {
-               "enabled": true,
-               "args": "${auto-detect-url}/swagger",
-               "windows": {
-                   "command": "cmd.exe",
-                   "args": "/C start ${auto-detect-url}/swagger"
-               },
-               "osx": {
-                   "command": "open"
-               },
-               "linux": {
-                   "command": "xdg-open"
-               }
-           },
-           "env": {
-               "ASPNETCORE_ENVIRONMENT": "Development"
-           },
-           "sourceFileMap": {
-               "/Views": "${workspaceFolder}/Views"
-           }
-       },
+    // Use IntelliSense to find out which attributes exist for C# debugging
+    // Use hover for the description of the existing attributes
+    // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+    "version": "0.2.0",
+    "configurations": [{
+            "name": "API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/api/bin/Debug/netcoreapp2.2/river-flow-api.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/api",
+            "stopAtEntry": false,
+            "launchBrowser": {
+                "enabled": true,
+                "args": "${auto-detect-url}/swagger",
+                "windows": {
+                    "command": "cmd.exe",
+                    "args": "/C start ${auto-detect-url}/swagger"
+                },
+                "osx": {
+                    "command": "open"
+                },
+                "linux": {
+                    "command": "xdg-open"
+                }
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
         {
             "name": "Consumer",
             "type": "coreclr",
@@ -48,10 +47,31 @@
             "internalConsoleOptions": "openOnSessionStart"
         },
         {
+            "name": "Producer Init",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/producer/bin/Debug/netcoreapp2.2/river-flow-producer.dll",
+            "args": [
+                "--init"
+            ],
+            "env": {"QUEUE_NAME":"river-flow"},
+            "cwd": "${workspaceFolder}/producer",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
             "name": ".NET Core Attach",
             "type": "coreclr",
             "request": "attach",
             "processId": "${command:pickProcess}"
-        }
-    ,]
+        },
+    ],
+    "compounds": [{
+        "name": "Debug API and Consumer",
+        "configurations": [
+            "API",
+            "Consumer"
+        ]
+    }]
 }

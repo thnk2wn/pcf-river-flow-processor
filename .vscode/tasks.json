@@ -13,11 +13,25 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "mysql-start",
-            "command": "${workspaceFolder}/api/Scripts/docker-mysql-start.ps1",
+            "label": "docker-mysql-start",
+            "command": "${workspaceFolder}/Scripts/docker-mysql-start.ps1",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceFolder}/api/Scripts"
+                "cwd": "${workspaceFolder}/Scripts"
+            },
+            "args": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "docker-rabbitmq-start",
+            "command": "${workspaceFolder}/Scripts/docker-rabbitmq-start.ps1",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/Scripts"
             },
             "args": [],
             "presentation": {

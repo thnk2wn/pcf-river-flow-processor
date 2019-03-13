@@ -16,7 +16,20 @@ namespace RiverFlowProcessor.Http
         {
             // doc examples seem wrong - from older 1.x version maybe and not correct for 2.x. Created issue:
             // https://github.com/SteeltoeOSS/Configuration/issues/38
-            var usgsSvc = serviceOptions.Value.ServicesList.Single(s => s.Name == serviceName);
+
+            var services = serviceOptions.Value.ServicesList.Where(s => s.Name == serviceName).ToList();
+
+            if (services.Count == 0)
+            {
+                throw new InvalidOperationException($"Found no service name match for '{serviceName}' in CF service options");
+            }
+
+            if (services.Count > 1)
+            {
+                throw new InvalidOperationException($"Found {services.Count} service matches for '{serviceName}' in CF service options");
+            }
+
+            var usgsSvc = services.Single(s => s.Name == serviceName);
 
             httpClient.BaseAddress = new Uri(usgsSvc.Credentials[uriCredKey].Value);
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");

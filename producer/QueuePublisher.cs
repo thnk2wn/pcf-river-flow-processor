@@ -28,6 +28,18 @@ namespace RiverFlowProducer
             this.queueProps = new QueueProperties();
         }
 
+        public void Initialize()
+        {
+            this.logger.LogDebug("Initializing connection to {host}", this.queueConnectionFactory.HostName);
+
+            // TODO: Need configuration for local debug docker rabbitmq
+            using (var queueConn = this.queueConnectionFactory.CreateConnection())
+            using (var queueChannel = queueConn.CreateModel())
+            {
+                InitializeQueue(queueConn, queueChannel);
+            }
+        }
+
         public void PublishAll()
         {
             this.logger.LogDebug("Initializing connection to {host}", this.queueConnectionFactory.HostName);
@@ -35,14 +47,7 @@ namespace RiverFlowProducer
             using (var queueConn = this.queueConnectionFactory.CreateConnection())
             using (var queueChannel = queueConn.CreateModel())
             {
-                this.logger.LogDebug(
-                    "Connected to {host}. Declaring queue {queue}",
-                    queueConn.Endpoint.HostName,
-                    this.queueProps.QueueName);
-
-                SetupExchangeAndQueue(queueChannel);
-
-                queueChannel.QueuePurge(this.queueProps.QueueName);
+                InitializeQueue(queueConn, queueChannel);
 
                 var type = typeof(QueuePublisher).GetTypeInfo();
                 var resource = $"{type.Namespace}.usgs-sitecodes-filtered.csv";
@@ -62,6 +67,18 @@ namespace RiverFlowProducer
                     }
                 }
             }
+        }
+
+        private void InitializeQueue(IConnection queueConn, IModel queueChannel)
+        {
+            this.logger.LogDebug(
+                "Connected to {host}. Declaring queue {queue}",
+                queueConn.Endpoint.HostName,
+                this.queueProps.QueueName);
+
+            SetupExchangeAndQueue(queueChannel);
+
+            queueChannel.QueuePurge(this.queueProps.QueueName);
         }
 
         private void SetupExchangeAndQueue(IModel channel)
@@ -110,6 +127,8 @@ namespace RiverFlowProducer
 
     public interface IQueuePublisher
     {
+        void Initialize();
+
         void PublishAll();
     }
 }
