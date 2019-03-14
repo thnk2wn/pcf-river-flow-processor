@@ -27,12 +27,11 @@ namespace RiverFlowProcessor
 
         public Startup Configure()
         {
-            // TODO: Can't use .UseDiscoveryClient(). See: SteeltoeSamples\Discovery\src\Console\Register\Program.cs
             var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Environment.CurrentDirectory)
-                .AddJsonFile("appsettings.json")
-                .AddJsonFile($"appsettings.{envName}.json", optional: true)
+                .AddJsonFile("appsettings.json", optional: false)
+                .AddJsonFile($"appsettings.{envName}.json", optional: false)
                 .AddEnvironmentVariables()
                 .AddCloudFoundry();
             var configuration = builder.Build();

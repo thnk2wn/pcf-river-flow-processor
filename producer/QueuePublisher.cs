@@ -32,7 +32,6 @@ namespace RiverFlowProducer
         {
             this.logger.LogDebug("Initializing connection to {host}", this.queueConnectionFactory.HostName);
 
-            // TODO: Need configuration for local debug docker rabbitmq
             using (var queueConn = this.queueConnectionFactory.CreateConnection())
             using (var queueChannel = queueConn.CreateModel())
             {

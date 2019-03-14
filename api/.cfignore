@@ -1,5 +1,5 @@
 # File must be UTF-8 encoded to work. Verify with "cf ssh appname" and "ls app"
 
-appsettings.Development.json
+appsettings.local.json
 
 Data/

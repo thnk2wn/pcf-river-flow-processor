@@ -15,7 +15,11 @@ namespace RiverFlowProducer
 
         public Startup Configure()
         {
+            var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             var builder = new ConfigurationBuilder()
+                .SetBasePath(Environment.CurrentDirectory)
+                .AddJsonFile("appsettings.json", optional: false)
+                .AddJsonFile($"appsettings.{envName}.json", optional: false)
                 .AddEnvironmentVariables()
                 .AddCloudFoundry();
             var configuration = builder.Build();

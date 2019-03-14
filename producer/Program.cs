@@ -54,6 +54,8 @@ namespace RiverFlowProducer
             {
                 Console.WriteLine("Producer processing complete.");
             }
+
+            serviceProvider.Dispose();
         }
     }
 }

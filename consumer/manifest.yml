@@ -16,4 +16,5 @@ applications:
   - autoscale-svc
   - registry-svc
   env:
+    ASPNETCORE_ENVIRONMENT: development
     QUEUE_NAME: river-flow
