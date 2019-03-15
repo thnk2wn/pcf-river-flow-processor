@@ -20,15 +20,21 @@ namespace RiverFlowProducer
                 "Pass --init to initialize exchange and queue otherwise all messsages published.";
 
             var optionInit = app.Option(
-                template: "--init",
+                template: "-i|--init",
                 description: $"If set exchange is created and queue or purged if already there.",
                 optionType: CommandOptionType.NoValue);
+
+            var optionGaugeIds = app.Option("-g|--gauges <usgsGaugeIds>", "List of USGS gauge ids to publish", CommandOptionType.MultipleValue);
 
             app.OnExecute(() =>
             {
                 if (optionInit.HasValue())
                 {
                     publisher.Initialize();
+                }
+                else if (optionGaugeIds.HasValue())
+                {
+                    publisher.Publish(optionGaugeIds.Values);
                 }
                 else
                 {

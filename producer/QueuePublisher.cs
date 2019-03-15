@@ -39,6 +39,22 @@ namespace RiverFlowProducer
             }
         }
 
+        public void Publish(IEnumerable<string> usgsGaugeIds)
+        {
+            this.logger.LogDebug("Initializing connection to {host}", this.queueConnectionFactory.HostName);
+
+            using (var queueConn = this.queueConnectionFactory.CreateConnection())
+            using (var queueChannel = queueConn.CreateModel())
+            {
+                InitializeQueue(queueConn, queueChannel);
+
+                foreach (var usgsGaugeId in usgsGaugeIds)
+                {
+                    PublishOne(queueChannel, usgsGaugeId);
+                }
+            }
+        }
+
         public void PublishAll()
         {
             this.logger.LogDebug("Initializing connection to {host}", this.queueConnectionFactory.HostName);
@@ -62,7 +78,7 @@ namespace RiverFlowProducer
                     while (csv.Read())
                     {
                         var usgsGaugeId = Usgs.FormatGaugeId(csv["UsgsGaugeId"]);
-                        Publish(queueChannel, usgsGaugeId);
+                        PublishOne(queueChannel, usgsGaugeId);
                     }
                 }
             }
@@ -93,7 +109,7 @@ namespace RiverFlowProducer
                 arguments: null);
         }
 
-        private void Publish(IModel queueChannel, string usgsGaugeId)
+        private void PublishOne(IModel queueChannel, string usgsGaugeId)
         {
             var request = new RiverFlowRequest { UsgsGaugeId = usgsGaugeId };
             var json = JsonConvert.SerializeObject(request);
@@ -127,6 +143,8 @@ namespace RiverFlowProducer
     public interface IQueuePublisher
     {
         void Initialize();
+
+        void Publish(IEnumerable<string> usgsGaugeIds);
 
         void PublishAll();
     }

@@ -27,7 +27,7 @@
                 }
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "local"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
@@ -44,7 +44,11 @@
             "cwd": "${workspaceFolder}/consumer",
             "console": "internalConsole",
             "stopAtEntry": false,
-            "internalConsoleOptions": "openOnSessionStart"
+            "internalConsoleOptions": "openOnSessionStart",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "local",
+                "QUEUE_NAME": "river-flow"
+            }
         },
         {
             "name": "Producer Init",
@@ -55,7 +59,28 @@
             "args": [
                 "--init"
             ],
-            "env": {"QUEUE_NAME":"river-flow"},
+            "env": {
+                "QUEUE_NAME":"river-flow",
+                "ASPNETCORE_ENVIRONMENT": "local"
+            },
+            "cwd": "${workspaceFolder}/producer",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
+            "name": "Producer Publish One",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/producer/bin/Debug/netcoreapp2.2/river-flow-producer.dll",
+            "args": [
+                "--gauges",
+                "03539600"
+            ],
+            "env": {
+                "QUEUE_NAME":"river-flow",
+                "ASPNETCORE_ENVIRONMENT": "local"
+            },
             "cwd": "${workspaceFolder}/producer",
             "stopAtEntry": false,
             "console": "internalConsole"

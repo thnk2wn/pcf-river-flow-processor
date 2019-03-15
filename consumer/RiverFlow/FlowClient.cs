@@ -36,6 +36,8 @@ namespace RiverFlowProcessor.RiverFlow
                     RecordFlowUrl,
                     client.BaseAddress,
                     gaugeId);
+
+                // TODO: 'No connection could be made because the target machine actively refused it' - reproducable locally. Client not correctly setup?
                 var response = await client.PostAsync(RecordFlowUrl, new JsonContent(snapshot));
 
                 response.EnsureSuccessStatusCode();
