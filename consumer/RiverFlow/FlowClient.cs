@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -13,13 +14,16 @@ namespace RiverFlowProcessor.RiverFlow
     {
         private readonly ILogger<IFlowClient> logger;
         private readonly DiscoveryHttpClientHandler discoveryClientHandler;
-        private const string RecordFlowUrl = "http://river-flow-api/flow";
+        private readonly IDiscoveryClient discoveryClient;
+        private const string riverFlowApi = "river-flow-api";
+        private const string RecordFlowUrl = "https://" + riverFlowApi + "/flow";
 
         public FlowClient(
             IDiscoveryClient discoveryClient,
             ILogger<IFlowClient> logger)
         {
-            this.discoveryClientHandler = new DiscoveryHttpClientHandler(discoveryClient, logger);
+            this.discoveryClient = discoveryClient;
+            this.discoveryClientHandler = new DiscoveryHttpClientHandler(this.discoveryClient, logger);
             this.logger = logger;
         }
 
@@ -32,12 +36,17 @@ namespace RiverFlowProcessor.RiverFlow
                 gaugeId = snapshot.Site.UsgsGaugeId;
                 var client = CreateHttpClient();
                 this.logger.LogInformation(
-                    "Posting to '{recordFlowUrl}' with base address '{baseAddress}' for gauge '{gaugeId}'",
+                    "Posting to '{recordFlowUrl}' for gauge '{gaugeId}'",
                     RecordFlowUrl,
                     client.BaseAddress,
                     gaugeId);
 
-                // TODO: 'No connection could be made because the target machine actively refused it' - reproducable locally. Client not correctly setup?
+                var instances = this.discoveryClient.GetInstances(riverFlowApi);
+                var uris = string.Join(",", instances.Select(i => i.Uri.ToString()));
+                this.logger.LogInformation($"{riverFlowApi} URIs: {uris}");
+
+                // TODO: Working locally now but check server for discovery:
+                // 'No connection could be made because the target machine actively refused it' - reproducable locally. Client not correctly setup?
                 var response = await client.PostAsync(RecordFlowUrl, new JsonContent(snapshot));
 
                 response.EnsureSuccessStatusCode();

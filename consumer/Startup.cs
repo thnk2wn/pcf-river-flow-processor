@@ -28,6 +28,8 @@ namespace RiverFlowProcessor
         public Startup Configure()
         {
             var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            Console.WriteLine($"Configuring consumer for environment {envName}");
+
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Environment.CurrentDirectory)
                 .AddJsonFile("appsettings.json", optional: false)

@@ -38,7 +38,21 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/consumer/bin/Debug/netcoreapp2.2/river-flow-processor.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/consumer",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "local",
+                "QUEUE_NAME": "river-flow"
+            }
+        },
+        {
+            "name": "Consumer (no build)",
+            "type": "coreclr",
+            "request": "launch",
             "program": "${workspaceFolder}/consumer/bin/Debug/netcoreapp2.2/river-flow-processor.dll",
             "args": [],
             "cwd": "${workspaceFolder}/consumer",
