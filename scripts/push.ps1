@@ -41,7 +41,7 @@ function PublishAndPush ($folder, $pushArgs)
     # stage files in common known publish dir for manifest regardless of config, framework etc.
     $publishTempDir = "bin\$config\$framework\$runtime\publish"
     Copy-Item $publishTempDir "$publishStageDir\..\" -Recurse -Force
-    Get-ChildItem $publishStageDir
+    Get-ChildItem $publishStageDir | Format-Table
 
     $projectName = $projectItem.Name.Replace(".csproj", "")
 
@@ -52,6 +52,8 @@ function PublishAndPush ($folder, $pushArgs)
 }
 
 "Running push with target $target, config $config, runtime $runtime"
+Push-Location "$PSScriptRoot\..\"
+Get-Location
 
 if ($target -eq 'api' -or $target -eq 'all')
 {
@@ -67,3 +69,5 @@ if ($target -eq 'producer' -or $target -eq 'all')
 {
     PublishAndPush producer "--no-start"
 }
+
+Pop-Location

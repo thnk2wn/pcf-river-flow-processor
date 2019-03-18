@@ -14,6 +14,7 @@ namespace RiverFlowProducer
             var publisher = serviceProvider.GetService<IQueuePublisher>();
 
             var app = new CommandLineApplication();
+            app.ThrowOnUnexpectedArgument = false;
 
             app.HelpOption("-h|--help");
             app.ExtendedHelpText = "Publishes queue messages and/or initializes exchange and queue. " + Environment.NewLine +
@@ -25,6 +26,8 @@ namespace RiverFlowProducer
                 optionType: CommandOptionType.NoValue);
 
             var optionGaugeIds = app.Option("-g|--gauges <usgsGaugeIds>", "List of USGS gauge ids to publish", CommandOptionType.MultipleValue);
+
+            app.Option("--server.urls <urls>", "PCF server urls", CommandOptionType.SingleValue);
 
             app.OnExecute(() =>
             {

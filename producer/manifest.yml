@@ -10,6 +10,7 @@ applications:
     - https://github.com/cloudfoundry/dotnet-core-buildpack.git
     #- dotnet_core_buildpack
   path: bin\Release\netcoreapp2.2\linux-x64\publish
+  command: cd ${HOME} && exec ./river-flow-producer
   services:
   - queue-svc
   env:

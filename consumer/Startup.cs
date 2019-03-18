@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using App.Metrics;
 using App.Metrics.Filtering;
 using App.Metrics.Formatters.Json;
@@ -21,6 +22,8 @@ namespace RiverFlowProcessor
 {
     public class Startup
     {
+        private ILogger<Startup> logger;
+
         public ServiceProvider ServiceProvider { get; private set; }
 
         public IDiscoveryClient DiscoveryClient { get; private set;}
@@ -41,6 +44,8 @@ namespace RiverFlowProcessor
             var services = new ServiceCollection();
             ConfigureServices(services, configuration);
             this.ServiceProvider = services.BuildServiceProvider();
+
+            this.logger = this.ServiceProvider.GetService<ILogger<Startup>>();
 
             this.DiscoveryClient = this.UseDiscoveryClient();
 
@@ -74,14 +79,23 @@ namespace RiverFlowProcessor
 
         private IDiscoveryClient UseDiscoveryClient()
         {
+            this.logger.LogInformation("Attempting to use discovery client");
+
             // this is what Steeltoe's IApplicationBuilder.UseDiscoveryClient does.
             // since not an asp.net app we're not using here but we are using DI/IOC
-            var service = this.ServiceProvider.GetRequiredService<IDiscoveryClient>();
+            var discoveryClient = this.ServiceProvider.GetRequiredService<IDiscoveryClient>();
 
             // make sure that the lifcycle object is created (this is specific to asp.net)
             // var lifecycle = this.ServiceProvider.GetService<IDiscoveryLifecycle>();
 
-            return service;
+            var instances = discoveryClient.GetInstances("river-flow-api");
+            var uris = string.Join(",", instances.Select(i => i.Uri.ToString()));
+            var services = string.Join(",", discoveryClient.Services);
+
+            this.logger.LogInformation("discovery URIs: {uris}", uris);
+            this.logger.LogInformation("discovery services: {services}", services);
+
+            return discoveryClient;
         }
 
         private static IMetrics CreateMetrics()
@@ -101,12 +115,7 @@ namespace RiverFlowProcessor
 
         private static Serilog.ILogger CreateLogger()
         {
-            var logLevel = GetLogLevel();
-
             var logger = new LoggerConfiguration()
-                .MinimumLevel.Is(logLevel)
-                .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-                .MinimumLevel.Override("System", LogEventLevel.Warning)
                 .WriteTo.Console(
                     // Add {SourceContext} for logger class name (with namespace)
                     outputTemplate: "[{Level:u3}] {Message:lj}{NewLine}{Exception}"
@@ -114,28 +123,6 @@ namespace RiverFlowProcessor
                 .CreateLogger();
 
             return logger;
-        }
-
-        private static LogEventLevel GetLogLevel()
-        {
-            var rawLogLevel = Environment.GetEnvironmentVariable("LOG_LEVEL");
-
-            if (string.IsNullOrEmpty(rawLogLevel))
-            {
-                rawLogLevel = "Information";
-                Console.WriteLine($"LOG_LEVEL not set in environment, defaulting to {rawLogLevel}");
-            }
-
-            if (!Enum.TryParse(rawLogLevel, true, out LogEventLevel logLevel))
-            {
-                var validLevels = string.Join(',', Enum.GetNames(typeof(LogEventLevel)));
-                throw new InvalidOperationException(
-                    $"Invalid log level '{rawLogLevel}'. Expected one of: {validLevels}");
-            }
-
-            Console.WriteLine($"Log level is {logLevel}");
-
-            return logLevel;
         }
     }
 }
