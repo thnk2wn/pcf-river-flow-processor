@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
 namespace RiverFlowApi
@@ -13,10 +15,22 @@ namespace RiverFlowApi
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args)
         {
+            var overrides = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("eureka:client:validateCertificates", "false"),
+                new KeyValuePair<string, string>("eureka:instance:validateCertificates", "false"),
+                new KeyValuePair<string, string>("eureka:instance:nonSecurePortEnabled", "true"),
+                new KeyValuePair<string, string>("eureka:instance:securePortEnabled", "false")
+            };
+
             return WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .UseCloudFoundryHosting()
-                .AddCloudFoundry();
+                .AddCloudFoundry()
+                .ConfigureAppConfiguration(config =>
+                {
+                    config.AddInMemoryCollection(overrides);
+                });
         }
     }
 }

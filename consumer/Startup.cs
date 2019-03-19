@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using App.Metrics;
 using App.Metrics.Filtering;
@@ -9,9 +10,6 @@ using Microsoft.Extensions.Logging;
 using RiverFlowProcessor.Queuing;
 using RiverFlowProcessor.RiverFlow;
 using RiverFlowProcessor.USGS;
-using Serilog;
-using Serilog.Events;
-using Serilog.Extensions.Logging;
 using Steeltoe.CloudFoundry.Connector.RabbitMQ;
 using Steeltoe.Common.Discovery;
 using Steeltoe.Discovery.Client;
@@ -33,12 +31,19 @@ namespace RiverFlowProcessor
             var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             Console.WriteLine($"Configuring consumer for environment {envName}");
 
+            var overrides = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("eureka:client:validateCertificates", "false"),
+                new KeyValuePair<string, string>("eureka:client:serviceUrl", "http://eureka-4cebcf38-4e65-42d1-bf75-5445be8dc76d.cf.magenic.net"),
+            };
+
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Environment.CurrentDirectory)
                 .AddJsonFile("appsettings.json", optional: false)
                 .AddJsonFile($"appsettings.{envName}.json", optional: false)
                 .AddEnvironmentVariables()
-                .AddCloudFoundry();
+                .AddCloudFoundry()
+                .AddInMemoryCollection(overrides);
             var configuration = builder.Build();
 
             var services = new ServiceCollection();
@@ -55,12 +60,6 @@ namespace RiverFlowProcessor
         private static void ConfigureServices(IServiceCollection services, IConfigurationRoot configuration)
         {
             services
-                .AddLogging(builder =>
-                {
-                    var logger = CreateLogger();
-                    builder.AddSerilog(logger, dispose: true);
-                    Log.Logger = logger;
-                })
                 .AddRabbitMQConnection(configuration)
                 .AddHttpClient()
                 .AddOptions()
@@ -111,18 +110,6 @@ namespace RiverFlowProcessor
                     })
                 .Build();
             return metrics;
-        }
-
-        private static Serilog.ILogger CreateLogger()
-        {
-            var logger = new LoggerConfiguration()
-                .WriteTo.Console(
-                    // Add {SourceContext} for logger class name (with namespace)
-                    outputTemplate: "[{Level:u3}] {Message:lj}{NewLine}{Exception}"
-                )
-                .CreateLogger();
-
-            return logger;
         }
     }
 }
