@@ -13,4 +13,4 @@ applications:
   - registry-svc
   command: cd ${HOME} && ./river-flow-api --server.urls http://0.0.0.0:${PORT}
   env:
-    ASPNETCORE_ENVIRONMENT: development
+    ASPNETCORE_ENVIRONMENT: Development

@@ -14,5 +14,5 @@ applications:
   services:
   - queue-svc
   env:
-   ASPNETCORE_ENVIRONMENT: development
+   ASPNETCORE_ENVIRONMENT: Development
    QUEUE_NAME: river-flow

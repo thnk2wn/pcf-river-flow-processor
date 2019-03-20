@@ -36,10 +36,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update=".cfignore" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="appsettings.development.json" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="appsettings.local.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Update=".cfignore">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.local.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
