@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
@@ -21,39 +18,21 @@ namespace RiverFlowApi
                 .UseStartup<Startup>()
                 .UseCloudFoundryHosting()
                 .AddCloudFoundry()
-                .ConfigureAppConfiguration(config =>
+                .ConfigureAppConfiguration((hostingContext, config) =>
                 {
-                    var appSettings = GetCustomAppSettings();
+                    var env = hostingContext.HostingEnvironment;
 
-                    if (appSettings != null)
+                    config
+                        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: false, reloadOnChange: true);
+
+                    config.AddEnvironmentVariables();
+
+                    if (args != null)
                     {
-                        var overrides = string.Join(", ", appSettings.CloudFoundryOverrides.Select(x => $"{x.Key}:{x.Value}"));
-                        Console.WriteLine($"CF overrides: {overrides}");
-                        // Currently have a need to override some service registry service binding config
-                        // to target HTTP as target PCF instance has HTTPS set but cert issues accessing
-                        config.AddInMemoryCollection(appSettings.CloudFoundryOverrides);
+                        config.AddCommandLine(args);
                     }
                 });
-        }
-
-        private static AppSettings GetCustomAppSettings()
-        {
-            var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-
-            var tempOverrideConfig = new ConfigurationBuilder()
-                .AddJsonFile($"appsettings.{envName}.json", optional: true)
-                .Build();
-
-            var customAppSettings = new AppSettings();
-            tempOverrideConfig.Bind("CustomAppSettings", customAppSettings);
-
-            // can't use ":" in file config provider keys as specical meaning for objects/sections
-            customAppSettings.CloudFoundryOverrides =
-                customAppSettings
-                .CloudFoundryOverrides
-                .ToDictionary(k => k.Key.Replace("_", ":"), e => e.Value);
-
-            return customAppSettings;
         }
     }
 }

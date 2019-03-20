@@ -12,6 +12,14 @@
  </PropertyGroup>
 
   <ItemGroup>
+    <None Remove=".cfignore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include=".cfignore" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

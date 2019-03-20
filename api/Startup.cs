@@ -73,20 +73,15 @@ namespace RiverFlowApi
             logger.LogInformation("Using service registry via discovery client");
             app.UseDiscoveryClient();
 
-            logger.LogInformation("Inspecting discovery data");
-            var discoveryClient = serviceProvider.GetRequiredService<IDiscoveryClient>();
-            var instances = discoveryClient.GetInstances("river-flow-api");
-            var uris = string.Join(",", instances.Select(i => i.Uri.ToString()));
-            var services = string.Join(",", discoveryClient.Services);
-
-            logger.LogInformation($"discovery uris: {uris}, services: {services}", uris, services);
-
+            logger.LogInformation("Ensuring DB is setup");
             using (var scope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<RiverDbContext>();
                 context.Database.SetCommandTimeout(90);
                 context.Database.EnsureCreated();
             }
+
+            logger.LogInformation("Startup complete");
         }
     }
 }
