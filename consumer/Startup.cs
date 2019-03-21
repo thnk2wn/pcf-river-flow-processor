@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using App.Metrics;
 using App.Metrics.Filtering;
-using App.Metrics.Formatters.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -13,7 +11,6 @@ using RiverFlowProcessor.USGS;
 using Steeltoe.CloudFoundry.Connector.RabbitMQ;
 using Steeltoe.Common.Discovery;
 using Steeltoe.Discovery.Client;
-using Steeltoe.Discovery.Eureka;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
 namespace RiverFlowProcessor
@@ -31,20 +28,13 @@ namespace RiverFlowProcessor
             var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             Console.WriteLine($"Configuring consumer for environment {envName}");
 
-            var overrides = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("eureka:client:validateCertificates", "false"),
-                new KeyValuePair<string, string>("eureka:client:serviceUrl", "http://eureka-4cebcf38-4e65-42d1-bf75-5445be8dc76d.cf.magenic.net"),
-            };
-
-            var builder = new ConfigurationBuilder()
+            var configuration = new ConfigurationBuilder()
                 .SetBasePath(Environment.CurrentDirectory)
                 .AddJsonFile("appsettings.json", optional: false)
                 .AddJsonFile($"appsettings.{envName}.json", optional: false)
                 .AddEnvironmentVariables()
                 .AddCloudFoundry()
-                .AddInMemoryCollection(overrides);
-            var configuration = builder.Build();
+                .Build();
 
             var services = new ServiceCollection();
             ConfigureServices(services, configuration);
@@ -87,6 +77,7 @@ namespace RiverFlowProcessor
             // make sure that the lifcycle object is created (this is specific to asp.net)
             // var lifecycle = this.ServiceProvider.GetService<IDiscoveryLifecycle>();
 
+            this.logger.LogInformation("Inspecting discovery info");
             var instances = discoveryClient.GetInstances("river-flow-api");
             var uris = string.Join(",", instances.Select(i => i.Uri.ToString()));
             var services = string.Join(",", discoveryClient.Services);
