@@ -30,9 +30,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
-    <PackageReference Include="steeltoe.cloudfoundry.connector.efcore" Version="2.2.0" />
-    <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.2.0" />
-    <PackageReference Include="Steeltoe.Extensions.Configuration.CloudFoundryCore" Version="2.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
@@ -41,6 +38,12 @@
     <EmbeddedResource Include="Data\Seeding\State.csv" />
     <EmbeddedResource Include="Data\Seeding\Gauge.csv" />
     <EmbeddedResource Include="Data\Seeding\RiverGauge.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\steeltoe\Steeltoe.CloudFoundry.Connector.EFCore\Steeltoe.CloudFoundry.Connector.EFCore.csproj" />
+    <ProjectReference Include="..\steeltoe\Steeltoe.CloudFoundry.ConnectorBase\Steeltoe.CloudFoundry.ConnectorBase.csproj" />
+    <ProjectReference Include="..\steeltoe\Steeltoe.Discovery.ClientCore\Steeltoe.Discovery.ClientCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>

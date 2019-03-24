@@ -39,13 +39,15 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.2.0" />
     <PackageReference Include="RabbitMQ.Client" Version="5.1.0" />
-    <PackageReference Include="Steeltoe.CloudFoundry.ConnectorCore" Version="2.2.0" />
-    <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\shared\river-flow-shared.csproj" />
+    <ProjectReference Include="..\steeltoe\Steeltoe.CloudFoundry.ConnectorBase\Steeltoe.CloudFoundry.ConnectorBase.csproj" />
+    <ProjectReference Include="..\steeltoe\Steeltoe.CloudFoundry.ConnectorCore\Steeltoe.CloudFoundry.ConnectorCore.csproj" />
+    <ProjectReference Include="..\steeltoe\Steeltoe.Discovery.ClientCore\Steeltoe.Discovery.ClientCore.csproj" />
   </ItemGroup>
 
 </Project>

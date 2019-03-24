@@ -11,6 +11,7 @@ using RiverFlowProcessor.USGS;
 using Steeltoe.CloudFoundry.Connector.RabbitMQ;
 using Steeltoe.Common.Discovery;
 using Steeltoe.Discovery.Client;
+using Steeltoe.Discovery.Eureka;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
 namespace RiverFlowProcessor
@@ -50,6 +51,9 @@ namespace RiverFlowProcessor
         private static void ConfigureServices(IServiceCollection services, IConfigurationRoot configuration)
         {
             services
+                .AddLogging(loggingBuilder => {
+                    loggingBuilder.AddConsole();
+                })
                 .AddRabbitMQConnection(configuration)
                 .AddHttpClient()
                 .AddOptions()
@@ -75,7 +79,7 @@ namespace RiverFlowProcessor
             var discoveryClient = this.ServiceProvider.GetRequiredService<IDiscoveryClient>();
 
             // make sure that the lifcycle object is created (this is specific to asp.net)
-            // var lifecycle = this.ServiceProvider.GetService<IDiscoveryLifecycle>();
+            //var lifecycle = this.ServiceProvider.GetService<IDiscoveryLifecycle>();
 
             this.logger.LogInformation("Inspecting discovery info");
             var instances = discoveryClient.GetInstances("river-flow-api");

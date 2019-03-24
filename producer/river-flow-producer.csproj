@@ -40,11 +40,11 @@
     <PackageReference Include="Serilog" Version="2.8.0" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.2" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
-    <PackageReference Include="Steeltoe.CloudFoundry.ConnectorCore" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\shared\river-flow-shared.csproj" />
+    <ProjectReference Include="..\steeltoe\Steeltoe.CloudFoundry.ConnectorCore\Steeltoe.CloudFoundry.ConnectorCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>
