@@ -157,10 +157,29 @@ namespace Steeltoe.Discovery.Eureka
 
         private static void UpdateWithDefaultsForRoute(EurekaServiceInfo si, EurekaInstanceOptions instOptions)
         {
+            if (si == null)
+            {
+                throw new ArgumentNullException(nameof(si));
+            }
+
+            if (instOptions == null)
+            {
+                throw new ArgumentNullException(nameof(instOptions));
+            }
+
+            if (si.ApplicationInfo == null)
+            {
+                throw new NullReferenceException("si.ApplicationInfo must be set");
+            }
+
             UpdateWithDefaults(si, instOptions);
             instOptions.NonSecurePort = DEFAULT_NONSECUREPORT;
             instOptions.SecurePort = DEFAULT_SECUREPORT;
-            instOptions.InstanceId = si.ApplicationInfo.ApplicationUris[0] + ":" + si.ApplicationInfo.InstanceId;
+
+            if (si.ApplicationInfo.ApplicationUris?.Length > 0)
+            {
+                instOptions.InstanceId = si.ApplicationInfo.ApplicationUris[0] + ":" + si.ApplicationInfo.InstanceId;
+            }
         }
 
         private static void UpdateWithDefaults(EurekaServiceInfo si, EurekaInstanceOptions instOptions)
