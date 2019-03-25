@@ -44,17 +44,7 @@ namespace RiverFlowProcessor
 
             this.logger = this.ServiceProvider.GetService<ILogger<Startup>>();
 
-            var useDiscoveryClientPolicy = Policy
-              .Handle<Exception>()
-              .WaitAndRetry(new[]
-              {
-                TimeSpan.FromSeconds(2),
-                TimeSpan.FromSeconds(6),
-              }, (ex, ts) => {
-                  this.logger.LogWarning(ex, $"Error using discovery client. Time interval: {ts.TotalSeconds}");
-              });
-
-            useDiscoveryClientPolicy.Execute(this.UseDiscoveryClient);
+            this.UseDiscoveryClient();
 
             return this;
         }
