@@ -37,6 +37,8 @@ namespace RiverFlowProducer
             {
                 InitializeQueue(queueConn, queueChannel);
             }
+
+            this.logger.LogInformation("Exchange and queue initialized");
         }
 
         public void Publish(IEnumerable<string> usgsGaugeIds)

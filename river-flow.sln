@@ -3,13 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "river-flow-processor", "consumer\river-flow-processor.csproj", "{4C413A6E-1A0F-4653-A9C6-438F13A4F30A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "river-flow-processor", "consumer\river-flow-processor.csproj", "{4C413A6E-1A0F-4653-A9C6-438F13A4F30A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "river-flow-producer", "producer\river-flow-producer.csproj", "{B3EF4515-60F0-4463-8467-00190F12C6A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "river-flow-producer", "producer\river-flow-producer.csproj", "{B3EF4515-60F0-4463-8467-00190F12C6A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "river-flow-shared", "shared\river-flow-shared.csproj", "{4120DFC5-4D8B-4C52-B28F-4888FF8602A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "river-flow-shared", "shared\river-flow-shared.csproj", "{4120DFC5-4D8B-4C52-B28F-4888FF8602A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "river-flow-api", "api\river-flow-api.csproj", "{6BE4B9DB-4C91-443F-BEEB-24916356548D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "river-flow-api", "api\river-flow-api.csproj", "{6BE4B9DB-4C91-443F-BEEB-24916356548D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{A7618D8A-8BA4-4960-9657-07028A6920E7}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\cf-create-services.ps1 = scripts\cf-create-services.ps1
+		scripts\docker-mysql-start.ps1 = scripts\docker-mysql-start.ps1
+		scripts\docker-rabbitmq-start.ps1 = scripts\docker-rabbitmq-start.ps1
+		scripts\producer-init.ps1 = scripts\producer-init.ps1
+		scripts\push.ps1 = scripts\push.ps1
+		scripts\start-eureka.ps1 = scripts\start-eureka.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{668D9406-3948-425F-86F7-6A8A24A152EF}"
+	ProjectSection(SolutionItems) = preProject
+		lib\Steeltoe.Discovery.ClientCore.deps.json = lib\Steeltoe.Discovery.ClientCore.deps.json
+		lib\Steeltoe.Discovery.ClientCore.dll = lib\Steeltoe.Discovery.ClientCore.dll
+		lib\Steeltoe.Discovery.ConsulBase.dll = lib\Steeltoe.Discovery.ConsulBase.dll
+		lib\Steeltoe.Discovery.EurekaBase.dll = lib\Steeltoe.Discovery.EurekaBase.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,9 +37,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4C413A6E-1A0F-4653-A9C6-438F13A4F30A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -72,5 +87,11 @@ Global
 		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Release|x64.Build.0 = Release|Any CPU
 		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Release|x86.ActiveCfg = Release|Any CPU
 		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2AA66318-57C2-4D3D-92F6-606B95E0BD87}
 	EndGlobalSection
 EndGlobal

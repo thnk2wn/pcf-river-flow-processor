@@ -8,6 +8,7 @@ using App.Metrics.Timer;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Polly;
 using RiverFlow.Shared;
 using RiverFlowProcessor.USGS;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
@@ -71,6 +72,7 @@ namespace RiverFlowProcessor.RiverFlow
         private async Task<RiverFlowSnapshot> GetRiverFlowData(string usgsGaugeId)
         {
             this.logger.LogInformation("Fetching gauge data for site {site}", usgsGaugeId);
+
             var usgsStreamFlow = await this.usgsIvClient.GetStreamFlow(new[] {usgsGaugeId});
 
             this.logger.LogDebug("Inspecting, mapping data for site {usgsGaugeId}", usgsGaugeId);

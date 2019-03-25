@@ -8,6 +8,7 @@ namespace RiverFlowProducer
     {
         static void Main(string[] args)
         {
+            Console.WriteLine($"Producer starting with args: {string.Join(", ", args)}");
             var serviceProvider = new Startup().Configure().ServiceProvider;
             if (serviceProvider == null) throw new NullReferenceException("Service provider not set");
 
@@ -35,7 +36,8 @@ namespace RiverFlowProducer
                 {
                     publisher.Initialize();
                 }
-                else if (optionGaugeIds.HasValue())
+
+                if (optionGaugeIds.HasValue())
                 {
                     publisher.Publish(optionGaugeIds.Values);
                 }

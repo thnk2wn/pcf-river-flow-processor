@@ -5,6 +5,8 @@ using App.Metrics.Filtering;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Polly;
+using Polly.Extensions.Http;
 using RiverFlowProcessor.Queuing;
 using RiverFlowProcessor.RiverFlow;
 using RiverFlowProcessor.USGS;
@@ -42,7 +44,17 @@ namespace RiverFlowProcessor
 
             this.logger = this.ServiceProvider.GetService<ILogger<Startup>>();
 
-            this.DiscoveryClient = this.UseDiscoveryClient();
+            var useDiscoveryClientPolicy = Policy
+              .Handle<Exception>()
+              .WaitAndRetry(new[]
+              {
+                TimeSpan.FromSeconds(2),
+                TimeSpan.FromSeconds(6),
+              }, (ex, ts) => {
+                  this.logger.LogWarning(ex, $"Error using discovery client. Time interval: {ts.TotalSeconds}");
+              });
+
+            useDiscoveryClientPolicy.Execute(this.UseDiscoveryClient);
 
             return this;
         }
@@ -50,20 +62,36 @@ namespace RiverFlowProcessor
         private static void ConfigureServices(IServiceCollection services, IConfigurationRoot configuration)
         {
             services
+                .AddLogging(loggingBuilder => {
+                    loggingBuilder.AddConsole();
+                })
                 .AddRabbitMQConnection(configuration)
                 .AddHttpClient()
                 .AddOptions()
                 .AddDiscoveryClient(configuration)
                 .ConfigureCloudFoundryOptions(configuration);
 
-            services.AddHttpClient<IUsgsIvClient, UsgsIvClient>();
+            services.AddHttpClient<IUsgsIvClient, UsgsIvClient>()
+                .AddPolicyHandler((svcProvider, request) => HttpPolicyExtensions.HandleTransientHttpError()
+                .WaitAndRetryAsync(new[]
+                {
+                    TimeSpan.FromSeconds(1),
+                    TimeSpan.FromSeconds(3),
+                    TimeSpan.FromSeconds(6)
+                },
+                onRetry: (outcome, timespan, attempt, context) =>
+                {
+                    var logger = svcProvider.GetService<ILogger<IUsgsIvClient>>();
+                    logger.LogWarning("USGS IV failed with status {statusCode}. Delaying for " +
+                        "{delay}s, then attempting retry #{retry}.", timespan.TotalSeconds, attempt);
+                }));
 
             services.AddScoped<IFlowClient, FlowClient>();
 
             services.AddScoped<IQueueProcessor, QueueProcessor>();
-            services.AddScoped<IRiverFlowProcessor, RiverFlowProcessor.RiverFlow.RiverFlowProcessor>();
+            services.AddScoped<IRiverFlowProcessor, RiverFlow.RiverFlowProcessor>();
 
-            services.AddSingleton<IMetrics>(CreateMetrics());
+            services.AddSingleton(CreateMetrics());
         }
 
         private IDiscoveryClient UseDiscoveryClient()

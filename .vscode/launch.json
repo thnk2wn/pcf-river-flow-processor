@@ -27,7 +27,7 @@
                 }
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "local"
+                "ASPNETCORE_ENVIRONMENT": "Local"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
@@ -45,7 +45,7 @@
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "local",
+                "ASPNETCORE_ENVIRONMENT": "Local",
                 "QUEUE_NAME": "river-flow"
             }
         },
@@ -60,7 +60,7 @@
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "local",
+                "ASPNETCORE_ENVIRONMENT": "Local",
                 "QUEUE_NAME": "river-flow"
             }
         },
@@ -75,7 +75,7 @@
             ],
             "env": {
                 "QUEUE_NAME":"river-flow",
-                "ASPNETCORE_ENVIRONMENT": "local"
+                "ASPNETCORE_ENVIRONMENT": "Local"
             },
             "cwd": "${workspaceFolder}/producer",
             "stopAtEntry": false,
@@ -93,7 +93,7 @@
             ],
             "env": {
                 "QUEUE_NAME":"river-flow",
-                "ASPNETCORE_ENVIRONMENT": "local"
+                "ASPNETCORE_ENVIRONMENT": "Local"
             },
             "cwd": "${workspaceFolder}/producer",
             "stopAtEntry": false,
