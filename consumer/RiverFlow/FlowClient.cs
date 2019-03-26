@@ -29,6 +29,11 @@ namespace RiverFlowProcessor.RiverFlow
 
         public async Task RecordFlow(RiverFlowSnapshot snapshot)
         {
+            if (snapshot == null)
+            {
+                throw new ArgumentNullException(nameof(snapshot));
+            }
+
             string gaugeId = null;
 
             try

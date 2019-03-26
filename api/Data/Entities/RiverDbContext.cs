@@ -60,9 +60,9 @@ namespace RiverFlowApi.Data.Entities
                 e.Property(g => g.UsgsGaugeId).HasMaxLength(gaugeLength);
                 e.Property(g => g.Name).HasMaxLength(50).IsRequired();
                 e.Property(g => g.StateCode).HasMaxLength(2).IsRequired();
-                e.Property(g => g.DefaultZoneAbbrev).HasMaxLength(3);
+                e.Property(g => g.DefaultZoneAbbrev).HasMaxLength(4);
                 e.Property(g => g.DefaultZoneOffset).HasMaxLength(6);
-                e.Property(g => g.DSTZoneAbbrev).HasMaxLength(3);
+                e.Property(g => g.DSTZoneAbbrev).HasMaxLength(4);
                 e.Property(g => g.DSTZoneOffset).HasMaxLength(6);
 
                 e.HasOne(g => g.State)

@@ -63,9 +63,13 @@ namespace RiverFlowProcessor.RiverFlow
                 flowData = await this.GetRiverFlowData(usgsGaugeId);
             }
 
-            using(metrics.Measure.Timer.Time(this.recordTimer))
+            // TODO: consider new column on Gauge to indicate date last checked in event we checked but no gauge values reported.
+            if (flowData != null)
             {
-                await this.flowClient.RecordFlow(flowData);
+                using (metrics.Measure.Timer.Time(this.recordTimer))
+                {
+                    await this.flowClient.RecordFlow(flowData);
+                }
             }
         }
 

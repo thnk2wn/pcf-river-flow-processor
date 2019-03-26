@@ -113,7 +113,7 @@ namespace RiverFlowProcessor
                 .OutputMetrics.Using<TimerMetricsFormatter>()
                 .Report.ToConsole(
                     options => {
-                        options.FlushInterval = TimeSpan.FromSeconds(30);
+                        options.FlushInterval = TimeSpan.FromSeconds(60);
                         options.Filter = filter;
                         options.MetricsOutputFormatter = new TimerMetricsFormatter();
                     })

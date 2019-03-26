@@ -1,11 +1,17 @@
+param([switch]$all)
+
 pushd ..\producer
 $env:QUEUE_NAME = "river-flow"
 
 if ($env:ASPNETCORE_ENVIRONMENT -eq 'Local') {
-    # put one sample guage into queue for testing
-    dotnet run -- -i -g "03539600"
+	if (!$all) {
+		# put one sample guage into queue for testing
+		dotnet run -- -i -g "03539600"
+		return
+	}
 }
-else {
-    dotnet run -- -i
-}
+
+# init and full queue populate
+dotnet run -- -i
+
 popd
