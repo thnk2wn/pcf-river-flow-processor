@@ -14,8 +14,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{A7618D8A-8BA4-4960-9657-07028A6920E7}"
 	ProjectSection(SolutionItems) = preProject
 		scripts\cf-create-services.ps1 = scripts\cf-create-services.ps1
+		scripts\debug-cold-start.ps1 = scripts\debug-cold-start.ps1
 		scripts\docker-mysql-start.ps1 = scripts\docker-mysql-start.ps1
 		scripts\docker-rabbitmq-start.ps1 = scripts\docker-rabbitmq-start.ps1
+		scripts\docker-restart.ps1 = scripts\docker-restart.ps1
 		scripts\producer-init.ps1 = scripts\producer-init.ps1
 		scripts\push.ps1 = scripts\push.ps1
 		scripts\start-eureka.ps1 = scripts\start-eureka.ps1
