@@ -1,11 +1,13 @@
 $name = "river-mysql"
 
+# https://stackoverflow.com/questions/54217076/docker-port-bind-fails-why-a-permission-denied
+
 $attempts = 0
 $startSuccess = $false
 do {
     docker ps -a -f name=$name -q | % { docker stop $_; docker rm $_ }
     # https://hub.docker.com/_/mysql
-    docker run --name $name -e MYSQL_ROOT_PASSWORD=pwd -d -p 3306:3306 mysql:latest
+    docker run -p 3306:3306 --name $name -e MYSQL_ROOT_PASSWORD=pwd -d mysql:latest
 
     if ($?) {
         $startSuccess = $true
@@ -14,7 +16,7 @@ do {
 
     $attempts = $attempts + 1
     "Waiting on docker run success. Attempts: $attempts..."
-    Start-Sleep 1
+    Start-Sleep 2
 } while ($attempts -lt 3)
 
 if (!$startSuccess) {

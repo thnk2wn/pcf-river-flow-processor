@@ -5,21 +5,18 @@ docker ps -q | % { docker stop $_ }
 docker ps -a -q | % { docker rm $_ }
 
 "Starting / restarting Docker..."
+$dockerSvc = "com.docker.service"
 
-Get-Service -Name "com.docker.service" | Where-Object {$_.Status -eq "Started"} | Restart-Service
-Get-Service -Name "com.docker.service" | ForEach-Object {$_.WaitForStatus("Running", '00:00:20')}
+Get-Process "*docker*" `
+    | Where-Object { $_.ProcessName -ne $dockerSvc } `
+    | ForEach-Object { "Stopping $($_.ProcessName)"; $_.Kill(); $_.WaitForExit(); }
 
-$processes = Get-Process "*docker for windows*"
-
-if ($processes.Count -gt 0)
-{
-    "Stopping docker..."
-    $processes[0].Kill()
-    $processes[0].WaitForExit()
-}
+Get-Service -Name $dockerSvc | Where-Object {$_.Status -eq "Started"} | Restart-Service
+Get-Service -Name $dockerSvc | ForEach-Object {$_.WaitForStatus("Running", '00:00:20')}
 
 "Starting docker..."
-Start-Process "C:\Program Files\Docker\Docker\Docker for Windows.exe" -Verb RunAs
+# Start-Process "C:\Program Files\Docker\Docker\Docker for Windows.exe" -Verb RunAs
+Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe" -Verb RunAs
 
 if ($wait) {
     $attempts = 0
@@ -38,7 +35,7 @@ if ($wait) {
     } while ($attempts -le 10)
 
     "Pausing until initialized..."
-    Start-Sleep 5
+    Start-Sleep 6
 }
 
 "Docker started"

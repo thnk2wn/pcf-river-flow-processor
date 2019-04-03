@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -25,14 +26,11 @@ namespace RiverFlowApi.Controllers
         }
 
         [HttpGet("{state}")]
-        public async Task<string> Get(string state)
+        public async Task<IActionResult> Get(string state)
         {
-            var values = await this.riverDbContext
-                .GaugeValue
-                .Where(gv => gv.Gauge.StateCode == state)
-                .ToListAsync();
+            var values = await this.GetFlow(state);
 
-            return $"Found {values.Count} gauge values";
+            return this.Ok(values);
         }
 
         [HttpPost]
@@ -44,6 +42,32 @@ namespace RiverFlowApi.Controllers
             }
 
             await this.flowRecordingService.Record(model);
+        }
+
+        private async Task<object> GetFlow(string state)
+        {
+            var query = this.riverDbContext.GaugeValue.AsQueryable();
+
+            if (!string.IsNullOrEmpty(state))
+            {
+                query = query.Where(gv => gv.Gauge.StateCode == state);
+            }
+
+            var results = await query.Join(this.riverDbContext.Gauge,
+                gv => gv.UsgsGaugeId,
+                g => g.UsgsGaugeId,
+                (gv, g) => new
+                {
+                    GaugeId = g.UsgsGaugeId,
+                    GaugeName = g.Name,
+                    Variable = gv.Code,
+                    Value = gv.Value,
+                    VariableName = gv.Variable.Name,
+                    VariableDesc = gv.Variable.Description,
+                    VariableUnit = gv.Variable.Unit
+                })
+                .ToListAsync();
+            return results;
         }
     }
 }
