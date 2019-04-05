@@ -1,5 +1,8 @@
 param ([switch]$wait)
 
+# Note: this script isn't as reliable as actions taken right-clicking Docker Desktop try icon and selecting Restart
+# Can't seem to invoke that functionality or otherwise restart programmatically in same fashion that clears issues.
+
 "Stopping containers"
 docker ps -q | % { docker stop $_ }
 docker ps -a -q | % { docker rm $_ }
@@ -7,7 +10,7 @@ docker ps -a -q | % { docker rm $_ }
 "Starting / restarting Docker..."
 $dockerSvc = "com.docker.service"
 
-Get-Process "*docker*" `
+Get-Process "*Docker Desktop*" `
     | Where-Object { $_.ProcessName -ne $dockerSvc } `
     | ForEach-Object { "Stopping $($_.ProcessName)"; $_.Kill(); $_.WaitForExit(); }
 

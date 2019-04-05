@@ -17,6 +17,7 @@ namespace RiverFlowProcessor.RiverFlow
         private readonly IDiscoveryClient discoveryClient;
         private const string riverFlowApi = "river-flow-api";
         private const string RecordFlowUrl = "https://" + riverFlowApi + "/flow";
+        private Uri apiBaseUri;
 
         public FlowClient(
             IDiscoveryClient discoveryClient,
@@ -40,18 +41,14 @@ namespace RiverFlowProcessor.RiverFlow
             {
                 gaugeId = snapshot.Site.UsgsGaugeId;
                 var client = CreateHttpClient();
+                var uri = this.apiBaseUri ?? (apiBaseUri = this.GetApiBaseUri());
                 this.logger.LogInformation(
-                    "Posting to '{recordFlowUrl}' for gauge '{gaugeId}'",
+                    "Posting to '{recordFlowUrl}' ({uri}) for gauge '{gaugeId}'",
                     RecordFlowUrl,
+                    uri,
                     client.BaseAddress,
                     gaugeId);
 
-                var instances = this.discoveryClient.GetInstances(riverFlowApi);
-                var uris = string.Join(",", instances.Select(i => i.Uri.ToString()));
-                this.logger.LogInformation($"{riverFlowApi} URIs: {uris}");
-
-                // TODO: Working locally now but check server for discovery:
-                // 'No connection could be made because the target machine actively refused it' - reproducable locally. Client not correctly setup?
                 var response = await client.PostAsync(RecordFlowUrl, new JsonContent(snapshot));
 
                 response.EnsureSuccessStatusCode();
@@ -61,6 +58,20 @@ namespace RiverFlowProcessor.RiverFlow
                 this.logger.LogWarning(ex, "Error posting flow values for gauge {gauge}", gaugeId);
                 throw;
             }
+        }
+
+        private Uri GetApiBaseUri()
+        {
+            this.logger.LogDebug("Using discovery client to get instances of {api}", riverFlowApi);
+            var instances = this.discoveryClient.GetInstances(riverFlowApi);
+
+            if (instances?.Count != 1)
+            {
+                throw new InvalidOperationException($"{instances?.Count} instances found for {riverFlowApi}. Expected 1");
+            }
+
+            var uri = instances[0].Uri;
+            return uri;
         }
 
         private HttpClient CreateHttpClient()

@@ -60,6 +60,11 @@ namespace RiverFlowApi
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "RiverFlow API V1");
             });
 
+#if DEBUG
+            Console.WriteLine("Adding Stackify tracking middleware");
+            app.UseMiddleware<StackifyMiddleware.RequestTracerMiddleware>();
+#endif
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

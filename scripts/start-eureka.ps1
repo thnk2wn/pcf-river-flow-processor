@@ -10,6 +10,8 @@ if (!(Test-Path $eurekaLocalPath)) {
 }
 
 Push-Location $eurekaLocalPath
+git pull
+
 # This will take some time on the initial run
 .\mvnw spring-boot:run
 Pop-Location

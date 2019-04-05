@@ -6,13 +6,15 @@ namespace RiverFlow.Shared
 {
     public class QueueProperties
     {
+        // TODO: move expiration MS to configuration
         public const int ExpirationMs = 3600000;
 
         public const string Exchange = "RiverFlowExchange";
 
         public const string DefaultRoutingKey = "FlowKey";
 
-        public const int PrefetchCount = 1;
+        // TODO: move prefetch count to configuration
+        public const int PrefetchCount = 20;
 
         public string QueueName { get; }
 
