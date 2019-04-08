@@ -46,7 +46,6 @@ namespace RiverFlowProcessor.RiverFlow
                     "Posting to '{recordFlowUrl}' ({uri}) for gauge '{gaugeId}'",
                     RecordFlowUrl,
                     uri,
-                    client.BaseAddress,
                     gaugeId);
 
                 var response = await client.PostAsync(RecordFlowUrl, new JsonContent(snapshot));

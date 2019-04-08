@@ -23,8 +23,6 @@ if (!$startSuccess) {
     throw "Failed to start Rabbit MQ container."
 }
 
-# login as guest/guest
-# Start-Process 'http://localhost:8080'
 $webMgtUrl = "http://localhost:8080"
 
 "Checking RabbitMQ status..."
@@ -40,11 +38,13 @@ do {
         $status = Invoke-WebRequest $webMgtUrl | ForEach-Object {$_.StatusCode}
     }
     catch {
-        Write-Warning "$($_.Exception.Message) testing $webMgtUrl"
+        Write-Warning "$($_.Exception.Message). Testing $webMgtUrl"
     }
 
     if ($conns5672 -and $conns5672.Length -gt 0 -and $conns8080 -and $conns8080.Length -gt 0 -and $status -eq 200) {
-        "RabbitMQ started"
+        "RabbitMQ started. Launching $webMgtUrl"
+        # login as guest/guest
+        Start-Process $webMgtUrl -WindowStyle Minimized
         break;
     }
 
