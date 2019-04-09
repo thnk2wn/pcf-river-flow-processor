@@ -25,7 +25,7 @@ namespace RiverFlowApi.Controllers
             this.riverDbContext = riverDbContext;
         }
 
-        [HttpGet("{state}")]
+        [HttpGet("{state}/summary")]
         public async Task<IActionResult> Get(string state)
         {
             var values = await this.GetFlow(state);
@@ -46,28 +46,35 @@ namespace RiverFlowApi.Controllers
 
         private async Task<object> GetFlow(string state)
         {
-            var query = this.riverDbContext.GaugeValue.AsQueryable();
+            var ctx = this.riverDbContext;
 
-            if (!string.IsNullOrEmpty(state))
-            {
-                query = query.Where(gv => gv.Gauge.StateCode == state);
-            }
+            // do we want rivers and gauges in state even if no flow data?
+            // should we group in sql or get flat list from DB then group in memory?
 
-            var results = await query.Join(this.riverDbContext.Gauge,
-                gv => gv.UsgsGaugeId,
-                g => g.UsgsGaugeId,
-                (gv, g) => new
-                {
-                    GaugeId = g.UsgsGaugeId,
-                    GaugeName = g.Name,
-                    Variable = gv.Code,
-                    Value = gv.Value,
-                    VariableName = gv.Variable.Name,
-                    VariableDesc = gv.Variable.Description,
-                    VariableUnit = gv.Variable.Unit
-                })
-                .ToListAsync();
-            return results;
+            var riverGauges = await (
+                from rg in ctx.RiverGauge
+                join r in ctx.River on rg.RiverId equals r.RiverId
+                where r.StateCode == state
+                group rg by new {rg.RiverId, r.RiverSection}
+                into grp
+                select new {
+                    RiverId = grp.Key.RiverId,
+                    RiverName = grp.Key.RiverSection,
+                    Gauges = grp
+                        .Select(_ => _.UsgsGaugeId)
+                        .ToList()
+                }
+            ).ToListAsync();
+
+            var gaugeIds = riverGauges
+                .SelectMany(rg => rg.Gauges)
+                .ToList();
+
+            // TODO: gauge values
+            // TODO: Consider a GaugeReport type table that's 1:1 with gauge and gaugevalue ties to it as well;
+            //       this would simplify the fetch of the last gauge value as well as hold info that we checked even if no flow data
+
+            return null;
         }
     }
 }
