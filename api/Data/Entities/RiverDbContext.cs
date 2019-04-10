@@ -80,6 +80,24 @@ namespace RiverFlowApi.Data.Entities
                e.HasData(RiverLookupData.GetRecords<RiverGauge>());
             });
 
+            modelBuilder.Entity<GaugeReport>(e =>
+            {
+                e.HasKey(r => r.ReportId);
+                e.Property(r => r.UsgsGaugeId)
+                    .HasMaxLength(gaugeLength)
+                    .IsRequired();
+                e.Property(r => r.InstanceId)
+                    .HasMaxLength(40)
+                    .IsRequired();
+
+                e.HasOne(r => r.Gauge)
+                 .WithMany()
+                 .HasForeignKey(r => r.ReportId);
+
+                e.HasMany(r => r.GaugeValues)
+                    .WithOne(gv => gv.Report);
+            });
+
             modelBuilder.Entity<GaugeValue>(e =>
             {
                 e.HasKey(gv => new { gv.AsOfUTC, gv.UsgsGaugeId, gv.Code });
@@ -112,6 +130,8 @@ namespace RiverFlowApi.Data.Entities
         public DbSet<River> River { get; set; }
 
         public DbSet<Gauge> Gauge { get; set; }
+
+        public DbSet<GaugeReport> GaugeReport { get; set; }
 
         public DbSet<RiverGauge> RiverGauge { get; set; }
 

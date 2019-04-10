@@ -71,7 +71,7 @@ namespace RiverFlowApi.Controllers
                 .ToList();
 
             // TODO: gauge values
-            // TODO: Consider a GaugeReport type table that's 1:1 with gauge and gaugevalue ties to it as well;
+            // TODO: Consider a GaugeReport type table that's 1:many with gauge and gaugevalue ties to it as well;
             //       this would simplify the fetch of the last gauge value as well as hold info that we checked even if no flow data
 
             return null;

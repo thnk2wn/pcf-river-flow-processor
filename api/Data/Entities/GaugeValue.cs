@@ -17,5 +17,7 @@ namespace RiverFlowApi.Data.Entities
         public Gauge Gauge { get; set; }
 
         public Variable Variable { get; set; }
+
+        public GaugeReport Report { get; set; }
     }
 }

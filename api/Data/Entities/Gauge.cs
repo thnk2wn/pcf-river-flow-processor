@@ -34,5 +34,7 @@ namespace RiverFlowApi.Data.Entities
         public bool? ZoneUsesDST { get; set; }
 
         public virtual ICollection<GaugeValue> Values { get; set; }
+
+        public virtual ICollection<GaugeReport> Reports { get; set; }
     }
 }
