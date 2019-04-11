@@ -10,6 +10,8 @@ namespace RiverFlowApi.Data.Entities
 
         public string UsgsGaugeId { get; set; }
 
+        public int ReportId { get; set; }
+
         public string Code { get; set; }
 
         public double Value { get; set; }

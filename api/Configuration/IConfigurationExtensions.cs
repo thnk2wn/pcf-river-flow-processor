@@ -5,12 +5,9 @@ namespace RiverFlowApi.Configuration
 {
     public static class IConfigurationExtensions
     {
-        private static string appInstanceId;
-
         public static string GetAppInstanceId(this IConfiguration config)
         {
-            return appInstanceId
-                ?? (appInstanceId = $"{config.InstanceId()}:{config.InstanceIndex()}");
+            return $"{config.InstanceId()}:{config.InstanceIndex()}";
         }
 
         private static string InstanceId(this IConfiguration config)

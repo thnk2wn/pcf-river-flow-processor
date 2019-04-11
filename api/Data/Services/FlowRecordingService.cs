@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using RiverFlowApi.Configuration;
 using RiverFlowApi.Data.Entities;
 using RiverFlowApi.Data.Models;
 using static RiverFlowApi.Data.Models.RiverFlowSnapshotModel;
@@ -15,33 +17,72 @@ namespace RiverFlowApi.Data.Services
         private readonly RiverDbContext riverDbContext;
         private readonly ILogger<IFlowRecordingService> logger;
         private HashSet<string> variableCodesChecked;
+        private string appInstanceId;
 
-        public FlowRecordingService(ILogger<IFlowRecordingService> logger, RiverDbContext riverDbContext)
+        public FlowRecordingService(
+            ILogger<IFlowRecordingService> logger,
+            RiverDbContext riverDbContext,
+            IConfiguration configuration)
         {
             this.riverDbContext = riverDbContext;
             this.logger = logger;
             this.variableCodesChecked = new HashSet<string>();
+            this.appInstanceId = configuration.GetAppInstanceId();
         }
 
         public async Task Record(RiverFlowSnapshotModel snapshot)
         {
-            if (!await this.EnsureGauge(snapshot.Site))
+            string usgsGaugeId = snapshot.Site.UsgsGaugeId;
+
+            var gauge = await this.EnsureGauge(snapshot.Site);
+
+            if (gauge == null)
             {
                 return;
             }
 
+            await InactivateExistingGaugeReport(usgsGaugeId);
+
+            var gaugeReport = new GaugeReport
+            {
+                AsOfUTC = DateTime.UtcNow,
+                InstanceId = this.appInstanceId,
+                Latest = true,
+                Gauge = gauge
+            };
+
             foreach (var dataValue in snapshot.Values)
             {
-                await this.RecordValue(dataValue, snapshot);
+                var gaugeValue = await this.RecordValue(dataValue, snapshot, gaugeReport);
+
+                if (gaugeValue != null)
+                {
+                    gaugeReport.GaugeValueCount++;
+                }
             }
 
             await this.riverDbContext.SaveChangesAsync();
         }
 
-        private async Task RecordValue(DataValue value, RiverFlowSnapshotModel snapshot)
+        private async Task InactivateExistingGaugeReport(string usgsGaugeId)
+        {
+            var existingLatestReport = await this.riverDbContext
+                .GaugeReport
+                .SingleOrDefaultAsync(r => r.UsgsGaugeId == usgsGaugeId);
+
+            if (existingLatestReport != null)
+            {
+                existingLatestReport.Latest = false;
+            }
+        }
+
+        private async Task<GaugeValue> RecordValue(
+            DataValue value,
+            RiverFlowSnapshotModel snapshot,
+            GaugeReport report)
         {
             await this.EnsureVariable(value);
-            await this.AddGaugeValue(value, snapshot);
+            return await this.AddGaugeValue(value, snapshot, report);
         }
 
         private async Task EnsureVariable(DataValue value)
@@ -65,7 +106,10 @@ namespace RiverFlowApi.Data.Services
             }
         }
 
-        private async Task AddGaugeValue(DataValue value, RiverFlowSnapshotModel snapshot)
+        private async Task<GaugeValue> AddGaugeValue(
+            DataValue value,
+            RiverFlowSnapshotModel snapshot,
+            GaugeReport report)
         {
             var exists = await this.riverDbContext
                 .GaugeValue
@@ -80,23 +124,28 @@ namespace RiverFlowApi.Data.Services
                     AsOf = value.AsOf,
                     AsOfUTC = snapshot.AsOfUTC,
                     Code = value.Code,
+                    Report = report,
                     UsgsGaugeId = snapshot.Site.UsgsGaugeId,
                     Value = value.Value
                 };
                 await this.riverDbContext.GaugeValue.AddAsync(gaugeValue);
+                return gaugeValue;
             }
+
+            return null;
         }
 
-        private async Task<bool> EnsureGauge(SiteInfo siteInfo)
+        private async Task<Gauge> EnsureGauge(SiteInfo siteInfo)
         {
-            var gauge = await this.riverDbContext.Gauge.SingleOrDefaultAsync(g => g.UsgsGaugeId == siteInfo.UsgsGaugeId);
+            var gauge = await this.riverDbContext.Gauge
+                .SingleOrDefaultAsync(g => g.UsgsGaugeId == siteInfo.UsgsGaugeId);
 
             if (gauge == null)
             {
                 this.logger.LogWarning(
                     "Gauge {usgsGaugeId} not found in table. Either missing from data seeding or unknown queue guage id",
                     siteInfo.UsgsGaugeId);
-                return false;
+                return null;
             }
 
             if (gauge.DefaultZoneOffset == null ||
@@ -111,7 +160,7 @@ namespace RiverFlowApi.Data.Services
                 gauge.ZoneUsesDST = siteInfo.UsesDaylightSavingsTime;
             }
 
-            return true;
+            return gauge;
         }
     }
 }

@@ -83,16 +83,18 @@ namespace RiverFlowApi.Data.Entities
             modelBuilder.Entity<GaugeReport>(e =>
             {
                 e.HasKey(r => r.ReportId);
-                e.Property(r => r.UsgsGaugeId)
-                    .HasMaxLength(gaugeLength)
-                    .IsRequired();
+
+                e.HasIndex(r => new { r.UsgsGaugeId, r.Latest })
+                    .HasFilter("Latest = 1")
+                    .HasName("gauge_report_one_latest_per_gauge");
+
                 e.Property(r => r.InstanceId)
                     .HasMaxLength(40)
                     .IsRequired();
 
                 e.HasOne(r => r.Gauge)
-                 .WithMany()
-                 .HasForeignKey(r => r.ReportId);
+                    .WithMany(g => g.Reports)
+                    .HasForeignKey(r => r.UsgsGaugeId);
 
                 e.HasMany(r => r.GaugeValues)
                     .WithOne(gv => gv.Report);
@@ -102,16 +104,23 @@ namespace RiverFlowApi.Data.Entities
             {
                 e.HasKey(gv => new { gv.AsOfUTC, gv.UsgsGaugeId, gv.Code });
 
-                e.Property(gv => gv.UsgsGaugeId).HasMaxLength(gaugeLength).IsRequired();
+                e.Property(gv => gv.UsgsGaugeId)
+                    .HasMaxLength(gaugeLength)
+                    .IsRequired();
+
                 e.Property(gv => gv.Code).HasMaxLength(5);
 
                 e.HasOne(gv => gv.Gauge)
-                 .WithMany(g => g.Values)
-                 .HasForeignKey(gv => gv.UsgsGaugeId);
+                    .WithMany(g => g.Values)
+                    .HasForeignKey(gv => gv.UsgsGaugeId);
 
                 e.HasOne(gv => gv.Variable)
-                 .WithMany()
-                 .HasForeignKey(gv => gv.Code);
+                    .WithMany()
+                    .HasForeignKey(gv => gv.Code);
+
+                e.HasOne(gv => gv.Report)
+                    .WithMany(r => r.GaugeValues)
+                    .HasForeignKey(gv => gv.ReportId);
             });
 
             modelBuilder.Entity<Variable>(e =>

@@ -14,6 +14,8 @@ namespace RiverFlowApi.Data.Entities
 
         public string UsgsGaugeId { get; set; }
 
+        public bool Latest { get; set; }
+
         public DateTimeOffset AsOfUTC { get; set; }
 
         public int GaugeValueCount { get; set; }
