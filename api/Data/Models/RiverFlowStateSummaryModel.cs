@@ -21,6 +21,11 @@ namespace RiverFlowApi.Data.Models
             public string River { get; set; }
 
             public List<GaugeModel> Gauges { get; set; }
+
+            public override string ToString()
+            {
+                return $"{River} - {Gauges.Count} gauges";
+            }
         }
 
         public class GaugeModel
@@ -34,6 +39,11 @@ namespace RiverFlowApi.Data.Models
             public double? FlowCFS { get; set; }
 
             public string AsOfDuration { get; set; }
+
+            public override string ToString()
+            {
+                return $"{UsgsGaugeId} - {Name}";
+            }
         }
     }
 }

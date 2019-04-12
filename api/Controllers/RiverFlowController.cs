@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -46,35 +47,68 @@ namespace RiverFlowApi.Controllers
 
         private async Task<object> GetFlow(string state)
         {
+            // TODO: move this method to a query type class
             var ctx = this.riverDbContext;
+            var sw = Stopwatch.StartNew();
 
-            // do we want rivers and gauges in state even if no flow data?
-            // should we group in sql or get flat list from DB then group in memory?
-
-            var riverGauges = await (
-                from rg in ctx.RiverGauge
-                join r in ctx.River on rg.RiverId equals r.RiverId
-                where r.StateCode == state
-                group rg by new {rg.RiverId, r.RiverSection}
-                into grp
-                select new {
-                    RiverId = grp.Key.RiverId,
-                    RiverName = grp.Key.RiverSection,
-                    Gauges = grp
-                        .Select(_ => _.UsgsGaugeId)
-                        .ToList()
+            var rawFlowData = await (
+                from gaugeValue in ctx.GaugeValue
+                join variable in ctx.Variable on gaugeValue.Code equals variable.Code
+                join gauge in ctx.Gauge on gaugeValue.UsgsGaugeId equals gauge.UsgsGaugeId
+                join gaugeReport in ctx.GaugeReport on gauge.UsgsGaugeId equals gaugeReport.UsgsGaugeId
+                join riverGauge in ctx.RiverGauge on gauge.UsgsGaugeId equals riverGauge.UsgsGaugeId
+                join river in ctx.River on riverGauge.RiverId equals river.RiverId
+                where
+                    river.StateCode == state &&
+                    gaugeReport.Latest
+                select new
+                {
+                    River = new
+                    {
+                        Id = river.RiverId,
+                        Name = river.RiverSection
+                    },
+                    Gauge = new
+                    {
+                        Id = gauge.UsgsGaugeId,
+                        Name = gauge.Name,
+                    },
+                    Value = new
+                    {
+                        Code = variable.Code,
+                        Name = variable.Name,
+                        Unit = variable.Unit,
+                        Value = gaugeValue.Value
+                    }
                 }
             ).ToListAsync();
+            sw.Stop();
 
-            var gaugeIds = riverGauges
-                .SelectMany(rg => rg.Gauges)
-                .ToList();
+            var model = new RiverFlowStateSummaryModel();
 
-            // TODO: gauge values
-            // TODO: Consider a GaugeReport type table that's 1:many with gauge and gaugevalue ties to it as well;
-            //       this would simplify the fetch of the last gauge value as well as hold info that we checked even if no flow data
+            model.Rivers.AddRange(
+                rawFlowData
+                .GroupBy(rg => rg.River)
+                .Select(grp => new RiverFlowStateSummaryModel.RiversModel
+                {
+                    River = grp.Key.Name,
 
-            return null;
+                    Gauges = grp.Select(item =>
+                        new RiverFlowStateSummaryModel.GaugeModel
+                        {
+                            Name = item.Gauge.Name,
+                            UsgsGaugeId = item.Gauge.Id,
+                            FlowCFS = grp
+                                .SingleOrDefault(_ => _.Gauge.Id == item.Gauge.Id
+                                    && _.Value.Code == "00060").Value?.Value,
+                            HeightFeet = grp
+                                .SingleOrDefault(_ => _.Gauge.Id == item.Gauge.Id
+                                    && _.Value.Code == "00065").Value?.Value
+                        }
+                    ).ToList()
+                }));
+
+            return model;
         }
     }
 }

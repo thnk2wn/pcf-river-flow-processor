@@ -3,6 +3,8 @@ $name = "river-queue"
 $attempts = 0
 $startSuccess = $false
 
+# https://stackoverflow.com/questions/54217076/docker-port-bind-fails-why-a-permission-denied
+
 do {
     docker ps -a -f name=$name -q | % { docker stop $_; docker rm $_ }
     # https://hub.docker.com/_/rabbitmq
