@@ -58,9 +58,7 @@ namespace RiverFlowApi.Controllers
                 join gaugeReport in ctx.GaugeReport on gauge.UsgsGaugeId equals gaugeReport.UsgsGaugeId
                 join riverGauge in ctx.RiverGauge on gauge.UsgsGaugeId equals riverGauge.UsgsGaugeId
                 join river in ctx.River on riverGauge.RiverId equals river.RiverId
-                where
-                    river.StateCode == state &&
-                    gaugeReport.Latest
+                where river.StateCode == state && gaugeReport.Latest
                 select new
                 {
                     River = new
@@ -84,29 +82,35 @@ namespace RiverFlowApi.Controllers
             ).ToListAsync();
             sw.Stop();
 
-            var model = new RiverFlowStateSummaryModel();
+            var model = new RiverFlowStateSummaryModel
+            {
+                Rivers = rawFlowData
+                    .GroupBy(rg => rg.River)
+                    .OrderBy(rg => rg.Key.Name)
+                    .Select(grp => new RiverFlowStateSummaryModel.RiversModel
+                    {
+                        River = grp.Key.Name,
 
-            model.Rivers.AddRange(
-                rawFlowData
-                .GroupBy(rg => rg.River)
-                .Select(grp => new RiverFlowStateSummaryModel.RiversModel
-                {
-                    River = grp.Key.Name,
-
-                    Gauges = grp.Select(item =>
-                        new RiverFlowStateSummaryModel.GaugeModel
-                        {
-                            Name = item.Gauge.Name,
-                            UsgsGaugeId = item.Gauge.Id,
-                            FlowCFS = grp
-                                .SingleOrDefault(_ => _.Gauge.Id == item.Gauge.Id
-                                    && _.Value.Code == "00060").Value?.Value,
-                            HeightFeet = grp
-                                .SingleOrDefault(_ => _.Gauge.Id == item.Gauge.Id
-                                    && _.Value.Code == "00065").Value?.Value
-                        }
-                    ).ToList()
-                }));
+                        Gauges = grp
+                            .GroupBy(g => g.Gauge.Id)
+                            .Select(g => g.First())
+                            .OrderBy(g => g.Gauge.Name)
+                            .Select(item =>
+                                new RiverFlowStateSummaryModel.GaugeModel
+                                {
+                                    Name = item.Gauge.Name,
+                                    UsgsGaugeId = item.Gauge.Id,
+                                    FlowCFS = grp.SingleOrDefault(_ =>
+                                        _.River.Id == grp.Key.Id &&
+                                        _.Gauge.Id == item.Gauge.Id &&
+                                        _.Value.Code == "00060")?.Value?.Value,
+                                    HeightFeet = grp.SingleOrDefault(_ =>
+                                        _.River.Id == grp.Key.Id &&
+                                        _.Gauge.Id == item.Gauge.Id &&
+                                        _.Value.Code == "00065")?.Value?.Value
+                                }).ToList()
+                    }).ToList()
+            };
 
             return model;
         }
