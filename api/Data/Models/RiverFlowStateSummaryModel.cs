@@ -6,26 +6,16 @@ namespace RiverFlowApi.Data.Models
     {
         public RiverFlowStateSummaryModel()
         {
-            this.Rivers = new List<RiversModel>();
+            this.Gauges = new List<GaugeModel>();
         }
 
-        public List<RiversModel> Rivers { get; set; }
+        public string River { get; set; }
 
-        public class RiversModel
+        public List<GaugeModel> Gauges { get; set; }
+
+        public override string ToString()
         {
-            public RiversModel()
-            {
-                this.Gauges = new List<GaugeModel>();
-            }
-
-            public string River { get; set; }
-
-            public List<GaugeModel> Gauges { get; set; }
-
-            public override string ToString()
-            {
-                return $"{River} - {Gauges.Count} gauges";
-            }
+            return $"{River} - {Gauges.Count} gauge(s)";
         }
 
         public class GaugeModel
