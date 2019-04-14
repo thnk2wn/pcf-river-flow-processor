@@ -1,39 +1,33 @@
-param([switch]$all)
+param([switch]$all, [int]$top)
 
 Push-Location ..\producer
 $env:QUEUE_NAME = "river-flow"
 
 $attempts = 0
 
-$singleOnly = $false
-
-if ($env:ASPNETCORE_ENVIRONMENT -eq 'Local') {
-    if (!$all) {
-        $singleOnly = $true
-    }
-}
-
 do {
     Start-Sleep 1
 
-    if ($singleOnly) {
-        "Start producer with initialization and single queue message"
-        # put one sample guage into queue for testing
-        dotnet run -- -i -g "03539600"
+    if (!$all -and $top -eq 0) {
+        "Starting producer with single queue message"
+        dotnet run -- --gauges "03539600"
     }
-    else {
-        "Start producer with initialization and full queue population"
-        # init and full queue populate
-        dotnet run -- -i
+    elseif ($top -gt 0) {
+        "Starting producer with top $top queue messages"
+        dotnet run -- --top $top
+    }
+    elseif ($all) {
+        "Starting producer with full queue population"
+        dotnet run -- --all
     }
 
     if ($?) {
-        "Procucer ran okay"
+        "Producer ran okay"
         break;
     }
 
     $attempts = $attempts + 1
-    "Tring producer init again. Attempts: $attempts. Waiting..."
+    "Trying producer again. Attempts: $attempts. Waiting..."
 } while ($attempts -lt 3)
 
 

@@ -18,32 +18,46 @@ namespace RiverFlowProducer
             app.ThrowOnUnexpectedArgument = false;
 
             app.HelpOption("-h|--help");
-            app.ExtendedHelpText = "Publishes queue messages and/or initializes exchange and queue. " + Environment.NewLine +
-                "Pass --init to initialize exchange and queue otherwise all messsages published.";
+            app.ExtendedHelpText = "Publishes queue message(s) and/or initializes exchange and queue.";
 
-            var optionInit = app.Option(
-                template: "-i|--init",
-                description: $"If set exchange is created and queue or purged if already there.",
-                optionType: CommandOptionType.NoValue);
+            var optionGaugeIds = app.Option(
+                "-g|--gauges <usgsGaugeIds>",
+                "List of USGS gauge ids to publish",
+                CommandOptionType.MultipleValue);
 
-            var optionGaugeIds = app.Option("-g|--gauges <usgsGaugeIds>", "List of USGS gauge ids to publish", CommandOptionType.MultipleValue);
+            var optionAll = app.Option(
+                "-a|--all",
+                "Publishes messages to refresh all USGS gauges",
+                CommandOptionType.NoValue
+            );
+
+            var optionTop = app.Option<int>(
+                "-t|--top",
+                "Publishes messages to refresh top N USGS gauges (i.e. limits for bulk testing)",
+                CommandOptionType.SingleValue
+            ).Accepts(o => o.Range(1, 1000));
 
             app.Option("--server.urls <urls>", "PCF server urls", CommandOptionType.SingleValue);
 
             app.OnExecute(() =>
             {
-                if (optionInit.HasValue())
-                {
-                    publisher.Initialize();
-                }
+                publisher.Initialize();
 
                 if (optionGaugeIds.HasValue())
                 {
                     publisher.Publish(optionGaugeIds.Values);
                 }
+                else if (optionTop.HasValue())
+                {
+                    publisher.Publish(top: optionTop.ParsedValue);
+                }
+                else if (optionAll.HasValue())
+                {
+                    publisher.Publish(top: null);
+                }
                 else
                 {
-                    publisher.PublishAll();
+                    Console.WriteLine("Producer initialized, no queue messages published");
                 }
             });
 

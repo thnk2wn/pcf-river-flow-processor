@@ -57,7 +57,7 @@ namespace RiverFlowProducer
             }
         }
 
-        public void PublishAll()
+        public void Publish(int? top = null)
         {
             this.logger.LogDebug("Initializing connection to {host}", this.queueConnectionFactory.HostName);
 
@@ -76,11 +76,13 @@ namespace RiverFlowProducer
                 {
                     csv.Read();
                     csv.ReadHeader();
+                    var read = 0;
 
-                    while (csv.Read())
+                    while (csv.Read() && (top == null || read < top))
                     {
                         var usgsGaugeId = Usgs.FormatGaugeId(csv["UsgsGaugeId"]);
                         PublishOne(queueChannel, usgsGaugeId);
+                        read++;
                     }
                 }
             }
@@ -148,6 +150,6 @@ namespace RiverFlowProducer
 
         void Publish(IEnumerable<string> usgsGaugeIds);
 
-        void PublishAll();
+        void Publish(int? top = null);
     }
 }

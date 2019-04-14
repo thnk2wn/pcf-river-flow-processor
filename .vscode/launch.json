@@ -71,7 +71,6 @@
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/producer/bin/Debug/netcoreapp2.2/river-flow-producer.dll",
             "args": [
-                "--init"
             ],
             "env": {
                 "QUEUE_NAME":"river-flow",
