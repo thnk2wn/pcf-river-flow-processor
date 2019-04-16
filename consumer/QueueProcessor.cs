@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
+using App.Metrics;
+using App.Metrics.Timer;
+using Humanizer;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
@@ -17,17 +21,29 @@ namespace RiverFlowProcessor.Queuing
         private readonly ConnectionFactory queueConnectionFactory;
         private readonly ILogger<IQueueProcessor> logger;
         private readonly IRiverFlowProcessor riverFlowProcessor;
+        private readonly IMetrics metrics;
+        private TimerOptions queueProcessTimer;
 
         public QueueProcessor(
             ConnectionFactory queueConnectionFactory,
             ILogger<IQueueProcessor> logger,
-            IRiverFlowProcessor riverFlowProcessor)
+            IRiverFlowProcessor riverFlowProcessor,
+            IMetrics metrics)
         {
             this.queueConnectionFactory = queueConnectionFactory;
             this.queueConnectionFactory.DispatchConsumersAsync = true;
 
             this.logger = logger;
             this.riverFlowProcessor = riverFlowProcessor;
+            this.metrics = metrics;
+
+            this.queueProcessTimer = new TimerOptions
+            {
+                Name = "Queue Processing Timer",
+                MeasurementUnit = App.Metrics.Unit.Calls,
+                DurationUnit = TimeUnit.Seconds,
+                RateUnit = TimeUnit.Minutes
+            };
         }
 
         public void StartListening()
@@ -72,24 +88,33 @@ namespace RiverFlowProcessor.Queuing
 
         private async Task ProcessMessage(IModel channel, BasicDeliverEventArgs args)
         {
-            string gaugeId = null;
-
-            try
+            using (metrics.Measure.Timer.Time(this.queueProcessTimer))
             {
-                var json = Encoding.UTF8.GetString(args.Body);
-                this.logger.LogTrace("Received river flow request:{0}{1}", Environment.NewLine, json);
+                string gaugeId = null;
+                var sw = Stopwatch.StartNew();
 
-                var request = JsonConvert.DeserializeObject<RiverFlowRequest>(json);
-                gaugeId = Usgs.FormatGaugeId(request.UsgsGaugeId);
-                await this.riverFlowProcessor.Process(gaugeId);
+                try
+                {
+                    var json = Encoding.UTF8.GetString(args.Body);
+                    this.logger.LogTrace("Received river flow request:{0}{1}", Environment.NewLine, json);
 
-                channel.BasicAck(args.DeliveryTag, false);
-            }
-            catch (Exception ex)
-            {
-                this.logger.LogError(ex, "Error processing gauge {gauge}", gaugeId ?? "unknown");
-                channel.BasicNack(args.DeliveryTag, multiple: false, requeue: true);
-                throw;
+                    var request = JsonConvert.DeserializeObject<RiverFlowRequest>(json);
+                    gaugeId = Usgs.FormatGaugeId(request.UsgsGaugeId);
+                    await this.riverFlowProcessor.Process(gaugeId);
+
+                    channel.BasicAck(args.DeliveryTag, false);
+                }
+                catch (Exception ex)
+                {
+                    this.logger.LogError(ex, "Error processing gauge {gauge}", gaugeId ?? "unknown");
+                    channel.BasicNack(args.DeliveryTag, multiple: false, requeue: true);
+                    throw;
+                }
+                finally
+                {
+                    sw.Stop();
+                    this.logger.LogInformation("Processed gauge {gauge} in {time}", gaugeId, sw.Elapsed.Humanize());
+                }
             }
         }
     }

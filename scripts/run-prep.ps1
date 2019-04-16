@@ -7,5 +7,5 @@ Push-Location $PSScriptRoot
 .\producer-init.ps1 -all:$all -top:$top
 
 # start in new window, lots of continual Eureka output
-Invoke-Expression 'cmd /c start powershell -Command { .\start-eureka.ps1 }'
+Invoke-Expression 'cmd /c start powershell -NoProfile -Command { .\start-eureka.ps1 }'
 Pop-Location

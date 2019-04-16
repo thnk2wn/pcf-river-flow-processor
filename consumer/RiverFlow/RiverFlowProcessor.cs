@@ -58,12 +58,11 @@ namespace RiverFlowProcessor.RiverFlow
             usgsGaugeId = Usgs.FormatGaugeId(usgsGaugeId);
             RiverFlowSnapshot flowData = null;
 
-            using(metrics.Measure.Timer.Time(this.requestTimer))
+            using (metrics.Measure.Timer.Time(this.requestTimer))
             {
                 flowData = await this.GetRiverFlowData(usgsGaugeId);
             }
 
-            // TODO: consider new column on Gauge to indicate date last checked in event we checked but no gauge values reported.
             if (flowData != null)
             {
                 using (metrics.Measure.Timer.Time(this.recordTimer))

@@ -68,7 +68,7 @@ namespace RiverFlowApi.Data.Services
         {
             var existingLatestReport = await this.riverDbContext
                 .GaugeReport
-                .SingleOrDefaultAsync(r => r.UsgsGaugeId == usgsGaugeId);
+                .SingleOrDefaultAsync(r => r.UsgsGaugeId == usgsGaugeId && r.Latest);
 
             if (existingLatestReport != null)
             {

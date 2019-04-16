@@ -1,12 +1,9 @@
 using System;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using RiverFlowProcessor.Http;
 using Steeltoe.Common.Discovery;
-using Steeltoe.Extensions.Configuration.CloudFoundry;
 
 namespace RiverFlowProcessor.RiverFlow
 {
@@ -15,6 +12,7 @@ namespace RiverFlowProcessor.RiverFlow
         private readonly ILogger<IFlowClient> logger;
         private readonly DiscoveryHttpClientHandler discoveryClientHandler;
         private readonly IDiscoveryClient discoveryClient;
+        private HttpClient httpClient;
         private const string riverFlowApi = "river-flow-api";
         private const string RecordFlowUrl = "https://" + riverFlowApi + "/flow";
         private Uri apiBaseUri;
@@ -40,7 +38,7 @@ namespace RiverFlowProcessor.RiverFlow
             try
             {
                 gaugeId = snapshot.Site.UsgsGaugeId;
-                var client = CreateHttpClient();
+                var client = GetHttpClient();
                 var uri = this.apiBaseUri ?? (apiBaseUri = this.GetApiBaseUri());
                 this.logger.LogInformation(
                     "Posting to '{recordFlowUrl}' ({uri}) for gauge '{gaugeId}'",
@@ -66,17 +64,18 @@ namespace RiverFlowProcessor.RiverFlow
 
             if (instances?.Count != 1)
             {
-                throw new InvalidOperationException($"{instances?.Count} instances found for {riverFlowApi}. Expected 1");
+                throw new InvalidOperationException(
+                    $"{instances?.Count} instances found for {riverFlowApi}. Expected 1");
             }
 
             var uri = instances[0].Uri;
             return uri;
         }
 
-        private HttpClient CreateHttpClient()
+        private HttpClient GetHttpClient()
         {
-            var client = new HttpClient(this.discoveryClientHandler, disposeHandler: false);
-            return client;
+            return this.httpClient
+                ?? (this.httpClient = new HttpClient(this.discoveryClientHandler, disposeHandler: false));
         }
     }
 

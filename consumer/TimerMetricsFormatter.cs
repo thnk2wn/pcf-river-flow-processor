@@ -15,7 +15,8 @@ namespace RiverFlowProcessor
 
         public MetricFields MetricFields { get; set; }
 
-        public Task WriteAsync(Stream output,
+        public async Task WriteAsync(
+            Stream output,
             MetricsDataValueSource snapshot,
             CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -23,15 +24,14 @@ namespace RiverFlowProcessor
             {
                 foreach (var timer in snapshot.Contexts.SelectMany(c => c.Timers))
                 {
-                    writer.WriteLineAsync(
+                    await writer.WriteLineAsync(
                         $"{timer.Name} - " +
                         $"{timer.Value.Rate.Count} total. Rates: " +
-                        $"{timer.Value.Rate.OneMinuteRate:0.0} 1-min, " +
-                        $"{timer.Value.Rate.FiveMinuteRate:0.0} 5-min. #metric");
+                        $"{timer.Value.Rate.MeanRate:0} mean, " +
+                        $"{timer.Value.Rate.OneMinuteRate:0} 1-min, " +
+                        $"{timer.Value.Rate.FiveMinuteRate:0} 5-min. #metric");
                 }
             }
-
-            return Task.CompletedTask;
         }
     }
 }
