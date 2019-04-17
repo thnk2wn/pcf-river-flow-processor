@@ -1,3 +1,5 @@
+using System;
+
 namespace RiverFlowApi.Data.DTO
 {
     public class StateFlowSummaryDTO
@@ -28,6 +30,8 @@ namespace RiverFlowApi.Data.DTO
 
         public class ValueDTO
         {
+            public DateTimeOffset AsOf { get; set; }
+
             public string Code { get; set; }
 
             public string Name { get; set; }

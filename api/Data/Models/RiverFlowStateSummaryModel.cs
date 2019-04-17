@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace RiverFlowApi.Data.Models
@@ -24,15 +25,29 @@ namespace RiverFlowApi.Data.Models
 
             public string Name { get; set; }
 
-            public double? HeightFeet { get; set; }
-
-            public double? FlowCFS { get; set; }
-
-            public string AsOfDuration { get; set; }
+            public GaugeReadingModel LatestReading { get; set; }
 
             public override string ToString()
             {
                 return $"{UsgsGaugeId} - {Name}";
+            }
+        }
+
+        public class GaugeReadingModel
+        {
+            public DateTimeOffset AsOf { get; set; }
+
+            public string AsOfAgo { get; set; }
+
+            public double? HeightFeet { get; set; }
+
+            public double? FlowCFS { get; set; }
+
+            public string UsgsGaugeUrl { get; set; }
+
+            public override string ToString()
+            {
+                return $"{AsOf} - {HeightFeet} height/ft, {FlowCFS} flow/cfs";
             }
         }
     }

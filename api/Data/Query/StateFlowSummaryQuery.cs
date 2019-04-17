@@ -29,10 +29,10 @@ namespace RiverFlowApi.Data.Query
             var ctx = this.riverDbContext;
 
             var rawFlowData = await (
-                from gaugeValue in ctx.GaugeValue
+                from gaugeReport in ctx.GaugeReport
+                join gaugeValue in ctx.GaugeValue on gaugeReport.ReportId equals gaugeValue.ReportId
                 join variable in ctx.Variable on gaugeValue.Code equals variable.Code
                 join gauge in ctx.Gauge on gaugeValue.UsgsGaugeId equals gauge.UsgsGaugeId
-                join gaugeReport in ctx.GaugeReport on gauge.UsgsGaugeId equals gaugeReport.UsgsGaugeId
                 join riverGauge in ctx.RiverGauge on gauge.UsgsGaugeId equals riverGauge.UsgsGaugeId
                 join river in ctx.River on riverGauge.RiverId equals river.RiverId
                 where river.StateCode == state && gaugeReport.Latest
@@ -50,6 +50,7 @@ namespace RiverFlowApi.Data.Query
                     },
                     Value = new StateFlowSummaryDTO.ValueDTO
                     {
+                        AsOf = gaugeValue.AsOf,
                         Code = variable.Code,
                         Name = variable.Name,
                         Unit = variable.Unit,

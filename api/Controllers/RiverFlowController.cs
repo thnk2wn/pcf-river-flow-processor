@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Humanizer;
 using Microsoft.AspNetCore.Mvc;
 using RiverFlowApi.Data.Models;
 using RiverFlowApi.Data.Query;
@@ -28,6 +29,7 @@ namespace RiverFlowApi.Controllers
         {
             var stateFlowDtos = await this.stateFlowSummaryQuery.RunListAsync(state);
 
+            // TODO: consider moving below to separate mapping file
             var stateFlowModels = stateFlowDtos
                 .GroupBy(rg => rg.River.Name)
                 .OrderBy(rg => rg.Key)
@@ -44,12 +46,18 @@ namespace RiverFlowApi.Controllers
                             {
                                 Name = item.Gauge.Name,
                                 UsgsGaugeId = item.Gauge.Id,
-                                FlowCFS = grp.SingleOrDefault(_ =>
-                                    _.Gauge.Id == item.Gauge.Id &&
-                                    _.Value.Code == "00060")?.Value?.Value,
-                                HeightFeet = grp.SingleOrDefault(_ =>
-                                    _.Gauge.Id == item.Gauge.Id &&
-                                    _.Value.Code == "00065")?.Value?.Value
+                                LatestReading = new RiverFlowStateSummaryModel.GaugeReadingModel
+                                {
+                                    AsOf = item.Value.AsOf,
+                                    AsOfAgo = (DateTime.UtcNow - item.Value.AsOf).Humanize(),
+                                    FlowCFS = grp.SingleOrDefault(_ =>
+                                        _.Gauge.Id == item.Gauge.Id &&
+                                        _.Value.Code == "00060")?.Value?.Value,
+                                    HeightFeet = grp.SingleOrDefault(_ =>
+                                        _.Gauge.Id == item.Gauge.Id &&
+                                        _.Value.Code == "00065")?.Value?.Value,
+                                    UsgsGaugeUrl = $"https://waterdata.usgs.gov/usa/nwis/uv?{item.Gauge.Id}"
+                                }
                             }).ToList()
                 }).ToList();
 
