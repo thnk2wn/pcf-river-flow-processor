@@ -49,7 +49,7 @@ namespace RiverFlowApi.Controllers
                                 LatestReading = new RiverFlowStateSummaryModel.GaugeReadingModel
                                 {
                                     AsOf = item.Value.AsOf,
-                                    AsOfAgo = (DateTime.UtcNow - item.Value.AsOf).Humanize(),
+                                    AsOfUTC = item.Report.AsOfUTC,
                                     FlowCFS = grp.SingleOrDefault(_ =>
                                         _.Gauge.Id == item.Gauge.Id &&
                                         _.Value.Code == "00060")?.Value?.Value,

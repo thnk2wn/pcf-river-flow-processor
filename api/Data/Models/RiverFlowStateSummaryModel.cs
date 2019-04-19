@@ -37,7 +37,7 @@ namespace RiverFlowApi.Data.Models
         {
             public DateTimeOffset AsOf { get; set; }
 
-            public string AsOfAgo { get; set; }
+            public DateTimeOffset AsOfUTC { get; set; }
 
             public double? HeightFeet { get; set; }
 

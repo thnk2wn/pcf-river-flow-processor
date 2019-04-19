@@ -102,7 +102,7 @@ namespace RiverFlowApi.Data.Entities
 
             modelBuilder.Entity<GaugeValue>(e =>
             {
-                e.HasKey(gv => new { gv.AsOfUTC, gv.UsgsGaugeId, gv.Code });
+                e.HasKey(gv => new { gv.AsOf, gv.UsgsGaugeId, gv.Code });
 
                 e.Property(gv => gv.UsgsGaugeId)
                     .HasMaxLength(gaugeLength)

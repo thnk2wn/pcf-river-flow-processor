@@ -51,6 +51,25 @@ namespace RiverFlowApi.Data.Services
                 Gauge = gauge
             };
 
+            var gaugeValuesSameDate = snapshot
+                .Values
+                .Select(v => v.AsOf)
+                .Distinct()
+                .Count() == snapshot.Values.Count;
+
+            if (gaugeValuesSameDate)
+            {
+                gaugeReport.AsOf = snapshot.Values.First().AsOf;
+            }
+            else
+            {
+                gaugeReport.AsOf = snapshot.Values.Max(v => v.AsOf);
+                this.logger.LogInformation(
+                    "{gauge}: Different as of dates for variables in same report (unexpected), using latest: {date}",
+                    usgsGaugeId,
+                    gaugeReport.AsOf);
+            }
+
             foreach (var dataValue in snapshot.Values)
             {
                 var gaugeValue = await this.RecordValue(dataValue, snapshot, gaugeReport);
@@ -113,7 +132,7 @@ namespace RiverFlowApi.Data.Services
         {
             var exists = await this.riverDbContext
                 .GaugeValue
-                .AnyAsync(gv => gv.AsOfUTC == snapshot.AsOfUTC
+                .AnyAsync(gv => gv.AsOf == value.AsOf
                     && gv.UsgsGaugeId == snapshot.Site.UsgsGaugeId
                     && gv.Code == value.Code);
 
@@ -122,7 +141,6 @@ namespace RiverFlowApi.Data.Services
                 var gaugeValue = new GaugeValue
                 {
                     AsOf = value.AsOf,
-                    AsOfUTC = snapshot.AsOfUTC,
                     Code = value.Code,
                     Report = report,
                     UsgsGaugeId = snapshot.Site.UsgsGaugeId,

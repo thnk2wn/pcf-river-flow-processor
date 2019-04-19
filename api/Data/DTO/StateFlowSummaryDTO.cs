@@ -28,9 +28,18 @@ namespace RiverFlowApi.Data.DTO
             }
         }
 
+        public class ReportDTO
+        {
+            public DateTimeOffset AsOf { get; set; }
+
+            public DateTimeOffset AsOfUTC { get; set; }
+        }
+
         public class ValueDTO
         {
             public DateTimeOffset AsOf { get; set; }
+
+            public DateTimeOffset AsOfUTC { get; set; }
 
             public string Code { get; set; }
 
@@ -51,6 +60,8 @@ namespace RiverFlowApi.Data.DTO
         public GaugeDTO Gauge { get; set; }
 
         public ValueDTO Value { get; set; }
+
+        public ReportDTO Report { get; set; }
 
         public override string ToString()
         {

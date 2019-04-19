@@ -4,8 +4,6 @@ namespace RiverFlowApi.Data.Entities
 {
     public class GaugeValue
     {
-        public DateTimeOffset AsOfUTC { get; set; }
-
         public DateTimeOffset AsOf {get; set; }
 
         public string UsgsGaugeId { get; set; }

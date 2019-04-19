@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using App.Metrics;
+using App.Metrics.Counter;
 using App.Metrics.Timer;
 using Humanizer;
 using Microsoft.Extensions.Logging;
@@ -23,6 +24,7 @@ namespace RiverFlowProcessor.Queuing
         private readonly IRiverFlowProcessor riverFlowProcessor;
         private readonly IMetrics metrics;
         private TimerOptions queueProcessTimer;
+        private CounterOptions failureCounter;
 
         public QueueProcessor(
             ConnectionFactory queueConnectionFactory,
@@ -43,6 +45,13 @@ namespace RiverFlowProcessor.Queuing
                 MeasurementUnit = App.Metrics.Unit.Calls,
                 DurationUnit = TimeUnit.Seconds,
                 RateUnit = TimeUnit.Minutes
+            };
+
+            this.failureCounter = new CounterOptions
+            {
+                Name = "Queue Processing Failures",
+                MeasurementUnit = App.Metrics.Unit.Errors,
+                ReportItemPercentages = true
             };
         }
 
@@ -108,6 +117,7 @@ namespace RiverFlowProcessor.Queuing
                 {
                     this.logger.LogError(ex, "Error processing gauge {gauge}", gaugeId ?? "unknown");
                     channel.BasicNack(args.DeliveryTag, multiple: false, requeue: true);
+                    this.metrics.Measure.Counter.Increment(this.failureCounter);
                     throw;
                 }
                 finally

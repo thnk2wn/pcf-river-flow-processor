@@ -110,12 +110,12 @@ namespace RiverFlowProcessor
         {
             var filter = new MetricsFilter().WhereType(MetricType.Timer);
             var metrics = new MetricsBuilder()
-                .OutputMetrics.Using<TimerMetricsFormatter>()
+                .OutputMetrics.Using<MetricsFormatter>()
                 .Report.ToConsole(
                     options => {
-                        options.FlushInterval = TimeSpan.FromSeconds(60);
+                        options.FlushInterval = TimeSpan.FromSeconds(30);
                         options.Filter = filter;
-                        options.MetricsOutputFormatter = new TimerMetricsFormatter();
+                        options.MetricsOutputFormatter = new MetricsFormatter();
                     })
                 .Build();
             return metrics;

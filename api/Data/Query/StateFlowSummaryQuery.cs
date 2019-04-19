@@ -55,6 +55,11 @@ namespace RiverFlowApi.Data.Query
                         Name = variable.Name,
                         Unit = variable.Unit,
                         Value = gaugeValue.Value
+                    },
+                    Report = new StateFlowSummaryDTO.ReportDTO
+                    {
+                        AsOf = gaugeReport.AsOf,
+                        AsOfUTC = gaugeReport.AsOfUTC
                     }
                 }
             ).ToListAsync();

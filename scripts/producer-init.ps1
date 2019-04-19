@@ -20,6 +20,9 @@ do {
         "Starting producer with full queue population"
         dotnet run -- --all
     }
+    else {
+        dotnet run
+    }
 
     if ($?) {
         "Producer ran okay"
