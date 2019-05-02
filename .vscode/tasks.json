@@ -39,6 +39,20 @@
                 "panel": "new"
             },
             "problemMatcher": []
-        }
+        },
+        {
+            "label": "unit tests",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/tests/unit/river-flow-tests-unit.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
     ]
 }

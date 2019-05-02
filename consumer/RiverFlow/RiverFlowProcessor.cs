@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Polly;
-using RiverFlow.Shared;
+using RiverFlow.Common;
 using RiverFlowProcessor.USGS;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 using TimeZone = RiverFlowProcessor.USGS.TimeZone;

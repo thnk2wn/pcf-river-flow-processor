@@ -8,7 +8,8 @@ using CsvHelper;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
-using RiverFlow.Shared;
+using RiverFlow.Common;
+using RiverFlow.Queue;
 
 namespace RiverFlowProducer
 {

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "river-flow-processor", "con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "river-flow-producer", "producer\river-flow-producer.csproj", "{B3EF4515-60F0-4463-8467-00190F12C6A8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "river-flow-shared", "shared\river-flow-shared.csproj", "{4120DFC5-4D8B-4C52-B28F-4888FF8602A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "river-flow-queue", "queue\river-flow-queue.csproj", "{4120DFC5-4D8B-4C52-B28F-4888FF8602A9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "river-flow-api", "api\river-flow-api.csproj", "{6BE4B9DB-4C91-443F-BEEB-24916356548D}"
 EndProject
@@ -30,6 +30,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		lib\Steeltoe.Discovery.ConsulBase.dll = lib\Steeltoe.Discovery.ConsulBase.dll
 		lib\Steeltoe.Discovery.EurekaBase.dll = lib\Steeltoe.Discovery.EurekaBase.dll
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "river-flow-common", "common\river-flow-common.csproj", "{B2851357-F0A9-40D4-BD7F-F889E6C0CCE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B97DF01D-02B1-4DC6-86BD-E26D0953C8D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "river-flow-tests-unit", "tests\unit\river-flow-tests-unit.csproj", "{466688DD-1D28-4D9E-94D9-A320173F2470}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,11 +95,38 @@ Global
 		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Release|x64.Build.0 = Release|Any CPU
 		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Release|x86.ActiveCfg = Release|Any CPU
 		{6BE4B9DB-4C91-443F-BEEB-24916356548D}.Release|x86.Build.0 = Release|Any CPU
+		{B2851357-F0A9-40D4-BD7F-F889E6C0CCE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2851357-F0A9-40D4-BD7F-F889E6C0CCE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2851357-F0A9-40D4-BD7F-F889E6C0CCE4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B2851357-F0A9-40D4-BD7F-F889E6C0CCE4}.Debug|x64.Build.0 = Debug|Any CPU
+		{B2851357-F0A9-40D4-BD7F-F889E6C0CCE4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B2851357-F0A9-40D4-BD7F-F889E6C0CCE4}.Debug|x86.Build.0 = Debug|Any CPU
+		{B2851357-F0A9-40D4-BD7F-F889E6C0CCE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2851357-F0A9-40D4-BD7F-F889E6C0CCE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2851357-F0A9-40D4-BD7F-F889E6C0CCE4}.Release|x64.ActiveCfg = Release|Any CPU
+		{B2851357-F0A9-40D4-BD7F-F889E6C0CCE4}.Release|x64.Build.0 = Release|Any CPU
+		{B2851357-F0A9-40D4-BD7F-F889E6C0CCE4}.Release|x86.ActiveCfg = Release|Any CPU
+		{B2851357-F0A9-40D4-BD7F-F889E6C0CCE4}.Release|x86.Build.0 = Release|Any CPU
+		{466688DD-1D28-4D9E-94D9-A320173F2470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{466688DD-1D28-4D9E-94D9-A320173F2470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{466688DD-1D28-4D9E-94D9-A320173F2470}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{466688DD-1D28-4D9E-94D9-A320173F2470}.Debug|x64.Build.0 = Debug|Any CPU
+		{466688DD-1D28-4D9E-94D9-A320173F2470}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{466688DD-1D28-4D9E-94D9-A320173F2470}.Debug|x86.Build.0 = Debug|Any CPU
+		{466688DD-1D28-4D9E-94D9-A320173F2470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{466688DD-1D28-4D9E-94D9-A320173F2470}.Release|Any CPU.Build.0 = Release|Any CPU
+		{466688DD-1D28-4D9E-94D9-A320173F2470}.Release|x64.ActiveCfg = Release|Any CPU
+		{466688DD-1D28-4D9E-94D9-A320173F2470}.Release|x64.Build.0 = Release|Any CPU
+		{466688DD-1D28-4D9E-94D9-A320173F2470}.Release|x86.ActiveCfg = Release|Any CPU
+		{466688DD-1D28-4D9E-94D9-A320173F2470}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2AA66318-57C2-4D3D-92F6-606B95E0BD87}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{466688DD-1D28-4D9E-94D9-A320173F2470} = {B97DF01D-02B1-4DC6-86BD-E26D0953C8D9}
 	EndGlobalSection
 EndGlobal
