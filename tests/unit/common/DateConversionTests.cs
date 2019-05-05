@@ -60,5 +60,17 @@ namespace RiverFlow.Tests.Unit
             actual.error.Should().NotBeNullOrEmpty();
             actual.date.Should().BeNull();
         }
+
+        [Fact]
+        public void TimezoneMap_CanGetTimezoneInfoForEach()
+        {
+            var dict = DateConversion.TimezoneMap();
+
+            foreach (var item in dict)
+            {
+                var tzi = TimeZoneInfo.FindSystemTimeZoneById(item.Value);
+                tzi.Should().NotBeNull();
+            }
+        }
     }
 }

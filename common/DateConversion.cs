@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace RiverFlow.Common
 {
@@ -9,7 +11,12 @@ namespace RiverFlow.Common
         // TODO: get distinct list after populating everything
         private static Dictionary<string, string> timezoneAbbrevMap = new Dictionary<string, string>
         {
-            {"EST", "Eastern Standard Time"}
+            {"AKST", "Alaskan Standard Time"},
+            {"CST", "Central Standard Time"},
+            {"EST", "Eastern Standard Time"},
+            {"HST", "Hawaiian Standard Time"},
+            {"MST", "Mountain Standard Time"},
+            {"PST", "Pacific Standard Time"}
         };
 
         public static DateTime ForStorage(DateTimeOffset offset)
@@ -37,6 +44,11 @@ namespace RiverFlow.Common
             var tzi = TimeZoneInfo.FindSystemTimeZoneById(timezoneName);
             var date = TimeZoneInfo.ConvertTimeFromUtc(datetime, tzi);
             return (date, null);
+        }
+
+        public static IReadOnlyDictionary<string, string> TimezoneMap()
+        {
+            return new ReadOnlyDictionary<string, string>(timezoneAbbrevMap);
         }
     }
 }
