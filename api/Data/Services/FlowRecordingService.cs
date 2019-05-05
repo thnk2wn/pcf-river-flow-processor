@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using RiverFlow.Common;
 using RiverFlowApi.Configuration;
 using RiverFlowApi.Data.Entities;
 using RiverFlowApi.Data.Models;
@@ -59,11 +60,11 @@ namespace RiverFlowApi.Data.Services
 
             if (gaugeValuesSameDate)
             {
-                gaugeReport.AsOf = snapshot.Values.First().AsOf;
+                gaugeReport.AsOf = DateConversion.ForStorage(snapshot.Values.First().AsOf);
             }
             else
             {
-                gaugeReport.AsOf = snapshot.Values.Max(v => v.AsOf);
+                gaugeReport.AsOf = DateConversion.ForStorage(snapshot.Values.Max(v => v.AsOf));
                 this.logger.LogInformation(
                     "{gauge}: Different as of dates for variables in same report (unexpected), using latest: {date}",
                     usgsGaugeId,
@@ -140,7 +141,7 @@ namespace RiverFlowApi.Data.Services
             {
                 var gaugeValue = new GaugeValue
                 {
-                    AsOf = value.AsOf,
+                    AsOf = DateConversion.ForStorage(value.AsOf),
                     Code = value.Code,
                     Report = report,
                     UsgsGaugeId = snapshot.Site.UsgsGaugeId,
@@ -161,7 +162,7 @@ namespace RiverFlowApi.Data.Services
             if (gauge == null)
             {
                 this.logger.LogWarning(
-                    "Gauge {usgsGaugeId} not found in table. Either missing from data seeding or unknown queue guage id",
+                    "Gauge {usgsGaugeId} not found in table. Either missing from data seeding or unknown queue gauge id",
                     siteInfo.UsgsGaugeId);
                 return null;
             }

@@ -22,6 +22,8 @@ namespace RiverFlowApi.Data.DTO
 
             public string Name { get; set; }
 
+            public string TimeZoneAbbrev { get; set; }
+
             public override string ToString()
             {
                 return $"{Id} - {Name}";
@@ -37,9 +39,9 @@ namespace RiverFlowApi.Data.DTO
 
         public class ValueDTO
         {
-            public DateTimeOffset AsOf { get; set; }
+            public DateTime AsOf { get; set; }
 
-            public DateTimeOffset AsOfUTC { get; set; }
+            public DateTime AsOfUTC { get; set; }
 
             public string Code { get; set; }
 

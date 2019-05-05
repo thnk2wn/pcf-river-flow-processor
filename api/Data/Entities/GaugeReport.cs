@@ -16,9 +16,9 @@ namespace RiverFlowApi.Data.Entities
 
         public bool Latest { get; set; }
 
-        public DateTimeOffset AsOf { get; set; }
+        public DateTime AsOf { get; set; }
 
-        public DateTimeOffset AsOfUTC { get; set; }
+        public DateTime AsOfUTC { get; set; }
 
         public int GaugeValueCount { get; set; }
 

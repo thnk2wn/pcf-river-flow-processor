@@ -3,6 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Humanizer;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using RiverFlow.Common;
 using RiverFlowApi.Data.Models;
 using RiverFlowApi.Data.Query;
 using RiverFlowApi.Data.Services;
@@ -15,13 +17,16 @@ namespace RiverFlowApi.Controllers
     {
         private readonly IStateFlowSummaryQuery stateFlowSummaryQuery;
         private readonly IFlowRecordingService flowRecordingService;
+        private readonly ILogger<RiverFlowController> logger;
 
         public RiverFlowController(
             IStateFlowSummaryQuery stateFlowSummaryQuery,
-            IFlowRecordingService flowRecordingService)
+            IFlowRecordingService flowRecordingService,
+            ILogger<RiverFlowController> logger)
         {
             this.stateFlowSummaryQuery = stateFlowSummaryQuery;
             this.flowRecordingService = flowRecordingService;
+            this.logger = logger;
         }
 
         [HttpGet("{state}/summary")]
@@ -48,7 +53,7 @@ namespace RiverFlowApi.Controllers
                                 UsgsGaugeId = item.Gauge.Id,
                                 LatestReading = new RiverFlowStateSummaryModel.GaugeReadingModel
                                 {
-                                    AsOf = item.Value.AsOf,
+                                    AsOf = GetAsOfDate(item.Value.AsOf, item.Gauge.TimeZoneAbbrev),
                                     AsOfUTC = item.Report.AsOfUTC,
                                     FlowCFS = grp.SingleOrDefault(_ =>
                                         _.Gauge.Id == item.Gauge.Id &&
@@ -62,6 +67,21 @@ namespace RiverFlowApi.Controllers
                 }).ToList();
 
             return this.Ok(stateFlowModels);
+        }
+
+        private DateTime? GetAsOfDate(DateTime date, string timeZoneAbbrev)
+        {
+            var result = DateConversion.ForGaugeSite(date, timeZoneAbbrev);
+
+            if (result.error != null)
+            {
+                this.logger.LogWarning(
+                    "Error converting date '{date}': {reason}",
+                    date,
+                    result.error);
+            }
+
+            return result.date;
         }
 
         [HttpPost]

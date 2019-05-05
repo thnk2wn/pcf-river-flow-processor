@@ -35,7 +35,7 @@ namespace RiverFlowApi.Data.Models
 
         public class GaugeReadingModel
         {
-            public DateTimeOffset AsOf { get; set; }
+            public DateTimeOffset? AsOf { get; set; }
 
             public DateTimeOffset AsOfUTC { get; set; }
 

@@ -47,6 +47,7 @@ namespace RiverFlowApi.Data.Query
                     {
                         Id = gauge.UsgsGaugeId,
                         Name = gauge.Name,
+                        TimeZoneAbbrev = gauge.DefaultZoneAbbrev
                     },
                     Value = new StateFlowSummaryDTO.ValueDTO
                     {
