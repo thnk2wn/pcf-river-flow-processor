@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using RiverFlowApi.Data.Entities;
+using RiverFlowApi.Data.Mapping;
 using RiverFlowApi.Data.Query;
 using RiverFlowApi.Data.Services;
 using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
@@ -40,6 +41,7 @@ namespace RiverFlowApi
 
             services.AddScoped<IFlowRecordingService, FlowRecordingService>();
             services.AddScoped<IStateFlowSummaryQuery, StateFlowSummaryQuery>();
+            services.AddScoped<IStateFlowSummaryMapper, StateFlowSummaryMapper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
