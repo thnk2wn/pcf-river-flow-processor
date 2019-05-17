@@ -14,7 +14,7 @@ namespace RiverFlowProcessor.RiverFlow
         private readonly IDiscoveryClient discoveryClient;
         private HttpClient httpClient;
         private const string riverFlowApi = "river-flow-api";
-        private const string RecordFlowUrl = "https://" + riverFlowApi + "/flow";
+        private const string RecordFlowUrl = "https://" + riverFlowApi + "/gauges/flow";
         private Uri apiBaseUri;
 
         public FlowClient(
