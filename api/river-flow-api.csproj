@@ -30,7 +30,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
-    <PackageReference Include="StackifyMiddleware" Version="3.0.2" />
+    <PackageReference Include="StackifyMiddleware" Version="3.0.4" />
     <PackageReference Include="steeltoe.cloudfoundry.connector.efcore" Version="2.2.0" />
     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.2.0" />
     <PackageReference Include="Steeltoe.Extensions.Configuration.CloudFoundryCore" Version="2.2.0" />
