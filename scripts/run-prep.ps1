@@ -6,7 +6,6 @@ Push-Location $PSScriptRoot
 .\docker-mysql-start.ps1 -mount
 .\docker-cloud-config-start.ps1
 .\producer-init.ps1 -all:$all -top:$top
+.\eureka-start-wait.ps1
 
-# start in new window, lots of continual Eureka output
-Invoke-Expression 'cmd /c start powershell -NoProfile -Command { .\start-eureka.ps1 }'
 Pop-Location

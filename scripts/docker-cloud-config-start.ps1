@@ -12,7 +12,7 @@ do {
 
     $v = "$($configPath):/config"
 
-    docker run -d -p 8888:8888 --rm --name cloud-config `
+    docker run -d -p 8888:8888 --rm --name $name `
         -v $v `
         -e SPRING_PROFILES_ACTIVE=native `
         -e SPRING_CLOUD_CONFIG_SERVER_ACCEPT-EMPTY=false `
