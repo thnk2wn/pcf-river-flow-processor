@@ -7,7 +7,12 @@ $startSuccess = $false
 # https://stackoverflow.com/questions/54217076/docker-port-bind-fails-why-a-permission-denied
 
 do {
-    docker ps -a -f name=$name -q | ForEach-Object { "Stopping $name container"; docker stop $_; docker rm $_ }
+    docker ps -a -f name=$name -q | ForEach-Object {
+        "Stopping $name container"
+        docker stop $_ | Out-Null
+        docker rm $_ | Out-Null
+    }
+
     # https://hub.docker.com/_/rabbitmq
     docker run -d --hostname local-rabbit --name $name -p 5672:5672 -p 8080:15672 rabbitmq:3-management
 
@@ -28,19 +33,18 @@ if (!$startSuccess) {
 
 $webMgtUrl = "http://localhost:8080"
 
-"Checking RabbitMQ status..."
+"Checking RabbitMQ status. Test url: $webMgtUrl"
 $attempts = 0
 $maxAttempts = 10
 
 do {
-    Start-Sleep ($attempts + 1)
+    Start-Sleep ($attempts + 2)
     $conns5672 = Get-NetTCPConnection -LocalPort 5672 -State Listen -ErrorVariable $err -ErrorAction SilentlyContinue
     $conns8080 = Get-NetTCPConnection -LocalPort 8080 -State Listen -ErrorVariable $err -ErrorAction SilentlyContinue
 
     $status = -1
 
     try {
-        "Testing $webMgtUrl"
         $status = Invoke-WebRequest $webMgtUrl | ForEach-Object {$_.StatusCode}
     }
     catch {

@@ -9,7 +9,11 @@ $maxAttempts = 3
 $startSuccess = $false
 
 do {
-    docker ps -a -f name=$name -q | ForEach-Object { "Stopping $name container"; docker stop $_; docker rm $_ }
+    docker ps -a -f name=$name -q | ForEach-Object {
+        "Stopping $name container"
+        docker stop $_ | Out-Null
+        docker rm $_ | Out-Null
+    }
 
     # https://hub.docker.com/_/mysql
 
@@ -42,7 +46,7 @@ $maxAttempts = 10
 "Checking MySQL status..."
 
 do {
-    Start-Sleep ($attempts + 1)
+    Start-Sleep ($attempts + 2)
     $conns = Get-NetTCPConnection -LocalPort 3306 -State Listen -ErrorVariable $err -ErrorAction SilentlyContinue
 
     if ($conns -and $conns.Length -gt 0) {

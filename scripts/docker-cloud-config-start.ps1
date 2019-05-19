@@ -7,7 +7,12 @@ $maxAttempts = 3
 $configPath = (Get-Item (Join-Path $PSScriptRoot "../../river-flow-config/local")).FullName.Replace("\", "/")
 
 do {
-    docker ps -a -f name=$name -q | ForEach-Object { "Stopping $name container"; docker stop $_; docker rm $_ }
+    docker ps -a -f name=$name -q | ForEach-Object {
+        "Stopping $name container"
+        docker stop $_ | Out-Null
+        docker rm $_ | Out-Null
+    }
+
     # https://hub.docker.com/r/hyness/spring-cloud-config-server/
 
     $v = "$($configPath):/config"
@@ -36,17 +41,16 @@ if (!$startSuccess) {
 
 $configServerTestUrl = "http://localhost:8888/river-flow-processor/local"
 
-"Checking Cloud Config status..."
+"Checking Cloud Config status. Test url: $configServerTestUrl"
 $attempts = 0
 $maxAttempts = 10
 
 do {
-    Start-Sleep ($attempts + 1)
+    Start-Sleep ($attempts + 2)
 
     $status = -1
 
     try {
-        "Testing $configServerTestUrl"
         $status = Invoke-WebRequest $configServerTestUrl | ForEach-Object {$_.StatusCode}
     }
     catch {
