@@ -14,6 +14,7 @@ using Steeltoe.CloudFoundry.Connector.RabbitMQ;
 using Steeltoe.Common.Discovery;
 using Steeltoe.Discovery.Client;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
+using Steeltoe.Extensions.Configuration.ConfigServer;
 
 namespace RiverFlowProcessor
 {
@@ -36,6 +37,7 @@ namespace RiverFlowProcessor
                 .AddJsonFile($"appsettings.{envName}.json", optional: false)
                 .AddEnvironmentVariables()
                 .AddCloudFoundry()
+                .AddConfigServer(envName)
                 .Build();
 
             var services = new ServiceCollection();

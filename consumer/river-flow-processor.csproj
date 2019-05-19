@@ -46,6 +46,7 @@
     <PackageReference Include="RabbitMQ.Client" Version="5.1.0" />
     <PackageReference Include="Steeltoe.CloudFoundry.ConnectorCore" Version="2.2.0" />
     <PackageReference Include="Steeltoe.Common.Http" Version="2.2.0" />
+    <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>

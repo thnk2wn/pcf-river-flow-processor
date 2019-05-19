@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CsvHelper;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RiverFlow.Common;
@@ -17,16 +18,17 @@ namespace RiverFlowProducer
     {
         private readonly ConnectionFactory queueConnectionFactory;
         private readonly ILogger<IQueuePublisher> logger;
-        private readonly QueueProperties queueProps;
+        private readonly QueueConfig queueConfig;
         private int publishCount;
 
         public QueuePublisher(
             ConnectionFactory queueConnectionFactory,
-            ILogger<IQueuePublisher> logger)
+            ILogger<IQueuePublisher> logger,
+            IOptions<QueueConfig> queueOptions)
         {
             this.queueConnectionFactory = queueConnectionFactory;
             this.logger = logger;
-            this.queueProps = new QueueProperties();
+            this.queueConfig = queueOptions.Value;
         }
 
         public void Initialize()
@@ -94,23 +96,24 @@ namespace RiverFlowProducer
             this.logger.LogDebug(
                 "Connected to {host}. Declaring queue {queue}",
                 queueConn.Endpoint.HostName,
-                this.queueProps.QueueName);
+                this.queueConfig.QueueName);
 
             SetupExchangeAndQueue(queueChannel);
 
-            queueChannel.QueuePurge(this.queueProps.QueueName);
+            queueChannel.QueuePurge(this.queueConfig.QueueName);
         }
 
         private void SetupExchangeAndQueue(IModel channel)
         {
-            channel.ExchangeDeclare(QueueProperties.Exchange, ExchangeType.Direct);
+            channel.ExchangeDeclare(this.queueConfig.Exchange, ExchangeType.Direct);
 
-            this.queueProps.DeclareQueue(channel);
+            var queueSetup = new QueueSetup(this.queueConfig);
+            queueSetup.DeclareQueue(channel);
 
             channel.QueueBind(
-                queue: this.queueProps.QueueName,
-                exchange: QueueProperties.Exchange,
-                routingKey: QueueProperties.DefaultRoutingKey,
+                queue: this.queueConfig.QueueName,
+                exchange: this.queueConfig.Exchange,
+                routingKey: this.queueConfig.DefaultRoutingKey,
                 arguments: null);
         }
 
@@ -128,8 +131,8 @@ namespace RiverFlowProducer
                 usgsGaugeId);
 
             queueChannel.BasicPublish(
-                exchange: QueueProperties.Exchange,
-                routingKey: QueueProperties.DefaultRoutingKey,
+                exchange: this.queueConfig.Exchange,
+                routingKey: this.queueConfig.DefaultRoutingKey,
                 basicProperties: props,
                 body: messageBody);
         }
@@ -139,8 +142,8 @@ namespace RiverFlowProducer
             IBasicProperties props = queueChannel.CreateBasicProperties();
             props.ContentType = "application/json";
             props.DeliveryMode = 2;
-            props.Persistent = true;
-            props.Expiration = QueueProperties.ExpirationMs.ToString();
+            props.Persistent = false; // TODO: move to config
+            props.Expiration = this.queueConfig.ExpirationMs.ToString();
             return props;
         }
     }
