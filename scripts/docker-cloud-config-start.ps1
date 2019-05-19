@@ -2,15 +2,16 @@ $name = "river-cloud-config"
 
 $attempts = 0
 $startSuccess = $false
+$maxAttempts = 3
 
 $configPath = (Get-Item (Join-Path $PSScriptRoot "../../river-flow-config/local")).FullName.Replace("\", "/")
-"Using config path $configPath"
 
 do {
-    docker ps -a -f name=$name -q | % { docker stop $_; docker rm $_ }
+    docker ps -a -f name=$name -q | ForEach-Object { "Stopping $name container"; docker stop $_; docker rm $_ }
     # https://hub.docker.com/r/hyness/spring-cloud-config-server/
 
     $v = "$($configPath):/config"
+    "Starting config server container using config path $configPath"
 
     docker run -d -p 8888:8888 --rm --name $name `
         -v $v `
@@ -25,9 +26,9 @@ do {
 
     $attempts = $attempts + 1
 
-    "Waiting on docker run success, attempts: $attempts"
+    "Waiting on config server docker run success, attempts $attempts of $maxAttempts"
     Start-Sleep 1
-} while ($attempts -lt 3)
+} while ($attempts -lt $maxAttempts)
 
 if (!$startSuccess) {
     throw "Failed to start Spring Cloud Config container."
@@ -37,16 +38,19 @@ $configServerTestUrl = "http://localhost:8888/river-flow-processor/local"
 
 "Checking Cloud Config status..."
 $attempts = 0
+$maxAttempts = 10
+
 do {
     Start-Sleep ($attempts + 1)
 
     $status = -1
 
     try {
+        "Testing $configServerTestUrl"
         $status = Invoke-WebRequest $configServerTestUrl | ForEach-Object {$_.StatusCode}
     }
     catch {
-        Write-Warning "$($_.Exception.Message). Testing $configServerTestUrl"
+        Write-Warning "$($_.Exception.Message)"
     }
 
     if ($status -eq 200) {
@@ -55,5 +59,5 @@ do {
     }
 
     $attempts = $attempts + 1
-    "Cloud config not fully started. Attempts: $attempts. Waiting..."
-} while ($attempts -lt 10)
+    "Cloud config not fully started. Attempts $attempts of $maxAttempts. Waiting..."
+} while ($attempts -lt $maxAttempts)

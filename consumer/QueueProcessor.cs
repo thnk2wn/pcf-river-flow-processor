@@ -42,7 +42,7 @@ namespace RiverFlowProcessor.Queuing
             this.logger = logger;
             this.riverFlowProcessor = riverFlowProcessor;
             this.metrics = metrics;
-            this.queueConfig = queueOptions.Value;
+            this.queueConfig = queueOptions.Value.Validate();
 
             this.queueProcessTimer = new TimerOptions
             {

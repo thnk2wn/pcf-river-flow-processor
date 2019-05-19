@@ -1,9 +1,4 @@
-Push-Location $PSScriptRoot
-
-# start in new window, takes a while, lots of continual Eureka output
-Invoke-Expression 'cmd /c start powershell -NoProfile -Command { .\eureka-start.ps1 }'
-
-$eurekaUrl = "http://localhost:8761/eureka/"
+$eurekaUrl = "http://localhost:8761/eureka/apps/"
 
 "Checking Eureka status..."
 $attempts = 0
@@ -28,7 +23,5 @@ do {
     }
 
     $attempts = $attempts + 1
-    "Eureka not fully started. Attempts: $attempts of $maxAttempts. Waiting..."
+    "Eureka not fully started. Attempts $attempts of $maxAttempts. Waiting..."
 } while ($attempts -lt $maxAttempts)
-
-Pop-Location

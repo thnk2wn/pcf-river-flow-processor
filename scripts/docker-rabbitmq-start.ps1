@@ -1,12 +1,13 @@
 $name = "river-queue"
 
 $attempts = 0
+$maxAttempts = 3
 $startSuccess = $false
 
 # https://stackoverflow.com/questions/54217076/docker-port-bind-fails-why-a-permission-denied
 
 do {
-    docker ps -a -f name=$name -q | % { docker stop $_; docker rm $_ }
+    docker ps -a -f name=$name -q | ForEach-Object { "Stopping $name container"; docker stop $_; docker rm $_ }
     # https://hub.docker.com/_/rabbitmq
     docker run -d --hostname local-rabbit --name $name -p 5672:5672 -p 8080:15672 rabbitmq:3-management
 
@@ -17,9 +18,9 @@ do {
 
     $attempts = $attempts + 1
 
-    "Waiting on docker run success, attempts: $attempts"
+    "Waiting on RabbitMQ docker run success, attempts: $attempts of $maxAttempts"
     Start-Sleep 1
-} while ($attempts -lt 3)
+} while ($attempts -lt $maxAttempts)
 
 if (!$startSuccess) {
     throw "Failed to start Rabbit MQ container."
@@ -29,6 +30,8 @@ $webMgtUrl = "http://localhost:8080"
 
 "Checking RabbitMQ status..."
 $attempts = 0
+$maxAttempts = 10
+
 do {
     Start-Sleep ($attempts + 1)
     $conns5672 = Get-NetTCPConnection -LocalPort 5672 -State Listen -ErrorVariable $err -ErrorAction SilentlyContinue
@@ -37,10 +40,11 @@ do {
     $status = -1
 
     try {
+        "Testing $webMgtUrl"
         $status = Invoke-WebRequest $webMgtUrl | ForEach-Object {$_.StatusCode}
     }
     catch {
-        Write-Warning "$($_.Exception.Message). Testing $webMgtUrl"
+        Write-Warning "$($_.Exception.Message)"
     }
 
     if ($conns5672 -and $conns5672.Length -gt 0 -and $conns8080 -and $conns8080.Length -gt 0 -and $status -eq 200) {
@@ -51,5 +55,5 @@ do {
     }
 
     $attempts = $attempts + 1
-    "RabbitMQ not fully started. Attempts: $attempts. Waiting..."
-} while ($attempts -lt 10)
+    "RabbitMQ not fully started. Attempts: $attempts of $maxAttempts. Waiting..."
+} while ($attempts -lt $maxAttempts)

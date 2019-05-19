@@ -28,7 +28,7 @@ namespace RiverFlowProducer
         {
             this.queueConnectionFactory = queueConnectionFactory;
             this.logger = logger;
-            this.queueConfig = queueOptions.Value;
+            this.queueConfig = queueOptions.Value.Validate();
         }
 
         public void Initialize()

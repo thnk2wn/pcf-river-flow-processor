@@ -6,12 +6,15 @@ $eurekaLocalPath = "C:\Projects\eureka"
 $env:JAVA_HOME = "C:\Program Files\Java\jdk1.8.0_191"
 
 if (!(Test-Path $eurekaLocalPath)) {
+    "Cloning Eureka"
     git clone https://github.com/spring-cloud-samples/eureka.git $eurekaLocalPath
 }
 
 Push-Location $eurekaLocalPath
-git pull
+"Pulling Eureka from Github"
+git pull -p
 
+"Running Eureka"
 # This will take some time on the initial run
 .\mvnw spring-boot:run
 Pop-Location
