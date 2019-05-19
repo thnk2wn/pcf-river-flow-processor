@@ -141,8 +141,7 @@ namespace RiverFlowProducer
         {
             IBasicProperties props = queueChannel.CreateBasicProperties();
             props.ContentType = "application/json";
-            props.DeliveryMode = 2;
-            props.Persistent = false; // TODO: move to config
+            props.DeliveryMode = this.queueConfig.DeliveryMode;
             props.Expiration = this.queueConfig.ExpirationMs.ToString();
             return props;
         }

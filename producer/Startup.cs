@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Steeltoe.CloudFoundry.Connector.RabbitMQ;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 using Microsoft.Extensions.Logging;
+using RiverFlow.Queue;
+using Steeltoe.Extensions.Configuration.ConfigServer;
 
 namespace RiverFlowProducer
 {
@@ -18,8 +20,9 @@ namespace RiverFlowProducer
                 .SetBasePath(Environment.CurrentDirectory)
                 .AddJsonFile("appsettings.json", optional: false)
                 .AddJsonFile($"appsettings.{envName}.json", optional: false)
-                .AddEnvironmentVariables()
-                .AddCloudFoundry();
+                .AddConfigServer()
+                .AddCloudFoundry()
+                .AddEnvironmentVariables();
             var configuration = builder.Build();
 
             var services = new ServiceCollection();
@@ -37,7 +40,8 @@ namespace RiverFlowProducer
                 })
                 .AddRabbitMQConnection(configuration)
                 .AddOptions()
-                .ConfigureCloudFoundryOptions(configuration);
+                .ConfigureCloudFoundryOptions(configuration)
+                .Configure<QueueConfig>(configuration.GetSection("QueueConfig"));
 
             services.AddScoped<IQueuePublisher, QueuePublisher>();
         }

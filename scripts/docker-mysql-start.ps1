@@ -41,8 +41,13 @@ do {
     $conns = Get-NetTCPConnection -LocalPort 3306 -State Listen -ErrorVariable $err -ErrorAction SilentlyContinue
 
     if ($conns -and $conns.Length -gt 0) {
-        "MySQL started"
-        break;
+        # port may be open but mysql may not be fully started. test a command
+        docker exec river-mysql mysql --user=root --password=pwd --execute='show databases;'
+
+        if ($?) {
+            "MySQL started"
+            break;
+        }
     }
 
     $attempts = $attempts + 1

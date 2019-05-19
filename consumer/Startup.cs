@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Polly;
 using Polly.Extensions.Http;
+using RiverFlow.Queue;
 using RiverFlowProcessor.Queuing;
 using RiverFlowProcessor.RiverFlow;
 using RiverFlowProcessor.USGS;
@@ -61,7 +62,8 @@ namespace RiverFlowProcessor
                 .AddHttpClient()
                 .AddOptions()
                 .AddDiscoveryClient(configuration)
-                .ConfigureCloudFoundryOptions(configuration);
+                .ConfigureCloudFoundryOptions(configuration)
+                .Configure<QueueConfig>(configuration.GetSection("QueueConfig"));
 
             services.AddHttpClient<IUsgsIvClient, UsgsIvClient>()
                 .AddPolicyHandler((svcProvider, request) => HttpPolicyExtensions.HandleTransientHttpError()

@@ -17,4 +17,3 @@ applications:
   - registry-svc
   env:
     ASPNETCORE_ENVIRONMENT: Development
-    QUEUE_NAME: river-flow

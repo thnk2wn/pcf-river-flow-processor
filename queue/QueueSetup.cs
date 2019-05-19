@@ -23,7 +23,7 @@ namespace RiverFlow.Queue
 
                 // Durable incurrs more disk I/O. We'll likely get flow data every hour (same messages).
                 // Not critical if rabbitmq restart leads to some messages not getting processed.
-                durable: false,
+                durable: this.config.Durable,
 
                 exclusive: false,
                 autoDelete: false,

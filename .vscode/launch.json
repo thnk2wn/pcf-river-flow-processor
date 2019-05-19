@@ -45,8 +45,7 @@
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Local",
-                "QUEUE_NAME": "river-flow"
+                "ASPNETCORE_ENVIRONMENT": "Local"
             }
         },
         {
@@ -60,8 +59,7 @@
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Local",
-                "QUEUE_NAME": "river-flow"
+                "ASPNETCORE_ENVIRONMENT": "Local"
             }
         },
         {
@@ -73,7 +71,6 @@
             "args": [
             ],
             "env": {
-                "QUEUE_NAME":"river-flow",
                 "ASPNETCORE_ENVIRONMENT": "Local"
             },
             "cwd": "${workspaceFolder}/producer",
@@ -91,7 +88,6 @@
                 "03539600"
             ],
             "env": {
-                "QUEUE_NAME":"river-flow",
                 "ASPNETCORE_ENVIRONMENT": "Local"
             },
             "cwd": "${workspaceFolder}/producer",

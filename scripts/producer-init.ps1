@@ -1,7 +1,6 @@
 param([switch]$all, [int]$top)
 
 Push-Location ..\producer
-$env:QUEUE_NAME = "river-flow"
 
 $attempts = 0
 
