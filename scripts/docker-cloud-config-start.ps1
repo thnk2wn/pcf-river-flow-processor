@@ -1,3 +1,4 @@
+$image = "hyness/spring-cloud-config-server"
 $name = "river-cloud-config"
 
 $attempts = 0
@@ -16,13 +17,13 @@ do {
     # https://hub.docker.com/r/hyness/spring-cloud-config-server/
 
     $v = "$($configPath):/config"
-    "Starting config server container using config path $configPath"
+    "Starting $image container using config path $configPath"
 
     docker run -d -p 8888:8888 --rm --name $name `
         -v $v `
         -e SPRING_PROFILES_ACTIVE=native `
         -e SPRING_CLOUD_CONFIG_SERVER_ACCEPT-EMPTY=false `
-        hyness/spring-cloud-config-server
+        $image
 
     if ($?) {
         $startSuccess = $true
@@ -31,12 +32,12 @@ do {
 
     $attempts = $attempts + 1
 
-    "Waiting on config server docker run success, attempts $attempts of $maxAttempts"
+    "Waiting on $image docker run success, attempts $attempts of $maxAttempts"
     Start-Sleep 1
 } while ($attempts -lt $maxAttempts)
 
 if (!$startSuccess) {
-    throw "Failed to start Spring Cloud Config container."
+    throw "Failed to start $image container."
 }
 
 $configServerTestUrl = "http://localhost:8888/river-flow-processor/local"
@@ -46,7 +47,7 @@ $attempts = 0
 $maxAttempts = 10
 
 do {
-    Start-Sleep ($attempts + 2)
+    Start-Sleep ($attempts + 3)
 
     $status = -1
 
@@ -58,10 +59,16 @@ do {
     }
 
     if ($status -eq 200) {
-        "Spring cloud config server started at $configServerTestUrl"
+        "$image started. Launching $configServerTestUrl"
+        Start-Process $configServerTestUrl -WindowStyle Minimized
         break;
     }
 
     $attempts = $attempts + 1
-    "Cloud config not fully started. Attempts $attempts of $maxAttempts. Waiting..."
+    "$image not fully started. Attempts $attempts of $maxAttempts. Waiting..."
 } while ($attempts -lt $maxAttempts)
+
+# if you get to this point and it can't seem to find the app, might need to reset docker drive creds if pwd changed
+if ($attempts -eq $maxAttempts) {
+    Write-Warning "Starting $image appeared to fail"
+}

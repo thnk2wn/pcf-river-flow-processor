@@ -19,15 +19,20 @@ Invoke-Expression 'cmd /c start powershell -NoProfile -Command { .\eureka-start.
 .\docker-mysql-start.ps1 -mount
 
 ""
-# Setup queue and seed with message(s) for consumer processing.
+# Start Redis for distributed caching (API)
+.\docker-redis-start.ps1
+
+""
+# Setup queue and seed with message(s) for consumer processing by running producer console app.
 .\producer-init.ps1 -all:$all -top:$top
 
 ""
 # See if Eureka has fully started up yet, if not wait.
 .\eureka-wait.ps1
 
-"Run prep complete`n"
+"Run prep complete. Checking Docker process status`n"
 
+# Show abbreviated docker process status
 docker ps -a --format 'table {{.Names}}\t{{.Image}}\t{{.Ports}}'
 
 Pop-Location

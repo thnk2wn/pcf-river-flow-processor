@@ -30,7 +30,7 @@ do {
 
     $attempts = $attempts + 1
     "Trying producer again. Attempts: $attempts. Waiting..."
-} while ($attempts -lt 3)
+} while ($attempts -lt 2)
 
 
 Pop-Location

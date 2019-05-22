@@ -1,11 +1,7 @@
-param ([switch]$mount)
-
-$image = "mysql"
-$containerName = "river-mysql"
-$hostPort = 3306
-$containerPort = 3306
-
-# https://stackoverflow.com/questions/54217076/docker-port-bind-fails-why-a-permission-denied
+$image = "redis"
+$containerName = "river-cache"
+$hostPort = 6379
+$containerPort = 6379
 
 $attempts = 0
 $maxAttempts = 3
@@ -18,18 +14,10 @@ do {
         docker rm $_ | Out-Null
     }
 
-    # https://hub.docker.com/_/mysql
+    # https://hub.docker.com/_/redis
+    "Starting $image"
     $ports = "$($hostPort):$($containerPort)"
-
-    if ($mount) {
-        $volume = "c:/temp/river-data:/var/lib/mysql"
-        "Starting $image container using volume $volume"
-        docker run -p $ports --name $containerName -e MYSQL_ROOT_PASSWORD=pwd -d -v $volume $image
-    }
-    else {
-        "Starting $image container without volume"
-        docker run -p $ports --name $containerName -e MYSQL_ROOT_PASSWORD=pwd -d $image
-    }
+    docker run -d -p $ports --name $containerName $image
 
     if ($?) {
         $startSuccess = $true
@@ -46,7 +34,7 @@ if (!$startSuccess) {
 }
 
 $attempts = 0
-$maxAttempts = 10
+$maxAttempts = 5
 "Checking $image status..."
 
 do {
@@ -55,11 +43,11 @@ do {
 
     if ($conns -and $conns.Length -gt 0) {
         # port may be open but mysql may not be fully started. test a command
-        "Running $image connectivity test with execution of 'show databases'"
-        docker exec $containerName mysql --user=root --password=pwd --execute='show databases;'
+        "Running $image connectivity test"
+        docker exec $containerName redis-cli
 
         if ($?) {
-            "$iamge started"
+            "$image started"
             break;
         }
     }
