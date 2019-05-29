@@ -5,8 +5,6 @@ $containerName = "river-mysql"
 $hostPort = 3306
 $containerPort = 3306
 
-# https://stackoverflow.com/questions/54217076/docker-port-bind-fails-why-a-permission-denied
-
 $attempts = 0
 $maxAttempts = 3
 $startSuccess = $false
@@ -59,7 +57,7 @@ do {
         docker exec $containerName mysql --user=root --password=pwd --execute='show databases;'
 
         if ($?) {
-            "$iamge started"
+            "$image started"
             break;
         }
     }

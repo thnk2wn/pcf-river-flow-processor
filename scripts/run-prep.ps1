@@ -4,7 +4,7 @@ Push-Location $PSScriptRoot
 
 # Eureka takes longest. start first in new window, takes a while, lots of continual Eureka output
 "Launching Eureka startup in another process"
-Invoke-Expression 'cmd /c start powershell -NoProfile -Command { .\eureka-start.ps1 }'
+Invoke-Expression "cmd /c start powershell -NoProfile -Command { .\eureka-start.ps1 }"
 
 ""
 # Start Spring Cloud Config server for Producer and Consumer configuration.

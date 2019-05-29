@@ -13,5 +13,6 @@ applications:
   command: cd ${HOME} && exec ./river-flow-producer
   services:
   - queue-svc
+  - river-config
   env:
    ASPNETCORE_ENVIRONMENT: Development

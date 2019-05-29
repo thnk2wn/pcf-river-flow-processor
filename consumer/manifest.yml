@@ -15,5 +15,6 @@ applications:
   - usgs-iv
   - autoscale-svc
   - registry-svc
+  - river-config
   env:
     ASPNETCORE_ENVIRONMENT: Development
