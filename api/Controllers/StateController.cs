@@ -11,15 +11,18 @@ namespace RiverFlowApi.Controllers
     public class StateController : ControllerBase
     {
         private readonly IStateFlowSummaryQuery stateFlowSummaryQuery;
+        private readonly IStateRiverGaugeQuery stateRiverGaugeQuery;
         private readonly ILogger<StateController> logger;
         private readonly IStateFlowSummaryMapper mapper;
 
         public StateController(
             IStateFlowSummaryQuery stateFlowSummaryQuery,
+            IStateRiverGaugeQuery stateRiverGaugeQuery,
             ILogger<StateController> logger,
             IStateFlowSummaryMapper mapper)
         {
             this.stateFlowSummaryQuery = stateFlowSummaryQuery;
+            this.stateRiverGaugeQuery = stateRiverGaugeQuery;
             this.logger = logger;
             this.mapper = mapper;
         }
@@ -30,6 +33,14 @@ namespace RiverFlowApi.Controllers
             var stateFlowDtos = await this.stateFlowSummaryQuery.RunListAsync(state);
             var stateFlowModels = mapper.ToStateFlowModels(stateFlowDtos);
             return this.Ok(stateFlowModels);
+        }
+
+        [HttpGet("{state}/rivers")]
+        public async Task<IActionResult> Rivers(string state)
+        {
+            var riverGaugeDtos = await this.stateRiverGaugeQuery.RunListAsync(state);
+            var riverGaugeModels = riverGaugeDtos.ToModels();
+            return this.Ok(riverGaugeModels);
         }
     }
 }

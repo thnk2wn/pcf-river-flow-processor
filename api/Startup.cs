@@ -40,6 +40,7 @@ namespace RiverFlowApi
             services.AddScoped<IFlowRecordingService, FlowRecordingService>();
             services.AddScoped<IStateFlowSummaryQuery, StateFlowSummaryQuery>();
             services.AddScoped<IStateFlowSummaryMapper, StateFlowSummaryMapper>();
+            services.AddScoped<IStateRiverGaugeQuery, StateRiverGaugeQuery>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
