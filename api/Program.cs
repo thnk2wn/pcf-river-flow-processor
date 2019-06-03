@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
+using Steeltoe.Extensions.Configuration.ConfigServer;
+using static Steeltoe.Extensions.Configuration.CloudFoundry.CloudFoundryHostBuilderExtensions;
 
 namespace RiverFlowApi
 {
@@ -14,13 +16,13 @@ namespace RiverFlowApi
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args)
         {
-            return WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
+            var builder = WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>();
 
-                // automatically use environment variable PORT (when present) to set the address the
-                // application is listening on
-                .UseCloudFoundryHosting()
+            // Gets around ambiguity between CloudFoundry and ConfigServer in Steeltoe.Extensions.Configuration:
+            CloudFoundryHostBuilderExtensions.AddCloudFoundry(builder);
 
+            builder
                 // Add VCAP_* configuration data
                 .AddCloudFoundry()
 
@@ -35,6 +37,8 @@ namespace RiverFlowApi
                             optional: false,
                             reloadOnChange: true);
 
+                    config.AddConfigServer(env.EnvironmentName);
+
                     config.AddEnvironmentVariables();
 
                     if (args != null)
@@ -42,6 +46,7 @@ namespace RiverFlowApi
                         config.AddCommandLine(args);
                     }
                 });
+            return builder;
         }
     }
 }

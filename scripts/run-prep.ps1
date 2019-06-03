@@ -16,7 +16,7 @@ Invoke-Expression "cmd /c start powershell -NoProfile -Command { .\eureka-start.
 
 ""
 # Start MySQL container for API. Mount to keep any existing data and not rebuild DB.
-.\docker-mysql-start.ps1 -mount
+.\docker-mysql-start.ps1 #-mount
 
 ""
 # Start Redis for distributed caching (API)

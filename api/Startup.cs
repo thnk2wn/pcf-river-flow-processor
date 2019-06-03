@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +11,6 @@ using RiverFlowApi.Data.Mapping;
 using RiverFlowApi.Data.Query;
 using RiverFlowApi.Data.Services;
 using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
-using Steeltoe.Common.Discovery;
 using Steeltoe.Discovery.Client;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -47,7 +45,10 @@ namespace RiverFlowApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
+            var serviceProvider = app.ApplicationServices;
+            var logger = serviceProvider.GetRequiredService<ILogger<Startup>>();
+
+            if (env.IsDevelopment() || env.IsEnvironment("Local"))
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -58,16 +59,30 @@ namespace RiverFlowApi
 
             app.UseHttpsRedirection();
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "RiverFlow API V1");
-            });
+            var useSwagger = Convert.ToBoolean(Configuration["Meta:SwaggerEnabled"]);
 
-#if DEBUG
-            Console.WriteLine("Adding Stackify tracking middleware");
-            app.UseMiddleware<StackifyMiddleware.RequestTracerMiddleware>();
-#endif
+            if (useSwagger)
+            {
+                logger.LogInformation("Setting up Swagger");
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "RiverFlow API V1");
+                });
+            }
+            else
+            {
+                logger.LogInformation("Swagger is disabled; skipping setup");
+            }
+
+            var addStackifyRequestTracer = Convert.ToBoolean(
+                Configuration["Middleware:AddStackifyRequestTracer"]);
+
+            if (addStackifyRequestTracer)
+            {
+                logger.LogInformation("Adding Stackify tracking middleware");
+                app.UseMiddleware<StackifyMiddleware.RequestTracerMiddleware>();
+            }
 
             app.UseMvc(routes =>
             {
@@ -76,17 +91,16 @@ namespace RiverFlowApi
                     template: "/riverflow");
             });
 
-            var serviceProvider = app.ApplicationServices;
-            var logger = serviceProvider.GetRequiredService<ILogger<Startup>>();
-
             logger.LogInformation("Using service registry via discovery client");
             app.UseDiscoveryClient();
 
-            logger.LogInformation("Ensuring DB is setup");
+            var dbCreateTimeout = Convert.ToInt32(Configuration["Database:CreateTimeoutSeconds"]);
+            logger.LogInformation("Ensuring DB is setup. Create timeout: {timeout}", dbCreateTimeout);
+
             using (var scope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<RiverDbContext>();
-                context.Database.SetCommandTimeout(90);
+                context.Database.SetCommandTimeout(dbCreateTimeout);
                 context.Database.EnsureCreated();
             }
 
