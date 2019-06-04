@@ -38,9 +38,8 @@ namespace RiverFlowApi.Controllers
         [HttpGet("{state}/rivers")]
         public async Task<IActionResult> Rivers(string state)
         {
-            var riverGaugeDtos = await this.stateRiverGaugeQuery.RunListAsync(state);
-            var riverGaugeModels = riverGaugeDtos.ToModels();
-            return this.Ok(riverGaugeModels);
+            var models = await this.stateRiverGaugeQuery.RunListAsync(state);
+            return this.Ok(models);
         }
     }
 }

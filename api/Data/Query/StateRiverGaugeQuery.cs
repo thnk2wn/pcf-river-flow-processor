@@ -6,11 +6,12 @@ using Microsoft.EntityFrameworkCore;
 using RiverFlowApi.Data;
 using RiverFlowApi.Data.DTO;
 using RiverFlowApi.Data.Entities;
+using RiverFlowApi.Data.Models;
 
 namespace RiverFlowApi.Data.Query
 {
     public class StateRiverGaugeQuery
-        : ParameterizedQuery<StateRiverGaugeDTO, string>, IStateRiverGaugeQuery
+        : ParameterizedQuery<StateRiverGaugeModel, string>, IStateRiverGaugeQuery
     {
         private readonly RiverDbContext riverDbContext;
 
@@ -19,7 +20,7 @@ namespace RiverFlowApi.Data.Query
             this.riverDbContext = riverDbContext;
         }
 
-        protected override async Task<IEnumerable<StateRiverGaugeDTO>> QueryAsync(string state)
+        protected override async Task<IEnumerable<StateRiverGaugeModel>> QueryAsync(string state)
         {
             if (string.IsNullOrEmpty(state))
             {
@@ -28,25 +29,29 @@ namespace RiverFlowApi.Data.Query
 
             var ctx = this.riverDbContext;
 
-            var riverGaugeDtos = await (
+            var models = await (
                 from gauge in ctx.Gauge
                 join riverGauge in ctx.RiverGauge on gauge.UsgsGaugeId equals riverGauge.UsgsGaugeId
                 join river in ctx.River on riverGauge.RiverId equals river.RiverId
-                orderby river.RiverSection, gauge.Name
                 where river.StateCode == state
-                select new StateRiverGaugeDTO
+                group riverGauge.Gauge by new {riverGauge.RiverId, river.RiverSection} into grp
+                select new StateRiverGaugeModel
                 {
-                    Altitude = gauge.Altitude,
-                    Lattitude = gauge.Latitude,
-                    Longitude = gauge.Longitude,
-                    Name = gauge.Name,
-                    RiverId = river.RiverId,
-                    RiverSection = river.RiverSection,
-                    UsgsGaugeId = gauge.UsgsGaugeId
+                    RiverId = grp.Key.RiverId,
+                    RiverSection = grp.Key.RiverSection,
+                    Gauges = grp.Select(g => new StateRiverGaugeModel.GaugeModel
+                    {
+                        Altitude = g.Altitude,
+                        Lattitude = g.Latitude,
+                        Longitude = g.Longitude,
+                        Name = g.Name,
+                        UsgsGaugeId = g.UsgsGaugeId
+                    })
+                    .ToList()
                 }
             ).ToListAsync();
 
-            return riverGaugeDtos;
+            return models;
         }
     }
 }
