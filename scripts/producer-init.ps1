@@ -2,6 +2,8 @@ param([switch]$all, [int]$top)
 
 Push-Location ..\producer
 
+dotnet build --no-incremental
+
 $attempts = 0
 
 do {

@@ -95,6 +95,22 @@
             "console": "internalConsole"
         },
         {
+            "name": "Producer Publish All",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/producer/bin/Debug/netcoreapp2.2/river-flow-producer.dll",
+            "args": [
+                "--all"
+            ],
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Local"
+            },
+            "cwd": "${workspaceFolder}/producer",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
             "name": ".NET Core Attach",
             "type": "coreclr",
             "request": "attach",

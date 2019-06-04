@@ -45,7 +45,15 @@ namespace RiverFlowApi.Data.Query
                         Lattitude = g.Latitude,
                         Longitude = g.Longitude,
                         Name = g.Name,
-                        UsgsGaugeId = g.UsgsGaugeId
+                        UsgsGaugeId = g.UsgsGaugeId,
+                        Zone = new StateRiverGaugeModel.SiteZoneInfo
+                        {
+                            DSTZoneAbbrev = g.DSTZoneAbbrev,
+                            DSTZoneOffset = g.DSTZoneOffset,
+                            DefaultZoneAbbrev = g.DefaultZoneAbbrev,
+                            DefaultZoneOffset = g.DefaultZoneOffset,
+                            ZoneUsesDST = g.ZoneUsesDST
+                        }
                     })
                     .ToList()
                 }

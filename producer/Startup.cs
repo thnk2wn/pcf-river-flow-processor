@@ -6,12 +6,19 @@ using Steeltoe.Extensions.Configuration.CloudFoundry;
 using Microsoft.Extensions.Logging;
 using RiverFlow.Queue;
 using Steeltoe.Extensions.Configuration.ConfigServer;
+using RiverFlow.Common;
 
 namespace RiverFlowProducer
 {
-    public class Startup
+    public class Startup : DisposableObject
     {
+        public Startup()
+        {
+        }
+
         public ServiceProvider ServiceProvider { get; private set; }
+
+        private ServiceCollection ServiceCollection { get; set; }
 
         public Startup Configure()
         {
@@ -25,11 +32,19 @@ namespace RiverFlowProducer
                 .AddEnvironmentVariables();
             var configuration = builder.Build();
 
-            var services = new ServiceCollection();
-            ConfigureServices(services, configuration);
-            this.ServiceProvider = services.BuildServiceProvider();
+            this.ServiceCollection = new ServiceCollection();
+            ConfigureServices(this.ServiceCollection, configuration);
+            this.ServiceProvider = this.ServiceCollection.BuildServiceProvider();
 
             return this;
+        }
+
+        protected override void DisposeManagedResources()
+        {
+            Console.WriteLine("Disposing service collection");
+            // required to get logging to flush otherwise those buffered may not get logged when app exits
+            this.ServiceProvider?.Dispose();
+            (this.ServiceCollection as IDisposable)?.Dispose();
         }
 
         private static void ConfigureServices(IServiceCollection services, IConfigurationRoot configuration)
