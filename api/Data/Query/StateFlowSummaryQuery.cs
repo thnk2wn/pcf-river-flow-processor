@@ -13,14 +13,13 @@ namespace RiverFlowApi.Data.Query
     public class StateFlowSummaryQuery
         : ParameterizedQuery<StateFlowSummaryDTO, string>, IStateFlowSummaryQuery
     {
-        private readonly RiverDbContext riverDbContext;
         private readonly ILogger<IStateFlowSummaryQuery> logger;
 
         public StateFlowSummaryQuery(
             RiverDbContext riverDbContext,
             ILogger<IStateFlowSummaryQuery> logger)
+            : base(riverDbContext)
         {
-            this.riverDbContext = riverDbContext;
             this.logger = logger;
         }
 
@@ -31,7 +30,7 @@ namespace RiverFlowApi.Data.Query
                 throw new ArgumentNullException(nameof(state));
             }
 
-            var ctx = this.riverDbContext;
+            var ctx = this.RiverDbContext;
 
             var rawFlowData = await (
                 from gaugeReport in ctx.GaugeReport

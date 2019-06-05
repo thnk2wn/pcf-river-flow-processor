@@ -14,14 +14,13 @@ namespace RiverFlowApi.Data.Query
     public class StateRiverGaugeQuery
         : ParameterizedQuery<StateRiverGaugeModel, string>, IStateRiverGaugeQuery
     {
-        private readonly RiverDbContext riverDbContext;
         private readonly ILogger<IStateRiverGaugeQuery> logger;
 
         public StateRiverGaugeQuery(
             RiverDbContext riverDbContext,
             ILogger<IStateRiverGaugeQuery> logger)
+            : base(riverDbContext)
         {
-            this.riverDbContext = riverDbContext;
             this.logger = logger;
         }
 
@@ -32,7 +31,7 @@ namespace RiverFlowApi.Data.Query
                 throw new ArgumentNullException(nameof(state));
             }
 
-            var ctx = this.riverDbContext;
+            var ctx = this.RiverDbContext;
 
             var models = await (
                 from gauge in ctx.Gauge

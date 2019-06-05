@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using RiverFlowApi.Data.Entities;
 
 namespace RiverFlowApi.Data.Query
 {
     public abstract class ParameterizedQuery<TResult, TParam>
     {
+        protected ParameterizedQuery(RiverDbContext riverDbContext)
+        {
+            RiverDbContext = riverDbContext;
+        }
+
+        public RiverDbContext RiverDbContext { get; }
+
         public event EventHandler<AfterQuerySuccessEventArgs<TResult, TParam>> AfterQuerySuccess;
 
         public event EventHandler<AfterQueryFailureEventArgs<TParam>> AfterQueryFailure;

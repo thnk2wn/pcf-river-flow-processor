@@ -12,19 +12,29 @@ namespace RiverFlowApi.Controllers
     {
         private readonly IStateFlowSummaryQuery stateFlowSummaryQuery;
         private readonly IStateRiverGaugeQuery stateRiverGaugeQuery;
+        private readonly IStateQuery stateQuery;
         private readonly ILogger<StateController> logger;
         private readonly IStateFlowSummaryMapper mapper;
 
         public StateController(
             IStateFlowSummaryQuery stateFlowSummaryQuery,
             IStateRiverGaugeQuery stateRiverGaugeQuery,
+            IStateQuery stateQuery,
             ILogger<StateController> logger,
             IStateFlowSummaryMapper mapper)
         {
             this.stateFlowSummaryQuery = stateFlowSummaryQuery;
             this.stateRiverGaugeQuery = stateRiverGaugeQuery;
+            this.stateQuery = stateQuery;
             this.logger = logger;
             this.mapper = mapper;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> List()
+        {
+            var states = await this.stateQuery.RunListAsync();
+            return this.Ok(states);
         }
 
         [HttpGet("{state}/flow")]
