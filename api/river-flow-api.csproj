@@ -8,8 +8,13 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-   <DefineConstants>TRACE;DEBUG;</DefineConstants>
- </PropertyGroup>
+    <DefineConstants>TRACE;DEBUG;</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
 
   <ItemGroup>
     <None Remove=".cfignore" />
@@ -36,6 +41,7 @@
     <PackageReference Include="Steeltoe.Extensions.Configuration.CloudFoundryCore" Version="2.2.0" />
     <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="2.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="4.5.5" />
   </ItemGroup>
 
   <ItemGroup>

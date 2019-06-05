@@ -9,7 +9,8 @@ using RiverFlow.Common;
 using RiverFlowApi.Configuration;
 using RiverFlowApi.Data.Entities;
 using RiverFlowApi.Data.Models;
-using static RiverFlowApi.Data.Models.RiverFlowSnapshotModel;
+using RiverFlowApi.Data.Models.Gauge;
+using static RiverFlowApi.Data.Models.Gauge.RiverFlowSnapshotModel;
 
 namespace RiverFlowApi.Data.Services
 {

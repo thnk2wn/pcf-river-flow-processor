@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using RiverFlow.Common;
 using RiverFlowApi.Data.DTO;
 using RiverFlowApi.Data.Models;
+using RiverFlowApi.Data.Models.Gauge;
 
 namespace RiverFlowApi.Data.Mapping
 {

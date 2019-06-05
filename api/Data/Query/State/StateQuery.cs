@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using RiverFlowApi.Data.Entities;
 using RiverFlowApi.Data.Models;
+using RiverFlowApi.Data.Models.State;
 
-namespace RiverFlowApi.Data.Query
+namespace RiverFlowApi.Data.Query.State
 {
     public class StateQuery : ParameterizedQuery<StateModel, NoOp>, IStateQuery
     {
@@ -13,7 +14,6 @@ namespace RiverFlowApi.Data.Query
             RiverDbContext riverDbContext
         ) : base(riverDbContext)
         {
-
         }
 
         public async Task<List<StateModel>> RunListAsync()

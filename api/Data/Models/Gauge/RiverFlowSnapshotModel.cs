@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace RiverFlowApi.Data.Models
+namespace RiverFlowApi.Data.Models.Gauge
 {
     public class RiverFlowSnapshotModel
     {

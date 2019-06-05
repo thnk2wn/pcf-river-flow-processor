@@ -8,8 +8,9 @@ using RiverFlowApi.Data;
 using RiverFlowApi.Data.DTO;
 using RiverFlowApi.Data.Entities;
 using RiverFlowApi.Data.Models;
+using RiverFlowApi.Data.Models.Gauge;
 
-namespace RiverFlowApi.Data.Query
+namespace RiverFlowApi.Data.Query.Gauge
 {
     public class StateGaugeQuery
         : ParameterizedQuery<StateGaugeModel, string>, IStateGaugeQuery

@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using RiverFlowApi.Data.Models;
+using RiverFlowApi.Data.Models.Gauge;
 
 namespace RiverFlowApi.Data.Services
 {

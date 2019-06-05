@@ -1,4 +1,4 @@
-namespace RiverFlowApi.Data.Models
+namespace RiverFlowApi.Data.Models.State
 {
     public class StateModel
     {

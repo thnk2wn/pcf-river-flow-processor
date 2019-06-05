@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -9,18 +11,24 @@ using Microsoft.Extensions.Logging;
 using RiverFlowApi.Data.Entities;
 using RiverFlowApi.Data.Mapping;
 using RiverFlowApi.Data.Query;
+using RiverFlowApi.Data.Query.Gauge;
+using RiverFlowApi.Data.Query.State;
 using RiverFlowApi.Data.Services;
 using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
 using Steeltoe.Discovery.Client;
+using Swashbuckle.AspNetCore.Filters;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace RiverFlowApi
 {
     public class Startup
     {
+        private readonly bool useSwagger;
+
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this.Configuration = configuration;
+            this.useSwagger = Convert.ToBoolean(Configuration["Meta:SwaggerEnabled"]);
         }
 
         public IConfiguration Configuration { get; }
@@ -29,11 +37,32 @@ namespace RiverFlowApi
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddDbContext<RiverDbContext>(options => options.UseMySql(Configuration))
-                .AddSwaggerGen(c =>
+                .AddDbContext<RiverDbContext>(options => options.UseMySql(Configuration));
+
+            if (this.useSwagger)
+            {
+                services.AddSwaggerGen(c =>
                 {
-                    c.SwaggerDoc("v1", new Info { Title = "RiverFlow API", Version = "v1" });
-                })
+                    c.SwaggerDoc(
+                        "v1",
+                        new Info
+                        {
+                            Title = "RiverFlow API",
+                            Version = "v1",
+                            Description = "Endpoints for recording and retrieving USGS river gauge readings and related data"
+                        });
+
+                    c.ExampleFilters();
+
+                    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                    c.IncludeXmlComments(xmlPath);
+                });
+
+                services.AddSwaggerExamplesFromAssemblyOf<Startup>();
+            }
+
+            services
                 .AddDiscoveryClient(Configuration)
                 .AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -62,15 +91,14 @@ namespace RiverFlowApi
 
             app.UseHttpsRedirection();
 
-            var useSwagger = Convert.ToBoolean(Configuration["Meta:SwaggerEnabled"]);
-
-            if (useSwagger)
+            if (this.useSwagger)
             {
                 logger.LogInformation("Setting up Swagger");
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "RiverFlow API V1");
+                    c.RoutePrefix = string.Empty;
                 });
             }
             else

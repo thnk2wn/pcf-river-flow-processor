@@ -14,10 +14,10 @@
             "stopAtEntry": false,
             "launchBrowser": {
                 "enabled": true,
-                "args": "${auto-detect-url}/swagger",
+                "args": "${auto-detect-url}",
                 "windows": {
                     "command": "cmd.exe",
-                    "args": "/C start ${auto-detect-url}/swagger"
+                    "args": "/C start ${auto-detect-url}"
                 },
                 "osx": {
                     "command": "open"

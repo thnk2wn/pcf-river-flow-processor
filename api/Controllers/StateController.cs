@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RiverFlowApi.Data.Mapping;
 using RiverFlowApi.Data.Query;
+using RiverFlowApi.Data.Query.State;
 
 namespace RiverFlowApi.Controllers
 {
