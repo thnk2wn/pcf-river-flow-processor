@@ -1,7 +1,9 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using RiverFlowApi.Data.Mapping;
 using RiverFlowApi.Data.Models;
+using RiverFlowApi.Data.Query;
 using RiverFlowApi.Data.Services;
 
 namespace RiverFlowApi.Controllers
@@ -11,15 +13,28 @@ namespace RiverFlowApi.Controllers
     public class GaugesController : ControllerBase
     {
         private readonly IFlowRecordingService flowRecordingService;
+        private readonly IStateFlowSummaryQuery stateFlowSummaryQuery;
+        private readonly IStateFlowSummaryMapper stateFlowSummaryMapper;
+        private readonly IStateRiverGaugeQuery stateRiverGaugeQuery;
+        private readonly IStateGaugeQuery stateGaugeQuery;
 
         public GaugesController(
-            IFlowRecordingService flowRecordingService)
+            IFlowRecordingService flowRecordingService,
+            IStateFlowSummaryQuery stateFlowSummaryQuery,
+            IStateFlowSummaryMapper stateFlowSummaryMapper,
+            IStateRiverGaugeQuery stateRiverGaugeQuery,
+            IStateGaugeQuery stateGaugeQuery)
         {
+            this.stateFlowSummaryQuery = stateFlowSummaryQuery;
+            this.stateFlowSummaryMapper = stateFlowSummaryMapper;
+            this.stateRiverGaugeQuery = stateRiverGaugeQuery;
+            this.stateGaugeQuery = stateGaugeQuery;
             this.flowRecordingService = flowRecordingService;
         }
 
+        // POST gauges/readings
         [HttpPost]
-        [Route("flow")]
+        [Route("readings")]
         public async Task Post(RiverFlowSnapshotModel model)
         {
             if (model == null)
@@ -28,6 +43,31 @@ namespace RiverFlowApi.Controllers
             }
 
             await this.flowRecordingService.Record(model);
+        }
+
+        // GET gauges/state/readings/latest
+        [HttpGet("{state}/readings/latest")]
+        public async Task<IActionResult> GaugeLatestReadings(string state)
+        {
+            var stateFlowDtos = await this.stateFlowSummaryQuery.RunListAsync(state);
+            var stateFlowModels = this.stateFlowSummaryMapper.ToStateFlowModels(stateFlowDtos);
+            return this.Ok(stateFlowModels);
+        }
+
+        // GET gauges/state/rivers
+        [HttpGet("{state}/rivers")]
+        public async Task<IActionResult> GaugesViaRiver(string state)
+        {
+            var models = await this.stateRiverGaugeQuery.RunListAsync(state);
+            return this.Ok(models);
+        }
+
+        // GET gauges/state
+        [HttpGet("{state}")]
+        public async Task<IActionResult> Gauges(string state)
+        {
+            var models = await this.stateGaugeQuery.RunListAsync(state);
+            return this.Ok(models);
         }
     }
 }

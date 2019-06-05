@@ -20,7 +20,13 @@ do {
     $ports = "$($hostPort):$($containerPort)"
 
     if ($mount) {
-        $volume = "c:/temp/river-data:/var/lib/mysql"
+        $hostPath = "c:/temp/river-data"
+
+        if (!(Test-Path $hostPath)) {
+            New-Item $hostPath -ItemType Directory -Force | Out-Null
+        }
+
+        $volume = "$($hostPath):/var/lib/mysql"
         "Starting $image container using volume $volume"
         docker run -p $ports --name $containerName -e MYSQL_ROOT_PASSWORD=pwd -d -v $volume $image
     }
