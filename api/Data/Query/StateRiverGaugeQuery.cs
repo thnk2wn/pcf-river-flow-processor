@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using RiverFlowApi.Data;
 using RiverFlowApi.Data.DTO;
 using RiverFlowApi.Data.Entities;
@@ -14,10 +15,14 @@ namespace RiverFlowApi.Data.Query
         : ParameterizedQuery<StateRiverGaugeModel, string>, IStateRiverGaugeQuery
     {
         private readonly RiverDbContext riverDbContext;
+        private readonly ILogger<IStateRiverGaugeQuery> logger;
 
-        public StateRiverGaugeQuery(RiverDbContext riverDbContext)
+        public StateRiverGaugeQuery(
+            RiverDbContext riverDbContext,
+            ILogger<IStateRiverGaugeQuery> logger)
         {
             this.riverDbContext = riverDbContext;
+            this.logger = logger;
         }
 
         protected override async Task<IEnumerable<StateRiverGaugeModel>> QueryAsync(string state)
@@ -60,6 +65,25 @@ namespace RiverFlowApi.Data.Query
             ).ToListAsync();
 
             return models;
+        }
+
+        protected override void OnAfterQueryFailure(AfterQueryFailureEventArgs<string> e)
+        {
+            this.logger.LogWarning(
+                e.Error,
+                "Failed to query rivers by state {state}. Duration: {time}",
+                e.Param,
+                e.ElapsedText);
+        }
+
+        protected override void OnAfterQuerySuccess(
+            AfterQuerySuccessEventArgs<StateRiverGaugeModel, string> e)
+        {
+            this.logger.LogInformation(
+                "Retrieved {count} river records for {state}. Duration: {time}",
+                e.Results.Count(),
+                e.Param,
+                e.ElapsedText);
         }
     }
 }

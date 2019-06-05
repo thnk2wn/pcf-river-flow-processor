@@ -2,7 +2,9 @@ param([switch]$all, [int]$top)
 
 Push-Location ..\producer
 
-dotnet build --no-incremental
+$runtime = "linux-x64"
+$framework = "netcoreapp2.2"
+$config = "Debug"
 
 $attempts = 0
 
@@ -11,18 +13,18 @@ do {
 
     if (!$all -and $top -eq 0) {
         "Starting producer with single queue message"
-        dotnet run -- --gauges "03539600"
+        dotnet run -c $config -f $framework --runtime $runtime --no-launch-profile -v n -- --gauges "03539600"
     }
     elseif ($top -gt 0) {
         "Starting producer with top $top queue messages"
-        dotnet run -- --top $top
+        dotnet run -c $config -f $framework --runtime $runtime --no-launch-profile -v n -- --top $top
     }
     elseif ($all) {
         "Starting producer with full queue population"
-        dotnet run -- --all
+        dotnet run -c $config -f $framework --runtime $runtime --no-launch-profile -v n -- --all
     }
     else {
-        dotnet run
+        dotnet run -c $config -f $framework --runtime $runtime --no-launch-profile -v n
     }
 
     if ($?) {

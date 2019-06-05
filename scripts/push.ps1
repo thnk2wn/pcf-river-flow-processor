@@ -29,8 +29,8 @@ function PublishAndPush ($folder, $pushArgs)
 
     $projectItem = @(Get-ChildItem "*.csproj")[0]
 
-    "Publishing $($projectItem.FullName) with runtime $runtime, configuration $config"
-    dotnet publish $projectItem.FullName -r $runtime -c $config
+    "Publishing $($projectItem.FullName) with runtime $runtime, configuration $config, framework $framework"
+    dotnet publish $projectItem.FullName -r $runtime -c $config -f $framework
 
     if (!$?)
     {

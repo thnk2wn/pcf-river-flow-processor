@@ -24,7 +24,8 @@ namespace RiverFlowProducer
             }
 
             // HACK: despite disposal, logs not getting flushed at full speed
-            Thread.Sleep(5000);
+            Console.WriteLine("Shutting down...");
+            Thread.Sleep(10000);
             return returnCode;
         }
 

@@ -4,23 +4,36 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RiverFlowApi.Data
+namespace RiverFlowApi.Data.Query
 {
     public abstract class ParameterizedQuery<TResult, TParam>
     {
-        public event EventHandler AfterQuery;
+        public event EventHandler<AfterQuerySuccessEventArgs<TResult, TParam>> AfterQuerySuccess;
 
-        public event EventHandler BeforeQuery;
+        public event EventHandler<AfterQueryFailureEventArgs<TParam>> AfterQueryFailure;
 
-        public TimeSpan QueryTime { get; private set; }
+        public event EventHandler<TParam> BeforeQuery;
 
         public async Task<IEnumerable<TResult>> RunAsync(TParam param)
         {
+            OnBeforeQuery(param);
             var sw = Stopwatch.StartNew();
-            var results = await this.QueryAsync(param);
-            sw.Stop();
-            this.QueryTime = sw.Elapsed;
-            return results;
+
+            try
+            {
+                var results = await this.QueryAsync(param);
+                sw.Stop();
+                OnAfterQuerySuccess(
+                    new AfterQuerySuccessEventArgs<TResult, TParam>(param, sw.Elapsed, results));
+                return results;
+            }
+            catch (Exception ex)
+            {
+                sw.Stop();
+                OnAfterQueryFailure(
+                    new AfterQueryFailureEventArgs<TParam>(param, sw.Elapsed, ex));
+                throw;
+            }
         }
 
         public async Task<List<TResult>> RunListAsync(TParam param)
@@ -31,14 +44,19 @@ namespace RiverFlowApi.Data
 
         protected abstract Task<IEnumerable<TResult>> QueryAsync(TParam param);
 
-        protected virtual void OnBeforeQuery()
+        protected virtual void OnBeforeQuery(TParam param)
         {
-            this.BeforeQuery?.Invoke(this, new EventArgs());
+            this.BeforeQuery?.Invoke(this, param);
         }
 
-        protected virtual void OnAfterQuery()
+        protected virtual void OnAfterQuerySuccess(AfterQuerySuccessEventArgs<TResult, TParam> e)
         {
-            this.AfterQuery?.Invoke(this, new EventArgs());
+            this.AfterQuerySuccess?.Invoke(this, e);
+        }
+
+        protected virtual void OnAfterQueryFailure(AfterQueryFailureEventArgs<TParam> e)
+        {
+            this.AfterQueryFailure?.Invoke(this, e);
         }
     }
 }
