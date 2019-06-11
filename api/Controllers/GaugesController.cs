@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using System.Net.Mime;
 using System.Threading.Tasks;
+using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
 using RiverFlowApi.Data.Models.Gauge;
 using RiverFlowApi.Data.Query.Gauge;
@@ -11,7 +14,7 @@ namespace RiverFlowApi.Controllers
 {
     [Route("gauges")]
     [ApiController]
-    public class GaugesController : ControllerBase
+    public class GaugesController : ODataController
     {
         private readonly IStateRiverGaugeQuery stateRiverGaugeQuery;
         private readonly IStateGaugeQuery stateGaugeQuery;
@@ -28,10 +31,12 @@ namespace RiverFlowApi.Controllers
 
         // GET gauges/state/rivers
         [HttpGet("{state}/rivers")]
-        public async Task<IActionResult> GaugesViaRiver(string state)
+        [EnableQuery]
+        [Produces(MediaTypeNames.Application.Json)]
+        public IQueryable<StateRiverGaugeModel> GaugesViaRiver()
         {
-            var models = await this.stateRiverGaugeQuery.RunListAsync(state);
-            return this.Ok(models);
+            var queryableResult = this.stateRiverGaugeQuery.Query();
+            return queryableResult;
         }
 
         /// <summary>

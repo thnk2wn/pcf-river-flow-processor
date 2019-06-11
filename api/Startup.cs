@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using RiverFlowApi.Data.Entities;
 using RiverFlowApi.Data.Mapping;
+using RiverFlowApi.Data.OData;
 using RiverFlowApi.Data.Query;
 using RiverFlowApi.Data.Query.Gauge;
 using RiverFlowApi.Data.Query.State;
@@ -37,7 +39,10 @@ namespace RiverFlowApi
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddDbContext<RiverDbContext>(options => options.UseMySql(Configuration));
+                .AddDbContext<RiverDbContext>(options => options.UseMySql(Configuration))
+                .AddOData();
+
+            services.AddTransient<RiverOdataModelBuilder>();
 
             if (this.useSwagger)
             {
@@ -64,7 +69,9 @@ namespace RiverFlowApi
 
             services
                 .AddDiscoveryClient(Configuration)
-                .AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                // Required for Odata https://github.com/OData/WebApi/issues/1707
+                .AddMvc(options => options.EnableEndpointRouting = false)
+                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddScoped<IFlowRecordingService, FlowRecordingService>();
             services.AddScoped<IStateFlowSummaryQuery, StateFlowSummaryQuery>();
@@ -75,7 +82,7 @@ namespace RiverFlowApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, RiverOdataModelBuilder odataModelbuilder)
         {
             var serviceProvider = app.ApplicationServices;
             var logger = serviceProvider.GetRequiredService<ILogger<Startup>>();
@@ -115,11 +122,18 @@ namespace RiverFlowApi
                 app.UseMiddleware<StackifyMiddleware.RequestTracerMiddleware>();
             }
 
+            /*
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "/riverflow");
+            });
+            */
+
+            app.UseMvc(routeBuilder =>
+            {
+                routeBuilder.MapODataServiceRoute("ODataRoutes", "odata", odataModelbuilder.GetEdmModel(app.ApplicationServices));
             });
 
             logger.LogInformation("Using service registry via discovery client");
