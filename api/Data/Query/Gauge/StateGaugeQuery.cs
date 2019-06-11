@@ -44,7 +44,7 @@ namespace RiverFlowApi.Data.Query.Gauge
                     Longitude = gauge.Longitude,
                     Name = gauge.Name,
                     UsgsGaugeId = gauge.UsgsGaugeId,
-                    Zone = new StateGaugeModel.SiteZoneInfo
+                    Zone = new SiteZoneInfo
                     {
                         DSTZoneAbbrev = gauge.DSTZoneAbbrev,
                         DSTZoneOffset = gauge.DSTZoneOffset,

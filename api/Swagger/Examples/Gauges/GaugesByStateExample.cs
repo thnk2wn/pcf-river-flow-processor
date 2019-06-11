@@ -17,7 +17,7 @@ namespace RiverFlowApi.Swagger.Examples.Gauges
                     Lattitude = 46.89388889M,
                     Longitude = -69.7516667M,
                     Altitude = 885.0M,
-                    Zone = new StateGaugeModel.SiteZoneInfo
+                    Zone = new SiteZoneInfo
                     {
                         DSTZoneAbbrev = "EDT",
                         DSTZoneOffset = "-04:00",

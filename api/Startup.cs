@@ -8,10 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using RiverFlowApi.Data.Entities;
 using RiverFlowApi.Data.Mapping;
 using RiverFlowApi.Data.Query;
 using RiverFlowApi.Data.Query.Gauge;
+using RiverFlowApi.Data.Query.River;
 using RiverFlowApi.Data.Query.State;
 using RiverFlowApi.Data.Services;
 using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
@@ -64,12 +66,17 @@ namespace RiverFlowApi
 
             services
                 .AddDiscoveryClient(Configuration)
-                .AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                .AddMvc()
+                .AddJsonOptions(options =>
+                {
+                    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddScoped<IFlowRecordingService, FlowRecordingService>();
             services.AddScoped<IStateFlowSummaryQuery, StateFlowSummaryQuery>();
             services.AddScoped<IStateFlowSummaryMapper, StateFlowSummaryMapper>();
-            services.AddScoped<IStateRiverGaugeQuery, StateRiverGaugeQuery>();
+            services.AddScoped<IRiverQuery, RiverQuery>();
             services.AddScoped<IStateQuery, StateQuery>();
             services.AddScoped<IStateGaugeQuery, StateGaugeQuery>();
         }

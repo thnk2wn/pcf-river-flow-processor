@@ -12,11 +12,11 @@ namespace RiverFlowApi.Controllers
 {
     [Route("states")]
     [ApiController]
-    public class StateController : ControllerBase
+    public class StatesController : ControllerBase
     {
         private readonly IStateQuery stateQuery;
 
-        public StateController(
+        public StatesController(
             IStateQuery stateQuery)
         {
             this.stateQuery = stateQuery;

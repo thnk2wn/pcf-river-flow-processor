@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -13,25 +14,11 @@ namespace RiverFlowApi.Controllers
     [ApiController]
     public class GaugesController : ControllerBase
     {
-        private readonly IStateRiverGaugeQuery stateRiverGaugeQuery;
         private readonly IStateGaugeQuery stateGaugeQuery;
 
-        public GaugesController(
-            IStateRiverGaugeQuery stateRiverGaugeQuery,
-            IStateGaugeQuery stateGaugeQuery)
+        public GaugesController(IStateGaugeQuery stateGaugeQuery)
         {
-            this.stateRiverGaugeQuery = stateRiverGaugeQuery;
             this.stateGaugeQuery = stateGaugeQuery;
-        }
-
-        // TODO: One gauge query endpoint with query string parameters for state, region etc.?
-
-        // GET gauges/state/rivers
-        [HttpGet("{state}/rivers")]
-        public async Task<IActionResult> GaugesViaRiver(string state)
-        {
-            var models = await this.stateRiverGaugeQuery.RunListAsync(state);
-            return this.Ok(models);
         }
 
         /// <summary>
