@@ -74,6 +74,11 @@ namespace RiverFlowApi.Controllers
             return this.Ok(gauges);
         }
 
+        /// <summary>
+        /// Gets a single gauge by USGS gauge id.
+        /// </summary>
+        /// <param name="usgsGaugeId">USGS gauge id including any leading or trailing zeroes. i.e. 02177000.</param>
+        /// <returns>Gauge model.</returns>
         [HttpGet("{usgsGaugeId}")]
         [ProducesResponseType(typeof(GaugeModel), (int)HttpStatusCode.OK)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(GaugeApiGetExample))]

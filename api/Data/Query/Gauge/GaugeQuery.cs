@@ -1,9 +1,8 @@
 using System.Linq;
 using Microsoft.Extensions.Logging;
-using RiverflowApi.Data.Services;
 using RiverFlowApi.Data.Entities;
+using RiverFlowApi.Data.Factory;
 using RiverFlowApi.Data.Models.Gauge;
-using RiverFlowApi.Data.Services;
 
 namespace RiverFlowApi.Data.Query.Gauge
 {
@@ -12,16 +11,16 @@ namespace RiverFlowApi.Data.Query.Gauge
     {
         private readonly RiverDbContext riverDbContext;
         private readonly ILogger<IGaugeQuery> logger;
-        private readonly IHypermediaService hypermediaService;
+        private readonly IStateModelFactory stateModelFactory;
 
         public GaugeQuery(
             RiverDbContext riverDbContext,
             ILogger<IGaugeQuery> logger,
-            IHypermediaService hypermediaService)
+            IStateModelFactory stateModelFactory)
         {
             this.riverDbContext = riverDbContext;
             this.logger = logger;
-            this.hypermediaService = hypermediaService;
+            this.stateModelFactory = stateModelFactory;
         }
 
         public IQueryable<GaugeModel> Query(bool includeState)
@@ -38,8 +37,8 @@ namespace RiverFlowApi.Data.Query.Gauge
                     Longitude = gauge.Longitude,
                     Name = gauge.Name,
                     State = includeState
-                        ? hypermediaService.StateModel(gauge.State)
-                        : hypermediaService.StateModel(gauge.StateCode),
+                        ? this.stateModelFactory.Model(gauge.State)
+                        : this.stateModelFactory.Model(gauge.StateCode),
                     UsgsGaugeId = gauge.UsgsGaugeId,
                     Zone = new SiteZoneInfo
                     {

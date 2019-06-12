@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using RiverFlowApi.Data.Models.Gauge;
+using RiverFlowApi.Data.Models.Hypermedia;
+using RiverFlowApi.Data.Models.State;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace RiverFlowApi.Swagger.Examples.Gauges
@@ -25,12 +27,12 @@ namespace RiverFlowApi.Swagger.Examples.Gauges
                         DefaultZoneOffset = "-05:00",
                         ZoneUsesDST = true
                     },
-                    State = new Data.Models.State.StateModel
+                    State = new StateModel
                     {
                         StateCode = "ME",
-                        Links = new List<Data.Models.HyperlinkModel>
+                        Links = new List<HyperlinkModel>
                         {
-                            new Data.Models.HyperlinkModel(
+                            new HyperlinkModel(
                                 href: "https://localhost:5001/states/ME",
                                 rel: "states",
                                 method: "GET")

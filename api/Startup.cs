@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RiverflowApi.Data.Services;
 using RiverFlowApi.Data.Entities;
+using RiverFlowApi.Data.Factory;
 using RiverFlowApi.Data.Mapping;
 using RiverFlowApi.Data.Query;
 using RiverFlowApi.Data.Query.Gauge;
@@ -84,6 +85,7 @@ namespace RiverFlowApi
             services.AddScoped<IStateQuery, StateQuery>();
             services.AddScoped<IGaugeQuery, GaugeQuery>();
             services.AddScoped<IHypermediaService, HttpHypermediaService>();
+            services.AddScoped<IStateModelFactory, StateModelFactory>();
 
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }

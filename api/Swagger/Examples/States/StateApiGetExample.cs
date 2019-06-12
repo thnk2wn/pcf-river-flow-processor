@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using RiverFlowApi.Data.Models.Hypermedia;
 using RiverFlowApi.Data.Models.State;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -15,9 +16,9 @@ namespace RiverFlowApi.Swagger.Examples.States
                 Region = "South",
                 Division = "East South Central",
                 GaugeCount = 18,
-                Links = new List<Data.Models.HyperlinkModel>
+                Links = new List<HyperlinkModel>
                 {
-                    new Data.Models.HyperlinkModel(
+                    new HyperlinkModel(
                         href: "https://localhost:5001/states/AL",
                         rel: "states",
                         method: "GET")

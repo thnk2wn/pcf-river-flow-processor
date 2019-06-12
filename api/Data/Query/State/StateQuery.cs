@@ -1,22 +1,21 @@
 using System.Linq;
-using RiverflowApi.Data.Services;
 using RiverFlowApi.Data.Entities;
+using RiverFlowApi.Data.Factory;
 using RiverFlowApi.Data.Models.State;
-using RiverFlowApi.Data.Services;
 
 namespace RiverFlowApi.Data.Query.State
 {
     public class StateQuery : IStateQuery
     {
         private readonly RiverDbContext riverDbContext;
-        private readonly IHypermediaService hypermediaService;
+        private readonly IStateModelFactory stateModelFactory;
 
         public StateQuery(
             RiverDbContext riverDbContext,
-            IHypermediaService hypermediaService)
+            IStateModelFactory stateModelFactory)
         {
             this.riverDbContext = riverDbContext;
-            this.hypermediaService = hypermediaService;
+            this.stateModelFactory = stateModelFactory;
         }
 
         public IQueryable<StateModel> Query()
@@ -36,15 +35,9 @@ namespace RiverFlowApi.Data.Query.State
             var query = (
                 from state in ctx.State
                 orderby state.Name
-                select new StateModel
-                {
-                    Division = state.Division,
-                    GaugeCount = stateGaugeCounts.Single(_ => _.StateCode == state.StateCode).GaugeCount,
-                    Name = state.Name,
-                    Region = state.Region,
-                    StateCode = state.StateCode,
-                    Links = hypermediaService.StateLinks(state.StateCode)
-                }
+                select this.stateModelFactory.Model(
+                    state,
+                    stateGaugeCounts.Single(_ => _.StateCode == state.StateCode).GaugeCount)
             ).AsQueryable();
 
             return query;

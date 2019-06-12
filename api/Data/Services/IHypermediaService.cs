@@ -1,4 +1,5 @@
 using RiverFlowApi.Data.Models;
+using RiverFlowApi.Data.Models.Hypermedia;
 
 namespace RiverflowApi.Data.Services
 {

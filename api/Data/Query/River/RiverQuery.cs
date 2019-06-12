@@ -1,12 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Logging;
-using RiverflowApi.Data.Services;
 using RiverFlowApi.Data.Entities;
+using RiverFlowApi.Data.Factory;
 using RiverFlowApi.Data.Models.Gauge;
 using RiverFlowApi.Data.Models.River;
-using RiverFlowApi.Data.Models.State;
-using RiverFlowApi.Data.Services;
 
 namespace RiverFlowApi.Data.Query.River
 {
@@ -15,16 +13,16 @@ namespace RiverFlowApi.Data.Query.River
     {
         private readonly RiverDbContext riverDbContext;
         private readonly ILogger<IRiverQuery> logger;
-        private readonly IHypermediaService hypermediaService;
+        private readonly IStateModelFactory stateModelFactory;
 
         public RiverQuery(
             RiverDbContext riverDbContext,
             ILogger<RiverQuery> logger,
-            IHypermediaService hypermediaService)
+            IStateModelFactory stateModelFactory)
         {
             this.riverDbContext = riverDbContext;
             this.logger = logger;
-            this.hypermediaService = hypermediaService;
+            this.stateModelFactory = stateModelFactory;
         }
 
         public IQueryable<RiverModel> Query(bool includeGauges)
@@ -49,7 +47,11 @@ namespace RiverFlowApi.Data.Query.River
                 {
                     RiverId = grp.Key.RiverId,
                     RiverSection = grp.Key.RiverSection,
-                    State = StateModel(grp.Key.StateCode, grp.Key.StateName, grp.Key.Region, grp.Key.Division),
+                    State = this.stateModelFactory.Model(
+                        grp.Key.StateCode,
+                        grp.Key.StateName,
+                        grp.Key.Region,
+                        grp.Key.Division),
                     Region = grp.Key.Region,
                     Division = grp.Key.Division,
                     Gauges = grp.Select(g => ToGaugeModel(g, includeGauges))
@@ -57,19 +59,6 @@ namespace RiverFlowApi.Data.Query.River
             ).AsQueryable();
 
             return query;
-        }
-
-        private StateModel StateModel(string stateCode, string stateName, string region, string division)
-        {
-            var stateModel = new StateModel
-            {
-                Division = division,
-                Links = hypermediaService.StateLinks(stateCode),
-                Name = stateName,
-                Region = region,
-                StateCode = stateCode
-            };
-            return stateModel;
         }
 
         private GaugeModel ToGaugeModel(Entities.Gauge gauge, bool includeDetail)
@@ -90,7 +79,7 @@ namespace RiverFlowApi.Data.Query.River
                 Longitude = gauge.Longitude,
                 Name = gauge.Name,
                 UsgsGaugeId = gauge.UsgsGaugeId,
-                State = hypermediaService.StateModel(gauge.State),
+                State = stateModelFactory.Model(gauge.State),
                 Zone = new SiteZoneInfo
                 {
                     DSTZoneAbbrev = gauge.DSTZoneAbbrev,

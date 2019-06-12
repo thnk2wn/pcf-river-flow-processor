@@ -62,6 +62,11 @@ namespace RiverFlowApi.Controllers
             return this.Ok(models);
         }
 
+        /// <summary>
+        /// Gets a single river by id.
+        /// </summary>
+        /// <param name="riverId">Numeric river id.</param>
+        /// <returns>River model.</returns>
         [HttpGet("{riverId}")]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(RiverApiExample))]
         [ProducesResponseType(typeof(RiverModel), (int)HttpStatusCode.OK)]

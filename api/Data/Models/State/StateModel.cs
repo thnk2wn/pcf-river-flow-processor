@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using RiverFlowApi.Data.Models.Hypermedia;
 
 namespace RiverFlowApi.Data.Models.State
 {

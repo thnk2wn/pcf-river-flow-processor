@@ -2,6 +2,7 @@ using Flurl;
 using Microsoft.AspNetCore.Http;
 using RiverflowApi.Data.Services;
 using RiverFlowApi.Data.Models;
+using RiverFlowApi.Data.Models.Hypermedia;
 
 namespace RiverFlowApi.Http
 {
