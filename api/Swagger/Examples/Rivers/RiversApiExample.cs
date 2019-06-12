@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using RiverFlowApi.Data.Models;
 using RiverFlowApi.Data.Models.Gauge;
 using RiverFlowApi.Data.Models.River;
 using Swashbuckle.AspNetCore.Filters;
@@ -15,11 +16,18 @@ namespace RiverFlowApi.Swagger.Examples.Rivers
                 {
                     RiverId = 151,
                     RiverSection = "Alameda Creek",
-                    StateCode = "CA",
-                    Region = "West",
-                    Gauges = new List<RiverModel.GaugeModel>
+                    State = new Data.Models.State.StateModel
                     {
-                        new RiverModel.GaugeModel
+                        StateCode = "CA",
+                        Links = new List<Data.Models.HyperlinkModel>
+                        {
+                            HyperlinkModel.Get("http://foo/states/CA", "states")
+                        }
+                    },
+                    Region = "West",
+                    Gauges = new List<GaugeModel>
+                    {
+                        new GaugeModel
                         {
                             Altitude = 85.65M,
                             Href = "/foo",

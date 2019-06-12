@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Logging;
+using RiverflowApi.Data.Services;
 using RiverFlowApi.Data.Entities;
 using RiverFlowApi.Data.Models.Gauge;
 using RiverFlowApi.Data.Models.River;
+using RiverFlowApi.Data.Services;
 
 namespace RiverFlowApi.Data.Query.River
 {
@@ -12,13 +14,16 @@ namespace RiverFlowApi.Data.Query.River
     {
         private readonly RiverDbContext riverDbContext;
         private readonly ILogger<IRiverQuery> logger;
+        private readonly IHypermediaService hypermediaService;
 
         public RiverQuery(
             RiverDbContext riverDbContext,
-            ILogger<RiverQuery> logger)
+            ILogger<RiverQuery> logger,
+            IHypermediaService hypermediaService)
         {
             this.riverDbContext = riverDbContext;
             this.logger = logger;
+            this.hypermediaService = hypermediaService;
         }
 
         public IQueryable<RiverModel> Query(bool includeGauges)
@@ -42,7 +47,7 @@ namespace RiverFlowApi.Data.Query.River
                 {
                     RiverId = grp.Key.RiverId,
                     RiverSection = grp.Key.RiverSection,
-                    StateCode = grp.Key.StateCode,
+                    State = hypermediaService.StateModel(grp.Key.StateCode),
                     Region = grp.Key.Region,
                     Division = grp.Key.Division,
                     Gauges = grp.Select(g => ToGaugeModel(g, includeGauges))
@@ -52,17 +57,17 @@ namespace RiverFlowApi.Data.Query.River
             return query;
         }
 
-        private RiverModel.GaugeModel ToGaugeModel(Entities.Gauge gauge, bool includeDetail)
+        private GaugeModel ToGaugeModel(Entities.Gauge gauge, bool includeDetail)
         {
             // TODO: inject dependency that can resolve base url for full absoulte uri
             var url = $"/gauges/{gauge.UsgsGaugeId}";
 
             if (!includeDetail)
             {
-                return new RiverModel.GaugeModel { Href = url };
+                return new GaugeModel { Href = url };
             }
 
-            var model = new RiverModel.GaugeModel
+            var model = new GaugeModel
             {
                 Href = url,
                 Altitude = gauge.Altitude,

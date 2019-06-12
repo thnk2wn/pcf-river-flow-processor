@@ -54,7 +54,7 @@ namespace RiverFlowApi.Controllers
 
             if (!string.IsNullOrEmpty(stateCode))
             {
-                query = query.Where(q => q.StateCode == stateCode);
+                query = query.Where(q => q.State.StateCode == stateCode);
             }
 
             var models = query.ToList();

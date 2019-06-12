@@ -3,12 +3,15 @@ using System.IO;
 using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using RiverflowApi.Data.Services;
 using RiverFlowApi.Data.Entities;
 using RiverFlowApi.Data.Mapping;
 using RiverFlowApi.Data.Query;
@@ -16,6 +19,7 @@ using RiverFlowApi.Data.Query.Gauge;
 using RiverFlowApi.Data.Query.River;
 using RiverFlowApi.Data.Query.State;
 using RiverFlowApi.Data.Services;
+using RiverFlowApi.Http;
 using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
 using Steeltoe.Discovery.Client;
 using Swashbuckle.AspNetCore.Filters;
@@ -78,7 +82,10 @@ namespace RiverFlowApi
             services.AddScoped<IStateFlowSummaryMapper, StateFlowSummaryMapper>();
             services.AddScoped<IRiverQuery, RiverQuery>();
             services.AddScoped<IStateQuery, StateQuery>();
-            services.AddScoped<IStateGaugeQuery, StateGaugeQuery>();
+            services.AddScoped<IGaugeQuery, GaugeQuery>();
+            services.AddScoped<IHypermediaService, HttpHypermediaService>();
+
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

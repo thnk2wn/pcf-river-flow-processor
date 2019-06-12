@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RiverFlowApi.Data.Models.Gauge;
 using RiverFlowApi.Data.Query.Gauge;
@@ -14,28 +13,36 @@ namespace RiverFlowApi.Controllers
     [ApiController]
     public class GaugesController : ControllerBase
     {
-        private readonly IStateGaugeQuery stateGaugeQuery;
+        private readonly IGaugeQuery gaugeQuery;
 
-        public GaugesController(IStateGaugeQuery stateGaugeQuery)
+        public GaugesController(IGaugeQuery gaugeQuery)
         {
-            this.stateGaugeQuery = stateGaugeQuery;
+            this.gaugeQuery = gaugeQuery;
         }
 
         /// <summary>
         /// Gets gauge information by state (excludes readings).
         /// </summary>
-        /// <param name="state">State code to get gauge information for i.e. CA.</param>
+        /// <param name="stateCode">Optional state code to get gauge information for i.e. CA.</param>
         /// <returns>
-        /// List of StageGaugeModel - top level gauge information (name, location, timezone etc.).
+        /// List of GaugeModel - top level gauge information (name, location, timezone etc.).
         /// </returns>
         // GET gauges/state/{state}
-        [HttpGet("state/{state}")]
-        [ProducesResponseType(typeof(List<StateGaugeModel>), (int)HttpStatusCode.OK)]
+        [HttpGet()]
+        [ProducesResponseType(typeof(List<GaugeModel>), (int)HttpStatusCode.OK)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(GaugesByStateExample))]
-        public async Task<IActionResult> Gauges(string state)
+        public IActionResult List([FromQuery] string stateCode)
         {
-            var models = await this.stateGaugeQuery.RunListAsync(state);
-            return this.Ok(models);
+            var query = this.gaugeQuery.Query();
+
+            if (!string.IsNullOrEmpty(stateCode))
+            {
+                query = query.Where(q => q.State.StateCode == stateCode);
+            }
+
+            var gauges = query.ToList();
+
+            return this.Ok(gauges);
         }
     }
 }

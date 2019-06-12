@@ -8,9 +8,9 @@ namespace RiverFlowApi.Swagger.Examples.Gauges
     {
         public object GetExamples()
         {
-            return new List<StateGaugeModel>
+            return new List<GaugeModel>
             {
-                new StateGaugeModel
+                new GaugeModel
                 {
                     UsgsGaugeId = "01010070",
                     Name = "Big Black River near Depot Mtn, Maine",
