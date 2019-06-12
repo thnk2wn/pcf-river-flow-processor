@@ -73,5 +73,15 @@ namespace RiverFlowApi.Controllers
 
             return this.Ok(gauges);
         }
+
+        [HttpGet("{usgsGaugeId}")]
+        [ProducesResponseType(typeof(GaugeModel), (int)HttpStatusCode.OK)]
+        [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(GaugeApiGetExample))]
+        public IActionResult Get(string usgsGaugeId)
+        {
+            var query = this.gaugeQuery.Query(includeState: true);
+            var gauge = query.FirstOrDefault(g => g.UsgsGaugeId == usgsGaugeId);
+            return this.Ok(gauge);
+        }
     }
 }

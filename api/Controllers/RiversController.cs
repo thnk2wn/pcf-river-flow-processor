@@ -61,5 +61,15 @@ namespace RiverFlowApi.Controllers
             var models = query.ToList();
             return this.Ok(models);
         }
+
+        [HttpGet("{riverId}")]
+        [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(RiverApiExample))]
+        [ProducesResponseType(typeof(RiverModel), (int)HttpStatusCode.OK)]
+        public IActionResult Get(int riverId)
+        {
+            var query = this.riverQuery.Query(includeGauges: true);
+            var river = query.FirstOrDefault(r => r.RiverId == riverId);
+            return this.Ok(river);
+        }
     }
 }

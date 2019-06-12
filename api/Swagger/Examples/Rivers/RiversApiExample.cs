@@ -21,7 +21,10 @@ namespace RiverFlowApi.Swagger.Examples.Rivers
                         StateCode = "CA",
                         Links = new List<Data.Models.HyperlinkModel>
                         {
-                            HyperlinkModel.Get("http://foo/states/CA", "states")
+                            new Data.Models.HyperlinkModel(
+                                href: "https://localhost:5001/states/CA",
+                                rel: "states",
+                                method: "GET")
                         }
                     },
                     Region = "West",
