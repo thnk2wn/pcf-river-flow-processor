@@ -5,6 +5,7 @@ using RiverflowApi.Data.Services;
 using RiverFlowApi.Data.Entities;
 using RiverFlowApi.Data.Models.Gauge;
 using RiverFlowApi.Data.Models.River;
+using RiverFlowApi.Data.Models.State;
 using RiverFlowApi.Data.Services;
 
 namespace RiverFlowApi.Data.Query.River
@@ -40,6 +41,7 @@ namespace RiverFlowApi.Data.Query.River
                     riverGauge.RiverId,
                     river.RiverSection,
                     river.StateCode,
+                    StateName = river.State.Name,
                     river.State.Region,
                     river.State.Division
                 } into grp
@@ -47,7 +49,7 @@ namespace RiverFlowApi.Data.Query.River
                 {
                     RiverId = grp.Key.RiverId,
                     RiverSection = grp.Key.RiverSection,
-                    State = hypermediaService.StateModel(grp.Key.StateCode),
+                    State = StateModel(grp.Key.StateCode, grp.Key.StateName, grp.Key.Region, grp.Key.Division),
                     Region = grp.Key.Region,
                     Division = grp.Key.Division,
                     Gauges = grp.Select(g => ToGaugeModel(g, includeGauges))
@@ -55,6 +57,19 @@ namespace RiverFlowApi.Data.Query.River
             ).AsQueryable();
 
             return query;
+        }
+
+        private StateModel StateModel(string stateCode, string stateName, string region, string division)
+        {
+            var stateModel = new StateModel
+            {
+                Division = division,
+                Links = hypermediaService.StateLinks(stateCode),
+                Name = stateName,
+                Region = region,
+                StateCode = stateCode
+            };
+            return stateModel;
         }
 
         private GaugeModel ToGaugeModel(Entities.Gauge gauge, bool includeDetail)
@@ -75,6 +90,7 @@ namespace RiverFlowApi.Data.Query.River
                 Longitude = gauge.Longitude,
                 Name = gauge.Name,
                 UsgsGaugeId = gauge.UsgsGaugeId,
+                State = hypermediaService.StateModel(gauge.State),
                 Zone = new SiteZoneInfo
                 {
                     DSTZoneAbbrev = gauge.DSTZoneAbbrev,

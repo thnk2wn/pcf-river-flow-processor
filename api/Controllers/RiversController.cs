@@ -11,6 +11,7 @@ using Swashbuckle.AspNetCore.Filters;
 namespace RiverFlowApi.Controllers
 {
     [Route("rivers")]
+    [ApiController]
     public class RiversController : ControllerBase
     {
         private readonly IRiverQuery riverQuery;
@@ -26,7 +27,7 @@ namespace RiverFlowApi.Controllers
         /// <param name="region">Optional region to filter on i.e "West"</param>
         /// <param name="division">Optional division to filter by i.e. "South Atlantic".</param>
         /// <param name="stateCode">Optional state code to filter by i.e. "TN".</param>
-        /// <param name="expand">List of child resources to expand i.e. "gauges".</param>
+        /// <param name="expand">Optional list of child resources to expand i.e. "gauges".</param>
         /// <returns>List of RiverModel.</returns>
         [HttpGet]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(RiversApiExample))]

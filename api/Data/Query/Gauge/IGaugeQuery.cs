@@ -5,6 +5,6 @@ namespace RiverFlowApi.Data.Query.Gauge
 {
     public interface IGaugeQuery
     {
-        IQueryable<GaugeModel> Query();
+        IQueryable<GaugeModel> Query(bool includeState);
     }
 }

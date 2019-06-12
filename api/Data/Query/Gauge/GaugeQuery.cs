@@ -24,19 +24,22 @@ namespace RiverFlowApi.Data.Query.Gauge
             this.hypermediaService = hypermediaService;
         }
 
-        public IQueryable<GaugeModel> Query()
+        public IQueryable<GaugeModel> Query(bool includeState)
         {
             var ctx = this.riverDbContext;
 
             var query = (
                 from gauge in ctx.Gauge
+                join state in ctx.State on gauge.StateCode equals state.StateCode
                 select new GaugeModel
                 {
                     Altitude = gauge.Altitude,
                     Lattitude = gauge.Latitude,
                     Longitude = gauge.Longitude,
                     Name = gauge.Name,
-                    State = hypermediaService.StateModel(gauge.StateCode),
+                    State = includeState
+                        ? hypermediaService.StateModel(gauge.State)
+                        : hypermediaService.StateModel(gauge.StateCode),
                     UsgsGaugeId = gauge.UsgsGaugeId,
                     Zone = new SiteZoneInfo
                     {

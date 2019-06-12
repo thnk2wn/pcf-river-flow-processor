@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -23,16 +24,40 @@ namespace RiverFlowApi.Controllers
         /// <summary>
         /// Gets gauge information by state (excludes readings).
         /// </summary>
+        /// <param name="region">Optional region to filter on i.e "West"</param>
+        /// <param name="division">Optional division to filter by i.e. "South Atlantic".</param>
         /// <param name="stateCode">Optional state code to get gauge information for i.e. CA.</param>
+        /// <param name="expand">
+        /// Optional list of child resources to expand i.e. "state". State is auto-expanded when filtering on region or divsion.
+        /// </param>
         /// <returns>
         /// List of GaugeModel - top level gauge information (name, location, timezone etc.).
         /// </returns>
         [HttpGet]
         [ProducesResponseType(typeof(List<GaugeModel>), (int)HttpStatusCode.OK)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(GaugesApiGetExample))]
-        public IActionResult List([FromQuery] string stateCode)
+        public IActionResult List(
+            [FromQuery] string region,
+            [FromQuery] string division,
+            [FromQuery] string stateCode,
+            [FromQuery] List<string> expand)
         {
-            var query = this.gaugeQuery.Query();
+            expand = expand ?? new List<string>();
+            bool includeState = expand
+                .Any(e => string.Equals(e, "state", StringComparison.OrdinalIgnoreCase)) ||
+                !string.IsNullOrEmpty(region) ||
+                !string.IsNullOrEmpty(division);
+            var query = this.gaugeQuery.Query(includeState);
+
+            if (!string.IsNullOrEmpty(region))
+            {
+                query = query.Where(g => g.State.Region == region);
+            }
+
+            if (!string.IsNullOrEmpty(division))
+            {
+                query = query.Where(g => g.State.Division == division);
+            }
 
             if (!string.IsNullOrEmpty(stateCode))
             {

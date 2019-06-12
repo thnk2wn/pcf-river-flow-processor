@@ -1,31 +1,29 @@
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+using RiverflowApi.Data.Services;
 using RiverFlowApi.Data.Entities;
-using RiverFlowApi.Data.Models;
 using RiverFlowApi.Data.Models.State;
+using RiverFlowApi.Data.Services;
 
 namespace RiverFlowApi.Data.Query.State
 {
-    public class StateQuery : ParameterizedQuery<StateModel, NoOp>, IStateQuery
+    public class StateQuery : IStateQuery
     {
+        private readonly RiverDbContext riverDbContext;
+        private readonly IHypermediaService hypermediaService;
+
         public StateQuery(
-            RiverDbContext riverDbContext
-        ) : base(riverDbContext)
+            RiverDbContext riverDbContext,
+            IHypermediaService hypermediaService)
         {
+            this.riverDbContext = riverDbContext;
+            this.hypermediaService = hypermediaService;
         }
 
-        public async Task<List<StateModel>> RunListAsync()
+        public IQueryable<StateModel> Query()
         {
-            return await this.RunListAsync(new NoOp());
-        }
+            var ctx = this.riverDbContext;
 
-        protected override async Task<IEnumerable<StateModel>> QueryAsync(NoOp param)
-        {
-            var ctx = this.RiverDbContext;
-
-            var stateGaugeCounts = await (
+            var stateGaugeCounts = (
                 from gauge in ctx.Gauge
                 group gauge.State by new {gauge.StateCode} into grp
                 select new
@@ -33,9 +31,9 @@ namespace RiverFlowApi.Data.Query.State
                     StateCode = grp.Key.StateCode,
                     GaugeCount = grp.Count()
                 }
-            ).ToListAsync();
+            ).ToList();
 
-            var states = await (
+            var query = (
                 from state in ctx.State
                 orderby state.Name
                 select new StateModel
@@ -44,11 +42,12 @@ namespace RiverFlowApi.Data.Query.State
                     GaugeCount = stateGaugeCounts.Single(_ => _.StateCode == state.StateCode).GaugeCount,
                     Name = state.Name,
                     Region = state.Region,
-                    StateCode = state.StateCode
+                    StateCode = state.StateCode,
+                    Links = hypermediaService.StateLinks(state.StateCode)
                 }
-            ).ToListAsync();
+            ).AsQueryable();
 
-            return states;
+            return query;
         }
     }
 }
