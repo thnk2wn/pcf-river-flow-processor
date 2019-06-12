@@ -4,7 +4,7 @@ using Swashbuckle.AspNetCore.Filters;
 
 namespace RiverFlowApi.Swagger.Examples.Gauges
 {
-    public class GaugesByStateExample : IExamplesProvider
+    public class GaugesApiGetExample : IExamplesProvider
     {
         public object GetExamples()
         {
@@ -24,6 +24,17 @@ namespace RiverFlowApi.Swagger.Examples.Gauges
                         DefaultZoneAbbrev = "EST",
                         DefaultZoneOffset = "-05:00",
                         ZoneUsesDST = true
+                    },
+                    State = new Data.Models.State.StateModel
+                    {
+                        StateCode = "ME",
+                        Links = new List<Data.Models.HyperlinkModel>
+                        {
+                            new Data.Models.HyperlinkModel(
+                                href: "https://localhost:5001/states/ME",
+                                rel: "states",
+                                method: "GET")
+                        }
                     }
                 }
             };

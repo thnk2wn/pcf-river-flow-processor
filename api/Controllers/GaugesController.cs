@@ -27,18 +27,22 @@ namespace RiverFlowApi.Controllers
         /// <returns>
         /// List of GaugeModel - top level gauge information (name, location, timezone etc.).
         /// </returns>
-        // GET gauges/state/{state}
-        [HttpGet()]
+        [HttpGet]
         [ProducesResponseType(typeof(List<GaugeModel>), (int)HttpStatusCode.OK)]
-        [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(GaugesByStateExample))]
+        [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(GaugesApiGetExample))]
         public IActionResult List([FromQuery] string stateCode)
         {
             var query = this.gaugeQuery.Query();
 
             if (!string.IsNullOrEmpty(stateCode))
             {
-                query = query.Where(q => q.State.StateCode == stateCode);
+                query = query.Where(g => g.State.StateCode == stateCode);
             }
+
+            // TODO: orderby query string parameter
+            query = query
+                .OrderBy(g => g.State.StateCode)
+                .ThenBy(g => g.Name);
 
             var gauges = query.ToList();
 
