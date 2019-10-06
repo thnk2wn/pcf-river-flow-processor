@@ -31,16 +31,16 @@
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="12.1.2" />
     <PackageReference Include="Flurl" Version="2.8.2" />
-    <PackageReference Include="humanizer.core" Version="2.6.2" />
+    <PackageReference Include="humanizer.core" Version="2.7.9" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
-    <PackageReference Include="StackifyMiddleware" Version="3.0.4" />
-    <PackageReference Include="steeltoe.cloudfoundry.connector.efcore" Version="2.2.0" />
-    <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.2.0" />
-    <PackageReference Include="Steeltoe.Extensions.Configuration.CloudFoundryCore" Version="2.2.0" />
-    <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="2.2.0" />
+    <PackageReference Include="StackifyMiddleware" Version="3.0.4.2" />
+    <PackageReference Include="steeltoe.cloudfoundry.connector.efcore" Version="2.3.0" />
+    <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.3.0" />
+    <PackageReference Include="Steeltoe.Extensions.Configuration.CloudFoundryCore" Version="2.3.0" />
+    <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="2.3.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="4.5.5" />
   </ItemGroup>
